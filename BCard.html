@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business-Card</title>
+
+
+    <link rel="stylesheet" type="text/css" href="BCard.CSS">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body onclick="shiftery()">
+  <header style="display: inline;"> <input oninput="setCookie()" id="myinput" value="" placeholder="thisisscary">
+    <button onclick="submit()" type="submit">Submit</button>
+    
+        <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress><p id="BarH"  style="height:min-content; " hidden> I am here</p></header> 
+  
+    <div value="0" id="boxmain" class="box-main"> 
+        
+            <h1>Jack Ewers, Digital Business-Card </h1>
+            <h2> <p>Every Body has a Vision, lets work on ours together</p></h2>      
+       <br>
+        <!-- Profile image && text box-->
+        <div class="ttest">
+            <progress id="Probar" value="0" min="0" max="100" hidden></progress>
+            <img onclick="Profile()" onmouseleave="DevilOut()" id="locko" class="mainx" src="../Logs/p1.jpg"  alt="keyID" />
+            <br>
+            <div class ="textbox" onmouseenter="document.getElementById('About').style.opacity=1;"onmouseleave="document.getElementById('About').style.opacity=0;" >
+                <p  id="flip" >
+                </p>
+                <a id="About" onclick="flip()">&#129172; About ME &#129174;</a>
+            </div>
+        </div>
+        
+<!--- UpperBox == NAMES ( GIT , StackOverflow, )-->
+        
+        <div class="upper-box" onmouseleave="resetbox()">
+
+             
+            <a  class="ballsy Rotern" onmouseenter="Git()" onmouseleave="resetbox()" href="https://github.com/Blood-web" target="_blank">
+                <span id="Git" class="balls" ></span>
+            </a>
+
+            
+            <a class="ballsy Rotern" onmouseenter="Stack()" href="https://stackoverflow.com/users/16111503/bloodworks" target="_blank">
+                <span id="Stack" class="balls" alt="overflow" ></span>
+            </a>
+
+           
+             <a  class="ballsy Rotern" onmouseenter="Red()" href="www.reddit.com">
+                 <span class="balls" id="Redd" ></span>
+             </a>
+            
+            <a href="#"  class="ballsy Rotern" onmouseenter="Blood()" target="_blank">
+                <span class="balls" id="Blood" ></span>
+            </a>
+          
+            <a href="#"  class="ballsy Rotern" onmouseenter="Linkd()" target="_blank">                       
+                <span class="balls" id="LinkD" ></span>
+            </a>
+            
+            <a href="pintrest"  class="ballsx Rotern" onmouseenter="Pint()" target="_blank"> 
+                <span class="balls" id="Pint"  ></span>  
+            </a>
+
+            <a href="" id="HT" class="ballsy Rotern" target="_blank">
+                <span id="Bweb" class="balls"  ></span>
+            </a>
+
+        </div>
+
+<!-- LowerBox ==  Names( TWIT ,  )   -->  
+
+        <div class="lower-box">
+            
+                <a href="#" id="HB" class="ballsy Rotern"  target="_blank">
+                    <span id="Dhands"  class="balls" ></span></a>
+
+                <a  class="ballsx Rotern" onmouseenter="Twit()" href="Https://www.twitter.com/Jack_S_Ewers" target="_blank">
+                    <span id="Twit" class="balls"> </span></a>
+ 
+                <a  class="ballsx Rotern" onmouseenter="Fb()" href="https://www.facebook.com/BloodWorks.Jack/" target="_blank"> 
+                    <span id="Fb" class="balls" > </span> </a>
+ 
+                <a  class="ballsx Rotern" onmouseenter="Igg()" href="instagram.com/the_guy_with_the_holes" target="_blank"> 
+                    <span id="Igg" class="balls"></span>  </a>
+ 
+                <a href="tiktok.com"  class="ballsx Rotern" onmouseenter="Tik()" target="_blank"> 
+                    <span class="balls"  id="Tik"></span>  </a>
+ 
+                <a href="Whats" class="ballsx Rotern" onmouseenter="Duo()" target="_blank"> 
+                    <span id="Duo"  class="balls"  ></span>     </a>
+
+                <a href="www.google.com"  class="ballsy Rotern" onmouseenter="Mail()" target="_blank">
+                <span class="balls" id="Mail" ></span>
+            </a>  
+        </div>
+
+
+
+    </div>
+     <div id="hiden">
+
+        <button onclick="flip()">&#10594;</button>
+        <h4> About me</h4>    
+        <p> Hi there! my name is jack, i'm not excellent at writing about myself, but i'll give it try;
+        <br>
+            I was born in australia, i have interests in coding, business management, investing and just
+            general life fufilment (whatever that means). I constantly seek to educate myself, the pen is soo 
+            much mightier than the sword. We can solve the worlds problems together!
+            
+            My general Philosophy is to try everything once, how do we know what will suck if we don't test it?
+            Infact, that's kind of the basis for scientific study. There are no wrong answers as long
+            as you're asking the right questions. Once you know that, determining outcome becomes far easier.
+
+            I'm Generally a well organised person (dont look at the back end of this DOM lol)
+            I owe my organisation to the books i read/write, --List--
+            Including a daily journal Discussing personal productivity. 
+
+            
+
+            My current projects:: currently i am trying to
+            <ls>
+                <ul>3D</ul>
+                <ul> Technological Design, Advancing (HTML,CSS,JS,PY,KOT,KALI,PHP) knowledges</ul>
+                <ul>Advancing my German(Deutsch) to B2 grade(Job Ready)</ul>
+                <ul>Avancing my Cantones( ) to A2 grade (Conversational) </ul>
+            </ls>
+            My hobbies :
+            <ls>
+                <ul>Body-Modification</ul>
+                <ul>Coding </ul>
+                <ul>Making music</ul>
+                <ul>Workouts </ul>
+                <uL>Discussing Scientific and or Conspiracy Theories, generalisational Philosophy </uL>
+                <ul>Sports... i guess</ul>
+            </ls>
+            My Passions:
+            <ls>
+                <ul>Workng towards equal rights and diversity for all</ul>
+                <ul>Building fundamental tools not only relative to the sciences,
+                <br>
+                    but with backing in general populous use.
+                </ul>
+                <ul>Advocating for both gay and transgender fair treatment</ul>
+                <ul>Reducing carbon footprint and eco consumption from daily activities</ul>
+                <ul>Fighting for data protection & Decentralised Net advancment</ul>
+            </ls>
+            </p>
+
+        <div class="PictureBox">
+            <img class="picz" alt="Hex generator" src="../../Pictures/Data/Screenshot_2021-09-15-16-26-23.jpg" />
+            <img class="picz" alt="Dweb" src="../../Pictures/Data/Dweb.png" />
+            <img class="picz" alt="3d printed" src="../../Pictures/PUFF/hell.png">
+            <img src="" alt="">
+        </div>
+    </div>
+        
+
+</div> 
+
+    <div id="cluster1">
+    <button id="Special0" onclick="allLinks()"><p>All links flip</p></button>
+    <button id="Special1" onclick="flip()"><p> Dbug Flip</p></button>
+    <button id="Special2" onclick="va()"><p> Test</p></button>
+    <button id="Special3" onclick="rotate()"><p>Link changer</p></button>
+ <br>
+    <div id="Special4"> 
+        <img id="image-slide1">;
+            
+            <div id="span">
+                <button onclick="shifteryMast(x--);">&#10594;</button>
+                <a id="href-link1" href="https://wikipedia.org">wikipedia </a>                        
+                <button onclick="shifteryMast(x++);">&#10596;</button>
+            </div>
+                <progress id="prog-bar1" value="0" max="100" min="0" hidden></progress>
+            
+        </img>     
+    </div>
+    <br>
+   </div>
+        <a id="links" href="" target="_blank">
+            <button id="scale"><p id="proT">jsoo</p></button>
+        </a>
+
+        
+
+
+   
+    <script src="Bcard.js" type="text/javascript"></script>
+</body>
+
+</html>

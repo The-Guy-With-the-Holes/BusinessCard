@@ -1,0 +1,427 @@
+/* ADD commets to sections for easier code alterations*/
+/*Elements--Animation--Classes--UNorg--ID*/
+* {
+    cursor: crosshair;
+}
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-style: italic;
+  
+}
+header{
+    display: inline-block;
+}
+h1 {
+    font-family: Lobster, monospace;
+    font-size: 40px;
+   
+    position: absolute;
+    color: #fff;
+}
+h2 {
+    font-family: Lobster, monospace;
+    font-size: 20px;
+    top: 90px;
+    float: left;
+    position: absolute;
+    color: #fff;
+}
+/* h4 - hidden*/
+h4 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: -10px;
+}
+
+body {
+    cursor: crosshair;
+    background-color: #fff000;
+}
+
+canvas {
+    cursor:wait;
+    background-color: #11aaff;
+    border: 1px solid #000;
+}
+
+
+
+/***********************/
+/*   Hidden Box  */   
+.PictureBox {
+    display: inline-block;
+    max-width: 1000px;   
+}
+.picz {
+    height: 100px;
+    width: 100px;
+}
+/* Box main area, this wraps the card, should probably be left alone */
+
+.box-main { 
+    height: 400px;
+    width: 1000px;
+    
+    margin: 2px;
+    border-radius: 1%;
+    border: 2px solid #fff000 ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.ttest {
+    right: 400px;
+}
+.mainx {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+
+    float: right;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 50%;
+    background:  linear-gradient(
+        35deg,
+        #eeaaaa,
+        #aaaa99
+      ); 
+} 
+
+
+
+.lower-box {
+    position: relative;
+   top: -9%;
+   right: 0%;
+
+}
+.upper-box {
+    position: relative;
+    top:-9% ;
+    
+    
+    
+}
+.ballsy {
+    opacity: 0.5;
+    height: 100px;
+    width: 100px;
+    margin: 2px;
+    display: inline-block;
+    position: inherit;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.ballsx {
+    opacity: 0.5;
+    height: 100px;
+    width: 100px;
+    margin: 2px;
+    display: inline-block;
+    position: inherit;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);    
+    
+}
+.balls {
+    height: 100px;
+    width: 100px;
+    top: -2px;
+    left: -2px;
+    margin: 2px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    background:  linear-gradient(
+        35deg,
+        #ccffff,
+        #ffcccc
+      );
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+
+/* I am the text box under the image */
+.textbox p {
+    font-family:'Jim Nightshade', cursive ;
+    font-size: 160%;
+   
+    font-weight: bold;
+    margin-top: 2px;
+}
+.textbox a {
+    opacity: 0;
+    margin-top: -10px;
+    position: relative;
+}
+.textbox { 
+    z-index: 1;
+    height: 150px;
+    width: 150px;
+    top: 200px;
+    right: -800px;
+    position: relative;
+   
+    background-color: lightgray;
+    border-color: #11ffad ;
+    border-width: 10px 8px 8px 8px;
+    border-style: double;
+    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+/*Img main*/
+
+
+/*****************************************************************/
+/* Hover animation and key frames, */
+
+p:hover{
+    color: #ffff;
+    font-family: 'Akronim', cursive;
+    background: linear-gradient(
+        100deg,
+        #aaaaff,
+        #11aaff,
+        #ff11aa,
+        #990099,
+        #11ffad
+    );    
+    
+}
+.textbox:hover {
+    background-color: #11ffad;
+    max-height: 150px;
+   
+    
+}
+.Rotern:hover {
+    
+    animation-name: T-Left;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    
+    
+}
+.ballsy:hover {
+    opacity: 1;
+    border-radius: 10%;
+    background: linear-gradient(
+        20deg,
+        #fff000,
+        #aa0000,
+        #000
+    );
+}
+.ballsx:hover {
+    opacity: 1;
+    border-radius: 10%;
+    background: linear-gradient(
+        20deg,
+        #fff000,
+        #fff,
+        #000
+    );
+}
+#Dhands:hover{opacity: 1;}
+p::after {
+   
+    background-color:black ;
+}
+@keyframes B-Shrink {
+    
+}
+@keyframes T-Left {
+    0% {
+        transform: scale(2) rotate(360deg);
+    }
+    50% {
+        transform: scale(2) ;opacity: 0.9;
+    }
+}
+
+/*****************************************************************/
+/* end of classes - start of IDS */
+/*****************************************************************/
+/* Image slider*/
+#image-slide1 {
+    background: url(../Logs/Hwiki.jfif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    display:flex;
+    color: #fff;
+    text-align: center;
+}
+#href-link1 {
+    font-size: 15px;
+    font-style: oblique;
+    color: #000;
+    font-weight: bold;
+    background: #fff;
+}
+#span {
+    position: relative;
+    margin-top: -50px;
+    text-align:inherit;
+    left: 50px;
+}
+#scale {
+    height: 100px;
+    width: 100px;
+    background: url(../../Pictures/PUFF/fatbar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #000;
+}
+#boxmain {
+    background: linear-gradient(
+        40deg,
+        #aadddd,
+        #ddaa00,
+        #ff11ff,
+        #11ffad
+    );
+}
+
+/*  HIDDEN BOX  */
+#hiden {
+    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    font-family: 'lobster', cursive;
+    opacity: 0.1;
+    margin: 2px;
+    margin-top: 8px;
+    max-width: 1000px;
+    min-width: 400px;
+    max-height: 1600px;
+    border: 2px solid #990099;
+    position: absolute;
+    float: inline-start;
+    top: 0px;
+    z-index: -1;
+    background: linear-gradient(
+        40deg,
+        #aadddd,
+        #ddaa00,
+        #ff11ff,
+        #11ffad
+    ); 
+}
+#hiden button {
+    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+    margin: 2px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 22%;
+    font-size: 20px;
+}
+
+#About {
+    top: -10px;
+    color: #00aaff;
+    background-color: #fff;
+    opacity: 0;
+    margin: 4px;
+    font-size: 20px;
+    text-decoration: underline;
+    border-top: 2px solid #8a2be2;
+    border-left: 4px ridge #aaaaff;
+    border-right: 4px ridge #aaaaff;
+    border-bottom: 2px solid #8a2be2;
+}
+
+
+/*Rotatered??*/
+#HT{opacity: 0;}
+#Bweb { opacity: 0.5;
+    background-image: url(../Logs//Bloodweb/BloodWeb.png); background-size: contain; background-repeat: no-repeat; background-position-y: center;
+    background-color: #00000055;}
+#HB{opacity: 0;}
+#Dhands { opacity: 0.5;
+    background-image: url(../Logs/dhands.jpg); background-size: contain; background-repeat: no-repeat;
+}
+#Duo {background-image: url(../Logs/DL.png); background-size: contain; background-repeat: no-repeat;
+
+}    
+#Fb {
+background-image: url(../Logs/FB.png); background-size: contain; 
+}
+#Git {
+background-image: url(../Logs/git.png); background-size: contain;
+}
+#Igg {
+background-image: url(../Logs/Insta.jfif); background-size: contain;   
+}
+#LinkD {
+background-image: url(../Logs/linkd.png); background-size: contain;
+}
+#Mail {
+background-image: url(../Logs/Mail.png); background-size: contain; 
+}
+#Pint {
+background-image: url(../Logs/Pint.png); background-size: contain; 
+}
+#Redd {
+background-image: url(../Logs/redit.png); background-size: contain; 
+}
+#Stack {
+background-image: url(../Logs/Stack.png); background-size: contain;
+}
+#Tik {
+background-image: url(../Logs/tik.png); background-size: contain; background-position-x: center; background-position-y: center;
+}
+#Twit {
+ background-image: url(../Logs/TWITTER\ CC.png); background-size: contain;  background-position-x: center; background-position-y: center; background-repeat: no-repeat;
+} 
+
+
+
+
+/*#######################*/
+
+#reverse {
+    opacity: 0;
+}
+#reverse2 {
+    background-color: #000;
+}
+
+/* debugging tools*/
+
+#cluster1 {
+    background-color: #000;
+    border: 40px solid #000; 
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    float: right;
+   
+}
+#Special0 {
+    box-shadow: inset -20px -5px 20px -2px #888,
+    10px 10px 2px 2px #888;
+    float: left;
+   
+   
+}
+#Special1 {
+    box-shadow: inset -20px -5px 20px -2px #888,
+    10px 10px 2px 2px #888;
+    float: right;
+ 
+  
+}   
+#Special2 {
+        box-shadow: inset 20px 5px 20px -2px #888,
+         10px 10px 2px 2px #888;
+        float: left;
+     
+}       
+#Special3 {
+        box-shadow: inset 20px 5px 20px -2px #888,
+        10px 10px 2px 2px #888; 
+        float: right;     
+}    
+#Special4 {
+        box-shadow: inset 20px 5px 20px -2px #888,          
+        10px 10px 2px 2px #888;
+         margin-top: 20px;
+        float: right;
+        }

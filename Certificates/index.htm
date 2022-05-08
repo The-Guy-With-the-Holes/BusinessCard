@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Development Certificates / Qualifications">
+    <meta name="keywords" content="Programmer, Certificates, Web, Computer, Love">
+    <meta name="author" content="Jack Ewers">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Certificates</title>
+    <link rel="shortcut icon" href="../../Logs/Bloodweb/bweb.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body onload="createCertTable();">
+<div class="infoBall"> <img src="BloodW.png" alt="Planet" class="infoballimg"></div>
+
+    <header>        
+        <h1>Jack Ewers Certificates </h1>
+        <div id="GridDiv">
+            <button id="Prev" class="FloatBtn" onclick="incBlock('Reverse')"> <p><strong><strike><</strike></strong> Prev</p> </button>
+            <p id="MainTitle"> Float area </p>
+            <button id="Next" class="FloatBtn" onclick="incBlock('Fowards')"> <p> Next <strong><strike>></strike></strong></p></button>
+        </div>
+    </header>
+
+    <main>  
+        <div id="CertField">
+      
+        </div>
+    </main>
+    
+    <footer>
+
+        <img style="height: 20px;" src="../../Logs/Bloodweb/New folder/BloodWeb.png">
+
+    </footer>
+
+</body>
+<script type="text/javascript" src="Vari.js"></script>
+<script type="text/javascript">
+
+function incBlock(Direction){
+    let Max = 4;
+    if(!Direction) return alert('Inc Block needs a direction to run');
+
+    if (Direction=='Fowards'){BlockIndex+=1;}
+    else if(Direction=='Reverse'){BlockIndex-=1;}
+
+    if(BlockIndex>Max){BlockIndex=0;}
+    if(BlockIndex<0){BlockIndex=Max;}
+    createCertTable(true);
+}
+
+function createCertTable(neu){
+    if(neu){console.log('BlockIndex has a new value, creating new Certifcates'); CertField.innerHTML='';}
+ 
+    var Block = Object.entries(Blocks)[BlockIndex];
+    let name = Block[0];
+    let Classname = name.split(" ")[0];
+    MainTitle.innerText =  name;
+    CertField.setAttribute('class',Classname+'Certfield');
+    MainTitle.setAttribute('class',Classname);
+
+    for (let i = 0; i <Block[1].length; i++){
+        // Generate Elements
+        let BlockName = Block[1][i];
+        let Div = document.createElement('div');
+        let Img = document.createElement('img');
+        let text = document.createElement('p');
+        let Para = document.createTextNode(BlockName);
+
+//Build and place
+      //  text.apppendChild(Para)
+        Img.setAttribute('src', BlockIndex+name+'/'+BlockName+'.jpg' )
+        text.innerText=BlockName;
+        Div.appendChild(text);
+        Div.appendChild(Img);
+        Div.setAttribute('name', BlockName);
+        Div.setAttribute('id', 'Div'+i);
+        Div.setAttribute('class', 'Block'+' '+Classname+'certfield');
+        CertField.appendChild(Div);
+       }
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

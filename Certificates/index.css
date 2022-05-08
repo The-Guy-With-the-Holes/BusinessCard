@@ -1,0 +1,163 @@
+/*    Certificates CSS file
+
+> Special >> Header >> Main >> Footer <
+
+*/
+
+/* #### Special #### */ 
+
+:root {
+--speed: 1000deg;
+}
+.infoBall{
+    position: fixed;
+    right: 1%;
+    top: 7%; border-radius: 50%;
+  background-color:violet;
+}
+.infoBall >.infoBallimg {
+    width: 10vw ; height: 10vw;   width: 10vw ; height: 10vw;
+     opacity: 0.9;
+}
+.infoBall:hover{
+  transform: scale(1.5);
+}
+.infoBall >.infoBallimg:hover {
+    width: 10vw ; height: 10vw;   width: 10vw ; height: 10vw;
+     opacity: 0.2;
+     transform: rotate(var(--speed, 10)); transition: all 0.3s ease-in-out 0s; 
+}
+
+/* Header Units (Cert-CC-NAMES)
+((  "#Maintitle" + All child-Blocks ))   
+    4- HackerX + Certfield
+    3- Ethical + ""
+    2- Grass     ^^
+    1- Solo      ^^
+    0- Program   ^^
+*/
+.HackerX{
+    background-color: #00800099;
+    -webkit-text-stroke: 0.29vmin darkgreen;}
+.HackerXCertField{
+    color: whitesmoke;
+    -webkit-text-stroke: 0.09vmin darkseagreen;
+    background: linear-gradient(304deg, lime, lightgreen, #0000ff99 ,seagreen,green);
+}
+.Ethical{
+    background-color: #87ceeb99;
+    -webkit-text-stroke: 0.29vmin dodgerblue;}
+.EthicalCertfield {
+    color: slateblue;
+    background: linear-gradient( skyblue , seagreen, #80808099);
+    -webkit-text-stroke: 0.19vmin black;
+}
+.Grass {
+    color: lime;
+    background-color: #32cd3299;
+    -webkit-text-stroke: 0.29vmin whitesmoke;
+}
+.grasscertfield {
+    color: white;
+    -webkit-text-stroke: .09vmin lime;
+    background: linear-gradient( seagreen,  green, #00ff0099 );
+   }
+.Solo {
+    background-color: #deb88799;
+    -webkit-text-stroke: 0.29vmin brown;}
+.SoloCertfield {
+    background-color: skyblue;
+}
+.Program {
+    background-color: gray;
+}
+.ProgramCertfield{
+    background-color: bisque;
+}
+
+
+/* #### HEADER #### */ 
+header {
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+    margin: 0 0 2% 0;
+    padding: 0 0 2% 0;
+}
+h1 {
+    box-shadow: 10px 4px 10px 2px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #fdd70055;
+    margin: 0 0 2% 0;
+    border: 2px solid goldenrod;
+    border-radius: 40% 0 40% 0;
+    font-size: 29px;
+    -webkit-text-stroke: 2px salmon;
+}
+
+#GridDiv { 
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);   
+    margin: 0 10% 4% 10%;
+    padding: 10% 0 0 0 ;
+    background: repeating-linear-gradient(27deg, blue,skyblue,lightblue,dodgerblue,white);
+}
+#GridDiv > button, #MainTitle{
+    border: 2px solid red;
+    margin: 0 0 20% 0;
+    display: inline-block;    
+    text-align: center;
+}
+#GridDiv > button {
+   margin-top: 30%;
+}
+/* Fow/Rev Buttons */
+.FloatBtn{ 
+    display: inline-block;
+    background-image: url(../i/diamond-icon.svg);    
+    border-radius: 50% 20%;
+}
+#MainTitle {
+    font-size: xx-large;           
+} 
+.FloatBtn:nth-child(1){transform: scaleX(-1);}
+.FloatBtn:nth-child(1)::before{content: '>>';}
+.FloatBtn:nth-child(1) * {transform: scaleX(-1);} 
+
+
+/* #### MAIN #### */
+
+#CertField {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 33% 33% 33%;
+    border: 1px double black; 
+    margin:0 auto;
+}
+
+/* Blocks & Block units */
+.block {
+    display: inline-block;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border: 2px solid red;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 100%;
+}
+.block > img {
+    max-width: 100%; ;                               
+    max-height: 100%; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+     
+}       
+.block > P {
+    margin: 0 auto;
+    line-height:1em;
+    min-height:2em;
+    padding-top:0.5em;
+    padding-bottom: 0.5em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    
+}
+       
