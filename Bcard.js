@@ -1,5 +1,18 @@
 //
 //###################################//
+
+function submitName(){
+
+    let name = document.getElementById('myinput').innerText;
+
+    if(!name){return console.log('critical name error');
+    }
+    if(name == "DoyoufeelitMRKrabs"){ return uLDevMode();}
+}
+
+function uLDevMode(){
+    Document.getElementById('DevArea').style.display="";
+}
 //Cookie//
 //While working on input, break inputs first befor log//
 var tbox = document.getElementById("flip");
