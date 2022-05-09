@@ -2,6 +2,7 @@
 /*Elements--Animation--Classes--UNorg--ID*/
 * {
     cursor: crosshair;
+    margin: 0 auto;
 }
 p {
     font-family: 'Courier New', Courier, monospace;
@@ -9,23 +10,60 @@ p {
     font-style: italic;
   
 }
+
 header{
-    display: inline-block;
+    font-family: Lobster, monospace;
+    width: fit-content;
+    float: left;
+}
+h1 > u {
+    font-size: 11.4vmin;-webkit-text-stroke: 0.11vmin gold;
+    color: #888; 
 }
 h1 {
-    font-family: Lobster, monospace;
-    font-size: 40px;
-   
-    position: absolute;
+    font-size: 6vmin;
     color: #fff;
+    width: min-content;
+    height: fit-content;
+    position: relative;
+    display: inline;
 }
+h1>strong:first-of-type{
+    -webkit-text-stroke: 0.05vmin goldenrod;
+    font-size: 9.4vmin;
+}
+
+
+
 h2 {
-    font-family: Lobster, monospace;
-    font-size: 20px;
-    top: 90px;
+    font-size: 4vmin;
     float: left;
+    max-width:60vw;
     position: absolute;
     color: #fff;
+    
+}
+#flipbutton{
+    
+    position: absolute ; right: 0; top: 0; z-index: 2; height: 8vmin; width: 8vmin; border-radius: 10% 40% 10% 60% ;
+}
+#flipbutton > * {
+    font-family:Helvetica, sans-serif;
+    text-align: center;
+    text-decoration:  line-through;
+}
+#flipbutton:hover{
+    color: #ffff;
+
+    background: linear-gradient(
+        100deg,
+        #aaaaff,
+        #11aaff,
+        #ff11aa,
+        #990099,
+        #11ffad
+    );    
+    
 }
 /* h4 - hidden*/
 h4 {
@@ -36,6 +74,9 @@ h4 {
 
 body {
     cursor: crosshair;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: #fff000;
 }
 
@@ -49,6 +90,10 @@ canvas {
 
 /***********************/
 /*   Hidden Box  */   
+#DeveloperArea {
+    display: none;
+}
+
 .PictureBox {
     display: inline-block;
     max-width: 1000px;   
@@ -60,10 +105,11 @@ canvas {
 /* Box main area, this wraps the card, should probably be left alone */
 
 .box-main { 
-    height: 400px;
-    width: 1000px;
-    
-    margin: 2px;
+    position: relative;
+    top: 0;max-height: 60vh; min-height: 40vh; 
+    height: 60vmin;
+   
+    padding: 1%;
     border-radius: 1%;
     border: 2px solid #fff000 ;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -71,72 +117,7 @@ canvas {
 .ttest {
     right: 400px;
 }
-.mainx {
-    height: 200px;
-    width: 200px;
-    margin: 10px;
 
-    float: right;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    border-radius: 50%;
-    background:  linear-gradient(
-        35deg,
-        #eeaaaa,
-        #aaaa99
-      ); 
-} 
-
-
-
-.lower-box {
-    position: relative;
-   top: -9%;
-   right: 0%;
-
-}
-.upper-box {
-    position: relative;
-    top:-9% ;
-    
-    
-    
-}
-.ballsy {
-    opacity: 0.5;
-    height: 100px;
-    width: 100px;
-    margin: 2px;
-    display: inline-block;
-    position: inherit;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-.ballsx {
-    opacity: 0.5;
-    height: 100px;
-    width: 100px;
-    margin: 2px;
-    display: inline-block;
-    position: inherit;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);    
-    
-}
-.balls {
-    height: 100px;
-    width: 100px;
-    top: -2px;
-    left: -2px;
-    margin: 2px;
-    display: inline-block;
-    position: relative;
-    border-radius: 50%;
-    background:  linear-gradient(
-        35deg,
-        #ccffff,
-        #ffcccc
-      );
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-}
 
 /* I am the text box under the image */
 .textbox p {
@@ -166,82 +147,23 @@ canvas {
     box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
-/*Img main*/
-
 
 /*****************************************************************/
 /* Hover animation and key frames, */
 
-p:hover{
-    color: #ffff;
-    font-family: 'Akronim', cursive;
-    background: linear-gradient(
-        100deg,
-        #aaaaff,
-        #11aaff,
-        #ff11aa,
-        #990099,
-        #11ffad
-    );    
-    
-}
+
 .textbox:hover {
     background-color: #11ffad;
     max-height: 150px;
    
     
 }
-.Rotern:hover {
-    
-    animation-name: T-Left;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    
-    
-}
-.ballsy:hover {
-    opacity: 1;
-    border-radius: 10%;
-    background: linear-gradient(
-        20deg,
-        #fff000,
-        #aa0000,
-        #000
-    );
-}
-.ballsx:hover {
-    opacity: 1;
-    border-radius: 10%;
-    background: linear-gradient(
-        20deg,
-        #fff000,
-        #fff,
-        #000
-    );
-}
-#Dhands:hover{opacity: 1;}
-p::after {
-   
-    background-color:black ;
-}
-@keyframes B-Shrink {
-    
-}
-@keyframes T-Left {
-    0% {
-        transform: scale(2) rotate(360deg);
-    }
-    50% {
-        transform: scale(2) ;opacity: 0.9;
-    }
-}
-
 /*****************************************************************/
 /* end of classes - start of IDS */
 /*****************************************************************/
 /* Image slider*/
 #image-slide1 {
-    background: url(../Logs/Hwiki.jfif);
+    background: url(i/Hwiki.jfif);
     background-size: cover;
     background-repeat: no-repeat;
     width: 200px;
@@ -330,47 +252,67 @@ p::after {
 
 /*Rotatered??*/
 #HT{opacity: 0;}
-#Bweb { opacity: 0.5;
-    background-image: url(../Logs//Bloodweb/BloodWeb.png); background-size: contain; background-repeat: no-repeat; background-position-y: center;
-    background-color: #00000055;}
+#Bweb {
+    background-image: url(i/Bloodweb/BloodWeb.png); 
+  }
 #HB{opacity: 0;}
 #Dhands { opacity: 0.5;
-    background-image: url(../Logs/dhands.jpg); background-size: contain; background-repeat: no-repeat;
+    background-image: url(i/dhands.jpg); 
 }
-#Duo {background-image: url(../Logs/DL.png); background-size: contain; background-repeat: no-repeat;
-
+#Duo {background-image: url(i/DL.png);
 }    
 #Fb {
-background-image: url(../Logs/FB.png); background-size: contain; 
+background-image: url(i/FB.png); 
 }
 #Git {
-background-image: url(../Logs/git.png); background-size: contain;
+background-image: url(i/git.png);
 }
 #Igg {
-background-image: url(../Logs/Insta.jfif); background-size: contain;   
+background-image: url(i/Insta.jfif);
 }
 #LinkD {
-background-image: url(../Logs/linkd.png); background-size: contain;
+background-image: url(i/linkd.png);
 }
 #Mail {
-background-image: url(../Logs/Mail.png); background-size: contain; 
+background-image: url(i/Mail.png);  
 }
 #Pint {
-background-image: url(../Logs/Pint.png); background-size: contain; 
+background-image: url(i/Pint.png);  
 }
 #Redd {
-background-image: url(../Logs/redit.png); background-size: contain; 
+background-image: url(i/redit.png); 
 }
 #Stack {
-background-image: url(../Logs/Stack.png); background-size: contain;
+background-image: url(i/Stack.png);
 }
 #Tik {
-background-image: url(../Logs/tik.png); background-size: contain; background-position-x: center; background-position-y: center;
+background-image: url(i/tik.png);
 }
 #Twit {
- background-image: url(../Logs/TWITTER\ CC.png); background-size: contain;  background-position-x: center; background-position-y: center; background-repeat: no-repeat;
+ background-image: url(i/TWITTER\ CC.png); 
 } 
 
+footer {
+    margin: 1%;
+    text-align: center;
+}
+form>*{
+    display: block;
+    height: 3em;
+   font-size: 3vmin;
+}
+
+form { 
+    
+    background-color: #aaaaffee;
+    background-image: url(i/purpleheart.png);
+    background-size: 10%;
+    background-repeat: repeat;
+    width: fit-content;
+    max-height: 26vh;
+    padding: 1%;
+    border: 0.49vmax  double purple;
+}
 
 
 

@@ -1,4 +1,3 @@
-//
 //###################################//
 
 function submitName(){
@@ -82,7 +81,7 @@ function rotate() {
     //Had to add background adjust to each & font alteration//
     if (ch.value == 0){
      al.href="https://coinmarketcap.com";
-     be.style.background= "url(../Logs/Pint.png)";
+     be.style.background= "url(i/Pint.png)";
      be.style.backgroundSize="contain"
      de1;
      
@@ -104,7 +103,7 @@ function rotate() {
     else if (ch.value == 2){
     al.href="https://github.com/Blood-web";
 
-    be.style.background= "url(../Logs/jj.jpg)";
+    be.style.background= "url(i/jj.jpg)";
     be.style.backgroundSize="contain";
     be.style.backgroundRepeat="no-repeat";
     
@@ -149,10 +148,82 @@ function (){ namo +'has been called '};
    
 //  IMG main on hover func//
 
-function DevilOut(){
-    document.getElementById('locko').src="../Logs/p1.jpg";
-    console.log('IMG main has been hovered');
+function hoverimg(name){
+    if(!name) return alert('Name is needed');
+    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
+    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
+
+    console.log(name+' Image  Has been hovered');
+
 }
+
+function startDrag(e) {
+    // determine event object
+    if (!e) {
+      var e = window.event;
+    }
+  
+    // IE uses srcElement, others use target
+    var targ = e.target ? e.target : e.srcElement;
+  
+    if (targ.className != 'dragme') {
+      return
+    };
+    // calculate event X, Y coordinates
+    offsetX = e.clientX;
+    offsetY = e.clientY;
+  
+    // assign default values for top and left properties
+    if (!targ.style.left) {
+      targ.style.left = '0px'
+    };
+    if (!targ.style.top) {
+      targ.style.top = '0px'
+    };
+  
+    // calculate integer values for top and left 
+    // properties
+    coordX = parseInt(targ.style.left);
+    coordY = parseInt(targ.style.top);
+    drag = true;
+  
+    // move div element
+    document.onmousemove = dragDiv;
+    return false;
+  }
+  
+  function dragDiv(e) {
+    if (!drag) {
+      return
+    };
+    if (!e) {
+      var e = window.event
+    };
+    var targ = e.target ? e.target : e.srcElement;
+    // move div element
+    targ.style.left = coordX + e.clientX - offsetX + 'px';
+    targ.style.top = coordY + e.clientY - offsetY + 'px';
+    return false;
+  }
+  
+  function stopDrag() {
+    drag = false;
+  }
+  window.onload = function() {   
+      document.onmousedown = startDrag;
+    document.onmouseup = stopDrag;
+  }
+
+
+let MainRotations=0;
+function mainimgRotate(){
+    MainRotations++;
+    document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));
+}
+/*function DevilOut(){
+    document.getElementById('locko').src="i/p1.jpg";
+    console.log('IMG main has been hovered');
+}*/
 
 
 
@@ -161,22 +232,22 @@ function Profile() {
 var locko = document.getElementById('locko');
 var bard = document.getElementById('Probar');
     if (bard.value == 0) {
-        locko.src="../Logs/pumpkin.png";
+        locko.src="i/pumpkin.png";
         console.log('Shift1');
         bard.value = 1;
     }
     else if (bard.value == 1) {
-        locko.src="../Logs/penguino wmark.png";
+        locko.src="i/penguino wmark.png";
         console.log('Shift1');
         bard.value = 2;
     }
     else if (bard.value == 2) {
-        locko.src="../Logs/organs.jfif";
+        locko.src="i/organs.jfif";
         console.log('Shift1');
         bard.value = 3;
     }
     else if (bard.value == 3) {
-        locko.src= "../Logs/nuke.jfif ";
+        locko.src= "i/nuke.jfif ";
         
         console.log('Shift1');
         bard.valued =0;
@@ -348,30 +419,30 @@ function shifteryMast() {
        x = 0;
    }
     else if (x == 1) {
-        alpha.style.backgroundImage = "url(../Logs/Hwiki.jfif)";        charlie.href = "https://wikipedia.org";
+        alpha.style.backgroundImage = "url(i/Hwiki.jfif)";        charlie.href = "https://wikipedia.org";
         delta.innerText = "WikiPedia";  
         console.log("Shiftery Master - 2");
     }
     else if (x == 2) {
-        alpha.style.background = "url(../Logs/11.jfif)";
+        alpha.style.background = "url(i/11.jfif)";
         charlie.href = "../../" ; 
         delta.innerText = "no3";
         console.log("Shiftery Master -3");
     }
     else if (x == 3) {
-        alpha.style.background = "url(../Logs/git.png)";
+        alpha.style.background = "url(i/git.png)";
         charlie.href = "https://github.com/blood-web" ; 
         delta.innerText = "Github";
         console.log("Github");
     }
     else if ( x == 4) {
-        alpha.style.background = "url(../Logs/anon.png)";
+        alpha.style.background = "url(i/anon.png)";
         charlie.href = "https://coinmarketcap.com" ; 
         delta.innerText = "no5";
         console.log("Shiftrey Master -5");
     }
     else if ( x == 5) {
-        alpha.style.background = "url(../Logs/pumpkin.png)";
+        alpha.style.background = "url(i/pumpkin.png)";
         charlie.href = "https://coinmarketcap.com" ; 
         delta.innerText = "Inner text swap - Omega";
         console.log("Shiftery Master -Omega");
