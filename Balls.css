@@ -1,6 +1,12 @@
 :root{
     --Mainro:180deg;
     --rotation-direction:360deg;
+    --icon-background:
+        20deg,
+        #fff000,
+        #fff, green,
+        #000
+    ;
     --deep:blue;
 }
 /* Profile */
@@ -13,6 +19,7 @@
     width: 24vmin;
     margin-top: 0.4vw;
     margin-right: 1vw;
+    margin: 2vmax;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 50%;
     background:  linear-gradient(
@@ -87,43 +94,24 @@
         #ccffff,
         #ffcccc
       );
+      background-color: #fff;
       box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-size: contain;
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position-x: center ;
     background-position-y: center ;
     cursor: pointer;
+    border: 0.1vmin solid gold;
 }
 
 
 .Rotern:hover {
-    
-    animation-name: T-Left;
+    animation-name:Ball-Background ;
     animation-duration: 1s;
     animation-iteration-count: 1;
-    
-    
+    animation-fill-mode: forwards;
 }
-.ballsy:hover {
-    opacity: 1;
-    border-radius: 10%;
-    background: linear-gradient(
-        20deg,
-        #fff000,
-        #aa0000,
-        #000
-    );
-}
-.ballsx:hover {
-    opacity: 1;
-    border-radius: 10%;
-    background: linear-gradient(
-        20deg,
-        #fff000,
-        #fff,
-        #000
-    );
-}
+
 #Dhands:hover{opacity: 0;}
 p::after {
    
@@ -132,14 +120,18 @@ p::after {
 
 /* Ball animations*/
 
-@keyframes B-Shrink {
-    
-}
-@keyframes T-Left {
-    0% {
+
+@keyframes Ball-Background{
+    0%{
+        border-radius: 0%;  
         transform: scale(2) rotate(var(--rotation-direction));
     }
-    50% {
-        transform: scale(2) ;opacity: 0.9;
+    50%{transform: scale(2) ;opacity: 0.9;}
+    60%{}
+    70%{}
+    80%{}
+    90%{border-radius: 5%;}
+    100%{ opacity: 1;  border-radius: 10%;
+    background: linear-gradient(var(--icon-background)); 
     }
 }

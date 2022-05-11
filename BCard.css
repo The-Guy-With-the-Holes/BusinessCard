@@ -4,6 +4,21 @@
     cursor: crosshair;
     margin: 0 auto;
 }
+html{
+    overflow: scroll;
+    overflow-x:hidden ;
+}
+::-webkit-scrollbar{
+    width:0;
+}
+body {
+    cursor: crosshair;
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+    background-color: #fff000;
+}
+
 p {
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
@@ -40,8 +55,10 @@ h2 {
     float: left;
     max-width:60vw;
     position: absolute;
+    color: #000;
+}
+h2 >strong {
     color: #fff;
-    
 }
 #flipbutton{
     
@@ -72,13 +89,6 @@ h4 {
     margin-top: -10px;
 }
 
-body {
-    cursor: crosshair;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #fff000;
-}
 
 canvas {
     cursor:wait;
@@ -104,16 +114,6 @@ canvas {
 }
 /* Box main area, this wraps the card, should probably be left alone */
 
-.box-main { 
-    position: relative;
-    top: 0;max-height: 60vh; min-height: 40vh; 
-    height: 60vmin;
-   
-    padding: 1%;
-    border-radius: 1%;
-    border: 2px solid #fff000 ;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
 .ttest {
     right: 400px;
 }
@@ -203,21 +203,19 @@ canvas {
     );
 }
 
+.box-main { 
+    position: relative;
+    top: 0;
+    max-height: 60vh; min-height: 40vh;  height: 60vmin;
+    font-size: 5vw;
+    padding: 1%;
+    border-radius: 1%;
+    border: 2px solid #fff000 ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
 /*  HIDDEN BOX  */
 #hiden {
     box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    font-family: 'lobster', cursive;
-    opacity: 0.1;
-    margin: 2px;
-    margin-top: 8px;
-    max-width: 1000px;
-    min-width: 400px;
-    max-height: 1600px;
-    border: 2px solid #990099;
-    position: absolute;
-    float: inline-start;
-    top: 0px;
-    z-index: -1;
     background: linear-gradient(
         40deg,
         #aadddd,
@@ -234,7 +232,9 @@ canvas {
     border-radius: 22%;
     font-size: 20px;
 }
-
+#about {
+    font-size: 3vw;
+}
 #About {
     top: -10px;
     color: #00aaff;
@@ -265,26 +265,27 @@ canvas {
 background-image: url(i/FB.png); 
 }
 #Git {
-background-image: url(i/git.png);
+background-image: url(i/git.png);}
+#Stack {background-image: url(i/Stack.png); background-color: white;}
+#Redd {
+background-image: url(i/redit.png); 
+}
+#LinkD {
+background-image: url(i/linkd.png); background-color: #00aaff;
+}
+#Pint {background-image: url(i/Pint.png);  background-color: red ;}
+#Certs{background-image: url(i/Cert.png); background-color:gold ;
 }
 #Igg {
 background-image: url(i/Insta.jfif);
 }
-#LinkD {
-background-image: url(i/linkd.png);
-}
+
 #Mail {
 background-image: url(i/Mail.png);  
 }
-#Pint {
-background-image: url(i/Pint.png);  
-}
-#Redd {
-background-image: url(i/redit.png); 
-}
-#Stack {
-background-image: url(i/Stack.png);
-}
+
+
+
 #Tik {
 background-image: url(i/tik.png);
 }

@@ -30,10 +30,11 @@
         <p id="BarH" style="height:min-content; " hidden> I am here</p>
     
 <div value="0" id="boxmain" class="box-main">
-    <button id="flipbutton"><p style="transform: scale(2);"><<</p></button>
+    <button id="flipbutton" onclick="flip('about')"><p style="transform: scale(2);"><<</p></button>
     <header>
         <h1><u>J</u><strong>ack Ewers</strong>,<br> Digital Business-Card </h1> 
-        <h2> Every Body has a Vision, lets work on ours together</h2>
+        <h2> Every Body has a <strong onmouseenter="settext('h2')">Vision</strong>, lets work on ours  
+            </h2>
     </header>
     <!-- Profile image && text box-->
     <img onclick="Profile()" onmouseleave="mainimgRotate()" id="locko" class="mainx" />
@@ -52,34 +53,30 @@
         <div id="IconBox">
             <span class="Boxes upper" onmouseleave="resetbox()">
 
-
-                <div class="Rotern ballsy "><a onmouseenter="hoverimg('Git')" onmouseleave="resetbox()" href="https://github.com/Blood-web" target="_blank">
+                <div class="Rotern ballsy "><a href="https://github.com/Blood-web" target="_blank">
                         <img id="Git" class="balls" /> </a>
                 </div>
 
-                <div class="ballsy Rotern"><a onmouseenter="hoverimg('Stack')"
-                        href="https://stackoverflow.com/users/16111503/bloodworks" target="_blank">
+                <div class="ballsy Rotern"><a  href="https://stackoverflow.com/users/16111503/bloodworks" target="_blank">
                         <img id="Stack" class="balls" /> </a>
                 </div>
 
-
-                <div class="ballsy Rotern"> <a onmouseenter="hoverimg('Red')" href="www.reddit.com">
+                <div class="ballsy Rotern"> <a href="www.reddit.com">
                         <img class="balls" id="Redd" /> </a>
                 </div>
 
-                <div href="#" class="ballsy Rotern"> <a onmouseenter="hoverimg('Blood')" target="_blank">
-                        <img class="balls" id="Blood" /> </a>
-                </div>
-
-                <div href="#" class="ballsy Rotern"> <a onmouseenter="hoverimg('Linkd')" target="_blank">
+                <div href="#" class="ballsy Rotern"> <a target="_blank">
                         <img class="balls" id="LinkD" /> </a>
                 </div>
 
-                <div href="pintrest" class="ballsx Rotern"> <a onmouseenter="hoverimg('Pint')" target="_blank">
+                <div href="pintrest" class="ballsx Rotern"> <a target="_blank">
                         <img class="balls" id="Pint" /> </a>
                 </div>
 
-                <div  id="HT" class="ballsy Rotern"> <a target="_blank">
+                <div href="#" class="ballsy Rotern"> <a target="_blank">
+                        <img class="balls" id="Certs" /> </a>
+                </div>
+                <div id="HT" class="ballsy Rotern"> <a target="_blank">
                         <img class="balls" id="Bweb"  /> </a>
                 </div>
 
@@ -124,11 +121,11 @@
         </div>
 
     </div>
-     <div id="hiden">
+     <div id="hiden"  class="box-main">
 
         <button onclick="flip()">&#10594;</button>
         <h4> About me</h4>    
-        <p> Hi there! my name is jack, i'm not excellent at writing about myself, but i'll give it try;
+        <p id="about"> Hi there! my name is jack,
         <br>
             I was born in australia, i have interests in coding, business management, investing and just
             general life fufilment (whatever that means). I constantly seek to educate myself, the pen is soo 
@@ -180,14 +177,15 @@
             <img src="" alt="">
         </div>
     </div>
-        
+</div> 
+
     <footer > <form >
         <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙">
             <textarea cols="30" rows="3" placeholder="...And a comment" name="ReviewInput" id="ReviewInput" ></textarea>
         <button onclick="submitName(); submit();" type="submit">Submit</button>
         </form>
     </footer>
-</div> 
+ 
 <span id="DeveloperArea">
     <div id="cluster1">
     <button id="Special0" onclick="allLinks()"><p>All links flip</p></button>

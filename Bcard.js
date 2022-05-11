@@ -125,19 +125,51 @@ function Canvas() {
 
 // Javascript for business card//
 // Compile me nice please <3 //
-function flip(){
+function flip(page){
     var TB = document.getElementById('hiden');
-    if(TB.style.opacity==0){
-    TB.style.opacity = 1 ;
-    TB.style.zIndex = 1 ;
+    var Main = document.getElementById("boxmain");
+    if(!page) return alert('When flipping, please specify page to flip');
+
+    if(page=="about"){
+    TB.style.display = "" ;
+    Main.style.display = "none" ;
     }
     else {
-        TB.style.opacity = 0 ;
-        TB.style.zIndex = -1 ;
+        TB.style.display = "none" ;
+        Main.style.display = "" ;
     }
 }
 
+function randomNum(min,max){
+    if(min==undefined||max==undefined){min =0; max = 17;}
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
 
+function generateHex(hexLength,hexWidth){
+let hexArray= "0123456789abcdef";  
+let i =0;  
+if(!hexLength || !hexWidth){hexLength = 8; hexWidth=4; console.warn('Use Hex length and width when generating hex ');}
+let hex = [];   
+for(let i = 0; i< hexWidth; i++){
+   hex.push(randomNum(0,9)); 
+
+   for(let x=1; x < (hexLength); x++){
+   let num= hexArray[(randomNum(0,17))];
+   hex[i].push(num);
+    }console.log([hex]);
+    alert('First Hex:'+hex[0]+' Final hex:'+hex[hex.length-1]+"\n:HEX:"+hex);
+}return [hex]
+}
+
+/*alert(array)
+return RandomHex = array; */
+
+let RHex = new generateHex();
+
+function sorp(){
+    let x =RandomHex.next();
+    console.warn(x+":"+[RandomHex.next()]);
+}
 //  COMPLETE me, func for all div balls calling to console   //
 var namo = 
 function (){ namo +'has been called '};
@@ -148,71 +180,22 @@ function (){ namo +'has been called '};
    
 //  IMG main on hover func//
 
-function hoverimg(name){
-    if(!name) return alert('Name is needed');
+buttons = document.getElementsByClassName("Rotern")
+for(let i=0;i<buttons.length;i++){
+  buttons[i].addEventListener("mouseover", (e) => { IconHovered(e);},false);
+}
+function IconHovered(e){
+    if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
+    let id = e.target.id;
+    let classi= document.querySelectorAll('.Rotern >#'+id);
+   let Background= ('360deg,'+'#'+([RandomHex.next()])+',blue' );
+    console.log(id+' '+[classi]);
     if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
     else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
-
-    console.log(name+' Image  Has been hovered');
-
+    console.warn(Background);
+    document.documentElement.style.setProperty('--icon-background', background ); 
+   
 }
-
-function startDrag(e) {
-    // determine event object
-    if (!e) {
-      var e = window.event;
-    }
-  
-    // IE uses srcElement, others use target
-    var targ = e.target ? e.target : e.srcElement;
-  
-    if (targ.className != 'dragme') {
-      return
-    };
-    // calculate event X, Y coordinates
-    offsetX = e.clientX;
-    offsetY = e.clientY;
-  
-    // assign default values for top and left properties
-    if (!targ.style.left) {
-      targ.style.left = '0px'
-    };
-    if (!targ.style.top) {
-      targ.style.top = '0px'
-    };
-  
-    // calculate integer values for top and left 
-    // properties
-    coordX = parseInt(targ.style.left);
-    coordY = parseInt(targ.style.top);
-    drag = true;
-  
-    // move div element
-    document.onmousemove = dragDiv;
-    return false;
-  }
-  
-  function dragDiv(e) {
-    if (!drag) {
-      return
-    };
-    if (!e) {
-      var e = window.event
-    };
-    var targ = e.target ? e.target : e.srcElement;
-    // move div element
-    targ.style.left = coordX + e.clientX - offsetX + 'px';
-    targ.style.top = coordY + e.clientY - offsetY + 'px';
-    return false;
-  }
-  
-  function stopDrag() {
-    drag = false;
-  }
-  window.onload = function() {   
-      document.onmousedown = startDrag;
-    document.onmouseup = stopDrag;
-  }
 
 
 let MainRotations=0;
@@ -332,71 +315,7 @@ function resetbox(){
     tbox.style.fontFamily="'Akronim', cursive"; tbox.style.textDecoration="";
     tbox.style.fontSize="3.5vh";
 }
-//   UPPER BOX    ///
-function Blood() {
-    tbox.innerText="The hidden link..";
-    tbox.style.fontFamily="'Jim Nightshade', cursive";
-    console.log('Blood has been spilled');
-    return plus5();
-}
-function Duo(){
-    tbox.innerText="Come Learn a second (Or third) language with me :)";
-    console.log("Duo call");
-    return plus5();
-}
-function Git(){
-    tbox.innerText="GIT... the source of the matrix, enjoy the crawl.";
-    tbox.style.fontFamily='lobster', cursive;
-    console.log('Git has been called')
-    return plus5();
-}
-function Linkd() {
-    tbox.innerText="I don't know what to tell you. Go here to look at my certificates, i guess.";
-    console.log('LinkedIn has been called')
-    return plus5();
-}
-function Mail() {
-    tbox.innerText="Email me (opens your mail app)"
-    console.log('Mail has been called')
-    return plus5();
-}
-function Red() {
-    tbox.innerText="Conspiracies, Collusion && Consumerism"
-    console.log('Reddit has been called')
-    return plus5();
-}
-function Stack(){
-    tbox.innerText="Why you would want to see this, i do not know."
-    console.log('Stack has been called')
-    return plus5();
-}
 
-//   Lower box ////
-
-function Fb() {
-    tbox.innerText="that's so meta";
-    tbox.style.textDecoration="underline";
-    console.log('Fb has been called')
-    return plus5();
-}
-function Igg() {
-    tbox.innerText="Photo whore galore (it's me , i'm photo whore)";
-    console.log('Instagram has been called')
-    return plus5();
-}
-function Pint() {
-    tbox.innerText="Random pretty pictures that mean nothing";
-    console.log('Pintrest has been called')
-    return plus5();
-}
-function Tik() {
-    console.log('TikTok has been called')
-    return plus5();
-}
-function Twit() {
-    console.log('Twit has been called')
-    return plus5();
-}
 
 
 // Master catalugoe   swaps targets and backgrounds//
@@ -466,57 +385,24 @@ let g = 0;
 function shiftery() {
 
 var L = document.getElementById('boxmain');
+let palletes =[ 
+    "linear-gradient( 40deg, #ddaadd, #11ffad)",
+    "linear-gradient( 240deg, #11aa55, #29ace0)",
+    "linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)",
+    "radial-gradient(circle, #ff0000, #bf0000, #800000, #400000, #000000, #200000)",
+    "repeating-conic-gradient(red 10%, yellow 20%) ",
+    "linear-gradient(to bottom, #6666ff 0%, #3333ff 90%, transparent 100%) ",
+    "linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96) ",
+    "radial-gradient(circle, #ff0000, #bf0000, #800000, #400000, #000000, #200000)",
+    "repeating-conic-gradient(red 10%, yellow 20%)",                                                      
+    "repeating-radial-gradient( #0bd3d3, #f890e7, #ffffff, #d0d0d0, #000000)"
+]
 
-
-
-    if (g == 0) {
-    L.style.background = "linear-gradient( 40deg, #ddaadd, #11ffad)";
+    L.style.background = palletes[g];
     g+=1;
     console.log(' Shiftery changing backgrounds1');
-    }
-    else if (g == 1){
-    L.style.background = ('linear-gradient( 240deg, #11aa55, #29ace0)');
-    console.log('Second background');
-    g+=1 ;      
-    }
-    else if (g == 2) {
-        L.style.background = ('linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)');
-        g += 1 ;
-        console.log('Third background');
-    }
-    else if (g == 3) {
-        L.style.background = ('radial-gradient(circle, #ff0000, #bf0000, #800000, #400000, #000000, #200000)');
-        console.log('fourth background');
-        g += 1;
-    } 
-    else if (g == 4) {
-        L.style.background = ('repeating-conic-gradient(red 10%, yellow 20%)');
-        g += 1;
-        console.log('Fifth background');
-    }
-    else if (g == 5){
-        L.style.background = ('linear-gradient(to bottom, #6666ff 0%, #3333ff 90%, transparent 100%)');
-        console.log('Sixth background');
-        g+=1 ;      
-        }
-        else if (g == 6) {
-            L.style.background = ('linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)');
-            g += 1 ;
-            console.log('background7-g='+g);
-        }
-        else if (g == 7) {
-            L.style.background = ('radial-gradient(circle, #ff0000, #bf0000, #800000, #400000, #000000, #200000)');
-            g += 1;
-           console.log('background8-g='+g); 
-        } 
-        else if (g == 8) {
-            L.style.background = ('repeating-conic-gradient(red 10%, yellow 20%)');
-            g += 1;
-            console.log('background9-g='+g);
-        } 
-    else if (g ==9) {
-        L.style.background = ('repeating-radial-gradient( #0bd3d3, #f890e7, #ffffff, #d0d0d0, #000000)');
-        g = 0;
-        console.log('ShifteryCircuit reset-bck10-g='+g);
-    }
+                                         
+if (g > 9) return g=0;
+   
+
 }
