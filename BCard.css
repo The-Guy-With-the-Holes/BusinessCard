@@ -25,11 +25,40 @@ p {
     font-style: italic;
   
 }
+#boxmain {
+    display: grid;
+    grid-template-columns:auto;
+    grid-template-rows:40% 60% ;
+    grid-template-areas: 
+    "header header main"
+   " Box Box .";
+  
+   
+}
+#ExtendButton { background-color: #11ffad99;
+    -webkit-text-stroke: 0.1vmin blue; border: 1vmin double gray;
+    border-radius: 50%; text-align: center;
+    position: absolute; right: 0; bottom: 0; margin-bottom: 4%; margin-right: 2%;
+    max-width: 10vw; max-height: 10vw; height: 20%; width: 20%;
+}
 
+#ExtendButton  > b {
+    margin-top: 0;
+    background-color: #ffffff55;
+    border-radius: 20% ;
+    font-size: 5vmin;
+    font-style: italic;
+    font-weight: bolder;
+}
 header{
+    grid-area: header;
     font-family: Lobster, monospace;
     width: fit-content;
+}
+header > *{
     float: left;
+text-align: left;
+   
 }
 h1 > u {
     font-size: 11.4vmin;-webkit-text-stroke: 0.11vmin gold;
@@ -38,23 +67,17 @@ h1 > u {
 h1 {
     font-size: 6vmin;
     color: #fff;
-    width: min-content;
-    height: fit-content;
-    position: relative;
-    display: inline;
+    width: max-content;
+
 }
 h1>strong:first-of-type{
     -webkit-text-stroke: 0.05vmin goldenrod;
     font-size: 9.4vmin;
 }
-
-
-
 h2 {
     font-size: 4vmin;
     float: left;
     max-width:60vw;
-    position: absolute;
     color: #000;
 }
 h2 >strong {
@@ -82,12 +105,10 @@ h2 >strong {
     );    
     
 }
-/* h4 - hidden*/
-h4 {
-    font-size: 36px;
-    text-align: center;
-    margin-top: -10px;
+#Mainimg{
+    grid-area: main;
 }
+
 
 
 canvas {
@@ -193,15 +214,6 @@ canvas {
     background-repeat: no-repeat;
     color: #000;
 }
-#boxmain {
-    background: linear-gradient(
-        40deg,
-        #aadddd,
-        #ddaa00,
-        #ff11ff,
-        #11ffad
-    );
-}
 
 .box-main { 
     position: relative;
@@ -212,86 +224,8 @@ canvas {
     border-radius: 1%;
     border: 2px solid #fff000 ;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background:var(--BoxMain-Background) ;
 }
-/*  HIDDEN BOX  */
-#hiden {
-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background: linear-gradient(
-        40deg,
-        #aadddd,
-        #ddaa00,
-        #ff11ff,
-        #11ffad
-    ); 
-}
-#hiden button {
-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23); 
-    margin: 2px;
-    color: #fff;
-    background-color: #000;
-    border-radius: 22%;
-    font-size: 20px;
-}
-#about {
-    font-size: 3vw;
-}
-#About {
-    top: -10px;
-    color: #00aaff;
-    background-color: #fff;
-    opacity: 0;
-    margin: 4px;
-    font-size: 20px;
-    text-decoration: underline;
-    border-top: 2px solid #8a2be2;
-    border-left: 4px ridge #aaaaff;
-    border-right: 4px ridge #aaaaff;
-    border-bottom: 2px solid #8a2be2;
-}
-
-
-/*Rotatered??*/
-#HT{opacity: 0;}
-#Bweb {
-    background-image: url(i/Bloodweb/BloodWeb.png); 
-  }
-#HB{opacity: 0;}
-#Dhands { opacity: 0.5;
-    background-image: url(i/dhands.jpg); 
-}
-#Duo {background-image: url(i/DL.png);
-}    
-#Fb {
-background-image: url(i/FB.png); 
-}
-#Git {
-background-image: url(i/git.png);}
-#Stack {background-image: url(i/Stack.png); background-color: white;}
-#Redd {
-background-image: url(i/redit.png); 
-}
-#LinkD {
-background-image: url(i/linkd.png); background-color: #00aaff;
-}
-#Pint {background-image: url(i/Pint.png);  background-color: red ;}
-#Certs{background-image: url(i/Cert.png); background-color:gold ;
-}
-#Igg {
-background-image: url(i/Insta.jfif);
-}
-
-#Mail {
-background-image: url(i/Mail.png);  
-}
-
-
-
-#Tik {
-background-image: url(i/tik.png);
-}
-#Twit {
- background-image: url(i/TWITTER\ CC.png); 
-} 
 
 footer {
     margin: 1%;
@@ -314,7 +248,12 @@ form {
     padding: 1%;
     border: 0.49vmax  double purple;
 }
-
+form > P {
+    color: #fff; background-color: palevioletred; 
+    border: 2vmin double deeppink;
+    margin-top: 1%;  padding: 1%;
+    width: fit-content; height: fit-content;
+}
 
 
 /*#######################*/

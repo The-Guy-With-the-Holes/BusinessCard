@@ -1,0 +1,935 @@
+[1mdiff --git a/About.css b/About.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..df52ac2[m
+[1m--- /dev/null[m
+[1m+++ b/About.css[m
+[36m@@ -0,0 +1,51 @@[m
+[32m+[m[32m/*  HIDDEN BOX  */[m
+[32m+[m[32m#hiden {[m
+[32m+[m[41m    [m
+[32m+[m[32m    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);[m
+[32m+[m[32m    background: linear-gradient([m
+[32m+[m[32m        40deg,[m
+[32m+[m[32m        #aadddd,[m
+[32m+[m[32m        #ddaa00,[m
+[32m+[m[32m        #ff11ff,[m
+[32m+[m[32m        #11ffad[m
+[32m+[m[32m    );[m[41m [m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m#hiden button {[m
+[32m+[m[32m    position: absolute; left: 1%; margin-left: 10vmin;[m
+[32m+[m[32m    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);[m[41m [m
+[32m+[m[32m    margin: 2px;[m
+[32m+[m[32m    color: #fff; background-color: #000; border-radius: 22%;[m
+[32m+[m[32m    font-size: 4vmin;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh4 {[m
+[32m+[m[32m    font-size: 36px;[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    margin-top: -10px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m#about {[m
+[32m+[m[32m    font-size: 3vw;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.projects  {  max-width: 30vw; display: inline-table; margin: auto; vertical-align: top;}[m
+[32m+[m[32m.projects > *  {[m
+[32m+[m[32m   border: 0.9vmin double  #000;[m
+[32m+[m[32m    font-size: 3vw;[m[41m [m
+[32m+[m[32m    background-color: #11ffad;[m
+[32m+[m[32m}[m
+[32m+[m[32m.projects > * > * {[m
+[32m+[m[32m    border: 0.05vmin solid #000;[m
+[32m+[m[32m}[m
+[32m+[m[32m.projects >ul>label {[m
+[32m+[m[32m    font-size: 4vw;[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    display: block;[m
+[32m+[m[32m}[m
+[32m+[m[32m ul {[m[41m [m
+[32m+[m[32m    list-style-position: inside;[m
+[32m+[m[32m    padding-left: 0;[m
+[32m+[m[32m    text-align: left;[m
+[32m+[m[32m    list-style-image: url(i/BloodWebX4.png);[m[41m [m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/BCard.css b/BCard.css[m
+[1mindex e95b243..329dd24 100644[m
+[1m--- a/BCard.css[m
+[1m+++ b/BCard.css[m
+[36m@@ -25,11 +25,40 @@[m [mp {[m
+     font-style: italic;[m
+   [m
+ }[m
+[32m+[m[32m#boxmain {[m[41m[m
+[32m+[m[32m    display: grid;[m[41m[m
+[32m+[m[32m    grid-template-columns:auto;[m[41m[m
+[32m+[m[32m    grid-template-rows:40% 60% ;[m[41m[m
+[32m+[m[32m    grid-template-areas:[m[41m [m
+[32m+[m[32m    "header header main"[m[41m[m
+[32m+[m[32m   " Box Box .";[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[41m   [m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m#ExtendButton { background-color: #11ffad99;[m[41m[m
+[32m+[m[32m    -webkit-text-stroke: 0.1vmin blue; border: 1vmin double gray;[m[41m[m
+[32m+[m[32m    border-radius: 50%; text-align: center;[m[41m[m
+[32m+[m[32m    position: absolute; right: 0; bottom: 0; margin-bottom: 4%; margin-right: 2%;[m[41m[m
+[32m+[m[32m    max-width: 10vw; max-height: 10vw; height: 20%; width: 20%;[m[41m[m
+[32m+[m[32m}[m[41m[m
+ [m
+[32m+[m[32m#ExtendButton  > b {[m[41m[m
+[32m+[m[32m    margin-top: 0;[m[41m[m
+[32m+[m[32m    background-color: #ffffff55;[m[41m[m
+[32m+[m[32m    border-radius: 20% ;[m[41m[m
+[32m+[m[32m    font-size: 5vmin;[m[41m[m
+[32m+[m[32m    font-style: italic;[m[41m[m
+[32m+[m[32m    font-weight: bolder;[m[41m[m
+[32m+[m[32m}[m[41m[m
+ header{[m
+[32m+[m[32m    grid-area: header;[m[41m[m
+     font-family: Lobster, monospace;[m
+     width: fit-content;[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32mheader > *{[m[41m[m
+     float: left;[m
+[32m+[m[32mtext-align: left;[m[41m[m
+[32m+[m[41m   [m
+ }[m
+ h1 > u {[m
+     font-size: 11.4vmin;-webkit-text-stroke: 0.11vmin gold;[m
+[36m@@ -38,23 +67,17 @@[m [mh1 > u {[m
+ h1 {[m
+     font-size: 6vmin;[m
+     color: #fff;[m
+[31m-    width: min-content;[m
+[31m-    height: fit-content;[m
+[31m-    position: relative;[m
+[31m-    display: inline;[m
+[32m+[m[32m    width: max-content;[m[41m[m
+[32m+[m[41m[m
+ }[m
+ h1>strong:first-of-type{[m
+     -webkit-text-stroke: 0.05vmin goldenrod;[m
+     font-size: 9.4vmin;[m
+ }[m
+[31m-[m
+[31m-[m
+[31m-[m
+ h2 {[m
+     font-size: 4vmin;[m
+     float: left;[m
+     max-width:60vw;[m
+[31m-    position: absolute;[m
+     color: #000;[m
+ }[m
+ h2 >strong {[m
+[36m@@ -82,14 +105,12 @@[m [mh2 >strong {[m
+     );    [m
+     [m
+ }[m
+[31m-/* h4 - hidden*/[m
+[31m-h4 {[m
+[31m-    font-size: 36px;[m
+[31m-    text-align: center;[m
+[31m-    margin-top: -10px;[m
+[32m+[m[32m#Mainimg{[m[41m[m
+[32m+[m[32m    grid-area: main;[m[41m[m
+ }[m
+ [m
+ [m
+[32m+[m[41m[m
+ canvas {[m
+     cursor:wait;[m
+     background-color: #11aaff;[m
+[36m@@ -193,15 +214,6 @@[m [mcanvas {[m
+     background-repeat: no-repeat;[m
+     color: #000;[m
+ }[m
+[31m-#boxmain {[m
+[31m-    background: linear-gradient([m
+[31m-        40deg,[m
+[31m-        #aadddd,[m
+[31m-        #ddaa00,[m
+[31m-        #ff11ff,[m
+[31m-        #11ffad[m
+[31m-    );[m
+[31m-}[m
+ [m
+ .box-main { [m
+     position: relative;[m
+[36m@@ -212,87 +224,9 @@[m [mcanvas {[m
+     border-radius: 1%;[m
+     border: 2px solid #fff000 ;[m
+     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);[m
+[31m-}[m
+[31m-/*  HIDDEN BOX  */[m
+[31m-#hiden {[m
+[31m-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);[m
+[31m-    background: linear-gradient([m
+[31m-        40deg,[m
+[31m-        #aadddd,[m
+[31m-        #ddaa00,[m
+[31m-        #ff11ff,[m
+[31m-        #11ffad[m
+[31m-    ); [m
+[31m-}[m
+[31m-#hiden button {[m
+[31m-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23); [m
+[31m-    margin: 2px;[m
+[31m-    color: #fff;[m
+[31m-    background-color: #000;[m
+[31m-    border-radius: 22%;[m
+[31m-    font-size: 20px;[m
+[31m-}[m
+[31m-#about {[m
+[31m-    font-size: 3vw;[m
+[31m-}[m
+[31m-#About {[m
+[31m-    top: -10px;[m
+[31m-    color: #00aaff;[m
+[31m-    background-color: #fff;[m
+[31m-    opacity: 0;[m
+[31m-    margin: 4px;[m
+[31m-    font-size: 20px;[m
+[31m-    text-decoration: underline;[m
+[31m-    border-top: 2px solid #8a2be2;[m
+[31m-    border-left: 4px ridge #aaaaff;[m
+[31m-    border-right: 4px ridge #aaaaff;[m
+[31m-    border-bottom: 2px solid #8a2be2;[m
+[31m-}[m
+[31m-[m
+[31m-[m
+[31m-/*Rotatered??*/[m
+[31m-#HT{opacity: 0;}[m
+[31m-#Bweb {[m
+[31m-    background-image: url(i/Bloodweb/BloodWeb.png); [m
+[31m-  }[m
+[31m-#HB{opacity: 0;}[m
+[31m-#Dhands { opacity: 0.5;[m
+[31m-    background-image: url(i/dhands.jpg); [m
+[31m-}[m
+[31m-#Duo {background-image: url(i/DL.png);[m
+[31m-}    [m
+[31m-#Fb {[m
+[31m-background-image: url(i/FB.png); [m
+[31m-}[m
+[31m-#Git {[m
+[31m-background-image: url(i/git.png);}[m
+[31m-#Stack {background-image: url(i/Stack.png); background-color: white;}[m
+[31m-#Redd {[m
+[31m-background-image: url(i/redit.png); [m
+[31m-}[m
+[31m-#LinkD {[m
+[31m-background-image: url(i/linkd.png); background-color: #00aaff;[m
+[31m-}[m
+[31m-#Pint {background-image: url(i/Pint.png);  background-color: red ;}[m
+[31m-#Certs{background-image: url(i/Cert.png); background-color:gold ;[m
+[31m-}[m
+[31m-#Igg {[m
+[31m-background-image: url(i/Insta.jfif);[m
+[31m-}[m
+[31m-[m
+[31m-#Mail {[m
+[31m-background-image: url(i/Mail.png);  [m
+[32m+[m[32m  background:var(--BoxMain-Background) ;[m[41m[m
+ }[m
+ [m
+[31m-[m
+[31m-[m
+[31m-#Tik {[m
+[31m-background-image: url(i/tik.png);[m
+[31m-}[m
+[31m-#Twit {[m
+[31m- background-image: url(i/TWITTER\ CC.png); [m
+[31m-} [m
+[31m-[m
+ footer {[m
+     margin: 1%;[m
+     text-align: center;[m
+[36m@@ -314,7 +248,12 @@[m [mform {[m
+     padding: 1%;[m
+     border: 0.49vmax  double purple;[m
+ }[m
+[31m-[m
+[32m+[m[32mform > P {[m[41m[m
+[32m+[m[32m    color: #fff; background-color: palevioletred;[m[41m [m
+[32m+[m[32m    border: 2vmin double deeppink;[m[41m[m
+[32m+[m[32m    margin-top: 1%;  padding: 1%;[m[41m[m
+[32m+[m[32m    width: fit-content; height: fit-content;[m[41m[m
+[32m+[m[32m}[m[41m[m
+ [m
+ [m
+ /*#######################*/[m
+[1mdiff --git a/Balls.css b/Balls.css[m
+[1mindex d3a1a1a..7b7f3e4 100644[m
+[1m--- a/Balls.css[m
+[1m+++ b/Balls.css[m
+[36m@@ -1,5 +1,9 @@[m
+ :root{[m
+[32m+[m[32m    --BoxMain-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);[m
+     --Mainro:180deg;[m
+[32m+[m[32m    --Main-img1:url(i/Profile.jpg);[m
+[32m+[m[32m    --Main-img2:url(i/profile2.jpg);[m
+[32m+[m[32m    --Main-BTC:url(i/₿.png);[m
+     --rotation-direction:360deg;[m
+     --icon-background:[m
+         20deg,[m
+[36m@@ -12,14 +16,11 @@[m
+ /* Profile */[m
+ .mainx {[m
+     cursor: move;[m
+[31m-    position: absolute;[m
+[31m-   right: 0;[m
+[31m-    top: 0;[m
+[32m+[m
+     height: 24vmin;[m
+     width: 24vmin;[m
+     margin-top: 0.4vw;[m
+[31m-    margin-right: 1vw;[m
+[31m-    margin: 2vmax;[m
+[32m+[m[32m    margin-right: 2vw;[m
+     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);[m
+     border-radius: 50%;[m
+     background:  linear-gradient([m
+[36m@@ -52,18 +53,18 @@[m
+     100%{background-image: url(i/profile2.jpg) ;}[m
+ }[m
+ [m
+[31m-/* Icon Boxes */[m
+[32m+[m[32m/* Icon BoxesC :\Users\JackC\BusinessCard\i\₿.png */[m
+ #IconBox {[m
+[31m-   position: absolute;[m
+[31m-   bottom: 0; [m
+[31m-   padding: 1vw;[m
+[31m-   padding-bottom: 1vmax ;[m
+[32m+[m[32mposition: absolute;[m
+[32m+[m[32mbottom: 0;[m
+[32m+[m[32mpadding: 1%;[m
+ }[m
+[31m-.Boxes{[m
+[31m-    display: block;[m
+[32m+[m[32m.Boxes{[m[41m  [m
+[32m+[m[32m    display: inline-block;[m
+[32m+[m[32m    min-width: max-content;[m
+     margin: 1%;[m
+     padding: 0.5%;[m
+[31m-    width: max-content;[m
+[32m+[m[41m  [m
+ }[m
+ .lower {[m
+     background-color: #ccffff55;[m
+[36m@@ -88,6 +89,8 @@[m
+     position: relative;[m
+     height: 12vmin;[m
+     width: 11vmin; [m
+[32m+[m[32m    max-height: 10vw;[m
+[32m+[m[32m    max-width: 10vw;[m
+     border-radius: 50%;[m
+     background:  linear-gradient([m
+         35deg,[m
+[36m@@ -135,3 +138,21 @@[m [mp::after {[m
+     background: linear-gradient(var(--icon-background)); [m
+     }[m
+ }[m
+[32m+[m
+[32m+[m[32m/*Rotatered??*/[m
+[32m+[m[32m#HT{opacity: 0;}[m
+[32m+[m[32m#Bweb {background-image: url(i/Bloodweb/BloodWeb.png); }[m
+[32m+[m[32m#HB{opacity: 0;}[m
+[32m+[m[32m#Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }[m
+[32m+[m[32m#Duo {background-image: url(i/DL.png);}[m[41m    [m
+[32m+[m[32m#Fb {background-image: url(i/FB.png); }[m
+[32m+[m[32m#Git {background-image: url(i/git.png);}[m
+[32m+[m[32m#Stack {background-image: url(i/Stack.png); background-color: white;}[m
+[32m+[m[32m#Redd {background-image: url(i/redit.png); }[m
+[32m+[m[32m#LinkD {background-image: url(i/linkd.png); background-color: #00aaff;}[m
+[32m+[m[32m#Pint {background-image: url(i/Pint.png);  background-color: red ;}[m
+[32m+[m[32m#Certs{background-image: url(i/Cert.png); background-color:gold ;}[m
+[32m+[m[32m#Igg { background-image: url(i/Insta.jfif);}[m
+[32m+[m[32m#Mail {background-image: url(i/Mail.png); }[m
+[32m+[m[32m#Tik {background-image: url(i/tik.png);}[m
+[32m+[m[32m#Twit {background-image: url(i/TWITTER\ CC.png); }[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/Bcard.js b/Bcard.js[m
+[1mindex 26bed32..0aaf750 100644[m
+[1m--- a/Bcard.js[m
+[1m+++ b/Bcard.js[m
+[36m@@ -1,12 +1,15 @@[m
+ //###################################//[m
+[32m+[m[32mlet bitcoinRun=false; let MainRotations=0;[m[41m[m
+ [m
+[31m-function submitName(){[m
+ [m
+[31m-    let name = document.getElementById('myinput').innerText;[m
+ [m
+[31m-    if(!name){return console.log('critical name error');[m
+[31m-    }[m
+[32m+[m[32mfunction submitName(){[m[41m [m
+[32m+[m[32mlet name = document.getElementById('myinput').innerText;[m[41m[m
+[32m+[m[32m  if(!name){return console.log('critical name error');}[m[41m[m
+     if(name == "DoyoufeelitMRKrabs"){ return uLDevMode();}[m
+[32m+[m[32mpopUp('💖Thankyou💖 '+name+' for Leaving a review!!', 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m  [m
+ }[m
+ [m
+ function uLDevMode(){[m
+[36m@@ -114,14 +117,27 @@[m [mfunction rotate() {[m
+     console.log('parse3-Crypt');   [m
+    }[m
+ }[m
+[31m-// Creating canvas over Bcard//[m
+[31m-function Canvas() {[m
+[31m-    var x = document.createElement("CANVAS");[m
+[31m-    var ctx = x.getContext("2d");[m
+[31m-    ctx.fillStyle = "#FF0000";[m
+[31m-    ctx.fillRect(20, 20, 50, 200);[m
+[31m-    document.body.appendChild(x);[m
+[31m-  }[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mfunction countforbitcoin(){[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mif( bitcoinRun=true)return Log('BTC already running', 'Ko');[m[41m[m
+[32m+[m[32m    bitcoinRun=true;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m   setTimeout(() => {[m[41m [m
+[32m+[m[41m    [m
+[32m+[m[32m    let img = document.getElementById("locko");[m[41m  [m
+[32m+[m[32m    let x =img.backgroundImage;[m[41m[m
+[32m+[m[32m    if(img.style.backgroundImage){[m[41m[m
+[32m+[m[32m        x='url(i/₿.png)';[m[41m[m
+[32m+[m[32m        console.warn('Profile Image has been helf for five seconds')[m[41m[m
+[32m+[m[32m    }[m[41m[m
+[32m+[m[32m    else {[m[41m  [m
+[32m+[m[32m        Log(('Background not held for five second'+x),'count for ₿');[m[41m[m
+[32m+[m[32m        }[m[41m[m
+[32m+[m[32mreturn bitcoinRun=false;  }, 5000);[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m}[m[41m[m
+ [m
+ // Javascript for business card//[m
+ // Compile me nice please <3 //[m
+[36m@@ -134,10 +150,11 @@[m [mfunction flip(page){[m
+     TB.style.display = "" ;[m
+     Main.style.display = "none" ;[m
+     }[m
+[31m-    else {[m
+[32m+[m[32m    if(page=="main") {[m[41m[m
+         TB.style.display = "none" ;[m
+         Main.style.display = "" ;[m
+     }[m
+[32m+[m[32m    if (page=="about:images"){extendProfile('images');}[m[41m[m
+ }[m
+ [m
+ function randomNum(min,max){[m
+[36m@@ -145,38 +162,45 @@[m [mfunction randomNum(min,max){[m
+   return Math.floor(Math.random() * (max - min) ) + min;[m
+ }[m
+ [m
+[31m-function generateHex(hexLength,hexWidth){[m
+[32m+[m[32mfunction generateHex(hexWidth,hexLength){[m[41m[m
+ let hexArray= "0123456789abcdef";  [m
+[31m-let i =0;  [m
+[31m-if(!hexLength || !hexWidth){hexLength = 8; hexWidth=4; console.warn('Use Hex length and width when generating hex ');}[m
+[31m-let hex = [];   [m
+[32m+[m[32mlet hexResult=[[],[],[]];[m[41m  [m
+[32m+[m[32mif(!hexLength || !hexWidth){hexLength = 8; hexWidth=1; console.warn('Use Hex length and width when generating hex ');}[m[41m[m
+[32m+[m[32m let hex;[m[41m   [m
+ for(let i = 0; i< hexWidth; i++){[m
+[31m-   hex.push(randomNum(0,9)); [m
+[31m-[m
+[32m+[m[32m  hex = []   ;[m[41m[m
+[32m+[m[32m        hex.push(randomNum(0,9));[m[41m [m
+    for(let x=1; x < (hexLength); x++){[m
+[31m-   let num= hexArray[(randomNum(0,17))];[m
+[31m-   hex[i].push(num);[m
+[31m-    }console.log([hex]);[m
+[31m-    alert('First Hex:'+hex[0]+' Final hex:'+hex[hex.length-1]+"\n:HEX:"+hex);[m
+[31m-}return [hex][m
+[32m+[m[32m    let Res= hexArray[(randomNum(0,16))];[m[41m[m
+[32m+[m[32m    hex.push(Res);[m[41m[m
+[32m+[m[41m   [m
+[32m+[m[32m    }[m[41m[m
+[32m+[m[32m   hexResult = hex.join('')[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m   }[m[41m[m
+[32m+[m[41m   [m
+[32m+[m[32mconsole.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.length-1]+":  Length: "+[(hexResult.length)][m[41m[m
+[32m+[m[32m+"\n:last HASH: "+hex.join('')+'\n::>Hex Result<:: '+hexResult);[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mreturn [hexResult][m[41m[m
+ }[m
+ [m
+ /*alert(array)[m
+ return RandomHex = array; */[m
+ [m
+[31m-let RHex = new generateHex();[m
+ [m
+[31m-function sorp(){[m
+[31m-    let x =RandomHex.next();[m
+[31m-    console.warn(x+":"+[RandomHex.next()]);[m
+[31m-}[m
+[31m-//  COMPLETE me, func for all div balls calling to console   //[m
+[31m-var namo = [m
+[31m-function (){ namo +'has been called '};[m
+[32m+[m[32m// Extendor Button function[m[41m[m
+[32m+[m[32m let Page2 = document.getElementById('secondBox');[m[41m[m
+[32m+[m[41m   [m
+[32m+[m[32mfunction extendProfile(){[m[41m[m
+[32m+[m[32m    Page2.style.display="";[m[41m[m
+ [m
+[31m-    if (Boolean = true) {[m
+[31m-    console.log(Boolean) [m
+[31m-    }[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32mfunction closeExtProfile(){[m[41m[m
+[32m+[m[32m    Page2.style.display="none";[m[41m[m
+[32m+[m[32m    document.getElementById('')[m[41m[m
+[32m+[m[41m [m
+[32m+[m[32m}[m[41m[m
+    [m
+ //  IMG main on hover func//[m
+ [m
+[36m@@ -186,69 +210,25 @@[m [mfor(let i=0;i<buttons.length;i++){[m
+ }[m
+ function IconHovered(e){[m
+     if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");[m
+[31m-    let id = e.target.id;[m
+[31m-    let classi= document.querySelectorAll('.Rotern >#'+id);[m
+[31m-   let Background= ('360deg,'+'#'+([RandomHex.next()])+',blue' );[m
+[31m-    console.log(id+' '+[classi]);[m
+[32m+[m[32m    let id = e.target.id;[m[41m [m
+[32m+[m[32m    let Hex =  generateHex(2,8);[m[41m [m
+[32m+[m[32m  //  let classi= document.querySelectorAll('.Rotern >#'+id);[m[41m[m
+[32m+[m[32m    let colorarray=  ('#'+Hex+',')+('#'+Hex+',')+('#'+Hex+',');[m[41m[m
+[32m+[m[32m    console.warn(colorarray)[m[41m[m
+[32m+[m[32m    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');[m[41m[m
+     if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}[m
+     else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }[m
+[32m+[m[32m    let Background= ('360deg,'+colorarray+'blue' );[m[41m [m
+     console.warn(Background);[m
+[31m-    document.documentElement.style.setProperty('--icon-background', background ); [m
+[32m+[m[32m    document.documentElement.style.setProperty('--icon-background', Background );[m[41m [m
+    [m
+ }[m
+ [m
+[31m-[m
+[31m-let MainRotations=0;[m
+ function mainimgRotate(){[m
+[31m-    MainRotations++;[m
+[32m+[m[32m    MainRotations++;countforbitcoin(1);[m[41m[m
+     document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));[m
+[32m+[m[41m    [m
+ }[m
+[31m-/*function DevilOut(){[m
+[31m-    document.getElementById('locko').src="i/p1.jpg";[m
+[31m-    console.log('IMG main has been hovered');[m
+[31m-}*/[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-// Shiftery ; Shifts profile images, with Dout, reverts and repeats//[m
+[31m-function Profile() {[m
+[31m-var locko = document.getElementById('locko');[m
+[31m-var bard = document.getElementById('Probar');[m
+[31m-    if (bard.value == 0) {[m
+[31m-        locko.src="i/pumpkin.png";[m
+[31m-        console.log('Shift1');[m
+[31m-        bard.value = 1;[m
+[31m-    }[m
+[31m-    else if (bard.value == 1) {[m
+[31m-        locko.src="i/penguino wmark.png";[m
+[31m-        console.log('Shift1');[m
+[31m-        bard.value = 2;[m
+[31m-    }[m
+[31m-    else if (bard.value == 2) {[m
+[31m-        locko.src="i/organs.jfif";[m
+[31m-        console.log('Shift1');[m
+[31m-        bard.value = 3;[m
+[31m-    }[m
+[31m-    else if (bard.value == 3) {[m
+[31m-        locko.src= "i/nuke.jfif ";[m
+[31m-        [m
+[31m-        console.log('Shift1');[m
+[31m-        bard.valued =0;[m
+[31m-    }[m
+[31m-}[m
+[31m-[m
+[31m-//  Test logger for undefined values//[m
+[31m-function test(t){[m
+[31m-[m
+[31m-if (t === undefined) {[m
+[31m-    return 'Undefined value!';[m
+[31m-  }[m
+[31m-  return t;[m
+[31m-}[m
+[31m-var testo = ('consolelogger')[m
+[31m-let aa = testo;[m
+[31m-[m
+[31m-[m
+ [m
+ [m
+ [m
+[36m@@ -378,14 +358,38 @@[m [mfunction myTimer() {[m
+     shiftery();[m
+     console.log('4S - Shiftrey');[m
+ }*/[m
+[31m-[m
+[32m+[m[32m let BackgroundZ = document.documentElement.style.getPropertyValue('--BoxMain-Background');[m[41m[m
+[32m+[m[41m   [m
+ // Background shifter - SHIFTREY //[m
+ //Else if LOOP, 0-5-0//[m
+[31m-let g = 0;[m
+[31m-function shiftery() {[m
+[32m+[m[32mconst SC={'key':'notrunning',[m[41m[m
+[32m+[m[32m            'Loop': 0}[m[41m[m
+[32m+[m[41m [m
+[32m+[m[41m[m
+[32m+[m[32mfunction shifteryCount(){[m[41m[m
+[32m+[m[32mif (SC.key=='running') return;[m[41m[m
+[32m+[m[32m    SC.key='running';[m[41m[m
+[32m+[m[32m    const x=SC.Loop;[m[41m[m
+[32m+[m[32m    setTimeout(() => {[m[41m[m
+[32m+[m[32m        callshiftery();[m[41m[m
+[32m+[m[32m    if(!x<SC.Loop){SC.key='notrunning'[m[41m[m
+[32m+[m[32m        console.warn('Shift');[m[41m [m
+[32m+[m[32m        SC.Loop=0; callshiftery(1);  }[m[41m[m
+[32m+[m[32m    else { SC.key='Xnotrunning';[m[41m[m
+[32m+[m[32m     callshiftery(); }[m[41m[m
+[32m+[m[32m     console.log(SC.key);[m[41m[m
+[32m+[m[32m}, 5000);[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32mfunction callshiftery(n){[m[41m[m
+[32m+[m[32m    if(n)return shiftery();[m[41m[m
+[32m+[m[32m    setTimeout(() => {[m[41m[m
+[32m+[m[32m        shifteryCount();[m[41m[m
+[32m+[m[32m    }, 50);[m[41m[m
+[32m+[m[32m}[m[41m[m
+ [m
+[31m-var L = document.getElementById('boxmain');[m
+[32m+[m[32mfunction shiftery() {[m[41m[m
+ let palletes =[ [m
+[32m+[m[41m   [m
+     "linear-gradient( 40deg, #ddaadd, #11ffad)",[m
+     "linear-gradient( 240deg, #11aa55, #29ace0)",[m
+     "linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)",[m
+[36m@@ -397,12 +401,10 @@[m [mlet palletes =[[m
+     "repeating-conic-gradient(red 10%, yellow 20%)",                                                      [m
+     "repeating-radial-gradient( #0bd3d3, #f890e7, #ffffff, #d0d0d0, #000000)"[m
+ ][m
+[31m-[m
+[31m-    L.style.background = palletes[g];[m
+[31m-    g+=1;[m
+[31m-    console.log(' Shiftery changing backgrounds1');[m
+[31m-                                         [m
+[31m-if (g > 9) return g=0;[m
+[32m+[m[32mdocument.documentElement.style.setProperty('--BoxMain-Background', palletes[SC.Loop]);[m[41m[m
+[32m+[m[32mconsole.log(' Shiftery changing backgrounds to #:'+SC.Loop);[m[41m[m
+[32m+[m[32mSC.Loop++; callshiftery();[m[41m                                     [m
+[32m+[m[32mif (SC.Loop > 9) return SC.Loop=0;[m[41m[m
+    [m
+ [m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/i/BloodWeb5X6.png b/i/BloodWeb5X6.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6a6f7f9[m
+Binary files /dev/null and b/i/BloodWeb5X6.png differ
+[1mdiff --git a/i/BloodWebX2.png b/i/BloodWebX2.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c540c9c[m
+Binary files /dev/null and b/i/BloodWebX2.png differ
+[1mdiff --git a/i/BloodWebX4.png b/i/BloodWebX4.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6f69a12[m
+Binary files /dev/null and b/i/BloodWebX4.png differ
+[1mdiff --git "a/i/\342\202\277.png" "b/i/\342\202\277.png"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1b96ec9[m
+Binary files /dev/null and "b/i/\342\202\277.png" differ
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 394884d..8a7174d 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -6,14 +6,14 @@[m
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+     <title>Digital Business-Card</title>[m
+[31m-[m
+    <!-- [m
+        <link rel="stylesheet" type="text/css" href="https://raw.githack.com/The-Guy-With-the-Holes/BusinessCard/main/BCard.css">[m
+    [m
+     --> [m
+[31m-   <link rel="stylesheet" type="text/css" href="BCard.css">[m
+[32m+[m[32m    <link rel="stylesheet" href="BCard.css" type="text/css">[m
+     <link rel="stylesheet" href="Balls.css" type="text/css">[m
+[31m-[m
+[32m+[m[32m    <link rel="stylesheet" href="About.css" type="text/css">[m
+[32m+[m[32m    <script src="jquery-3.6.0.min.js"></script>[m[41m [m
+     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">[m
+     <link rel="preconnect" href="https://fonts.googleapis.com">[m
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>[m
+[36m@@ -26,20 +26,24 @@[m
+ </head>[m
+ [m
+ <body onclick="shiftery()">[m
+[31m-        <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>[m
+[32m+[m[32m     <!--   <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>[m
+         <p id="BarH" style="height:min-content; " hidden> I am here</p>[m
+[31m-    [m
+[32m+[m[32m     -->[m
+ <div value="0" id="boxmain" class="box-main">[m
+[31m-    <button id="flipbutton" onclick="flip('about')"><p style="transform: scale(2);"><<</p></button>[m
+[31m-    <header>[m
+[32m+[m[41m   [m
+[32m+[m[32m    <header class="box-grid" onclick="changeColor('h1')">[m
+         <h1><u>J</u><strong>ack Ewers</strong>,<br> Digital Business-Card </h1> [m
+         <h2> Every Body has a <strong onmouseenter="settext('h2')">Vision</strong>, lets work on ours  [m
+             </h2>[m
+[31m-    </header>[m
+[32m+[m
+[32m+[m[32m    </header>[m[41m [m
+[32m+[m[32m    <span class="box-grid" id="Mainimg">[m
+[32m+[m[32m    <button id="flipbutton" onclick="flip('about')"><p style="transform: scale(2);"><<</p></button>[m
+     <!-- Profile image && text box-->[m
+[31m-    <img onclick="Profile()" onmouseleave="mainimgRotate()" id="locko" class="mainx" />[m
+[32m+[m[32m    <img  onmouseenter="mainimgRotate()" id="locko" class="mainx" />[m
+[32m+[m[32m    </span>[m
+     <div class="ttest" style="display: none ;">[m
+[31m-        <progress id="Probar" value="0" min="0" max="100" hidden></progress>[m
+[32m+[m[41m      [m
+             <br>[m
+             <div class="textbox" onmouseenter="document.getElementById('About').style.opacity=1;"[m
+                 onmouseleave="document.getElementById('About').style.opacity=0;">[m
+[36m@@ -50,7 +54,7 @@[m
+         </div>[m
+ [m
+         <!--- UpperBox == NAMES ( GIT , StackOverflow, )-->[m
+[31m-        <div id="IconBox">[m
+[32m+[m[32m        <div id="IconBox" class="box-grid">[m
+             <span class="Boxes upper" onmouseleave="resetbox()">[m
+ [m
+                 <div class="Rotern ballsy "><a href="https://github.com/Blood-web" target="_blank">[m
+[36m@@ -73,7 +77,7 @@[m
+                         <img class="balls" id="Pint" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div href="#" class="ballsy Rotern"> <a target="_blank">[m
+[32m+[m[32m                <div  class="ballsy Rotern"> <a href="/Certificates/index.htm" target="_blank">[m
+                         <img class="balls" id="Certs" /> </a>[m
+                 </div>[m
+                 <div id="HT" class="ballsy Rotern"> <a target="_blank">[m
+[36m@@ -90,100 +94,90 @@[m
+                         <img id="Dhands" class="balls" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div class="ballsx Rotern"> <a onmouseenter="Twit()" href="Https://www.twitter.com/Jack_S_Ewers"[m
+[32m+[m[32m                <div class="ballsx Rotern"> <a  href="Https://www.twitter.com/Jack_S_Ewers"[m
+                         target="_blank">[m
+                         <img id="Twit" class="balls" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div class="ballsx Rotern"> <a onmouseenter="Fb()" href="https://www.facebook.com/BloodWorks.Jack/"[m
+[32m+[m[32m                <div class="ballsx Rotern"> <a  href="https://www.facebook.com/BloodWorks.Jack/"[m
+                         target="_blank">[m
+                         <img id="Fb" class="balls" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div class="ballsx Rotern"> <a onmouseenter="Igg()" href="https://instagram.com/the_guy_with_the_holes"[m
+[32m+[m[32m                <div class="ballsx Rotern"> <a  href="https://instagram.com/the_guy_with_the_holes"[m
+                         target="_blank">[m
+                         <img id="Igg" class="balls" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div class="ballsx Rotern"> <a onmouseenter="Tik()" href="tiktok.com" target="_blank">[m
+[32m+[m[32m                <div class="ballsx Rotern"> <a  href="tiktok.com" target="_blank">[m
+                         <img class="balls" id="Tik" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div href="Whats" class="ballsx Rotern"> <a onmouseenter="Duo()" target="_blank">[m
+[32m+[m[32m                <div href="Whats" class="ballsx Rotern"> <a  target="_blank">[m
+                         <img id="Duo" class="balls" /> </a>[m
+                 </div>[m
+ [m
+[31m-                <div href="www.google.com" class="ballsy Rotern"> <a onmouseenter="Mail()" target="_blank">[m
+[32m+[m[32m                <div href="www.google.com" class="ballsy Rotern"> <a target="_blank">[m
+                         <img id="Mail" class="balls" /> </a>[m
+                 </div>[m
+                 </a>[m
+             </span>[m
+         </div>[m
+[32m+[m[32m    <button id="ExtendButton" onclick="extendProfile()">[m[41m [m
+[32m+[m[32m        <b>&#8595;</b>[m[41m [m
+[32m+[m[32m    </button>[m
+[32m+[m[32m</div>[m
+[32m+[m[32m<div id="hiden"  class="box-main" style="display: none; text-align: center;">[m
+ [m
+[31m-    </div>[m
+[31m-     <div id="hiden"  class="box-main">[m
+[31m-[m
+[31m-        <button onclick="flip()">&#10594;</button>[m
+[32m+[m[32m        <button onclick="flip('main')">&#10594;</button>[m
+         <h4> About me</h4>    [m
+         <p id="about"> Hi there! my name is jack,[m
+         <br>[m
+             I was born in australia, i have interests in coding, business management, investing and just[m
+[31m-            general life fufilment (whatever that means). I constantly seek to educate myself, the pen is soo [m
+[31m-            much mightier than the sword. We can solve the worlds problems together![m
+[31m-            [m
+[31m-            My general Philosophy is to try everything once, how do we know what will suck if we don't test it?[m
+[31m-            Infact, that's kind of the basis for scientific study. There are no wrong answers as long[m
+[31m-            as you're asking the right questions. Once you know that, determining outcome becomes far easier.[m
+[31m-[m
+[31m-            I'm Generally a well organised person (dont look at the back end of this DOM lol)[m
+[31m-            I owe my organisation to the books i read/write, --List--[m
+[31m-            Including a daily journal Discussing personal productivity. [m
+[31m-[m
+[32m+[m[32m            general life fufilment (whatever that means). I constantly seek to educate myself,[m
+[32m+[m[32m</p>[m
+             [m
+[31m-[m
+[31m-            My current projects:: currently i am trying to[m
+[31m-            <ls>[m
+[31m-                <ul>3D</ul>[m
+[31m-                <ul> Technological Design, Advancing (HTML,CSS,JS,PY,KOT,KALI,PHP) knowledges</ul>[m
+[31m-                <ul>Advancing my German(Deutsch) to B2 grade(Job Ready)</ul>[m
+[31m-                <ul>Avancing my Cantones( ) to A2 grade (Conversational) </ul>[m
+[31m-            </ls>[m
+[31m-            My hobbies :[m
+[31m-            <ls>[m
+[31m-                <ul>Body-Modification</ul>[m
+[31m-                <ul>Coding </ul>[m
+[31m-                <ul>Making music</ul>[m
+[31m-                <ul>Workouts </ul>[m
+[31m-                <uL>Discussing Scientific and or Conspiracy Theories, generalisational Philosophy </uL>[m
+[31m-                <ul>Sports... i guess</ul>[m
+[31m-            </ls>[m
+[31m-            My Passions:[m
+[31m-            <ls>[m
+[31m-                <ul>Workng towards equal rights and diversity for all</ul>[m
+[31m-                <ul>Building fundamental tools not only relative to the sciences,[m
+[31m-                <br>[m
+[31m-                    but with backing in general populous use.[m
+[32m+[m[32m    <div class="projects">[m
+[32m+[m[32m                <ul ><label>Current projects::</label>[m
+[32m+[m[32m                    <li>3D</li>[m
+[32m+[m[32m                    <li> Code (HTML CSS JS TS PY B.A.S.H. KALI Docker)</li>[m
+[32m+[m[32m                    <li>Advancing my Deutsch Speaking skills</li>[m
+                 </ul>[m
+[31m-                <ul>Advocating for both gay and transgender fair treatment</ul>[m
+[31m-                <ul>Reducing carbon footprint and eco consumption from daily activities</ul>[m
+[31m-                <ul>Fighting for data protection & Decentralised Net advancment</ul>[m
+[31m-            </ls>[m
+[31m-            </p>[m
+[31m-[m
+[31m-        <div class="PictureBox">[m
+[32m+[m[41m            [m
+[32m+[m[32m     </div>[m[41m       [m
+[32m+[m[32m     <div class="projects">[m[41m    [m
+[32m+[m[32m           <ul> <label>My hobbies : </label>[m
+[32m+[m[32m                <li>Body-Modification</li>[m
+[32m+[m[32m                <li>Coding </li>[m
+[32m+[m[32m                <li>Making music</li>[m
+[32m+[m[32m                <li>Working Out </li>[m
+[32m+[m[32m            </ul>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m        <div class="projects">[m[41m     [m
+[32m+[m[32m            <ul> <label>  My Passions: </label>[m
+[32m+[m[32m                <li>Workng towards equal rights and diversity for all</li>[m
+[32m+[m[32m                <li></li>[m
+[32m+[m[32m                <li>Reducing carbon footprint and eco consumption </li>[m
+[32m+[m[32m                <li>Fighting for data protection</li>[m
+[32m+[m[32m            </ul>[m
+[32m+[m[32m    </div>[m[41m      [m
+[32m+[m[32m</div>[m
+[32m+[m[32m<div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >[m
+[32m+[m[32m        <div class="PictureBox" style="display: none;">[m
+             <img class="picz" alt="Hex generator" src="../../Pictures/Data/Screenshot_2021-09-15-16-26-23.jpg" />[m
+             <img class="picz" alt="Dweb" src="../../Pictures/Data/Dweb.png" />[m
+             <img class="picz" alt="3d printed" src="../../Pictures/PUFF/hell.png">[m
+             <img src="" alt="">[m
+         </div>[m
+     </div>[m
+[32m+[m
+ </div> [m
+ [m
+[31m-    <footer > <form >[m
+[31m-        <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙">[m
+[32m+[m[32m<footer >[m[41m [m
+[32m+[m[32m <form id="ReviewForm" onsubmit="">[m
+[32m+[m[32m        <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙" />[m
+             <textarea cols="30" rows="3" placeholder="...And a comment" name="ReviewInput" id="ReviewInput" ></textarea>[m
+[31m-        <button onclick="submitName(); submit();" type="submit">Submit</button>[m
+[31m-        </form>[m
+[32m+[m[32m        <p onclick="submitName()">💖Send it💖</p>[m
+     </footer>[m
+  [m
+ <span id="DeveloperArea">[m
+[36m@@ -211,12 +205,18 @@[m
+             <button id="scale"><p id="proT">jsoo</p></button>[m
+         </a>[m
+ </span>[m
+[32m+[m[32m<script type="text/JavaScript">[m
+[32m+[m[32m    function submitForm(event){[m
+[32m+[m[32m      event.preventDefault();[m
+[32m+[m[32m      window.history.back();[m
+[32m+[m[32m    }[m
+[32m+[m[32m  </script>[m
+ <script type="text/javascript" src="popup.js"></script>[m
+ <script type="text/javascript" src="timer.js"></script>[m
+ <script src="Bcard.js" type="text/javascript"></script>[m
+[32m+[m[41m  [m
+[32m+[m[32m</body>[m
+    <!--[m
+ <script type="text/javascript" src="https://raw.githack.com/The-Guy-With-the-Holes/BusinessCard/main/Bcard.js"></script>[m
+[31m-   -->    [m
+[31m-</body>[m
+[31m-[m
+[32m+[m[32m   -->[m[41m  [m
+ </html>[m
+\ No newline at end of file[m
+[1mdiff --git a/popup.js b/popup.js[m
+[1mindex 75dbf05..6cdd751 100644[m
+[1m--- a/popup.js[m
+[1m+++ b/popup.js[m
+[36m@@ -1,12 +1,28 @@[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction Log(message, callLocation){[m
+[32m+[m[32m  if(!message || !callLocation){return alert('Missing message || CallLocation')}[m
+[32m+[m[32m  console.log(message+':\n Caller:'+callLocation);[m
+[32m+[m[32m}[m
+[32m+[m
+ //document.querySelector("body").style.display="none";[m
+[31m-popUp('Test');[m
+[31m-function popUp( Header){[m
+[32m+[m[32m//popUp('💖Thankyou💖 for Leaving a review!!', 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');[m
+[32m+[m[32mfunction popUp( Header, message){[m
+[32m+[m
+     if(!Header){return console.error('PopUp needs header');}[m
+[31m-    [m
+[31m-    let text = document.createTextNode( Header);[m
+[31m-    var DIV = document.createElement('div');[m
+[31m-    DIV.appendChild(text);[m
+[31m-   setAttributes(DIV,{"name": "PopUP", "style": "position:absolute; height:10vh; backGround-Color:green; text-align:center; font-Size:10vmin;"} )      [m
+[32m+[m[32m    if(!message){message="Placeholder Message"}[m
+[32m+[m[32m    let text = document.createTextNode(Header); let DIV = document.createElement('div');[m
+[32m+[m[32m    let p = document.createElement('P'); let PopUpMessage= document.createTextNode(message);[m
+[32m+[m[41m  [m
+[32m+[m[32m    DIV.appendChild(text); DIV.appendChild((document.createElement('br')));[m[41m  [m
+[32m+[m[32m    p.appendChild(PopUpMessage); DIV.appendChild(p);[m
+[32m+[m[32m    setAttributes([m
+[32m+[m[32m      DIV,{[m
+[32m+[m[32m      "name": "PopUP",[m[41m [m
+[32m+[m[32m      "style":"margin:auto;position:absolute;top:0;left:0;right:0;margin-top:1vh;text-align:center;"+[m
+[32m+[m[32m      "height:min-content; "+[m
+[32m+[m[32m      "max-width:80vw; width:80%; backGround-Color:green;  font-Size:10vmin;"+[m
+[32m+[m[32m      "border:2vmin double dodgerblue;"} )[m[41m      [m
+     document.body.appendChild(DIV);[m
+ } [m
+ function setAttributes(el, attrs) {[m

@@ -1,5 +1,9 @@
 :root{
+    --BoxMain-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
     --Mainro:180deg;
+    --Main-img1:url(i/Profile.jpg);
+    --Main-img2:url(i/profile2.jpg);
+    --Main-BTC:url(i/₿.png);
     --rotation-direction:360deg;
     --icon-background:
         20deg,
@@ -12,14 +16,11 @@
 /* Profile */
 .mainx {
     cursor: move;
-    position: absolute;
-   right: 0;
-    top: 0;
+
     height: 24vmin;
     width: 24vmin;
     margin-top: 0.4vw;
-    margin-right: 1vw;
-    margin: 2vmax;
+    margin-right: 2vw;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 50%;
     background:  linear-gradient(
@@ -52,18 +53,18 @@
     100%{background-image: url(i/profile2.jpg) ;}
 }
 
-/* Icon Boxes */
+/* Icon BoxesC :\Users\JackC\BusinessCard\i\₿.png */
 #IconBox {
-   position: absolute;
-   bottom: 0; 
-   padding: 1vw;
-   padding-bottom: 1vmax ;
+position: absolute;
+bottom: 0;
+padding: 1%;
 }
-.Boxes{
-    display: block;
+.Boxes{  
+    display: inline-block;
+    min-width: max-content;
     margin: 1%;
     padding: 0.5%;
-    width: max-content;
+  
 }
 .lower {
     background-color: #ccffff55;
@@ -88,6 +89,8 @@
     position: relative;
     height: 12vmin;
     width: 11vmin; 
+    max-height: 10vw;
+    max-width: 10vw;
     border-radius: 50%;
     background:  linear-gradient(
         35deg,
@@ -135,3 +138,21 @@ p::after {
     background: linear-gradient(var(--icon-background)); 
     }
 }
+
+/*Rotatered??*/
+#HT{opacity: 0;}
+#Bweb {background-image: url(i/Bloodweb/BloodWeb.png); }
+#HB{opacity: 0;}
+#Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }
+#Duo {background-image: url(i/DL.png);}    
+#Fb {background-image: url(i/FB.png); }
+#Git {background-image: url(i/git.png);}
+#Stack {background-image: url(i/Stack.png); background-color: white;}
+#Redd {background-image: url(i/redit.png); }
+#LinkD {background-image: url(i/linkd.png); background-color: #00aaff;}
+#Pint {background-image: url(i/Pint.png);  background-color: red ;}
+#Certs{background-image: url(i/Cert.png); background-color:gold ;}
+#Igg { background-image: url(i/Insta.jfif);}
+#Mail {background-image: url(i/Mail.png); }
+#Tik {background-image: url(i/tik.png);}
+#Twit {background-image: url(i/TWITTER\ CC.png); } 

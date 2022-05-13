@@ -1,12 +1,15 @@
 //###################################//
+let bitcoinRun=false; let MainRotations=0;
 
-function submitName(){
 
-    let name = document.getElementById('myinput').innerText;
 
-    if(!name){return console.log('critical name error');
-    }
+function submitName(){ 
+let name = document.getElementById('myinput').innerText;
+  if(!name){return console.log('critical name error');}
     if(name == "DoyoufeelitMRKrabs"){ return uLDevMode();}
+popUp('💖Thankyou💖 '+name+' for Leaving a review!!', 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');
+
+  
 }
 
 function uLDevMode(){
@@ -114,14 +117,27 @@ function rotate() {
     console.log('parse3-Crypt');   
    }
 }
-// Creating canvas over Bcard//
-function Canvas() {
-    var x = document.createElement("CANVAS");
-    var ctx = x.getContext("2d");
-    ctx.fillStyle = "#FF0000";
-    ctx.fillRect(20, 20, 50, 200);
-    document.body.appendChild(x);
-  }
+
+
+function countforbitcoin(){
+
+if( bitcoinRun=true)return Log('BTC already running', 'Ko');
+    bitcoinRun=true;
+
+   setTimeout(() => { 
+    
+    let img = document.getElementById("locko");  
+    let x =img.backgroundImage;
+    if(img.style.backgroundImage){
+        x='url(i/₿.png)';
+        console.warn('Profile Image has been helf for five seconds')
+    }
+    else {  
+        Log(('Background not held for five second'+x),'count for ₿');
+        }
+return bitcoinRun=false;  }, 5000);
+
+}
 
 // Javascript for business card//
 // Compile me nice please <3 //
@@ -134,10 +150,11 @@ function flip(page){
     TB.style.display = "" ;
     Main.style.display = "none" ;
     }
-    else {
+    if(page=="main") {
         TB.style.display = "none" ;
         Main.style.display = "" ;
     }
+    if (page=="about:images"){extendProfile('images');}
 }
 
 function randomNum(min,max){
@@ -145,38 +162,45 @@ function randomNum(min,max){
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-function generateHex(hexLength,hexWidth){
+function generateHex(hexWidth,hexLength){
 let hexArray= "0123456789abcdef";  
-let i =0;  
-if(!hexLength || !hexWidth){hexLength = 8; hexWidth=4; console.warn('Use Hex length and width when generating hex ');}
-let hex = [];   
+let hexResult=[[],[],[]];  
+if(!hexLength || !hexWidth){hexLength = 8; hexWidth=1; console.warn('Use Hex length and width when generating hex ');}
+ let hex;   
 for(let i = 0; i< hexWidth; i++){
-   hex.push(randomNum(0,9)); 
-
+  hex = []   ;
+        hex.push(randomNum(0,9)); 
    for(let x=1; x < (hexLength); x++){
-   let num= hexArray[(randomNum(0,17))];
-   hex[i].push(num);
-    }console.log([hex]);
-    alert('First Hex:'+hex[0]+' Final hex:'+hex[hex.length-1]+"\n:HEX:"+hex);
-}return [hex]
+    let Res= hexArray[(randomNum(0,16))];
+    hex.push(Res);
+   
+    }
+   hexResult = hex.join('')
+
+   }
+   
+console.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.length-1]+":  Length: "+[(hexResult.length)]
++"\n:last HASH: "+hex.join('')+'\n::>Hex Result<:: '+hexResult);
+
+return [hexResult]
 }
 
 /*alert(array)
 return RandomHex = array; */
 
-let RHex = new generateHex();
 
-function sorp(){
-    let x =RandomHex.next();
-    console.warn(x+":"+[RandomHex.next()]);
+// Extendor Button function
+ let Page2 = document.getElementById('secondBox');
+   
+function extendProfile(){
+    Page2.style.display="";
+
 }
-//  COMPLETE me, func for all div balls calling to console   //
-var namo = 
-function (){ namo +'has been called '};
-
-    if (Boolean = true) {
-    console.log(Boolean) 
-    }
+function closeExtProfile(){
+    Page2.style.display="none";
+    document.getElementById('')
+ 
+}
    
 //  IMG main on hover func//
 
@@ -186,69 +210,25 @@ for(let i=0;i<buttons.length;i++){
 }
 function IconHovered(e){
     if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
-    let id = e.target.id;
-    let classi= document.querySelectorAll('.Rotern >#'+id);
-   let Background= ('360deg,'+'#'+([RandomHex.next()])+',blue' );
-    console.log(id+' '+[classi]);
+    let id = e.target.id; 
+    let Hex =  generateHex(2,8); 
+  //  let classi= document.querySelectorAll('.Rotern >#'+id);
+    let colorarray=  ('#'+Hex+',')+('#'+Hex+',')+('#'+Hex+',');
+    console.warn(colorarray)
+    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');
     if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
     else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
+    let Background= ('360deg,'+colorarray+'blue' ); 
     console.warn(Background);
-    document.documentElement.style.setProperty('--icon-background', background ); 
+    document.documentElement.style.setProperty('--icon-background', Background ); 
    
 }
 
-
-let MainRotations=0;
 function mainimgRotate(){
-    MainRotations++;
+    MainRotations++;countforbitcoin(1);
     document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));
+    
 }
-/*function DevilOut(){
-    document.getElementById('locko').src="i/p1.jpg";
-    console.log('IMG main has been hovered');
-}*/
-
-
-
-// Shiftery ; Shifts profile images, with Dout, reverts and repeats//
-function Profile() {
-var locko = document.getElementById('locko');
-var bard = document.getElementById('Probar');
-    if (bard.value == 0) {
-        locko.src="i/pumpkin.png";
-        console.log('Shift1');
-        bard.value = 1;
-    }
-    else if (bard.value == 1) {
-        locko.src="i/penguino wmark.png";
-        console.log('Shift1');
-        bard.value = 2;
-    }
-    else if (bard.value == 2) {
-        locko.src="i/organs.jfif";
-        console.log('Shift1');
-        bard.value = 3;
-    }
-    else if (bard.value == 3) {
-        locko.src= "i/nuke.jfif ";
-        
-        console.log('Shift1');
-        bard.valued =0;
-    }
-}
-
-//  Test logger for undefined values//
-function test(t){
-
-if (t === undefined) {
-    return 'Undefined value!';
-  }
-  return t;
-}
-var testo = ('consolelogger')
-let aa = testo;
-
-
 
 
 
@@ -378,14 +358,38 @@ function myTimer() {
     shiftery();
     console.log('4S - Shiftrey');
 }*/
-
+ let BackgroundZ = document.documentElement.style.getPropertyValue('--BoxMain-Background');
+   
 // Background shifter - SHIFTREY //
 //Else if LOOP, 0-5-0//
-let g = 0;
-function shiftery() {
+const SC={'key':'notrunning',
+            'Loop': 0}
+ 
 
-var L = document.getElementById('boxmain');
+function shifteryCount(){
+if (SC.key=='running') return;
+    SC.key='running';
+    const x=SC.Loop;
+    setTimeout(() => {
+        callshiftery();
+    if(!x<SC.Loop){SC.key='notrunning'
+        console.warn('Shift'); 
+        SC.Loop=0; callshiftery(1);  }
+    else { SC.key='Xnotrunning';
+     callshiftery(); }
+     console.log(SC.key);
+}, 5000);
+}
+function callshiftery(n){
+    if(n)return shiftery();
+    setTimeout(() => {
+        shifteryCount();
+    }, 50);
+}
+
+function shiftery() {
 let palletes =[ 
+   
     "linear-gradient( 40deg, #ddaadd, #11ffad)",
     "linear-gradient( 240deg, #11aa55, #29ace0)",
     "linear-gradient( 120deg, #2acaea, #ffff33, #ff71ce, #01cdfe, #05ffa1, #b967ff, #fffb96)",
@@ -397,12 +401,10 @@ let palletes =[
     "repeating-conic-gradient(red 10%, yellow 20%)",                                                      
     "repeating-radial-gradient( #0bd3d3, #f890e7, #ffffff, #d0d0d0, #000000)"
 ]
-
-    L.style.background = palletes[g];
-    g+=1;
-    console.log(' Shiftery changing backgrounds1');
-                                         
-if (g > 9) return g=0;
+document.documentElement.style.setProperty('--BoxMain-Background', palletes[SC.Loop]);
+console.log(' Shiftery changing backgrounds to #:'+SC.Loop);
+SC.Loop++; callshiftery();                                     
+if (SC.Loop > 9) return SC.Loop=0;
    
 
 }

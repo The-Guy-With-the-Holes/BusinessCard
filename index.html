@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Business-Card</title>
-
    <!-- 
        <link rel="stylesheet" type="text/css" href="https://raw.githack.com/The-Guy-With-the-Holes/BusinessCard/main/BCard.css">
    
     --> 
-   <link rel="stylesheet" type="text/css" href="BCard.css">
+    <link rel="stylesheet" href="BCard.css" type="text/css">
     <link rel="stylesheet" href="Balls.css" type="text/css">
-
+    <link rel="stylesheet" href="About.css" type="text/css">
+    <script src="jquery-3.6.0.min.js"></script> 
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,20 +26,24 @@
 </head>
 
 <body onclick="shiftery()">
-        <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>
+     <!--   <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>
         <p id="BarH" style="height:min-content; " hidden> I am here</p>
-    
+     -->
 <div value="0" id="boxmain" class="box-main">
-    <button id="flipbutton" onclick="flip('about')"><p style="transform: scale(2);"><<</p></button>
-    <header>
+   
+    <header class="box-grid" onclick="changeColor('h1')">
         <h1><u>J</u><strong>ack Ewers</strong>,<br> Digital Business-Card </h1> 
         <h2> Every Body has a <strong onmouseenter="settext('h2')">Vision</strong>, lets work on ours  
             </h2>
-    </header>
+
+    </header> 
+    <span class="box-grid" id="Mainimg">
+    <button id="flipbutton" onclick="flip('about')"><p style="transform: scale(2);"><<</p></button>
     <!-- Profile image && text box-->
-    <img onclick="Profile()" onmouseleave="mainimgRotate()" id="locko" class="mainx" />
+    <img  onmouseenter="mainimgRotate()" id="locko" class="mainx" />
+    </span>
     <div class="ttest" style="display: none ;">
-        <progress id="Probar" value="0" min="0" max="100" hidden></progress>
+      
             <br>
             <div class="textbox" onmouseenter="document.getElementById('About').style.opacity=1;"
                 onmouseleave="document.getElementById('About').style.opacity=0;">
@@ -50,7 +54,7 @@
         </div>
 
         <!--- UpperBox == NAMES ( GIT , StackOverflow, )-->
-        <div id="IconBox">
+        <div id="IconBox" class="box-grid">
             <span class="Boxes upper" onmouseleave="resetbox()">
 
                 <div class="Rotern ballsy "><a href="https://github.com/Blood-web" target="_blank">
@@ -73,7 +77,7 @@
                         <img class="balls" id="Pint" /> </a>
                 </div>
 
-                <div href="#" class="ballsy Rotern"> <a target="_blank">
+                <div  class="ballsy Rotern"> <a href="/Certificates/index.htm" target="_blank">
                         <img class="balls" id="Certs" /> </a>
                 </div>
                 <div id="HT" class="ballsy Rotern"> <a target="_blank">
@@ -90,100 +94,90 @@
                         <img id="Dhands" class="balls" /> </a>
                 </div>
 
-                <div class="ballsx Rotern"> <a onmouseenter="Twit()" href="Https://www.twitter.com/Jack_S_Ewers"
+                <div class="ballsx Rotern"> <a  href="Https://www.twitter.com/Jack_S_Ewers"
                         target="_blank">
                         <img id="Twit" class="balls" /> </a>
                 </div>
 
-                <div class="ballsx Rotern"> <a onmouseenter="Fb()" href="https://www.facebook.com/BloodWorks.Jack/"
+                <div class="ballsx Rotern"> <a  href="https://www.facebook.com/BloodWorks.Jack/"
                         target="_blank">
                         <img id="Fb" class="balls" /> </a>
                 </div>
 
-                <div class="ballsx Rotern"> <a onmouseenter="Igg()" href="https://instagram.com/the_guy_with_the_holes"
+                <div class="ballsx Rotern"> <a  href="https://instagram.com/the_guy_with_the_holes"
                         target="_blank">
                         <img id="Igg" class="balls" /> </a>
                 </div>
 
-                <div class="ballsx Rotern"> <a onmouseenter="Tik()" href="tiktok.com" target="_blank">
+                <div class="ballsx Rotern"> <a  href="tiktok.com" target="_blank">
                         <img class="balls" id="Tik" /> </a>
                 </div>
 
-                <div href="Whats" class="ballsx Rotern"> <a onmouseenter="Duo()" target="_blank">
+                <div href="Whats" class="ballsx Rotern"> <a  target="_blank">
                         <img id="Duo" class="balls" /> </a>
                 </div>
 
-                <div href="www.google.com" class="ballsy Rotern"> <a onmouseenter="Mail()" target="_blank">
+                <div href="www.google.com" class="ballsy Rotern"> <a target="_blank">
                         <img id="Mail" class="balls" /> </a>
                 </div>
                 </a>
             </span>
         </div>
+    <button id="ExtendButton" onclick="extendProfile()"> 
+        <b>&#8595;</b> 
+    </button>
+</div>
+<div id="hiden"  class="box-main" style="display: none; text-align: center;">
 
-    </div>
-     <div id="hiden"  class="box-main">
-
-        <button onclick="flip()">&#10594;</button>
+        <button onclick="flip('main')">&#10594;</button>
         <h4> About me</h4>    
         <p id="about"> Hi there! my name is jack,
         <br>
             I was born in australia, i have interests in coding, business management, investing and just
-            general life fufilment (whatever that means). I constantly seek to educate myself, the pen is soo 
-            much mightier than the sword. We can solve the worlds problems together!
+            general life fufilment (whatever that means). I constantly seek to educate myself,
+</p>
             
-            My general Philosophy is to try everything once, how do we know what will suck if we don't test it?
-            Infact, that's kind of the basis for scientific study. There are no wrong answers as long
-            as you're asking the right questions. Once you know that, determining outcome becomes far easier.
-
-            I'm Generally a well organised person (dont look at the back end of this DOM lol)
-            I owe my organisation to the books i read/write, --List--
-            Including a daily journal Discussing personal productivity. 
-
-            
-
-            My current projects:: currently i am trying to
-            <ls>
-                <ul>3D</ul>
-                <ul> Technological Design, Advancing (HTML,CSS,JS,PY,KOT,KALI,PHP) knowledges</ul>
-                <ul>Advancing my German(Deutsch) to B2 grade(Job Ready)</ul>
-                <ul>Avancing my Cantones( ) to A2 grade (Conversational) </ul>
-            </ls>
-            My hobbies :
-            <ls>
-                <ul>Body-Modification</ul>
-                <ul>Coding </ul>
-                <ul>Making music</ul>
-                <ul>Workouts </ul>
-                <uL>Discussing Scientific and or Conspiracy Theories, generalisational Philosophy </uL>
-                <ul>Sports... i guess</ul>
-            </ls>
-            My Passions:
-            <ls>
-                <ul>Workng towards equal rights and diversity for all</ul>
-                <ul>Building fundamental tools not only relative to the sciences,
-                <br>
-                    but with backing in general populous use.
+    <div class="projects">
+                <ul ><label>Current projects::</label>
+                    <li>3D</li>
+                    <li> Code (HTML CSS JS TS PY B.A.S.H. KALI Docker)</li>
+                    <li>Advancing my Deutsch Speaking skills</li>
                 </ul>
-                <ul>Advocating for both gay and transgender fair treatment</ul>
-                <ul>Reducing carbon footprint and eco consumption from daily activities</ul>
-                <ul>Fighting for data protection & Decentralised Net advancment</ul>
-            </ls>
-            </p>
-
-        <div class="PictureBox">
+            
+     </div>       
+     <div class="projects">    
+           <ul> <label>My hobbies : </label>
+                <li>Body-Modification</li>
+                <li>Coding </li>
+                <li>Making music</li>
+                <li>Working Out </li>
+            </ul>
+    </div>
+        <div class="projects">     
+            <ul> <label>  My Passions: </label>
+                <li>Workng towards equal rights and diversity for all</li>
+                <li></li>
+                <li>Reducing carbon footprint and eco consumption </li>
+                <li>Fighting for data protection</li>
+            </ul>
+    </div>      
+</div>
+<div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >
+        <div class="PictureBox" style="display: none;">
             <img class="picz" alt="Hex generator" src="../../Pictures/Data/Screenshot_2021-09-15-16-26-23.jpg" />
             <img class="picz" alt="Dweb" src="../../Pictures/Data/Dweb.png" />
             <img class="picz" alt="3d printed" src="../../Pictures/PUFF/hell.png">
             <img src="" alt="">
         </div>
     </div>
+
 </div> 
 
-    <footer > <form >
-        <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙">
+<footer > 
+ <form id="ReviewForm" onsubmit="">
+        <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙" />
             <textarea cols="30" rows="3" placeholder="...And a comment" name="ReviewInput" id="ReviewInput" ></textarea>
-        <button onclick="submitName(); submit();" type="submit">Submit</button>
-        </form>
+        <p onclick="submitName()">💖Send it💖</p>
     </footer>
  
 <span id="DeveloperArea">
@@ -211,12 +205,18 @@
             <button id="scale"><p id="proT">jsoo</p></button>
         </a>
 </span>
+<script type="text/JavaScript">
+    function submitForm(event){
+      event.preventDefault();
+      window.history.back();
+    }
+  </script>
 <script type="text/javascript" src="popup.js"></script>
 <script type="text/javascript" src="timer.js"></script>
 <script src="Bcard.js" type="text/javascript"></script>
+  
+</body>
    <!--
 <script type="text/javascript" src="https://raw.githack.com/The-Guy-With-the-Holes/BusinessCard/main/Bcard.js"></script>
-   -->    
-</body>
-
+   -->  
 </html>
