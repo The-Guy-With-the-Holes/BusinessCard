@@ -187,19 +187,28 @@ return [hexResult]
 
 /*alert(array)
 return RandomHex = array; */
-
+const extendButton = document.getElementById('ExtendButton');
 
 // Extendor Button function
- let Page2 = document.getElementById('secondBox');
-   
-function extendProfile(){
-    Page2.style.display="";
 
+function extendProfile(name){
+    if (name==undefined) {name ="Placeholder";}
+Page2.style.display=""; extendButton.style.transform="rotate(180deg)";
+let x = (document.createTextNode(name));
+/*P.appendchild(x);
+
+*/
+
+
+
+
+Page2.appendChild(DIV.appendChild(H5.appendChild(x)));
+Page2.appendChild(IMG);
 }
 function closeExtProfile(){
     Page2.style.display="none";
-    document.getElementById('')
- 
+    Page2.innerHTML="";
+    extendButton.style.transform="rotate(0deg)"; 
 }
    
 //  IMG main on hover func//

@@ -7,8 +7,9 @@ const Blocks = {
 
     'Program Hub':
     ['Fundamentals','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
-    'Javascript Advanced','Node-JS','Meteor-JS','Jquery','React Native',
-    'GitHub','Python','SQL','SEO','Ethical Hacking','PHP', 'Make your own CryptoCurrency'
+    'Javascript Advanced','Node-JS','Meteor-JS','Jquery','React Native', 'WordPress',
+    'Growth Hacking','GitHub','Python','SQL','SEO','Ethical Hacking','PHP', 
+    'Make your own CryptoCurrency', 'Solidity'
     ],
 
     'Solo Learn':
@@ -17,9 +18,9 @@ const Blocks = {
      'Python Core','SQL','C'
     ],
 
-    'Grass hopper':
+    'Grasshopper':
     ['Coding Fundamentals-I','Coding Fundamentals-II', 'Intro to Interviewing',
-     ''
+     'Array Methods'
     ],
 
     'Ethical Hacker': //Completed
