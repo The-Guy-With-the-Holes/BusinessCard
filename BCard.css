@@ -31,25 +31,9 @@ p {
     grid-template-rows:40% 60% ;
     grid-template-areas: 
     "header header main"
-   " Box Box .";
-  
-   
-}
-#ExtendButton { background-color: #11ffad99;
-    -webkit-text-stroke: 0.1vmin blue; border: 1vmin double gray;
-    border-radius: 50%; text-align: center;
-    position: absolute; right: 0; bottom: 0; margin-bottom: 4%; margin-right: 2%;
-    max-width: 10vw; max-height: 10vw; height: 20%; width: 20%;
+   " Box Box .";   
 }
 
-#ExtendButton  > b {
-    margin-top: 0;
-    background-color: #ffffff55;
-    border-radius: 20% ;
-    font-size: 5vmin;
-    font-style: italic;
-    font-weight: bolder;
-}
 header{
     grid-area: header;
     font-family: Lobster, monospace;
@@ -83,6 +67,15 @@ h2 {
 h2 >strong {
     color: #fff;
 }
+h2::after{
+    color: #aaaaff;
+    content: '💙 Together 💙';
+    background-color: #990099ff;
+    border-radius: 1% 30% 5% 25%;
+}
+h2>strong:hover{
+color: crimson ;
+}
 #flipbutton{
     
     position: absolute ; right: 0; top: 0; z-index: 2; height: 8vmin; width: 8vmin; border-radius: 10% 40% 10% 60% ;
@@ -105,6 +98,28 @@ h2 >strong {
     );    
     
 }
+
+#ExtendButton { background-color: hsla(159, 100%, 53%, 0.6);
+    -webkit-text-stroke: 0.1vmin blue; border: 1vmin double gray;
+    border-radius: 50%; text-align: center;
+    position: absolute; right: 0; bottom: 0; margin-bottom: 4%; margin-right: 2%;
+    max-width: 10vw; max-height: 10vw; height: 20%; width: 20%;
+}
+#ExtendButton:hover{
+    border: 1vmin double gold; color: goldenrod;
+    -webkit-text-stroke: 0.1vmin gold; 
+}
+#ExtendButton  > b {
+    margin-top: 0;
+    background-color: #ffffff55;
+    border-radius: 20% ;
+    font-size: 5vmin;
+    font-style: italic;
+    font-weight: bolder;
+}
+#ExtendButton > b:hover{
+    transform: translate(340deg);
+}
 #Mainimg{
     grid-area: main;
 }
@@ -126,13 +141,38 @@ canvas {
 }
 
 .PictureBox {
-    display: inline-block;
-    max-width: 1000px;   
+   position: absolute; text-align: center;
+   max-width:80%; height: 80%; bottom:0; 
+   left:0; right:0; transform: rotateX(180deg);
+    background-color: #11ffad;
+    padding-top: 3%; margin-bottom:1%;
 }
-.picz {
-    height: 100px;
-    width: 100px;
+h5 {
+    background-color: red;
+    width: 60%;
 }
+.PictureBoxImg {
+display:block;height:65%;width:50%;margin-top: 2%;
+    border: 1vmin solid gray;
+    animation-name: PBox ;
+    animation-fill-mode: fowards ;
+    animation-duration: 3s; background-color:white;
+}
+.PictureBox > button {
+    display:inline-block ;
+    width: 50%;
+}
+
+@keyframes PBox {
+    0%{ background-color: white;transform: rotateZ(720deg) rotateY(720deg) rotateX(720deg);}
+    50%{background-color: #888;
+            
+    }
+    70%{ background-color: #000;}
+    99%{background-color: crimson;}
+    100%{}
+}
+
 /* Box main area, this wraps the card, should probably be left alone */
 
 .ttest {
@@ -226,6 +266,8 @@ canvas {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   background:var(--BoxMain-Background) ;
 }
+
+
 
 footer {
     margin: 1%;

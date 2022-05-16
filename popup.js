@@ -7,26 +7,40 @@ function Log(message, callLocation){
 
 //document.querySelector("body").style.display="none";
 //popUp('💖Thankyou💖 for Leaving a review!!', 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');
-function popUp( Header, message){
+function popUp( Name, message){
 
-    if(!Header){return console.error('PopUp needs header');}
-    if(!message){message="Placeholder Message"}
-    let text = document.createTextNode(Header); let DIV = document.createElement('div');
-    let p = document.createElement('P'); let PopUpMessage= document.createTextNode(message);
-  
-    DIV.appendChild(text); DIV.appendChild((document.createElement('br')));  
-    p.appendChild(PopUpMessage); DIV.appendChild(p);
-    setAttributes(
+  if(!Name){return console.error('PopUp needs Name');}
+  if(!message){message="Placeholder Message"}
+  let text = document.createTextNode('for Leaving a review!!'); let DIV = document.createElement('div');
+  let p = document.createElement('P'); let PopUpMessage= document.createTextNode(message);
+  let button = document.createElement('button'); Name = Name.toUpperCase();
+
+  //Thanks!
+  DIV.appendChild((document.createTextNode('💖Thankyou💖'))); DIV.appendChild((document.createElement('br')));
+  DIV.appendChild((document.createTextNode(Name)));  DIV.appendChild((document.createElement('br')));
+  DIV.appendChild(text);   
+
+  p.appendChild(PopUpMessage); DIV.appendChild(p);
+  setAttributes(button,{"id":"ExitButton",
+  'onclick': 'closePopUP()',
+  'style':'position:absolute; right:0; top:0; height:10%; width:8%;'})
+  setAttributes(
       DIV,{
-      "name": "PopUP", 
+      "id": "PopUP", 
       "style":"margin:auto;position:absolute;top:0;left:0;right:0;margin-top:1vh;text-align:center;"+
       "height:min-content; "+
       "max-width:80vw; width:80%; backGround-Color:green;  font-Size:10vmin;"+
-      "border:2vmin double dodgerblue;"} )      
-    document.body.appendChild(DIV);
+      "border:2vmin double dodgerblue;"} )
+      DIV.appendChild(button);      
+  document.body.appendChild(DIV);
+  document.querySelector('footer').style.display="none";
 } 
 function setAttributes(el, attrs) {
         for(var key in attrs) {
           el.setAttribute(key, attrs[key]);
         }
       }
+
+function closePopUP(){
+document.getElementById('PopUP').remove();
+}

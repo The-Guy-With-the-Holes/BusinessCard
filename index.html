@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="BCard.css" type="text/css">
     <link rel="stylesheet" href="Balls.css" type="text/css">
     <link rel="stylesheet" href="About.css" type="text/css">
-    <script src="jquery-3.6.0.min.js"></script> 
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet" type="text/css" >
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet" type="text/css">
 
     <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
 </head>
@@ -32,7 +31,7 @@
 <div value="0" id="boxmain" class="box-main">
    
     <header class="box-grid" onclick="changeColor('h1')">
-        <h1><u>J</u><strong>ack Ewers</strong>,<br> Digital Business-Card </h1> 
+        <h1><u>J</u><strong>ack Ewers </strong>,<br> Digital Business-Card </h1> 
         <h2> Every Body has a <strong onmouseenter="settext('h2')">Vision</strong>, lets work on ours  
             </h2>
 
@@ -65,7 +64,7 @@
                         <img id="Stack" class="balls" /> </a>
                 </div>
 
-                <div class="ballsy Rotern"> <a href="www.reddit.com">
+                <div class="ballsy Rotern"> <a href="www.reddit.com" target="_blank">
                         <img class="balls" id="Redd" /> </a>
                 </div>
 
@@ -80,7 +79,7 @@
                 <div  class="ballsy Rotern"> <a href="Certificates/index.htm" target="_blank">
                         <img class="balls" id="Certs" /> </a>
                 </div>
-                <div id="HT" class="ballsy Rotern"> <a target="_blank">
+                <div id="HT" class="ballsy Rotern hiddenBall" > <a target="_blank">
                         <img class="balls" id="Bweb"  /> </a>
                 </div>
 
@@ -90,7 +89,7 @@
 
             <span class="Boxes lower">
 
-                <div id="HB" class="ballsy Rotern"> <a href="#" target="_blank">
+                <div id="HB" class="ballsy Rotern hiddenBall"> <a href="#" target="_blank">
                         <img id="Dhands" class="balls" /> </a>
                 </div>
 
@@ -127,25 +126,26 @@
         <b>&#8595;</b> 
     </button>
 </div>
+
 <div id="hiden"  class="box-main" style="display: none; text-align: center;">
 
         <button onclick="flip('main')">&#10594;</button>
         <h4> About me</h4>    
         <p id="about"> Hi there! my name is jack,
         <br>
-            I was born in australia, i have interests in coding, business management, investing and just
+            I was born & live in australia, my interests include coding, business management, investing and just
             general life fufilment (whatever that means). I constantly seek to educate myself,
 </p>
             
-    <div class="projects">
-                <ul ><label>Current projects::</label>
+    <div class="projects" id="projects-projects">
+                <ul ><label>Current projects:</label>
                     <li>3D</li>
                     <li> Code (HTML CSS JS TS PY B.A.S.H. KALI Docker)</li>
                     <li>Advancing my Deutsch Speaking skills</li>
                 </ul>
             
      </div>       
-     <div class="projects">    
+     <div class="projects" id="projects">    
            <ul> <label>My hobbies : </label>
                 <li>Body-Modification</li>
                 <li>Coding </li>
@@ -155,55 +155,28 @@
     </div>
         <div class="projects">     
             <ul> <label>  My Passions: </label>
-                <li>Workng towards equal rights and diversity for all</li>
-                <li></li>
+                <li>Advocating equal rights and diversity for all</li>
                 <li>Reducing carbon footprint and eco consumption </li>
                 <li>Fighting for data protection</li>
             </ul>
     </div>      
 </div>
-<div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >
-        <div class="PictureBox" style="display: none;">
-            <img class="picz" alt="Hex generator" src="../../Pictures/Data/Screenshot_2021-09-15-16-26-23.jpg" />
-            <img class="picz" alt="Dweb" src="../../Pictures/Data/Dweb.png" />
-            <img class="picz" alt="3d printed" src="../../Pictures/PUFF/hell.png">
-            <img src="" alt="">
-        </div>
-    </div>
 
-</div> 
+
+
+<div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >    
+</div>
+
+
 
 <footer > 
  <form id="ReviewForm" onsubmit="">
-        <input oninput="setCookie()" id="myinput" value="" placeholder="Leave Your Name 💙" />
+        <input oninput="setCookie()" id="myinput" placeholder="Leave Your Name 💙" />
             <textarea cols="30" rows="3" placeholder="...And a comment" name="ReviewInput" id="ReviewInput" ></textarea>
         <p onclick="submitName()">💖Send it💖</p>
     </footer>
  
-<span id="DeveloperArea">
-    <div id="cluster1">
-    <button id="Special0" onclick="allLinks()"><p>All links flip</p></button>
-    <button id="Special1" onclick="flip()"><p> Dbug Flip</p></button>
-    <button id="Special2" onclick="va()"><p> Test</p></button>
-    <button id="Special3" onclick="rotate()"><p>Link changer</p></button>
- <br>
-    <div id="Special4"> 
-        <img id="image-slide1">;
-            
-            <div id="span">
-                <button onclick="shifteryMast(x--);">&#10594;</button>
-                <a id="href-link1" href="https://wikipedia.org">wikipedia </a>                        
-                <button onclick="shifteryMast(x++);">&#10596;</button>
-            </div>
-                <progress id="prog-bar1" value="0" max="100" min="0" hidden></progress>
-            
-        </img>     
-    </div>
-    <br>
-   </div>
-        <a id="links" href="" target="_blank">
-            <button id="scale"><p id="proT">jsoo</p></button>
-        </a>
+
 </span>
 <script type="text/JavaScript">
     function submitForm(event){

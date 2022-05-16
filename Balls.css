@@ -78,13 +78,16 @@ padding: 1%;
 .Rotern{ display: inline-block;
     width: min-content;
     height: fit-content;
-    opacity: 0.5;
 }
 .Rotern > a {
     height: 100%;
     width: 100%;
 }
-.balls { 
+.balls:hover{
+    opacity: 1;
+}
+.balls {
+    opacity: 0.4; 
     display: inline-block;
     position: relative;
     height: 12vmin;
@@ -129,18 +132,22 @@ p::after {
         border-radius: 0%;  
         transform: scale(2) rotate(var(--rotation-direction));
     }
-    50%{transform: scale(2) ;opacity: 0.9;}
+    50%{transform: scale(2) ;}
     60%{}
     70%{}
     80%{}
     90%{border-radius: 5%;}
-    100%{ opacity: 1;  border-radius: 10%;
+    100%{   border-radius: 10%;
     background: linear-gradient(var(--icon-background)); 
     }
 }
 
 /*Rotatered??*/
-#HT{opacity: 0;}
+.hiddenBall {
+    cursor: progress;
+     user-select: none; opacity: 0; 
+}
+#HT{}
 #Bweb {background-image: url(i/Bloodweb/BloodWeb.png); }
 #HB{opacity: 0;}
 #Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }

@@ -9,7 +9,7 @@ const Blocks = {
     ['Fundamentals','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
     'Javascript Advanced','Node-JS','Meteor-JS','Jquery','React Native', 'WordPress',
     'Growth Hacking','GitHub','Python','SQL','SEO','Ethical Hacking','PHP', 
-    'Make your own CryptoCurrency', 'Solidity'
+    'CryptoCurrency','BlockChain','Solidity', 'NFTS'
     ],
 
     'Solo Learn':

@@ -4,10 +4,10 @@ let bitcoinRun=false; let MainRotations=0;
 
 
 function submitName(){ 
-let name = document.getElementById('myinput').innerText;
+let name = document.getElementById('myinput').value;
   if(!name){return console.log('critical name error');}
     if(name == "DoyoufeelitMRKrabs"){ return uLDevMode();}
-popUp('💖Thankyou💖 '+name+' for Leaving a review!!', 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');
+popUp(name, 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');
 
   
 }
@@ -28,10 +28,11 @@ function logCookie() {
     submit();
 }
         function setCookie() {
-        var username = document.getElementById('myinput').value;
+        let username = document.getElementById('myinput').value;
+        if (username == ("XXX")){return extendProfile();}
         document.cookie += username ;
         
-        console.log('input:' + document.cookie + username + ':');     
+        console.log('input:' +  username + ':');     
         }
      
         function submit() {
@@ -74,50 +75,6 @@ else if (y==1){
     y-=1;
 }
 }
-// Cycle imgs and links//
-function rotate() {
-    var al = document.getElementById('links') ;
-    var be = document.getElementById('scale') ;
-    var ch = document.getElementById('PbCertSelectionotate');
-    var de = document.getElementById('proT') ;
-    var de1 = document.getElementById('proT').innerText = "🚀";
-    //Had to add background adjust to each & font alteration//
-    if (ch.value == 0){
-     al.href="https://coinmarketcap.com";
-     be.style.background= "url(i/Pint.png)";
-     be.style.backgroundSize="contain"
-     de1;
-     
-     ch.value = 1;
-     console.log('parse1-coinMc');   
-    }
-    else if (ch.value == 1){
-    al.href="https://www.coinspot.com.au/my/wallets";
-    be.style.background= "url(../../Pictures/Data/eggspot.png)";
-    be.style.backgroundSize="cover";
-
-    ch.value = 2;
-    de1; 
-    de.style.color ="#fff";
-    de.style.fontFamily="Lobster";
-    console.log('parse2-Coins-fontchange');   
-   }
-    //Added text color change to meet background//
-    else if (ch.value == 2){
-    al.href="https://github.com/Blood-web";
-
-    be.style.background= "url(i/jj.jpg)";
-    be.style.backgroundSize="contain";
-    be.style.backgroundRepeat="no-repeat";
-    
-    ch.value = 3;
-    de1;
-    de.style.color ="#fff" ;
-    
-    console.log('parse3-Crypt');   
-   }
-}
-
 
 function countforbitcoin(){
 
@@ -138,7 +95,34 @@ if( bitcoinRun=true)return Log('BTC already running', 'Ko');
 return bitcoinRun=false;  }, 5000);
 
 }
+//  IMG main on hover func//
 
+buttons = document.getElementsByClassName("Rotern")
+for(let i=0;i<buttons.length;i++){
+  buttons[i].addEventListener("mouseover", (e) => { IconHovered(e);},false);
+}
+function IconHovered(e){
+    if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
+    let id = e.target.id; let Hex =  generateHex(2,8); let Hex2 =generateHex(2,8);
+  //  let classi= document.querySelectorAll('.Rotern >#'+id);
+    let colorarray=  ('#'+Hex+',')+('#'+Hex2+',')+('#'+Hex+',');
+    let colorarray2= ('#'+Hex2+',')+('#'+Hex+',')+('#'+Hex2+'');
+    console.warn(colorarray);
+    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');
+    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
+    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
+    let degree= ((randomNum(0,255))+'deg,');
+    let Background= (degree+colorarray+colorarray2 ); 
+    console.warn(Background);
+    document.documentElement.style.setProperty('--icon-background', Background ); 
+   
+}
+
+function mainimgRotate(){
+    MainRotations++;countforbitcoin(1);
+    document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));
+    
+}
 // Javascript for business card//
 // Compile me nice please <3 //
 function flip(page){
@@ -154,7 +138,8 @@ function flip(page){
         TB.style.display = "none" ;
         Main.style.display = "" ;
     }
-    if (page=="about:images"){extendProfile('images');}
+    if (page=="about:images"){ return extendProfile('images');}
+    closeExtProfile();
 }
 
 function randomNum(min,max){
@@ -192,51 +177,48 @@ const extendButton = document.getElementById('ExtendButton');
 // Extendor Button function
 
 function extendProfile(name){
-    if (name==undefined) {name ="Placeholder";}
-Page2.style.display=""; extendButton.style.transform="rotate(180deg)";
-let x = (document.createTextNode(name));
-/*P.appendchild(x);
+    if (name==undefined) {name ="BloodWorks© Development";}
+ extendButton.style.transform="rotate(180deg)";
+ //Elements and text nodes
+ let DIV = document.createElement('div');let IMG =document.createElement('img');
+ let H5 = document.createElement('h5'); let x = (document.createTextNode(name)); 
 
-*/
+ DIV.setAttribute('class', 'PictureBox');
+ setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg',
+                 'src': 'i/BusinessImages/BloodWebM.png'});
 
+H5.appendChild(x); DIV.appendChild(H5); 
+DIV.appendChild(IMG); 
 
+if(name == "BloodWorks© Development"){
+    let QR = document.createElement('button'); QR.appendChild((document.createTextNode('Generate QR')));
+    setAttributes(QR,{'id': 'GenQR', 'onclick' : "SwitchPB(\'QR\')"});
+    DIV.appendChild(QR);}
 
-
-Page2.appendChild(DIV.appendChild(H5.appendChild(x)));
-Page2.appendChild(IMG);
+Page2.appendChild(DIV);
+Page2.style.display=""; setExtendTarget('Def');
 }
+function setExtendTarget(func, param){
+    if(!func || func == 'Def'){ return extendButton.setAttribute('onclick',"closeExtProfile()");
+}
+extendButton.setAttribute('onclick',func+"('"+param+"')");
+
+}
+
 function closeExtProfile(){
     Page2.style.display="none";
     Page2.innerHTML="";
-    extendButton.style.transform="rotate(0deg)"; 
-}
-   
-//  IMG main on hover func//
-
-buttons = document.getElementsByClassName("Rotern")
-for(let i=0;i<buttons.length;i++){
-  buttons[i].addEventListener("mouseover", (e) => { IconHovered(e);},false);
-}
-function IconHovered(e){
-    if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
-    let id = e.target.id; 
-    let Hex =  generateHex(2,8); 
-  //  let classi= document.querySelectorAll('.Rotern >#'+id);
-    let colorarray=  ('#'+Hex+',')+('#'+Hex+',')+('#'+Hex+',');
-    console.warn(colorarray)
-    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');
-    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
-    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
-    let Background= ('360deg,'+colorarray+'blue' ); 
-    console.warn(Background);
-    document.documentElement.style.setProperty('--icon-background', Background ); 
-   
-}
-
-function mainimgRotate(){
-    MainRotations++;countforbitcoin(1);
-    document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));
+    extendButton.style.transform="rotate(0deg)";
     
+    if(document.getElementById('boxmain').style.display == "none"){
+        setExtendTarget('extendProfile');
+        return
+    }
+    setExtendTarget('extendProfile','The Journey So far..'); 
+}
+  
+function SwitchPB(type, direction){
+    if(type=="QR") document.getElementById('PictureBoxImg').src="i/BusinessImages/BwebQR.png";
 }
 
 
