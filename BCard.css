@@ -142,7 +142,7 @@ canvas {
 
 .PictureBox {
    position: absolute; text-align: center;
-   max-width:80%; height: 80%; bottom:0; 
+   max-width:80%; height: 90%; bottom:0; 
    left:0; right:0; transform: rotateX(180deg);
     background-color: #11ffad;
     padding-top: 3%; margin-bottom:1%;
@@ -159,8 +159,9 @@ display:block;height:65%;width:50%;margin-top: 2%;
     animation-duration: 3s; background-color:white;
 }
 .PictureBox > button {
-    display:inline-block ;
-    width: 50%;
+    display:inline-block; width:content; height: 10%; border-radius: 10%;
+    background-color: #990099; font-size: 3vmin;
+    color:white; -webkit-text-stroke: 0.08vmin black;
 }
 
 @keyframes PBox {

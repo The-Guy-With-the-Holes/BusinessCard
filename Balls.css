@@ -2,7 +2,7 @@
     --BoxMain-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
     --Mainro:180deg;
     --Main-img1:url(i/Profile.jpg);
-    --Main-img2:url(i/profile2.jpg);
+    --Main-img2:url(i/Profile2.jpg);
     --Main-BTC:url(i/₿.png);
     --rotation-direction:360deg;
     --icon-background:
@@ -28,7 +28,7 @@
         #eeaaaa,
         #aaaa99
       ); 
-      background-image: url(i/Profile.jpg);
+      background-image: var(--Main-img1);
       background-size: contain;
       background-position: center;
 } 
@@ -50,7 +50,7 @@
     }
     60%{}70%{}
     80%{}90%{}
-    100%{background-image: url(i/profile2.jpg) ;}
+    100%{background-image: var(--Main-img2) ;}
 }
 
 /* Icon BoxesC :\Users\JackC\BusinessCard\i\₿.png */
@@ -147,7 +147,7 @@ p::after {
     cursor: progress;
      user-select: none; opacity: 0; 
 }
-#HT{}
+#HT{opacity: 0;}
 #Bweb {background-image: url(i/Bloodweb/BloodWeb.png); }
 #HB{opacity: 0;}
 #Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }

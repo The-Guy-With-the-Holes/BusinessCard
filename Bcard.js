@@ -1,5 +1,5 @@
 //###################################//
-let bitcoinRun=false; let MainRotations=0;
+let bitcoinRun=false; 
 
 
 
@@ -7,7 +7,8 @@ function submitName(){
 let name = document.getElementById('myinput').value;
   if(!name){return console.log('critical name error');}
     if(name == "DoyoufeelitMRKrabs"){ return uLDevMode();}
-popUp(name, 'I feel bad i can\'t offer you anything in return but heres some sites i use that have rewards that might benefit you');
+popUp(name, 'I feel bad i can\'t offer you anything in return'+
+' but my undying love and gratidue <3');
 
   
 }
@@ -95,34 +96,7 @@ if( bitcoinRun=true)return Log('BTC already running', 'Ko');
 return bitcoinRun=false;  }, 5000);
 
 }
-//  IMG main on hover func//
 
-buttons = document.getElementsByClassName("Rotern")
-for(let i=0;i<buttons.length;i++){
-  buttons[i].addEventListener("mouseover", (e) => { IconHovered(e);},false);
-}
-function IconHovered(e){
-    if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
-    let id = e.target.id; let Hex =  generateHex(2,8); let Hex2 =generateHex(2,8);
-  //  let classi= document.querySelectorAll('.Rotern >#'+id);
-    let colorarray=  ('#'+Hex+',')+('#'+Hex2+',')+('#'+Hex+',');
-    let colorarray2= ('#'+Hex2+',')+('#'+Hex+',')+('#'+Hex2+'');
-    console.warn(colorarray);
-    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');
-    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
-    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
-    let degree= ((randomNum(0,255))+'deg,');
-    let Background= (degree+colorarray+colorarray2 ); 
-    console.warn(Background);
-    document.documentElement.style.setProperty('--icon-background', Background ); 
-   
-}
-
-function mainimgRotate(){
-    MainRotations++;countforbitcoin(1);
-    document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg'));
-    
-}
 // Javascript for business card//
 // Compile me nice please <3 //
 function flip(page){

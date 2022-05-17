@@ -21,17 +21,17 @@ function popUp( Name, message){
   DIV.appendChild(text);   
 
   p.appendChild(PopUpMessage); DIV.appendChild(p);
-  setAttributes(button,{"id":"ExitButton",
-  'onclick': 'closePopUP()',
-  'style':'position:absolute; right:0; top:0; height:10%; width:8%;'})
-  setAttributes(
-      DIV,{
-      "id": "PopUP", 
-      "style":"margin:auto;position:absolute;top:0;left:0;right:0;margin-top:1vh;text-align:center;"+
-      "height:min-content; "+
-      "max-width:80vw; width:80%; backGround-Color:green;  font-Size:10vmin;"+
-      "border:2vmin double dodgerblue;"} )
-      DIV.appendChild(button);      
+  
+  setAttributes(button,{"id":"ExitButton", 'onclick': 'closePopUP()',
+  'style':'position:absolute; right:0; top:0; height:content; width:content;'+
+  'font-size:4vmin; font-family:\'Akronim\', cursive; color:red;'+})
+  setAttributes(DIV,{"id": "PopUP", 
+    "style":"margin:auto;position:absolute;top:0;left:0;right:0;margin-top:1vh;text-align:center;"+
+    "height:min-content; "+
+    "max-width:80vw; width:80%; backGround-Color:green;  font-Size:10vmin;"+
+    "border:2vmin double dodgerblue;"} )
+  button.appendChild(document.createTextNode('X'));
+  DIV.appendChild(button);      
   document.body.appendChild(DIV);
   document.querySelector('footer').style.display="none";
 } 
