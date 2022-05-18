@@ -99,22 +99,6 @@ return bitcoinRun=false;  }, 5000);
 
 // Javascript for business card//
 // Compile me nice please <3 //
-function flip(page){
-    var TB = document.getElementById('hiden');
-    var Main = document.getElementById("boxmain");
-    if(!page) return alert('When flipping, please specify page to flip');
-
-    if(page=="about"){
-    TB.style.display = "" ;
-    Main.style.display = "none" ;
-    }
-    if(page=="main") {
-        TB.style.display = "none" ;
-        Main.style.display = "" ;
-    }
-    if (page=="about:images"){ return extendProfile('images');}
-    closeExtProfile();
-}
 
 function randomNum(min,max){
     if(min==undefined||max==undefined){min =0; max = 17;}
@@ -143,22 +127,21 @@ console.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.leng
 
 return [hexResult]
 }
+function test(arg1){
+    test2(arg1);
+}
+function test2(arg1){
+    alert(arg1);
+}
 
-/*alert(array)
-return RandomHex = array; */
-const extendButton = document.getElementById('ExtendButton');
-
-// Extendor Button function
-
-function extendProfile(name){
-    if (name==undefined) {name ="BloodWorks© Development";}
- extendButton.style.transform="rotate(180deg)";
- //Elements and text nodes
+function CreatePage2(name){
+ 
+//Elements and text nodes
  let DIV = document.createElement('div');let IMG =document.createElement('img');
  let H5 = document.createElement('h5'); let x = (document.createTextNode(name)); 
 
  DIV.setAttribute('class', 'PictureBox');
- setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', 'src': 'i/BusinessImages/BloodWebM.png'});
+ setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', });
 
 H5.appendChild(x); DIV.appendChild(H5); 
 DIV.appendChild(IMG); 
@@ -166,24 +149,28 @@ DIV.appendChild(IMG);
 if(name.includes("BloodWorks")){
     let QR = document.createElement('button'); QR.appendChild((document.createTextNode('Generate QR')));
     setAttributes(QR,{'id': 'QRbtn', 'onclick' : "RotatePB(\'QR\')"});
+    IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
     DIV.appendChild(QR);}
 
-Page2.appendChild(DIV);
-Page2.style.display=""; setExtendTarget('Def');
+    IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
+   
+Get.Page2.appendChild(DIV);
+Get.Page2.style.display=""; setExtendTarget('Def');
 }
+
 function setExtendTarget(func, param){
-    if(!func || func == 'Def'){ return extendButton.setAttribute('onclick',"closeExtProfile()");
+    if(!func || func == 'Def'){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
 }
-extendButton.setAttribute('onclick',func+"('"+param+"')");
+Get.Extndbtn.setAttribute('onclick',func+"('"+param+"')");
 
 }
 
 function closeExtProfile(){
-    Page2.style.display="none";
-    Page2.innerHTML="";
-    extendButton.style.transform="rotate(0deg)";
+    Get.Page2.style.display="none";
+    Get.Page2.innerHTML="";
+    Get.Extndbtn.style.transform="rotate(0deg)";
     
-    if(document.getElementById('boxmain').style.display == "none"){
+    if(Get.Main.style.display == "none"){
         setExtendTarget('extendProfile', 'THE BLOODWORKS');
         return
     }

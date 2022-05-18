@@ -1,17 +1,32 @@
 const Debug = {
     Hex:true,
     Icon:true,
+    List:true,
 }
 
 // Variables
 const H5 = document.createElement('h5');
-
 const P = document.createElement('p');
 
+const Get = {
+    Main : document.getElementById('boxmain'),
+    Page2 : document.getElementById('secondBox'),
+    Extndbtn : document.getElementById('ExtendButton'),
+    Hidden: document.getElementById('hiden'),
+    About : document.getElementById('About'),
+    
+    Rev : {
+            Form : document.getElementById('ReviewForm') ,
+            Btn :document.getElementById("RevBTNX01"),
+    },
+   
+}
 
-//Get References
+
+//Outdated Get References
 const Page2 = document.getElementById('secondBox');
-
+const TB = document.getElementById('hiden');
+const Main = document.getElementById("boxmain");
 
 //Balls
 let MainRotations=0;
