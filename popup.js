@@ -24,7 +24,8 @@ function popUp( Name, message){
   
   setAttributes(button,{"id":"ExitButton", 'onclick': 'closePopUP()',
   'style':'position:absolute; right:0; top:0; height:content; width:content;'+
-  'font-size:4vmin; font-family:\'Akronim\', cursive; color:red;'+})
+  'font-size:4vmin; font-family:\'Akronim\', cursive; color:red;'+
+''})
   setAttributes(DIV,{"id": "PopUP", 
     "style":"margin:auto;position:absolute;top:0;left:0;right:0;margin-top:1vh;text-align:center;"+
     "height:min-content; "+

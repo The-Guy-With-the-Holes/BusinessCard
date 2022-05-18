@@ -158,15 +158,14 @@ function extendProfile(name){
  let H5 = document.createElement('h5'); let x = (document.createTextNode(name)); 
 
  DIV.setAttribute('class', 'PictureBox');
- setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg',
-                 'src': 'i/BusinessImages/BloodWebM.png'});
+ setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', 'src': 'i/BusinessImages/BloodWebM.png'});
 
 H5.appendChild(x); DIV.appendChild(H5); 
 DIV.appendChild(IMG); 
 
-if(name == "BloodWorks© Development"){
+if(name.includes("BloodWorks")){
     let QR = document.createElement('button'); QR.appendChild((document.createTextNode('Generate QR')));
-    setAttributes(QR,{'id': 'GenQR', 'onclick' : "SwitchPB(\'QR\')"});
+    setAttributes(QR,{'id': 'QRbtn', 'onclick' : "RotatePB(\'QR\')"});
     DIV.appendChild(QR);}
 
 Page2.appendChild(DIV);
@@ -185,16 +184,22 @@ function closeExtProfile(){
     extendButton.style.transform="rotate(0deg)";
     
     if(document.getElementById('boxmain').style.display == "none"){
-        setExtendTarget('extendProfile');
+        setExtendTarget('extendProfile', 'THE BLOODWORKS');
         return
     }
     setExtendTarget('extendProfile','The Journey So far..'); 
 }
   
-function SwitchPB(type, direction){
-    if(type=="QR") document.getElementById('PictureBoxImg').src="i/BusinessImages/BwebQR.png";
+function RotatePB(type, direction){
+let PBR = 'PBrotate'; let PB = document.getElementById('PictureBoxImg');
+    if(PB.classList.contains(PBR)){PB.classList.remove(PBR);}
+    PB.classList.add(PBR);
+    
+    if(type=="QR"){ PB.src="i/BusinessImages/BwebQR.png";
+    document.querySelector("h5").innerText="The BloodWorks©";
+    return document.getElementById("QRbtn").remove();}
+    
 }
-
 
 
 // DLink debugging only,//

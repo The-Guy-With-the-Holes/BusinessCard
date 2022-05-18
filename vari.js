@@ -6,7 +6,7 @@ const Debug = {
 // Variables
 const H5 = document.createElement('h5');
 
-const P = document.createElement('p')
+const P = document.createElement('p');
 
 
 //Get References
