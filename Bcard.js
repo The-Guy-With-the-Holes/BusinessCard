@@ -127,7 +127,16 @@ console.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.leng
 
 return [hexResult]
 }
-function test(arg1){
+
+/*
+Test Results: 
+1. Args can be passed through multiple functions
+2. Args can be thrown with symbols {num = (num)+(-num2)= num-num2}
+
+*/
+
+function test(arg1,arg2){
+    arg1=arg1+arg2;
     test2(arg1);
 }
 function test2(arg1){
@@ -135,60 +144,102 @@ function test2(arg1){
 }
 
 function CreatePage2(name){
- 
+if(!name)console.warn('Create Page 2 ran without a name');
 //Elements and text nodes
- let DIV = document.createElement('div');let IMG =document.createElement('img');
- let H5 = document.createElement('h5'); let x = (document.createTextNode(name)); 
+let DIV = Create.Div; let IMG = Create.Img; 
+let H5 = document.createElement('h5'); let x = document.createTextNode(name); 
 
- DIV.setAttribute('class', 'PictureBox');
- setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', });
+
+setAttributes(DIV, {'class': 'PictureBox', 'id':'PictureBox'});
+setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', });
 
 H5.appendChild(x); DIV.appendChild(H5); 
 DIV.appendChild(IMG); 
 
 if(name.includes("BloodWorks")){
-    let QR = document.createElement('button'); QR.appendChild((document.createTextNode('Generate QR')));
+   let QR = Create.Btn; 
+    QR.appendChild((document.createTextNode('Generate QR')));
     setAttributes(QR,{'id': 'QRbtn', 'onclick' : "RotatePB(\'QR\')"});
     IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
-    DIV.appendChild(QR);}
+    DIV.appendChild(QR);
+    }
+else{
+let lBTN = Create.Carousel.Leftbtn 
+    lBTN.appendChild((document.createTextNode('<<')))
+    setAttributes(lBTN,{'id':'Left-Carousel', 'onclick' : "RotatePB(\'\',-1)",
+'style': 'position:absolute; top:45%; left:12%'});
 
-    IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
+let rBTN = Create.Carousel.Rightbtn
+  rBTN.appendChild((document.createTextNode('>>')));
+  setAttributes(rBTN,{'id':'Right-Carousel','onclick' : "RotatePB(\'null\',1)",
+'style': 'position:absolute; top:45%; right:12%'});
+
+DIV.appendChild(lBTN);
+DIV.appendChild(rBTN);
+}
    
+
 Get.Page2.appendChild(DIV);
-Get.Page2.style.display=""; setExtendTarget('Def');
+Get.Page2.style.display=""; 
+setExtendTarget();
 }
 
-function setExtendTarget(func, param){
-    if(!func || func == 'Def'){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
+function setExtendTarget(param){
+// if no func/def extBTN = Closepage2
+    if(!param){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
 }
-Get.Extndbtn.setAttribute('onclick',func+"('"+param+"')");
+Get.Extndbtn.setAttribute('onclick',"extendProfile"+"('"+param+"')");
 
 }
 
 function closeExtProfile(){
-    Get.Page2.style.display="none";
-    Get.Page2.innerHTML="";
-    Get.Extndbtn.style.transform="rotate(0deg)";
-    
-    if(Get.Main.style.display == "none"){
-        setExtendTarget('extendProfile', 'THE BLOODWORKS');
-        return
+let p2 =Get.Page2;
+   Get.Extndbtn.style.transform="rotate(0deg)"; 
+   p2.querySelectorAll("*").forEach(p2 =>{p2.innerHTML=""; p2.remove();})
+   p2.style.display="none"; 
+   
+    if(p2.style.display == "none"){
+        setExtendTarget('THE BLOODWORKS');
     }
-    setExtendTarget('extendProfile','The Journey So far..'); 
+    setExtendTarget('The Journey So far..'); 
+    
 }
   
+
 function RotatePB(type, direction){
 let PBR = 'PBrotate'; let PB = document.getElementById('PictureBoxImg');
+
     if(PB.classList.contains(PBR)){PB.classList.remove(PBR);}
     PB.classList.add(PBR);
     
+   //Checks
     if(type=="QR"){ PB.src="i/BusinessImages/BwebQR.png";
     document.querySelector("h5").innerText="The BloodWorks©";
+    document.getElementById("QRbtn").innerHTML="";
     return document.getElementById("QRbtn").remove();}
-    
+
+    //Carousel Function
+   imageCaro(direction);
 }
+function imageCaro(direction){
+let min = Carousel.Min; let max = Carousel.Max;
+let PB = document.getElementById('PictureBoxImg');
+   
+Carousel.Index = Carousel.Index + direction;
+//check range
+if(Carousel.Index > max || Carousel.Index < min){MinMaxCaro(min,max);}
 
+let n=Carousel.Index; let target = Carousel.Target
+let img = Carousel.Img.Basic[(n)];
+PB.src= ('i/CarouselImages/'+target+'/'+img+'.png'); 
 
+}
+function MinMaxCaro(min, max){
+let n = Carousel.Index;
+if (n > max) return Carousel.Index = min ;
+if (n < min) return Carousel.Index = max ;
+        
+}
 // DLink debugging only,//
 //eventually compile me to a single function,this is messy AF//
 

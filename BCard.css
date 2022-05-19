@@ -138,58 +138,6 @@ canvas {
     display: none;
 }
 
-.PictureBox {
-   position: absolute; text-align: center;
-   max-width:80%; height: 90%; bottom:0; 
-   left:0; right:0; transform: rotateX(180deg);
-    background-color: #11ffad;
-    padding-top: 3%; margin-bottom:1%;
-}
-h5 {
-    background-color: turquoise; color: #000000cf; 
-    width: 60%;border-radius: 10% 60% 60% 10%; border: 1vmin double firebrick;
-    -webkit-text-stroke: 0.2vmin red;
-}
-.PictureBoxImg {
-display:block;height:65%;width:50%;margin-top: 2%;
-    border: 1vmin double fuchsia;
-    animation-name: PBox ;
-    animation-fill-mode: fowards ;
-    animation-duration: 3s; background-color:white;
-}
-.PBrotate{
-    animation-name: rotateImg ;
-    animation-fill-mode: forwards;
-    animation-duration: 1.5s ;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-}
-.PictureBox > button {
-    display:inline-block; width:content; height: 10%; border-radius: 10%;
-    background-color: #990099; font-size: 3vmin;
-    color:white; -webkit-text-stroke: 0.08vmin black;
-}
-@keyframes rotateImg {
-    0%{ background-color: white;
-        transform: rotateZ(1720deg) rotateX(2720deg) rotateY(1360deg) scale(1.9) ;}
-    50%{background-color: red;}
-    70%{ background-color: #000;}
-    80%{background-color: crimson;}
-    99%{background-color: #000;}
-    100%{background-color: white;} 
-}
-@keyframes PBox {
-    0%{ background-color: white;transform: rotateZ(720deg) rotateY(720deg) rotateX(720deg);}
-    50%{background-color: #888;
-            
-    }
-    70%{ background-color: #000;}
-    99%{background-color: crimson;}
-    100%{}
-}
-
-/* Box main area, this wraps the card, should probably be left alone */
-
 .ttest {
     right: 400px;
 }
@@ -281,6 +229,58 @@ display:block;height:65%;width:50%;margin-top: 2%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   background:var(--BoxMain-Background) ;
 }
+
+
+/* PAGE 2 Or below*/
+
+.PictureBox {
+    position: absolute; text-align: center;
+    max-width:80%; height: 90%; bottom:0; 
+    left:0; right:0; transform: rotateX(180deg);
+     background-color: #11ffad;
+     padding-top: 3%; margin-bottom:1%;
+ }
+ h5 {
+     background-color: turquoise; color: #000000cf; 
+     width: 60%;border-radius: 10% 60% 60% 10%; border: 1vmin double firebrick;
+     -webkit-text-stroke: 0.2vmin red;
+ }
+ .PictureBoxImg {
+ display:block;height:65%;width:50%;margin-top: 2%;
+     border: 1vmin double fuchsia;
+     animation-name: PBox ;
+     animation-fill-mode: fowards ;
+     animation-duration: 3s; background-color:white;
+ }
+ .PBrotate{
+     animation-name: rotateImg ;
+     animation-fill-mode: forwards;
+     animation-duration: 1.5s ;
+     animation-iteration-count: 1;
+     animation-timing-function: ease;
+ }
+ .PictureBox > button {
+     display:inline-block; width:content; height: 10%; border-radius: 10%;
+     background-color: #990099; font-size: 3vmin;
+     color:white; -webkit-text-stroke: 0.08vmin black;
+ }
+ @keyframes rotateImg {
+     0%{ background-color: white;
+         transform: rotateZ(1720deg) rotateX(2720deg) rotateY(1360deg) scale(1.9) ;}
+     50%{background-color: red;}
+     70%{ background-color: #000;}
+     80%{background-color: crimson;}
+     99%{background-color: #000;}
+     100%{background-color: white;} 
+ }
+ @keyframes PBox {
+     0%{ background-color: white;transform: rotateZ(720deg) rotateY(720deg) rotateX(720deg);}
+     50%{background-color: #888;}
+     70%{ background-color: #000;}
+     99%{background-color: crimson;}
+     100%{}
+ }
+ 
 
 
 

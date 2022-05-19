@@ -26,15 +26,19 @@ function extendProfile(name){
     Get.Extndbtn.style.transform="rotate(180deg)";
     CreatePage2(name);
 }
+
+
+
+//Page2
 document.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', e => { 
         let ListText = e.target.innerText.split(' ');      
         test(e);                 
-        debug('List',ListText[0]+'Click');    
+        debug('List',ListText[0],'Click');    
        // DIV (x.parentElement.parentElement);
     }) 
     item.addEventListener('mouseenter', e => {
         let ListText = e.target.innerText.split(' '); 
-        debug('List',ListText[0]+'Click'); 
+        debug('List',ListText[0],'Hover'); 
     })
 })

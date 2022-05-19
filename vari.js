@@ -1,29 +1,58 @@
 const Debug = {
+    T:false,
     Hex:true,
     Icon:true,
     List:true,
 }
 
-// Variables
-const H5 = document.createElement('h5');
-const P = document.createElement('p');
 
+// Variables
 const Get = {
     Main : document.getElementById('boxmain'),
-    Page2 : document.getElementById('secondBox'),
     Extndbtn : document.getElementById('ExtendButton'),
     Hidden: document.getElementById('hiden'),
+    Page2 : document.getElementById('secondBox'),
     About : document.getElementById('About'),
     
     Rev : {
-            Form : document.getElementById('ReviewForm') ,
-            Btn :document.getElementById("RevBTNX01"),
+        Form : document.getElementById('ReviewForm') ,
+        Btn :document.getElementById("RevBTNX01"),
     },
    
 }
+let Create = {
+    Div : document.createElement('div'),
+    Img : document.createElement('img'),
+    Btn : document.createElement('button'),  
+    H5 : document.createElement('h5'),
 
+    Carousel : {
+        Leftbtn:document.createElement('button'),
+        Rightbtn:document.createElement('button'),
+    },
+}
+const str = {
+
+}
+const Carousel = {
+        Target:'Basic',
+        Index:0,
+        Max:22,
+        Min:0,
+        Img : {
+            Basic: [0,'Alpha','Banane','Smiles','Game','GFoil',
+            'Oilstand','Luke-T-Emma','ProfSeb','Rocksit','SebSwing',
+            'FireMirror','SebBucket','SebPool','TScult','SebLongShirt',
+            'PoolParty','SebBday','Rockstand','ProfSeb','Rocksit',
+            'WestCoast','Walking'
+    ],
+            Love:[0,],
+        },
+    }
 
 //Outdated Get References
+const H5 = document.createElement('h5');
+const P = document.createElement('p');
 const Page2 = document.getElementById('secondBox');
 const TB = document.getElementById('hiden');
 const Main = document.getElementById("boxmain");
