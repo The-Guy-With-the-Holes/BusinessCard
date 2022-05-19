@@ -46,5 +46,5 @@ function closePopUP(){
 document.getElementById('PopUP').remove();
 }
 function OpenReview(){
-  Get.revForm.style.display=''; document.getElementById('RevBTNX01').remove();
+  Get.Rev.Form.style.display=''; document.getElementById('RevBTNX01').remove();
 }
