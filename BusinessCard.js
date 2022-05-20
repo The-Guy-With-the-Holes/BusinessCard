@@ -1,5 +1,4 @@
-function debug(type,word,action){
-   
+function debug(type,word,action){ 
     if(Debug[type]==true){
         console.log(word+' Has been '+action+'ed');  
     }
@@ -19,6 +18,26 @@ function flip(page){
         Get.Main.style.display = "" ;
     }
 }
+
+
+//Page 1 Main
+
+function IconHovered(e,callfrom){
+    if (!e || !callfrom) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
+    let H1=(generateHex(2,6)); let H2 =generateHex(2,8);
+    let colorarray=  ('#'+H1+',')+('#'+H2+','); 
+    let Background= (((randomNum(0,255))+'deg,')+colorarray+colorarray+('#'+H1+',')+('#'+H2));
+  
+    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
+    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
+    document.documentElement.style.setProperty('--icon-background', Background ); 
+    
+    if(Debug.Hex==false) return;    
+    console.log(callfrom+': Caller Created >> Hex :'+(Background));   
+}
+
+
+
 
 //Extend Profile
 function extendProfile(name){

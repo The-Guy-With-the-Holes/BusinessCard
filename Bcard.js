@@ -100,19 +100,14 @@ return bitcoinRun=false;  }, 5000);
 // Javascript for business card//
 // Compile me nice please <3 //
 
-function randomNum(min,max){
-    if(min==undefined||max==undefined){min =0; max = 17;}
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
-
 function generateHex(hexWidth,hexLength){
 let hexArray= "0123456789abcdef";  
 let hexResult=[[],[],[]];  
-if(!hexLength || !hexWidth){hexLength = 8; hexWidth=1; console.warn('Use Hex length and width when generating hex ');}
- let hex;   
+if(!hexLength || !hexWidth){hexLength = 6; hexWidth=1; console.warn('Use Hex length and width when generating hex ');}
+let hex;   
 for(let i = 0; i< hexWidth; i++){
-  hex = []   ;
-        hex.push(randomNum(0,9)); 
+    hex = [];
+    hex.push(randomNum(0,9)); 
    for(let x=1; x < (hexLength); x++){
     let Res= hexArray[(randomNum(0,16))];
     hex.push(Res);
@@ -121,9 +116,11 @@ for(let i = 0; i< hexWidth; i++){
    hexResult = hex.join('')
 
    }
-   
-console.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.length-1]+":  Length: "+[(hexResult.length)]
-+"\n:last HASH: "+hex.join('')+'\n::>Hex Result<:: '+hexResult);
+//Hex Debug
+if (Debug.Hex==true){   
+    console.log('First Hex: '+hexResult[0]+':  Final hex: '+hexResult[hexResult.length-1]+":  Length: "+[(hexResult.length)]
+    +"\n:last HASH: "+hex.join('')+'\n::>Hex Result<:: '+hexResult);
+}
 
 return [hexResult]
 }
@@ -159,20 +156,24 @@ DIV.appendChild(IMG);
 if(name.includes("BloodWorks")){
    let QR = Create.Btn; 
     QR.appendChild((document.createTextNode('Generate QR')));
-    setAttributes(QR,{'id': 'QRbtn', 'onclick' : "RotatePB(\'QR\')"});
+    setAttributes(QR,{'id': 'QRbtn', 'onclick' : "Rotate(\'QR\')"});
     IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
     DIV.appendChild(QR);
     }
 else{
-let lBTN = Create.Carousel.Leftbtn 
+let lBTN = Create.Carousel.Leftbtn;
+    lBTN.appendChild((document.createTextNode('Prev')))
+    lBTN.appendChild((document.createElement('br'))); 
     lBTN.appendChild((document.createTextNode('<<')))
-    setAttributes(lBTN,{'id':'Left-Carousel', 'onclick' : "RotatePB(\'\',-1)",
-'style': 'position:absolute; top:45%; left:12%'});
+    setAttributes(lBTN,{'id':'Left-Carousel', 'onclick' : "imageCaro(-1)",
+'style': 'left:12%'});
 
-let rBTN = Create.Carousel.Rightbtn
-  rBTN.appendChild((document.createTextNode('>>')));
-  setAttributes(rBTN,{'id':'Right-Carousel','onclick' : "RotatePB(\'null\',1)",
-'style': 'position:absolute; top:45%; right:12%'});
+let rBTN = Create.Carousel.Rightbtn;
+    rBTN.appendChild((document.createTextNode('Next')));
+    rBTN.appendChild((document.createElement('br'))); 
+    rBTN.appendChild((document.createTextNode('>>')));
+    setAttributes(rBTN,{'id':'Right-Carousel','onclick' : "imageCaro(1)",
+'style': 'right:12%'});
 
 DIV.appendChild(lBTN);
 DIV.appendChild(rBTN);
@@ -186,7 +187,7 @@ setExtendTarget();
 
 function setExtendTarget(param){
 // if no func/def extBTN = Closepage2
-    if(!param){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
+if(!param){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
 }
 Get.Extndbtn.setAttribute('onclick',"extendProfile"+"('"+param+"')");
 
@@ -206,20 +207,19 @@ let p2 =Get.Page2;
 }
   
 
-function RotatePB(type, direction){
-let PBR = 'PBrotate'; let PB = document.getElementById('PictureBoxImg');
-
+function Rotate(type, direction){
+let PBR = 'PBrotate'; let PB = document.getElementById('PictureBoxImg');    
+   //Checks
+if(type=="QR"){ 
     if(PB.classList.contains(PBR)){PB.classList.remove(PBR);}
     PB.classList.add(PBR);
-    
-   //Checks
-    if(type=="QR"){ PB.src="i/BusinessImages/BwebQR.png";
+    PB.src="i/BusinessImages/BwebQR.png";
     document.querySelector("h5").innerText="The BloodWorks©";
     document.getElementById("QRbtn").innerHTML="";
     return document.getElementById("QRbtn").remove();}
 
     //Carousel Function
-   imageCaro(direction);
+                    
 }
 function imageCaro(direction){
 let min = Carousel.Min; let max = Carousel.Max;

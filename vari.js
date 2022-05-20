@@ -57,6 +57,16 @@ const Page2 = document.getElementById('secondBox');
 const TB = document.getElementById('hiden');
 const Main = document.getElementById("boxmain");
 
+
+//Utility functions
+function randomNum(min,max){
+    if(min==undefined||max==undefined){min =0; max = 17;}
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+
+
+
 //Balls
 let MainRotations=0;
 function mainimgRotate(){
@@ -66,28 +76,9 @@ function mainimgRotate(){
 //Suprisingly Simple Ball-Event Handler
 document.querySelectorAll('.Rotern').forEach(item => {
 item.addEventListener('mouseenter', e => {
-    IconHovered(e);
+let Child = e.target.querySelector('.balls').id;    
+    IconHovered(e,Child);
 
-if(Debug.Icon==false) return;
-    let Child = e.target.querySelector('.balls').id;
-    console.log(Child+' Ball Hover ');    
-   // DIV (x.parentElement.parentElement);
+
 }) })
-
-function IconHovered(e){
-    if (!e) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
-    let id = e.target.id; let Hex =  generateHex(2,8); let Hex2 =generateHex(2,8);
-    let colorarray=  ('#'+Hex+',')+('#'+Hex2+',')+('#'+Hex+',');
-    let colorarray2= ('#'+Hex2+',')+('#'+Hex+',')+('#'+Hex2+'');
-    let degree= ((randomNum(0,255))+'deg,'); let Background= (degree+colorarray+colorarray2 );
-  
-    if(document.documentElement.style.getPropertyValue('--rotation-direction')=="360deg"){  document.documentElement.style.setProperty('--rotation-direction', (-360+'deg'));}
-    else{ document.documentElement.style.setProperty('--rotation-direction', (360+'deg')); }
-    
-    if(Debug.Hex==false) return;    
-    console.log(id+': id <> redhe x :'+(Hex)+'\n HexType:');
-    console.warn(Background);  console.warn(colorarray);
-    document.documentElement.style.setProperty('--icon-background', Background ); 
-   
-}
 

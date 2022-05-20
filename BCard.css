@@ -260,9 +260,12 @@ canvas {
      animation-timing-function: ease;
  }
  .PictureBox > button {
-     display:inline-block; width:content; height: 10%; border-radius: 10%;
+     display:inline-block; width:content; height: fit-content; border-radius: 10%;
      background-color: #990099; font-size: 3vmin;
      color:white; -webkit-text-stroke: 0.08vmin black;
+ }
+ #Right-Carousel, #Left-Carousel {
+    position:absolute; top:45%; width: content;
  }
  @keyframes rotateImg {
      0%{ background-color: white;
