@@ -38,6 +38,7 @@ header{
     grid-area: header;
     font-family: Lobster, monospace;
     width: fit-content;
+    height: min-content;
 }
 header > *{
     float: left;
@@ -61,7 +62,7 @@ h1>strong:first-of-type{
 h2 {
     font-size: 4vmin;
     float: left;
-    max-width:60vw;
+    max-width:80vw;
     color: #000;
 }
 h2 > strong { color: #fff; }
@@ -143,45 +144,6 @@ canvas {
 }
 
 
-/* I am the text box under the image */
-.textbox p {
-    font-family:'Jim Nightshade', cursive ;
-    font-size: 160%;
-   
-    font-weight: bold;
-    margin-top: 2px;
-}
-.textbox a {
-    opacity: 0;
-    margin-top: -10px;
-    position: relative;
-}
-.textbox { 
-    z-index: 1;
-    height: 150px;
-    width: 150px;
-    top: 200px;
-    right: -800px;
-    position: relative;
-   
-    background-color: lightgray;
-    border-color: #11ffad ;
-    border-width: 10px 8px 8px 8px;
-    border-style: double;
-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-}
-
-/*****************************************************************/
-/* Hover animation and key frames, */
-
-
-.textbox:hover {
-    background-color: #11ffad;
-    max-height: 150px;
-   
-    
-}
 /*****************************************************************/
 /* end of classes - start of IDS */
 /*****************************************************************/

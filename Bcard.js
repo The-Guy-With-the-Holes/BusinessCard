@@ -188,9 +188,8 @@ setExtendTarget();
 function setExtendTarget(param){
 // if no func/def extBTN = Closepage2
 if(!param){ return Get.Extndbtn.setAttribute('onclick',"closeExtProfile()");
-}
+    }
 Get.Extndbtn.setAttribute('onclick',"extendProfile"+"('"+param+"')");
-
 }
 
 function closeExtProfile(){
@@ -207,7 +206,7 @@ let p2 =Get.Page2;
 }
   
 
-function Rotate(type, direction){
+function Rotate(type){
 let PBR = 'PBrotate'; let PB = document.getElementById('PictureBoxImg');    
    //Checks
 if(type=="QR"){ 

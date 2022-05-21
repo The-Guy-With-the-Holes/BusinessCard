@@ -22,6 +22,7 @@ function flip(page){
 
 //Page 1 Main
 
+// Sets New rotation & Background for .Balls
 function IconHovered(e,callfrom){
     if (!e || !callfrom) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
     let H1=(generateHex(2,6)); let H2 =generateHex(2,8);
@@ -47,8 +48,9 @@ function extendProfile(name){
 }
 
 
+// Page 1(f) #About
 
-//Page2
+
 document.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', e => { 
         let ListText = e.target.innerText.split(' ');      
@@ -61,3 +63,6 @@ document.querySelectorAll('li').forEach(item => {
         debug('List',ListText[0],'Hover'); 
     })
 })
+
+
+//Page2
