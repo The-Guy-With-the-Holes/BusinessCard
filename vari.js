@@ -39,6 +39,11 @@ const Carousel = {
         Index:0,
         Max:22,
         Min:0,
+
+        Names:[ 'Basic', 'Love', 'test','lorren', 'BloodWorks',
+                'Body-Modification', 'Coding', 'Philosophy',
+                ' All ' , 'EqualRights!', 'DataProtection', 
+                '  '],
         Img : {
             Basic: [0,'Alpha','Banane','Smiles','Game','GFoil',
             'Oilstand','Luke-T-Emma','ProfSeb','Rocksit','SebSwing',
@@ -48,6 +53,7 @@ const Carousel = {
     ],
             Love:[0,],
         },
+
     }
 
 //Outdated Get References

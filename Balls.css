@@ -53,11 +53,14 @@
     100%{background-image: var(--Main-img2) ;}
 }
 
-/* Icon BoxesC :\Users\JackC\BusinessCard\i\₿.png */
+/* Icon BoxesC :\BusinessCard\i\₿.png */
 #IconBox {
-position: absolute;
+   position: absolute;
 bottom: 0;
-padding: 1%;
+padding: 1%; 
+}
+#IconBoxPre {
+ display: none;
 }
 .Boxes{  
     display: inline-block;

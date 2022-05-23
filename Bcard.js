@@ -141,11 +141,10 @@ function test2(arg1){
 }
 
 function CreatePage2(name){
-if(!name)console.warn('Create Page 2 ran without a name');
+if(!name || !Carousel.Names.includes((name)))return console.error('Create Page 2 ran without a name');
 //Elements and text nodes
 let DIV = Create.Div; let IMG = Create.Img; 
 let H5 = document.createElement('h5'); let x = document.createTextNode(name); 
-
 
 setAttributes(DIV, {'class': 'PictureBox', 'id':'PictureBox'});
 setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', });
@@ -243,54 +242,9 @@ if (n < min) return Carousel.Index = max ;
 //eventually compile me to a single function,this is messy AF//
 
 //******************************//
-// PROGRESS BAR//
-var Hbar = document.getElementById('BarH');
-var Zbar = document.getElementById('BarZ');
 
 
 
-function plus5() {
-    
-    Zbar.value += 5 ;
-    
-    if (Zbar.value == 50) {
-        console.log('!Value has reached 50!')
-        Hbar.innerText = 'Hey, stop that' ;
-    }
-    if (Zbar.value == 100) {
-        console.log('!Value has reached 100!')
-        Hbar.innerText = 'I said STOP' ;
-    }
-    if (Zbar.value == 200) {
-        console.log('!Value has reached 200!')
-        Hbar.innerText = 'BRO...' ;
-        surprise.id = "Surprise";
-        surp.id="surp";
-    }
-    if (Zbar.value == 300) {
-        console.log('!Value has reached 300!')
-        Hbar.innerText = ' You"re such a cuck' ;
-    }
-    if (Zbar.value == 400) {
-        console.log('!Value has reached 400!')
-        Hbar.innerText = 'What do you think is going to happen?' ;
-    }
-    if (Zbar.value == 500) {
-        console.log('!Value has reached 500!')
-        Hbar.innerText = 'Im not talking to you anymore';
-        gama.id = "Game";
-        gameim.id="Game"
-    }
-    if (Zbar.value >= 750 ){
-        console.log('!Value has reached 750!')
-        Hbar.innerText = 'Ok, im begging you, please stop.. you need to halt this infraction' ;
-    } 
-    if (Zbar.value >= 1000) {
-        console.log('!Value has reached 1000, should probs level up!')
-        Hbar.innerTex = '(Delete the World)' ;
-        masterunlock();
-    }
-}
 function masterunlock(){
     document.getElementById("HT").style.opacity=1; 
     document.getElementById("HB").style.opacity=1; 

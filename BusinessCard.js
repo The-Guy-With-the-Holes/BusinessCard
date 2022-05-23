@@ -54,7 +54,7 @@ function extendProfile(name){
 document.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', e => { 
         let ListText = e.target.innerText.split(' ');      
-        test(e);                 
+        test(e);  CreatePage2(ListText);               
         debug('List',ListText[0],'Click');    
        // DIV (x.parentElement.parentElement);
     }) 

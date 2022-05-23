@@ -39,41 +39,48 @@ header{
     font-family: Lobster, monospace;
     width: fit-content;
     height: min-content;
+    margin-left: 0 ;
 }
-header > *{
-    float: left;
-text-align: left;
-   
+
+header > * {
+    display: block;
 }
+
 h1 > u {
     font-size: 10.8vmin;-webkit-text-stroke: 0.11vmin gold;
     color: #888; 
 }
-h1 {
+h1 {   
+    text-align: left;
     font-size: 5.5vmin;
     color: #fff;
-    width: max-content;
-
 }
 h1>strong:first-of-type{
     -webkit-text-stroke: 0.05vmin goldenrod;
     font-size: 9.1vmin;
 }
-h2 {
-    font-size: 4vmin;
-    float: left;
-    max-width:80vw;
+
+h2 {    
+    font-size: 3vmin;
+    max-width:80vw;width: max-content;
     color: #000;
-}
+} 
+
 h2 > strong { color: #fff; }
 h2 > strong:hover{color: crimson ;}
-
-h2 > b { 
-    font-size: larger;  -webkit-text-stroke: 0.01em #11ffad;
-    background-color: #f5deb355; width: min-content;
+.Together {
+    position: absolute;
+    left: 14vw;
 }
-h2 > b::after {content: '💙'; background-color: #99009955; border-radius: 1% 30% 5% 25%;}
-h2 > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
+.Together > b { 
+    width: max-content;
+     right: 100;
+    text-align: center;
+    font-size: larger;  -webkit-text-stroke: 0.01em #11ffad;
+    background-color: #f5deb355; 
+}
+.Together > b::after {content: '💙'; background-color: #99009955; border-radius: 1% 30% 5% 25%;}
+.Together > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
 
 
 #flipbutton{
