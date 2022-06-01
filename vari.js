@@ -6,14 +6,18 @@ const Debug = {
 }
 
 
+
 // Variables
 const Get = {
+    Title:document.querySelector('title'),
+
     Main : document.getElementById('boxmain'),
     Extndbtn : document.getElementById('ExtendButton'),
     Hidden: document.getElementById('hiden'),
     Page2 : document.getElementById('secondBox'),
     About : document.getElementById('About'),
-    
+    Projects:document.getElementById('Projects'),
+    Cert: document.getElementById('Cert_Wrapper') ,
     Rev : {
         Form : document.getElementById('ReviewForm') ,
         Btn :document.getElementById("RevBTNX01"),
@@ -32,7 +36,7 @@ let Create = {
     },
 }
 const str = {
-
+    B:'Basic'
 }
 const Carousel = {
         Target:'Basic',
@@ -40,7 +44,7 @@ const Carousel = {
         Max:22,
         Min:0,
 
-        Names:[ 'Basic', 'Love', 'test','lorren', 'BloodWorks',
+        Names:[ 'Basic', 'Love', 'test','lorren', 'BloodWorks©',
                 'Body-Modification', 'Coding', 'Philosophy',
                 ' All ' , 'EqualRights!', 'DataProtection', 
                 '  '],

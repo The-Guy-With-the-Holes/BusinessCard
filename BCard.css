@@ -1,3 +1,8 @@
+#NavBar_Selected{
+    background-color: #aaaaff55; border: 0.5vmin solid #00000099;
+    color: #08080055; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;
+}
+
 /* ADD commets to sections for easier code alterations*/
 /*Elements--Animation--Classes--UNorg--ID*/
 * {
@@ -18,6 +23,7 @@ body {
     overflow: hidden;
     background-color: #fff000;
 }
+
 
 p {
     font-family: 'Courier New', Courier, monospace;
@@ -50,7 +56,8 @@ h1 > u {
     font-size: 10.8vmin;-webkit-text-stroke: 0.11vmin gold;
     color: #888; 
 }
-h1 {   
+h1 {
+    margin-bottom: 1%;   
     text-align: left;
     font-size: 5.5vmin;
     color: #fff;
@@ -60,8 +67,10 @@ h1>strong:first-of-type{
     font-size: 9.1vmin;
 }
 
-h2 {    
+h2 {
+    top: 0;  
     font-size: 3vmin;
+    height: min-content;
     max-width:80vw;width: max-content;
     color: #000;
 } 
@@ -81,29 +90,6 @@ h2 > strong:hover{color: crimson ;}
 }
 .Together > b::after {content: '💙'; background-color: #99009955; border-radius: 1% 30% 5% 25%;}
 .Together > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
-
-
-#flipbutton{
-    position: absolute ; right: 0; top: 0; z-index: 2; height: 8vmin; width: 8vmin; border-radius: 10% 40% 10% 60% ;
-}
-#flipbutton > * {
-    font-family:Helvetica, sans-serif;
-    text-align: center;
-    text-decoration:  line-through;
-}
-#flipbutton:hover{
-    color: #ffff;
-
-    background: linear-gradient(
-        100deg,
-        #aaaaff,
-        #11aaff,
-        #ff11aa,
-        #990099,
-        #11ffad
-    );    
-    
-}
 
 #ExtendButton { background-color: hsla(159, 100%, 53%, 0.6);
     -webkit-text-stroke: 0.1vmin blue; border: 1vmin double gray;

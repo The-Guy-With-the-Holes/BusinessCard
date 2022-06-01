@@ -1,7 +1,9 @@
 
 
 function Log(message, callLocation){
-  if(!message || !callLocation){return alert('Missing message || CallLocation')}
+  if(!message || !callLocation){
+  return alert('Missing message || CallLocation')
+}
   console.log(message+':\n Caller:'+callLocation);
 }
 

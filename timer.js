@@ -1,4 +1,4 @@
-var time = new Date();
+/*var time = new Date();
 
 var $timerdiv1 = $ ("div id='timer'>Some-Content</div>"),
     timerdiv2 = document.createElement("div");
@@ -20,3 +20,4 @@ function tickup(position){
     if(position=="Seconds"){}
 
 }
+*/

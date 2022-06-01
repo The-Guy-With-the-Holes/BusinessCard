@@ -111,8 +111,7 @@ for(let i = 0; i< hexWidth; i++){
    for(let x=1; x < (hexLength); x++){
     let Res= hexArray[(randomNum(0,16))];
     hex.push(Res);
-   
-    }
+}
    hexResult = hex.join('')
 
    }
@@ -200,7 +199,7 @@ let p2 =Get.Page2;
     if(p2.style.display == "none"){
         setExtendTarget('THE BLOODWORKS');
     }
-    setExtendTarget('The Journey So far..'); 
+    setExtendTarget('Basic'); 
     
 }
   
@@ -247,15 +246,9 @@ if (n < min) return Carousel.Index = max ;
 
 function masterunlock(){
     document.getElementById("HT").style.opacity=1; 
-    document.getElementById("HB").style.opacity=1; 
-    
-   
+    document.getElementById("HB").style.opacity=1;    
 }
-function resetbox(){
-    tbox.innerText=" I thouroghly enjoy coding as it allows for digital freedom of expression";
-    tbox.style.fontFamily="'Akronim', cursive"; tbox.style.textDecoration="";
-    tbox.style.fontSize="3.5vh";
-}
+
 
 
 

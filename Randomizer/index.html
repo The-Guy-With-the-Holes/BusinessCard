@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomizer</title>
+
+    <link rel="stylesheet" href="Randomizer.css">
+</head>
+<body onload="GetHex()">
+
+<header>
+        <h1>Random functions</h1>
+</header>
+
+<div id="RandomNum" class="RandomSection">
+<p class="Functitle DiceSpin">Get a Random Number</p>
+    <span id="DiceContainer" class="Container"><p id="Dice">1</p></span>
+    <input id="RNmin" name="min" type="text" placeholder="MIN:">
+    <input id="RNmax" name="max" type="text" placeholder="MAX:">
+    <button onclick="getrandom()">Get Number 🎲 </button> 
+</div>
+
+<div id="RandomHex" class="RandomSection">
+<p class="Functitle">Get a Random Hex</p>
+    <span id="HexContainer" class="Container"><p id="Hex">#55aagg</p></span>
+
+<span id="HexRadio"><p>Hex Length:</p> <input type="radio" id="Hex6" name="Width"><label for="Hex6">6</label>
+    <input type="radio" id="Hex8" name="Width"><label for="Hex8">8</label>
+</span>
+
+    <button onclick="GetHex()">Get Hex 🎲</button> 
+</div>
+
+
+<div class="RandomSection">
+    <p class="Functitle">Get a color Array</p>
+<span id="ColorArray" class="Container">
+</span>
+<p id="ColorArrayHex">#000</p>
+<button> Create Array</button>
+</div>
+
+
+<script src="Randomizer.jsx" type="text/javascript"></script>
+</body>
+</html>

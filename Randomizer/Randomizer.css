@@ -1,0 +1,101 @@
+:root {
+    --Dice-time:5000,
+}
+::-webkit-input-placeholder {
+    text-align: center;
+}
+body {
+    margin: auto;
+    text-align: center;
+}
+header {
+    text-align: center;
+    background-color: #f5f5dc;
+}
+h1::before{
+    content: '(Literally) ';
+}
+.RandomSection {
+    display: inline-block;
+    padding: 1%;
+    border: 1px solid greenyellow;
+    max-width: 43%;
+    min-height: 45%;
+    text-align: center; vertical-align: top;
+}
+.RandomSection > * {
+    display: inline-block;
+}
+.Functitle {
+ min-width: 80%;
+ font-size: large;
+ font-weight: 600;
+ border: 2vmin double goldenrod;
+}
+.RandomSection >  input {
+    max-width: 70%;
+    display: inline;
+}
+.Container{
+display: inline-block;
+min-width: 20%; max-width: 100%;
+min-height: 10vw;
+
+    padding: 10% 20%  10% 20%;
+    border: 1vmin double gray;
+    margin-bottom: 10%; 
+}
+
+/*Section1*/
+#DiceContainer {
+    font-size: xx-large;
+    background-color: antiquewhite;
+}
+#Dice {
+    height: min-content;
+    margin: 0;   
+}
+.DiceSpin {
+    animation-name: Rotate-Die ;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.DiceSpin::after {
+    border: 10vmin solid green;
+}
+@keyframes Rotate-Die {
+0%{border: 1vmin solid black;}
+10%{background-color:white;transform:rotateY(160deg) skewX(200deg);}
+90%{background-color:white;transform:rotateY(560deg) skewX(560deg);}
+100% {border: 2vmin double goldenrod;}
+}
+
+/*Section2*/
+#Hex {
+background-color: #f0f8ff99;
+}
+
+#HexRadio{
+    background-color: #f5f5f5 ;
+    color: black;
+    min-width: 80%;
+    max-width: 100%;
+    margin-bottom: 1% ;
+}
+#HexRadio > p {
+    margin: 0; padding: 2%;    
+}
+#HexRadio > label {
+    -webkit-text-stroke: 0.4vmin darkslategrey;
+}
+
+/*Section3*/
+
+#ColorArray {
+
+    background-color: aquamarine;
+}
+#ColorArrayHex{
+    min-width: 60%;
+}
