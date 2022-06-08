@@ -29,8 +29,8 @@ function AddNavBar(title){
     console.log('Adding nav bar');
 
 if(!title){title = document.querySelector('title').innerText;}
-if(title=="Home") {NavBarElements.push('Extend');}
-else{NavBarElements[0]="Home";}
+if(title=="Home") {}//{NavBarElements.push('Extend');}
+
   let body = document.body;  
   let NavBar =  document.createElement('nav');
 
@@ -68,4 +68,41 @@ function LoadNewNavBar(t){
 }
 AddNavBar();
 
+//Quote of the day
+
+function getQOTD(){
+let day = new Date().getDay();
+let Quote = QOTD[(day)]
+createQOTDbox(Quote,day);
+}
+
+function removeQOTD(){document.getElementById('QuoteBox').remove();}
+
+function createQOTDbox(Quote,Day){
+let days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];  
+let div = document.createElement('div'); let p = document.createElement('p');
+let closebtn=document.createElement('button');
+let today = new Date(); let time=document.createElement('p');
+let currentDay = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+
+
+
+closebtn.append(document.createTextNode('X'));
+setAttributes(closebtn,{'onclick':'removeQOTD()','id':'CloseQuoteBox'})
+
+time.append((document.createTextNode(days[Day]+' '+(currentDay))),(document.createElement('br')),)
+setAttributes(time,{'id':'TimeQuoteBox'})
+
+p.append((" of the day: "),time)
+p.append(document.createElement('br'),"\" ",document.createTextNode(Quote)," \"");
+setAttributes(p, {'id':'QuoteBoxP','style':'color:gold; font-size:3vw; font-weight:700; -webkit-text-stroke:0.1vmin #000;'});
+
+div.append(closebtn);
+div.append(p);  
+setAttributes(div,{'id':'QuoteBox'});
+
+
+console.warn(Quote[Day]);
+document.querySelector('nav').after(div);
+  }
 

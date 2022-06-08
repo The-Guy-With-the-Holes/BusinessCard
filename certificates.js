@@ -96,5 +96,5 @@ Get.Title.innerText="Certificates";
        }
    }
    function clearCerts(){
-       Get.Cert.style.display="none";
+       Get.Page.Cert.style.display="none";
    }

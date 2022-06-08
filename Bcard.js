@@ -139,7 +139,10 @@ function test2(arg1){
     alert(arg1);
 }
 
-function CreatePage2(name){
+let lBTN = Create.Carousel.Leftbtn;
+let rBTN = Create.Carousel.Rightbtn;
+
+function CreatePage2(name, ref){
 if(!name || !Carousel.Names.includes((name)))return console.error('Create Page 2 ran without a name');
 //Elements and text nodes
 let DIV = Create.Div; let IMG = Create.Img; 
@@ -147,39 +150,29 @@ let H5 = document.createElement('h5'); let x = document.createTextNode(name);
 
 setAttributes(DIV, {'class': 'PictureBox', 'id':'PictureBox'});
 setAttributes(IMG,{'class': 'PictureBoxImg', 'id': 'PictureBoxImg', });
+ 
+    lBTN.append((document.createTextNode('Prev')));
+    lBTN.append((document.createElement('br')),(document.createTextNode('<<')));
+    setAttributes(lBTN,{'id':'Left-Carousel', 'onclick' : "imageCaro(-1)", 'style': 'left:12%'});
+
+    rBTN.appendChild((document.createTextNode('Next'))); 
+    rBTN.append((document.createElement('br')),(document.createTextNode('>>')));
+    setAttributes(rBTN,{'id':'Right-Carousel','onclick' : "imageCaro(1)", 'style': 'right:12%'});
 
 H5.appendChild(x); DIV.appendChild(H5); 
-DIV.appendChild(IMG); 
-
-if(name.includes("BloodWorks")){
-   let QR = Create.Btn; 
-    QR.appendChild((document.createTextNode('Generate QR')));
-    setAttributes(QR,{'id': 'QRbtn', 'onclick' : "Rotate(\'QR\')"});
-    IMG.setAttribute('src', 'i/BusinessImages/BloodWebM.png');
-    DIV.appendChild(QR);
-    }
-else{
-let lBTN = Create.Carousel.Leftbtn;
-    lBTN.appendChild((document.createTextNode('Prev')))
-    lBTN.appendChild((document.createElement('br'))); 
-    lBTN.appendChild((document.createTextNode('<<')))
-    setAttributes(lBTN,{'id':'Left-Carousel', 'onclick' : "imageCaro(-1)",
-'style': 'left:12%'});
-
-let rBTN = Create.Carousel.Rightbtn;
-    rBTN.appendChild((document.createTextNode('Next')));
-    rBTN.appendChild((document.createElement('br'))); 
-    rBTN.appendChild((document.createTextNode('>>')));
-    setAttributes(rBTN,{'id':'Right-Carousel','onclick' : "imageCaro(1)",
-'style': 'right:12%'});
-
+DIV.appendChild(IMG);
 DIV.appendChild(lBTN);
 DIV.appendChild(rBTN);
-}
-   
 
-Get.Page2.appendChild(DIV);
-Get.Page2.style.display=""; 
+if(ref){ let name = document.createTextNode(Sponsors[0][0]);
+let x = Carousel.Index; 
+H5.append((document.createElement('br')),(name))
+//DIV.prepend((document.createTextNode('PREPENDED')))
+DIV.appendChild((document.createTextNode('Replace')))
+}
+
+Get.Page.Page2.appendChild(DIV);
+Get.Page.Page2.style.display=""; 
 setExtendTarget();
 }
 
@@ -191,7 +184,7 @@ Get.Extndbtn.setAttribute('onclick',"extendProfile"+"('"+param+"')");
 }
 
 function closeExtProfile(){
-let p2 =Get.Page2;
+let p2 =Get.Page.Page2;
    Get.Extndbtn.style.transform="rotate(0deg)"; 
    p2.querySelectorAll("*").forEach(p2 =>{p2.innerHTML=""; p2.remove();})
    p2.style.display="none"; 
@@ -215,9 +208,9 @@ if(type=="QR"){
     document.getElementById("QRbtn").innerHTML="";
     return document.getElementById("QRbtn").remove();}
 
-    //Carousel Function
-                    
+    //Carousel Function                    
 }
+
 function imageCaro(direction){
 let min = Carousel.Min; let max = Carousel.Max;
 let PB = document.getElementById('PictureBoxImg');

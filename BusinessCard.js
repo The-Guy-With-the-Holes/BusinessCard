@@ -4,17 +4,26 @@ function debug(type,word,action){
     }
 }
 
+function getval(start,end){
+    let v = [];
+    for(let i =start; i<end+1; i++){
+let arr= i+'%{background:linear-gradient('+i*3.65+'deg,salmon,lightpink);}';
+    v.push(arr);
+}console.log(v.join(' '))
+}
+
 function clearPage(Page){
     
-    if  (Get.Hidden.style.display != "none" || Page=="Hidden"){Get.Hidden.style.display="none";}
-    if  (Get.Main.style.display != "none" || Page=="Main"){Get.Main.style.display="none";}      
+    if  (Get.Page.Hidden.style.display != "none" || Page=="Hidden"){Get.Page.Hidden.style.display="none";}
+    if  (Get.Page.Main.style.display != "none" || Page=="Main"){Get.Page.Main.style.display="none";}      
 }
 
 function flip(page , sub){
-let GM = Get.Main; let GH = Get.Hidden; let GC = Get.Cert; let GT=Get.Title; let GP =Get.Projects
-    //Checks page is specified and page2 isnt open
+let GM = Get.Page.Main; let GH = Get.Page.Hidden; let GC = Get.Page.Cert; let GT=Get.Title; let GP =Get.Projects
+let GCi = Get.ContactInfo;
+//Checks page is specified and page2 isnt open
     if(!page) return alert('When flipping, please specify page to flip');
-    if (Get.Page2.style.display!="none") closeExtProfile();
+    if (Get.Page.Page2.style.display!="none") closeExtProfile();
     if(page=="Extend"){if(!sub){sub='Basic'}return extendProfile(sub);}    
     clearPage(); 
     if (GT.innerText=="Certificates"){clearCerts()}
@@ -22,7 +31,8 @@ let GM = Get.Main; let GH = Get.Hidden; let GC = Get.Cert; let GT=Get.Title; let
     if(page=="About" && GH.style.display=="none"){ return GH.style.display = "" ;}
     if(page=="Home" &&  GM.style.display=="none") {return GM.style.display = "" ;}
     if(page=="Certificates" && GC.style.display=="none"){return createCertTable();}
-    if(page=="Proects" && GP.style.display=="none"){return Gp.style.display="";}
+    if(page=="ContactInfo" && GCi.style.display=="none"){return GCi.style.display=='"';}
+    if(page=="Projects" && GP.style.display=="none"){return Gp.style.display="";}
     Log('Flip completed full function, page was probably already', 'FLip LL')
 }
 
@@ -73,7 +83,7 @@ document.querySelectorAll('ul>li').forEach(item => {
 function extendProfile(name){
   Get.Extndbtn.style.transform="rotate(180deg)";    
   if (!name) {console.warn('Please Use name when extending');
-      return CreatePage2("BloodWorks©");
+      return CreatePage2("The Homies",true);
     }
 CreatePage2(name)
 }

@@ -21,8 +21,9 @@
     <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
 </head>
 
-<body onclick="shiftery()" onload="flip('Certificates')">
-     <!--   <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>
+<body onclick="shiftery()" onload="getQOTD(); shifter();">
+     <!--   flip('Certificates'); extendProfile();
+         <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>
         <p id="BarH" style="height:min-content; " hidden> I am here</p>
      -->
 
@@ -41,14 +42,17 @@
           
             </div>
         </div>
-</div>    
+</div>
+
+<div id="contact" class="box-main" style="display: none;"></div>
+
 <div value="0" id="boxmain" class="box-main">
    
     <header class="box-grid" onclick="changeColor('h1')">
         <h1><u>J</u><strong>ack Ewers </strong>,<br> Digital Business-Card </h1> 
         <h2> Everybody has a
              <strong onmouseenter="settext('h2')">Vision</strong>
-             , lets work on ours <br><span class="Together"> <b>Together</b>
+             ,<br> lets work on ours <span class="Together"> <b>Together</b>
             </span>
             </h2>
 
@@ -78,7 +82,7 @@
                 <div class="ballsy Rotern"> <a href="Certificates/index.htm" target="_blank">
                     <img class="balls" id="Certs" /> </a>
                 </div>
-                <div class="ballsy Rotern"> <a href="mailto: Jack.ewers@protonmail.com" >
+                <div class="ballsy Rotern"> <a href="mailto:Jack.ewers@protonmail.com?subject=About your cool Website!&body=Leave a review" >
                     <img id="Mail" class="balls" /> </a>
                 </div>
                 <div id="HT" class="ballsy Rotern hiddenBall" > <a target="_blank">
@@ -127,9 +131,9 @@
                
         </span>
     </div>
-    <button id="ExtendButton" onclick="extendProfile()"> 
+ <!--   <button id="ExtendButton" onclick="extendProfile()"> 
         <b>&#8595;</b> 
-    </button>
+    </button> -->
 </div>
 
 <div id="hiden"  class="box-main" style="display: none; text-align: center;">
