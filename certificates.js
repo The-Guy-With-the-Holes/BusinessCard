@@ -9,7 +9,7 @@ const Blocks = {
 
     'Program Hub':
     ['Fundamentals','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
-    'Javascript Advanced','Node-JS','Meteor-JS','Jquery','React Native', 'WordPress',
+    'JavaScript Advanced','Node-JS','Meteor-JS','jQuery','React Native', 'WordPress',
     'Growth Hacking','GitHub','Python','SQL','SEO','Ethical Hacking',
     'Linux','Docker','BootStrap','PHP','NLP', 
     'CryptoCurrency','BlockChain','Solidity', 'NFTS'
