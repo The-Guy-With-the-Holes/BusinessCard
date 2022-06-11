@@ -1,5 +1,6 @@
 const Debug = {
     T:false,
+    User:true,
     Hex:true,
     Icon:true,
     List:true,
