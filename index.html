@@ -18,11 +18,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="">
     <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
 </head>
 
 <body onclick="shiftery()" onload="  getUser();">
-     <!--   flip('Certificates'); extendProfile();shifter();
+
+    <!--   flip('Certificates'); extendProfile();shifter();
          <progress style="float:right;" id="BarZ" value="0" min="0" max="1000"> </progress>
         <p id="BarH" style="height:min-content; " hidden> I am here</p>
      -->
@@ -44,8 +46,14 @@
         </div>
 </div>
 
-<div id="contact" class="box-main" style="display: none;"></div>
 
+<div id="Contact" class="box-main" style="display: none;"> 
+    <div><h5>Contact</h5>
+        <p>#: +(61) 479 000 429</p>
+        <p>@: Jack.ewers#protonmail.com</p>
+    </div> 
+</div>
+<div id="Projects" class="box-main" style="display:none;"></div>
 <div value="0" id="boxmain" class="box-main">
    
     <header class="box-grid" onclick="changeColor('h1')">
@@ -58,16 +66,16 @@
 
     </header> 
     <span class="box-grid" id="Mainimg">
-    <!-- Profile image && text box-->
-    <img  onmouseenter="mainimgRotate()" id="locko" class="mainx" />
+        <!-- Profile image && text box-->
+        <img onmouseenter="mainimgRotate()" id="locko" class="mainx" />
     </span>
 
 
-        <!--- UpperBox == NAMES ( GIT , StackOverflow, )-->
+    <!--- UpperBox == NAMES ( GIT , StackOverflow, )-->
     <div id="IconBoxPre" class="box-grid"></div>    
     <div id="IconBox" class="box-grid">
         <span class="Boxes upper" >
-                <div class="Rotern ballsy "><a href="https://github.com/Blood-web" target="_blank">
+                <div class="Rotern ballsy "><a href="https://the-guy-with-the-holes/github.io" target="_blank">
                     <img id="Git" class="balls" /> </a>
                 </div>
                 <div class="ballsy Rotern"><a href="https://stackoverflow.com/users/16111503/bloodworks" target="_blank">
@@ -158,8 +166,7 @@
            <ul> <label>My hobbies : </label>
                 <li>Body-Modification</li>
                 <li>Coding</li>
-                <li>Philosophy</li>
-                
+                <li>Philosophy</li>      
             </ul>
     </div>
         <div class="projects" id="projects-passions">     
@@ -171,21 +178,17 @@
     </div>      
 </div>
 
-
-
 <div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >    
-
 </div>
-
 
 
 <footer style="display: none;">
     <button id="RevBTNX01" style="float:left;" onclick="OpenReview()">⭐ Rate My site ⭐</button> 
- <form id="ReviewForm" onsubmit="" style="display: none ;">
+    <form id="ReviewForm" onsubmit="" style="display: none ;">
         <input oninput="setCookie()" id="myinput" placeholder="Leave Your Name 💙" />
             <textarea cols="30" rows="3" placeholder="...And a comment" name="ReviewInput" id="ReviewInput" ></textarea>
         <p onclick="submitName()">💖Send it💖</p>
-    </footer>
+</footer>
  
 
 </span>

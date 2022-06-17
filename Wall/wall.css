@@ -1,0 +1,32 @@
+:root{
+    --1:8vw;
+    --2:20px;
+    --4:40px;
+}
+body {
+    background-color: yellow;
+}
+
+#MainIMG{
+    width: content; 
+    height: 1000px; 
+    /*margin: 0 auto;*/
+background-image: url(ARTbySEB.jpg); border: 0px solid red;}
+
+#MainIMG >  {
+     
+}
+
+.Blxs { position: relative; 
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0.005%;
+ 
+}
+.Blxs >a { font-size: smaller;}
+.B1x1 { height: var(--1); width: var(--1); background-color: green; }
+.B1x2 { height: var(--1); width: var(--2); background-color: aqua; }
+.B2x1 { height: var(--2); width: var(--1); background-color: black;}
+.B2x2 { height: var(--2); width: var(--2); background-color: black;}
+.B2x4 { height: var(--2); width: var(--4); background-color: black;}
+.B4x4 { height: var(--4); width: var(--4); background-color: black;}

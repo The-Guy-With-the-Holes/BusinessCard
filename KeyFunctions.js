@@ -4,6 +4,7 @@ function getDatearr(){
   let currentDay = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
   return currentDay;
 }
+
 //Storage
 function removeQOTD(){document.getElementById('QuoteBox').remove();}
 let todaysDate=(getDatearr());
@@ -31,7 +32,9 @@ if(User.New == 'false'){ //console.warn('Not a new user');
   }
   localStorage.setItem('UserLastLogin',todaysDate);
 }
-// Numbers
+
+// Number
+
 
 // Styles
 function setAttributes(el, attrs) {
@@ -54,7 +57,8 @@ function createClass(name,rules){
 //Elements
 
 //NavBAR
-const NavBarElements =['Home','About',
+const NavBarElements =['Home','About','Contact',
+'Projects',
 //'Projects',
 'Certificates'];
 function AddNavBar(title){
@@ -66,10 +70,9 @@ if(title=="Home") {}//{NavBarElements.push('Extend');}
   let body = document.body;  
   let NavBar =  document.createElement('nav');
 
-createClass('.NavBar',"display:block; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 6vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);");
-setAttributes(NavBar, { 'class':'NavBar'});
-createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-stroke:0.1vmin black; margin:1px; padding:1%; border-radius: 10%; border: 2px double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);')
-
+createClass('.NavBar',"display:block; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);");
+setAttributes(NavBar, { 'class':'NavBar' });
+createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-stroke:0.03vmin black; margin:1px; padding:1%; border-radius: 10%; border: 2px double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);')
   for (let i = 0; i < NavBarElements.length; i++){
       let Name = NavBarElements[i]; console.log(Name);
       
@@ -80,7 +83,7 @@ createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-s
       if (Name == title || false && Name != NavBarElements[0]) {
       li.setAttribute('id','NavBar_Selected');
       }
-        //Float last ele
+//Float last element
       if ( i ==(NavBarElements.length-1) ){ setAttributes(li,{'style':'float:right;'}); }
       NavBar.append(li);
   }
@@ -100,14 +103,13 @@ function LoadNewNavBar(t){
 }
 AddNavBar();
 
-//Quote of the day
 
+//Quote of the day
 function getQOTD(){
 let day = new Date().getDay();
 let Quote = QOTD[(day)]
 createQOTDbox(Quote,day);
 }
-
 
 
 function createQOTDbox(Quote,Day){

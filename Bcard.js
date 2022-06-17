@@ -53,30 +53,6 @@ function logCookie() {
         }
     } 
 
-//************************//
-// Change Id of balls//
-var bt1 = document.getElementById("Git");
-var bt2 = document.getElementById("Stack");
-
-var bl1 = document.getElementById("Twit");
-var bl2 = document.getElementById("FB");
-let y = 0;
-
-function allLinks(){
-if (y==0) {
-    bt1.id = "reverse";
-    bt2.id = "reverse2";
-    y+=1;
-}
-else if (y==1){
-    bt1.id="Git";
-
-    bl2.id="FB";
-
-    y-=1;
-}
-}
-
 function countforbitcoin(){
 
 if( bitcoinRun=true)return Log('BTC already running', 'Ko');
@@ -243,68 +219,6 @@ function masterunlock(){
 }
 
 
-
-
-// Master catalugoe   swaps targets and backgrounds//
-var alpha = document.getElementById('image-slide1');
-//Beta - prog bar removed fo easier code //
-var charlie = document.getElementById('href-link1');
-var delta = document.getElementById('href-link1');
-let x = 0;
-
-console.log("SHitrey Master has started, --4seconds");
-function shifteryMast() {
-    if (x == 0) {
-      alpha.style.backgroundImage = "url(../../Pictures/speed.png)";
-      charlie.href = "https://coinmarketcap.com" ; 
-      delta.innerText = "CoinMarketCap";
-      
-      console.log("Shiftrey Master -1");
-    }
-   else if (x == -1) {
-       x = 0;
-   }
-    else if (x == 1) {
-        alpha.style.backgroundImage = "url(i/Hwiki.jfif)";        charlie.href = "https://wikipedia.org";
-        delta.innerText = "WikiPedia";  
-        console.log("Shiftery Master - 2");
-    }
-    else if (x == 2) {
-        alpha.style.background = "url(i/11.jfif)";
-        charlie.href = "../../" ; 
-        delta.innerText = "no3";
-        console.log("Shiftery Master -3");
-    }
-    else if (x == 3) {
-        alpha.style.background = "url(i/git.png)";
-        charlie.href = "https://github.com/blood-web" ; 
-        delta.innerText = "Github";
-        console.log("Github");
-    }
-    else if ( x == 4) {
-        alpha.style.background = "url(i/anon.png)";
-        charlie.href = "https://coinmarketcap.com" ; 
-        delta.innerText = "no5";
-        console.log("Shiftrey Master -5");
-    }
-    else if ( x == 5) {
-        alpha.style.background = "url(i/pumpkin.png)";
-        charlie.href = "https://coinmarketcap.com" ; 
-        delta.innerText = "Inner text swap - Omega";
-        console.log("Shiftery Master -Omega");
-        x = 5;
-    }
-
-
-}
-
-//Timing function for shiftery script//
-
-/*setInterval(myTimer, 4000)
-function myTimer() {
-    shiftery();
-    console.log('4S - Shiftrey');
-}*/
  let BackgroundZ = document.documentElement.style.getPropertyValue('--BoxMain-Background');
    
 // Background shifter - SHIFTREY //

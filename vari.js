@@ -12,14 +12,14 @@ const Debug = {
 const Get = {
     Title:document.querySelector('title'),
     Extndbtn : document.getElementById('ExtendButton'),
-   
+   Pages:['Main','About','Contact','Projects',],
     Page:{
-    Main : document.getElementById('boxmain'),  
-   
+    Main : document.getElementById('boxmain'),     
     Hidden: document.getElementById('hiden'),
     Page2 : document.getElementById('secondBox'),
     About : document.getElementById('About'),
-    Projects:document.getElementById('Projects'),
+    Contact: document.getElementById('Contact'),
+    Projects: document.getElementById('Projects'),
     Cert: document.getElementById('Cert_Wrapper') ,},
     Rev : {
         Form : document.getElementById('ReviewForm') ,
