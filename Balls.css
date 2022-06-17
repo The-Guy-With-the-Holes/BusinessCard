@@ -1,7 +1,7 @@
 :root{
     --ali:2deg;
     --ani-box:linear-gradient(40deg,lightpink,salmon);
-    --BoxMain-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
+    --Home-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
     --Mainro:180deg;
     --Main-img1:url(i/Profile.jpg);
     --Main-img2:url(i/Profile2.jpg);

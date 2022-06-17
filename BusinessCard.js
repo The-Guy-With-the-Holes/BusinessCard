@@ -1,5 +1,3 @@
-const {get} = require("jquery");
-
 function debug(type,word,action){ 
     if(Debug[type]==true){
         console.log(word+' Has been '+action+'ed');  
@@ -16,13 +14,15 @@ let arr= i+'%{background:linear-gradient('+i*3.65+'deg,salmon,lightpink);}';
 }
 
 function checkPagestoclear(){
-for (let i=0; i<Get.Pages.length; i++){let item = Get.Pages[(i)]
-    if(document.getElementById((item))){clearPage((item));}
+for (let i=0; i<Get.Pages.length; i++){
+    let item = Get.Pages[(i)]
+    if(document.getElementById((item))){
+console.error('xe'); clearPage((item)); }
 }}
 
 function clearPage(item){
     let getItem=document.getElementById(item);
-    if(!getItem){//console.error(item+':: No item to clear // Clear page');
+    if(!getItem){console.error(item+':: No item to clear // Clear page');
     }
 
     if(getItem.style.display=="none"){return;}
@@ -30,7 +30,7 @@ function clearPage(item){
 }
 
 function flip(page , sub){
-let GM = Get.Page.Main; let GH = Get.Page.Hidden; let GC = Get.Page.Cert; let GT=Get.Title; let GP =Get.Projects
+let GM = Get.Page.Home; let GH = Get.Page.About; let GC = Get.Page.Cert; let GT=Get.Title; let GP =Get.Page.Projects
 let GCi = Get.Page.Contact;
 //Checks page is specified and page2 isnt open
     if(!page) return alert('When flipping, please specify page to flip');
@@ -43,7 +43,7 @@ let GCi = Get.Page.Contact;
     if(page=="Home" &&  GM.style.display=="none") {return GM.style.display = "" ;}
     if(page=="Certificates" && GC.style.display=="none"){return createCertTable();}
     if(page=="Contact" && GCi.style.display=="none"){return GCi.style.display='';}
-    if(page=="Projects" && GP.style.display=="none"){return GP.style.display="";}
+    if(page=="Projects" && GP.style.display=="none"){return CreateSpecial(GP); }
     Log('Flip completed full function, page was probably already open', 'FLip LL')
 }
 

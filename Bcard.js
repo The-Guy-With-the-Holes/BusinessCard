@@ -219,7 +219,7 @@ function masterunlock(){
 }
 
 
- let BackgroundZ = document.documentElement.style.getPropertyValue('--BoxMain-Background');
+ let BackgroundZ = document.documentElement.style.getPropertyValue('--Home-Background');
    
 // Background shifter - SHIFTREY //
 //Else if LOOP, 0-5-0//
@@ -262,7 +262,7 @@ let palletes =[
     "repeating-conic-gradient(red 10%, yellow 20%)",                                                      
     "repeating-radial-gradient( #0bd3d3, #f890e7, #ffffff, #d0d0d0, #000000)"
 ]
-document.documentElement.style.setProperty('--BoxMain-Background', palletes[SC.Loop]);
+document.documentElement.style.setProperty('--Home-Background', palletes[SC.Loop]);
 console.log(' Shiftery changing backgrounds to #:'+SC.Loop);
 SC.Loop++; callshiftery();                                     
 if (SC.Loop > 9) return SC.Loop=0;

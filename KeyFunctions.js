@@ -57,8 +57,8 @@ function createClass(name,rules){
 //Elements
 
 //NavBAR
-const NavBarElements =['Home','About','Contact',
-'Projects',
+const NavBarElements =['Home','About',
+//'Contact',
 //'Projects',
 'Certificates'];
 function AddNavBar(title){

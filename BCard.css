@@ -67,12 +67,12 @@ p {
     border-radius: 1%;
     border: 2px solid #fff000 ;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-/*  background:var(--BoxMain-Background) ;
+/*  background:var(--Home-Background) ;
 */
-animation: BoxMainAnimation 3s linear 2s infinite both;
+animation: HomeAnimation 3s linear 2s infinite both;
 }
 
-@keyframes BoxMainAnimation {
+@keyframes HomeAnimation {
    0%{background:linear-gradient(0deg,salmon,lightpink);}
     1%{background:linear-gradient(3.65deg,salmon,lightpink);}2%{background:linear-gradient(7.3deg,salmon, lightpink);}3%{background:linear-gradient(10.95deg,salmon, lightpink);}4%{background:linear-gradient(14.6deg,salmon, lightpink);}5%{background:linear-gradient(18.35deg,salmon, lightpink);}6%{background:linear-gradient(22deg,salmon, lightpink);}7%{background:linear-gradient(25.65deg,salmon, lightpink);}8%{background:linear-gradient(29.3deg,salmon, lightpink);} 9%{background:linear-gradient(32.95deg,salmon, lightpink);}10%{background:linear-gradient(36.6deg,salmon, lightpink);}
     11%{background:linear-gradient(40.15deg,salmon,lightpink);}12%{background:linear-gradient(43.8deg,salmon, lightpink);}13%{background:linear-gradient(47.45deg,salmon, lightpink);}14%{background:linear-gradient(51.1deg,salmon, lightpink);}15%{background:linear-gradient(54.75deg,salmon, lightpink);}16%{background:linear-gradient(58.4deg,salmon, lightpink);}17%{background:linear-gradient(62.05deg,salmon, lightpink);}18%{background:linear-gradient(65.7deg,salmon, lightpink);} 19%{background:linear-gradient(69.35deg,salmon, lightpink);}20%{background:linear-gradient(73deg,salmon, lightpink);}
@@ -87,7 +87,7 @@ animation: BoxMainAnimation 3s linear 2s infinite both;
     100%{background:linear-gradient(365deg,salmon,lightpink);}
 }
 
-#boxmain {
+#home {
     background-color: palevioletred;
     display: grid;
     grid-template-columns:auto;
@@ -170,7 +170,9 @@ h2 > strong :hover{ color: crimson ;}
 #ExtendButton > b :hover {
     transform: translate(340deg);
 }
-
+#locko{
+    position: absolute; top: 1%; right: 1%;
+}
 #Mainimg {
     grid-area: main;
 }
