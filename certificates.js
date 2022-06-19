@@ -17,19 +17,6 @@ function incBlock(Direction){
     createCertTable(true);
 }
 
-function CreateSpecial(t){
-
-    if (!Get.Pages.includes(t)){return console.error('Cannot Create page not refr');
-    } else {
-        
-        if (t=="Certificates"){ return createCertTable();}
-        if (t=="Projects"){ return createProjectsPage();}
-    }
-}
-function createProjectsPage(){
-
-    i
-}
 function createCertTable(neu){
 Get.Title.innerText="Certificates";
    let certwrap = document.getElementById('Cert_Wrapper'); 

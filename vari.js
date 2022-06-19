@@ -24,9 +24,9 @@ const Get = {
     Rev : {
         Form : document.getElementById('ReviewForm') ,
         Btn :document.getElementById("RevBTNX01"),
-    },
-   
+    },   
 }
+
 let Create = {
     Div : document.createElement('div'),
     Img : document.createElement('img'),
@@ -38,9 +38,12 @@ let Create = {
         Rightbtn:document.createElement('button'),
     },
 }
+
 const str = {
     B:'Basic'
 }
+
+//Quotes of the day
 const QOTD = [
     'The one who plants a tree, knowing they wil never sit in it\'s shade has at least come close to understanding the meaning of life',
     'Think like an Investor, Buying something doesn\'t just cost you, it costs you the potential profit you would of made investing it',
@@ -48,7 +51,7 @@ const QOTD = [
     'Never lose sight of your mission, be driven, this life is a prison if you don\'t have vision. You\'re in it to win it. so.. GO GET IT!',
     'They are all looking for someone to save them, instead of looking inside to see what they gave them, A strong Will, strong Mind, causes mayhem',
     'I got a clear view, We\'re going to make it soon, Just keep pushing through, What have you go to lose?',
-    'SATURDAY PLACEHOLDER'
+    'The best views can only be seen after the hardests climbs'
 ]
 
 const Carousel = {
@@ -61,27 +64,8 @@ const Carousel = {
                 'Body-Modification', 'Coding', 'Philosophy',
                 ' All ' , 'EqualRights!', 'DataProtection', 
                 '  '],
-        Img : {
-            
-            Basic: [0,'Alpha','Banane','Smiles','Game','GFoil',
-            'Oilstand','Luke-T-Emma','ProfSeb','Rocksit','SebSwing',
-            'FireMirror','SebBucket','SebPool','TScult','SebLongShirt',
-            'PoolParty','SebBday','Rockstand','ProfSeb','Rocksit',
-            'WestCoast','Walking'
-    ],
-            Love:[0,],
-        },
 
     }
-const Sponsors=[
-        Joeltron=["Joeltron",
-            'OpalHeart.com.au',
-            'https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png',
-            'CooolDude',
-        ],
-
-   DJBronia=[img='Dj', site="facebook.com/DJBronia", desc="Great Beats"],
-]
 
 //Outdated Get References
 const H5 = document.createElement('h5');
@@ -91,7 +75,7 @@ const TB = document.getElementById('about');
 const Main = document.getElementById("home");
 
 
-//Utility functions
+// Utility functions
 function randomNum(min,max){
     if(min==undefined||max==undefined){min =0; max = 17;}
   return Math.floor(Math.random() * (max - min) ) + min;
@@ -119,23 +103,23 @@ let Child = e.target.querySelector('.balls').id;
 const Blocks = {
 
     'Program Hub':
-    ['Fundamentals','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
+    ['Fundamentals','DevOps','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
     'JavaScript Advanced','Node-JS','Meteor-JS','jQuery','React Native', 'WordPress',
-    'Growth Hacking','GitHub','Python','SQL','SEO','Ethical Hacking',
+    'Growth Hacking','Google Display Ads','GitHub','Python','SQL','SEO','Ethical Hacking',
     'Linux','Docker','BootStrap','PHP','NLP', 
     'CryptoCurrency','BlockChain','Solidity', 'NFTS'
     ],
 
-    'Solo Learn'://Completed
+    'Solo Learn':
     ['HTML','CSS','JavaScript','Web-Dev Fundamentals','Responsive Web-Design',
     'React+Redux',
     'JS Game Development','Coding for Marketers','JQUERY', 'Python for Beginners',
      'Python Core','SQL','C'
     ],
 
-    'Grasshopper':
+    'Grasshopper': //Completed
     ['Coding Fundamentals-I','Coding Fundamentals-II', 'Intro to Interviewing',
-     'Array Methods','Debugging', 'Animations'
+     'Array Methods','Debugging', 'Animations', 'Animations II'
     ],
 
     'Ethical Hacker': //Completed

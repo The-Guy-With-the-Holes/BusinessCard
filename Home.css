@@ -1,0 +1,170 @@
+:root {
+    --ali:2deg;
+    --ani-box:linear-gradient(40deg,lightpink,salmon);
+    --Home-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
+    --Mainro:180deg;
+    --Main-img1:url(i/Profile.jpg);
+    --Main-img2:url(i/Profile2.jpg);
+    --Main-BTC:url(i/₿.png);
+    --rotation-direction:360deg;
+    --icon-background:
+        20deg,
+        #fff000,
+        #fff, green,
+        #000
+    ;
+    --deep:blue;
+}
+
+/* HOME Profile */
+/* Main*/
+.mainx {
+    position: absolute;right: 0;
+    cursor: move; 
+    height: 24vmin; width: 24vmin;
+    margin-top: 0.4vw; margin-right: 0.4vmin;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 50%;
+    background:  linear-gradient(
+        35deg,
+        #eeaaaa,
+        #aaaa99
+    ); 
+      background-image: var(--Main-img1);
+      background-size: contain;
+      background-position: center;
+} 
+.mainx:hover {
+    animation-name: SpinMain;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards ;
+}
+.mainx:hover::after{
+    background-image: url(i/Profile.jpg);
+}
+@keyframes SpinMain {
+    0% {
+        transform: scale(1.3) rotateY(var(--Mainro));
+    }
+    50% {
+        transform: scale(1.5) ;opacity: 0.9;
+    }
+    60%{}70%{}
+    80%{}90%{}
+    100%{background-image: var(--Main-img2) ;}
+}
+
+/* Icon BoxesC :\BusinessCard\i\₿.png */
+#IconBox {
+   position: absolute;
+bottom: 0;
+padding: 1%; 
+}
+#IconBoxPre {
+ display: none;
+}
+.Boxes{  
+    display: inline-block;
+    min-width: max-content;
+    margin: 1%;
+    padding: 0.5%;
+  
+}
+.lower {
+    background-color: #ccffff55;
+}
+.upper {
+    background-color: #ffccff55;  
+}
+
+/*Single items*/
+
+.Rotern{ display: inline-block;
+    width: min-content;
+    height: fit-content;
+}
+.Rotern > a {
+    height: 100%;
+    width: 100%;
+}
+.balls:hover{
+    opacity: 1;
+    transform: scale(1.25);
+}
+.balls {
+    opacity: 0.4; 
+    display: inline;
+    position: relative;
+    max-height: 9vh;  height: 10vmin;
+    max-width: 9vh;  width: 10vmin;
+    
+     
+    
+    border-radius: 50%;
+    background:  linear-gradient(
+        35deg,
+        #ccffff,
+        #ffcccc
+      );
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-size: contain; background-repeat: no-repeat; background-position-x: center ; background-position-y: center ;
+    cursor: pointer;
+    border: 0.5vmin double gold;
+}
+
+
+.Rotern:hover {
+    animation-name:Ball-Background ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#Dhands:hover{opacity: 0;}
+p::after {
+   
+    background-color:black ;
+}
+
+/* Ball animations*/
+
+
+@keyframes Ball-Background{
+    0%{
+        border-radius: 0%;  
+        transform: scale(2) rotate(var(--rotation-direction));
+    }
+    50%{transform: scale(2) ;}
+    60%{}
+    70%{}
+    80%{}
+    90%{border-radius: 5%;}
+    100%{   border-radius: 10%;
+    background: linear-gradient(var(--icon-background)); 
+    }
+}
+
+/*Rotatered??*/
+.hiddenBall {
+    cursor: progress;
+     user-select: none; opacity: 0; 
+}
+#HT{opacity: 0;}
+#HB{opacity: 0;}
+
+#Bweb {background-image: url(i/BloodWeb.png); }
+#Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }
+#Duo {background-image: url(i/DL.png); }    
+#Fb {background-image: url(i/FB.png); }
+#Git {background-image: url(i/git.png); }
+#Stack {background-image: url(i/Stack.png); }
+#Discord {background-image: url(i/discord.svg); }
+#LinkD {background-image: url(i/linkd.png); }
+#Pint {background-image: url(i/Pint.png); }
+#Certs{background-image: url(i/Icons/NFTS.png); }
+#Igg {background-image: url(i/Insta.png); }
+#Mail {background-image: url(i/Icons/Mail.png); }
+#Reddit {background-image: url(i/redit.png); }
+#Twit {background-image: url(i/TWITTER\ CC.png); } 

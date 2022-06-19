@@ -1,18 +1,38 @@
+/*SPECIAL-BODY-PAGES*/
+/*##################*/
 
 /* Special*/
+::-webkit-scrollbar{width:0;}
+#NavBar_Selected{background-color:#aaaaff55; color:#fcffcf55; -webkit-text-stroke: 0.4vmin goldenrod;
+    border:0.5vmin solid #00000099; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;}
 
 /* Body-Level */
 
+* {margin: 0 auto;}
 
-/* Home */
+html {overflow: scroll; overflow-x:hidden ;}
+
+body {
+    cursor: crosshair; overflow: hidden;
+    width: 100vw; height: fit-content;
+    background-color: #fff000; 
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large; font-style: italic;
+}
 
 
+/* Pages, -->
+Home - About(sub) - Certificates*/
 
-/* About */
-
-
-/* Contact */
-
-
-/* Followers */
+.box-main { 
+    position: relative; top: 0; padding: 1%;
+    max-height: 100vh; min-height: 40vh;  height: 60vw;
+    font-size: 5vw; border-radius: 1%;
+    border: 2px solid #fff000 ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    animation: HomeAnimation 3s linear 2s infinite both;
+}
 

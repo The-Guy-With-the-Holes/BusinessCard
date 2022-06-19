@@ -1,8 +1,26 @@
-/*  HIDDEN BOX  */
-#about {
-    
-    box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
- 
+/* About me && SubPages*/
+/* Nav About */
+.Aboutdropdown {
+    position: absolute; display: inline-block; z-index: 2;
+    border: 0.01vmin solid #00000011;}
+  
+.Aboutdropdown-content {
+    display: none; cursor: pointer;
+    background-color: #aaaaffa5;
+    min-width: 100px; height: content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px; z-index: 1;}
+
+.Aboutdropdown:hover .Aboutdropdown-content {display:block; }
+
+
+/* MAIN */
+
+
+#about { box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    font-size: 3vw;
+    background-color: #f0f8ff55;
+    border-radius: 30% 30% 0 0;
 }
 
 #about button {
@@ -20,11 +38,6 @@ h4 {
     -webkit-text-stroke: 0.05vmin goldenrod;
 }
 
-#about {
-    font-size: 3vw;
-    background-color: #f0f8ff55;
-    border-radius: 30% 30% 0 0;
-}
 
 .projects  {  max-width: 30vw; display: inline-table; margin: auto; vertical-align: top;}
 .projects > *  {
@@ -50,4 +63,11 @@ ul>li:hover{
     background-color: aliceblue;
     color: blue;
     cursor: pointer;
+}
+
+/* ABout - Contact */
+
+#Contact > * { display: block;}
+.MailButton{
+    background-image: url(/i/Mail.png);
 }

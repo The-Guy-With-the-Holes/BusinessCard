@@ -1,40 +1,3 @@
-
-#NavBar_Selected{
-    background-color: #aaaaff55; border: 0.5vmin solid #00000099;
-    color: #08080055; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;
-}
-
-/* ADD commets to sections for easier code alterations*/
-/*Elements--Animation--Classes--UNorg--ID*/
-* {
-    cursor: crosshair;
-    margin: 0 auto;
-}
-
-html {
-    overflow: scroll;
-    overflow-x:hidden ;
-}
-
-::-webkit-scrollbar{
-    width:0;
-}
-
-body {
-    cursor: crosshair;
-    width: 100vw;
-    height: fit-content;
-    overflow: hidden;
-    background-color: #fff000;
-}
-
-
-p {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    font-style: italic;
-}
-
 #QuoteBox {
     display:block; margin:0 auto; padding:0.2% 5% 3% 5%;
     background-color:#fafafa; z-index:4; 
@@ -58,20 +21,6 @@ p {
      font-size:large; opacity: 0.7; }
 #CloseQuoteBox:hover{transform: scale(1.2); background-color: #ff000055;}
 
-.box-main { 
-    position: relative;
-    top: 0;
-    max-height: 100vh; min-height: 40vh;  height: 60vw;
-    font-size: 5vw;
-    padding: 1%;
-    border-radius: 1%;
-    border: 2px solid #fff000 ;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-/*  background:var(--Home-Background) ;
-*/
-animation: HomeAnimation 3s linear 2s infinite both;
-}
-
 @keyframes HomeAnimation {
    0%{background:linear-gradient(0deg,salmon,lightpink);}
     1%{background:linear-gradient(3.65deg,salmon,lightpink);}2%{background:linear-gradient(7.3deg,salmon, lightpink);}3%{background:linear-gradient(10.95deg,salmon, lightpink);}4%{background:linear-gradient(14.6deg,salmon, lightpink);}5%{background:linear-gradient(18.35deg,salmon, lightpink);}6%{background:linear-gradient(22deg,salmon, lightpink);}7%{background:linear-gradient(25.65deg,salmon, lightpink);}8%{background:linear-gradient(29.3deg,salmon, lightpink);} 9%{background:linear-gradient(32.95deg,salmon, lightpink);}10%{background:linear-gradient(36.6deg,salmon, lightpink);}
@@ -86,17 +35,25 @@ animation: HomeAnimation 3s linear 2s infinite both;
     91%{background:linear-gradient(332.15deg,salmon,lightpink);}92%{background:linear-gradient(335.8deg,salmon,lightpink);} 93%{background:linear-gradient(339.45deg,salmon,lightpink);} 94%{background:linear-gradient(343.09999999999997deg,salmon,lightpink);} 95%{background:linear-gradient(346.75deg,salmon,lightpink);} 96%{background:linear-gradient(350.4deg,salmon,lightpink);} 97%{background:linear-gradient(354.05deg,salmon,lightpink);} 98%{background:linear-gradient(357.7deg,salmon,lightpink);} 99%{background:linear-gradient(361.34999999999997deg,salmon,lightpink);}
     100%{background:linear-gradient(365deg,salmon,lightpink);}
 }
-
-#home {
-    background-color: palevioletred;
-    display: grid;
-    grid-template-columns:auto;
-    grid-template-rows:40% 60% ;
-    grid-template-areas: 
-    "header header main"
-   " Box Box .";   
+#Contact {
+    background: repeating-linear-gradient(40deg,
+    black, #000a00, lightgreen, seagreen,black);
 }
-
+.ContactBtns{
+    
+    border: 1vmin solid greenyellow;
+    margin: 1vh; display: inline;
+    width: 20vw;
+    height: 20vw;
+    background-color: #11ffad;
+    background-size: contain;
+}
+.CtBtnsx0{
+    background-image: url(i/Icons/Mail.png);
+}
+.CtBtnsx1{
+     background-image: url(i/Icons/Phone.png);   
+}
 header{
     grid-area: header;
     font-family: Lobster, monospace;
@@ -177,11 +134,7 @@ h2 > strong :hover{ color: crimson ;}
     grid-area: main;
 }
 
-canvas {
-    cursor:wait;
-    background-color: #11aaff;
-    border: 1px solid #000;
-}
+
 
 
 
@@ -196,44 +149,6 @@ canvas {
 }
 
 
-/*****************************************************************/
-/* end of classes - start of IDS */
-/*****************************************************************/
-/* Image slider*/
-#image-slide1 {
-    background: url(i/Hwiki.jfif);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
-    display:flex;
-    color: #fff;
-    text-align: center;
-}
-#href-link1 {
-    font-size: 15px;
-    font-style: oblique;
-    color: #000;
-    font-weight: bold;
-    background: #fff;
-}
-#span {
-    position: relative;
-    margin-top: -50px;
-    text-align:inherit;
-    left: 50px;
-}
-#scale {
-    height: 100px;
-    width: 100px;
-    background: url(../../Pictures/PUFF/fatbar.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: #000;
-}
-
-
-
 
 /* PAGE 2 Or below*/
 
@@ -245,7 +160,7 @@ canvas {
      padding-top: 3%; margin-bottom:1%;
  }
  h5 {
-     background-color: turquoise; color: #000000cf; 
+     background-color: turquoise; color: #000000cf; text-align: center;
      width: 60%;border-radius: 10% 60% 60% 10%; border: 1vmin double firebrick;
      -webkit-text-stroke: 0.2vmin red;
  }
@@ -286,7 +201,7 @@ canvas {
      70%{ background-color: #000;}
      99%{background-color: crimson;}
      100%{}
- }
+}
  
 
 
@@ -318,56 +233,3 @@ form > P {
     margin-top: 1%;  padding: 1%;
     width: fit-content; height: fit-content;
 }
-
-
-/*#######################*/
-
-#reverse {
-    opacity: 0;
-}
-#reverse2 {
-    background-color: #000;
-}
-
-/* debugging tools*/
-
-#cluster1 {
-    background-color: #000;
-    border: 40px solid #000; 
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    float: right;
-   
-}
-#Special0 {
-    box-shadow: inset -20px -5px 20px -2px #888,
-    10px 10px 2px 2px #888;
-    float: left;
-   
-   
-}
-#Special1 {
-    box-shadow: inset -20px -5px 20px -2px #888,
-    10px 10px 2px 2px #888;
-    float: right;
- 
-  
-}   
-#Special2 {
-        box-shadow: inset 20px 5px 20px -2px #888,
-         10px 10px 2px 2px #888;
-        float: left;
-     
-}       
-#Special3 {
-        box-shadow: inset 20px 5px 20px -2px #888,
-        10px 10px 2px 2px #888; 
-        float: right;     
-}    
-#Special4 {
-        box-shadow: inset 20px 5px 20px -2px #888,          
-        10px 10px 2px 2px #888;
-         margin-top: 20px;
-        float: right;
-        }

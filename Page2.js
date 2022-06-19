@@ -1,48 +1,42 @@
-function incBlock(Direction){
-    let Max = 4;
-    if(!Direction) return alert('Inc Block needs a direction to run');
 
-    if (Direction=='Fowards'){BlockIndex+=1;}
-    else if(Direction=='Reverse'){BlockIndex-=1;}
+function CreateSpecial(t){
 
-    if(BlockIndex>Max){BlockIndex=0;}
-    if(BlockIndex<0){BlockIndex=Max;}
-    createCertTable(true);
+    if (!Get.Pages.includes(t)){return console.error('Cannot Create page not refr');
+    } else {
+        
+        if (t=="Certificates"){ return createCertTable();}
+        if (t=="Projects"){ return createProjectsPage();}
+        if (t=="About"){ return}
+        if (t=="Contact"){return createPage(t)}        
+    }
 }
+function createPage(t){
+let d = document.createElement('div');
+let s = document.createElement('span');
+let target = document.getElementById(t);
 
-function createCertTable(neu){
-    if(neu){console.log('BlockIndex has a new value, creating new Certifcates'); CertField.innerHTML='';}
- 
-    var Block = Object.entries(Blocks)[BlockIndex];
-    let name = Block[0];
-    let Classname = name.split(" ")[0];
-    MainTitle.innerText =  name;
-    CertField.setAttribute('class',Classname+'Certfield');
-    MainTitle.setAttribute('class',Classname);
+if(t=="Contact"){let x = ['Jack.ewers@protonmail.com','+(61) 479 000 429']
+    let h5 = document.createElement('h5')
+    let contactBtns =['tel','mailto']
+    
+    target.innerHTML = "";
+    h5.append(document.createTextNode(t));
+    d.append(h5);
+    
+    for(el in x){ let p = document.createElement('p');
+      if(el==0){ Cont = document.createTextNode("Email: "+x[el]);}  
+      else{ Cont = document.createTextNode("Phone: "+x[el]);}  
+      p.append(Cont);d.append(p);
+    };
+    for(el in contactBtns){let a = document.createElement('a');
+    let img = document.createElement('img');
+    setAttributes(img,{'class':'ContactBtns'+' CtBtnsx'+(el)});
+    a.setAttribute('href',contactBtns[el]+':'+x[el]);
+    a.append(img);
+    d.append(a)
+    }
 
-    for (let i = 0; i <Block[1].length; i++){
-        // Generate Elements
-        let BlockName = Block[1][i];
-        let Div = document.createElement('div');
-        let Img = document.createElement('img');
-        let text = document.createElement('p');
-        let Para = document.createTextNode(BlockName);
-
-//Build and place
-      //  text.apppendChild(Para)
-        Img.setAttribute('src', BlockIndex+name+'/'+BlockName+'.jpg' )
-        text.innerText=BlockName;
-        Div.appendChild(text);
-        Div.appendChild(Img);
-        setAttributes(Div, {'id': 'Div'+i,'name':BlockName,
-        'class':'Block'+' '+Classname+'certfield',
-        'style':' color: green;'});
-        CertField.appendChild(Div);
-       }
+  target.append(d);
+return;}   
 }
-
-
-
-
-
 

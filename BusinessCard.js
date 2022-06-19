@@ -42,7 +42,7 @@ let GCi = Get.Page.Contact;
     if(page=="About" && GH.style.display=="none"){ return GH.style.display = "" ;}
     if(page=="Home" &&  GM.style.display=="none") {return GM.style.display = "" ;}
     if(page=="Certificates" && GC.style.display=="none"){return createCertTable();}
-    if(page=="Contact" && GCi.style.display=="none"){return GCi.style.display='';}
+    if(page=="Contact" && GCi.style.display=="none"){GCi.style.display=''; return createPage(page);}
     if(page=="Projects" && GP.style.display=="none"){return CreateSpecial(GP); }
     Log('Flip completed full function, page was probably already open', 'FLip LL')
 }
