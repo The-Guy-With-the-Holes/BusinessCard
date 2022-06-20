@@ -97,8 +97,8 @@ createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-s
     ];
       for(let d = 0; d<ABTdrops.length; d++){
         let list = document.createElement('li');
-        let text=ABTdrops[(d)];
-        setAttributes(list,{'onclick':'flip(\''+text.split(' ',1)+'\')','class':'Aboutdropdown-content'});
+        let text=ABTdrops[(d)].split(' ',1);
+        setAttributes(list,{'onclick':'flip(\''+'About\',\''+text+'\')','class':'Aboutdropdown-content'});
         list.innerText=text;
         s.append(list);
 

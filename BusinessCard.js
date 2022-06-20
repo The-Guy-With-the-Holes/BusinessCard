@@ -16,8 +16,8 @@ let arr= i+'%{background:linear-gradient('+i*3.65+'deg,salmon,lightpink);}';
 function checkPagestoclear(){
 for (let i=0; i<Get.Pages.length; i++){
     let item = Get.Pages[(i)]
-    if(document.getElementById((item))){
-console.error('xe'); clearPage((item)); }
+    if(document.getElementById(item).style.display!="none"){
+console.error(item+"Is now Cleared"); clearPage((item)); }
 }}
 
 function clearPage(item){
@@ -29,22 +29,26 @@ function clearPage(item){
     else {getItem.style.display="none";}
 }
 
-function flip(page , sub){
-let GM = Get.Page.Home; let GH = Get.Page.About; let GC = Get.Page.Cert; let GT=Get.Title; let GP =Get.Page.Projects
-let GCi = Get.Page.Contact;
+function flip(page,sub){
+    let GT =document.title;
 //Checks page is specified and page2 isnt open
     if(!page) return alert('When flipping, please specify page to flip');
     if (Get.Page.Page2.style.display!="none") closeExtProfile();
-    if(page=="Extend"){if(!sub){sub='Basic'}return extendProfile(sub);}    
+//    if(page=="Extend"){if(!sub){sub='Basic'}return extendProfile(sub);}      
+     LoadNewNavBar(page);
+if(page=="About"){if (sub==null) {   
+    if(GT.innerText=="Home"){ toggleAboutDropdown(false); }
+    else{toggleAboutDropdown();}
+    return    }
+else if(sub){page = sub; }
+}
+if (GT.innerText=="Certificates"){clearCerts();}   
+if(Get.Pages.includes(page)){
     checkPagestoclear(); 
-    if (GT.innerText=="Certificates"){clearCerts()}
-    GT.innerText=page; LoadNewNavBar(page);
-    if(page=="About" && GH.style.display=="none"){ return GH.style.display = "" ;}
-    if(page=="Home" &&  GM.style.display=="none") {return GM.style.display = "" ;}
-    if(page=="Certificates" && GC.style.display=="none"){return createCertTable();}
-    if(page=="Contact" && GCi.style.display=="none"){GCi.style.display=''; return createPage(page);}
-    if(page=="Projects" && GP.style.display=="none"){return CreateSpecial(GP); }
-    Log('Flip completed full function, page was probably already open', 'FLip LL')
+    GT.innerText=page;
+    createPage(page);
+}  
+//Log('Flip completed full function, page was probably already open', 'FLip LL')
 }
 
 

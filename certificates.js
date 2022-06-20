@@ -19,7 +19,7 @@ function incBlock(Direction){
 
 function createCertTable(neu){
 Get.Title.innerText="Certificates";
-   let certwrap = document.getElementById('Cert_Wrapper'); 
+   let certwrap = document.getElementById('Certificates'); 
    if(certwrap.style.display=="none"){certwrap.style.display="";}
 
    if(neu){console.log('BlockIndex has a new value, creating new Certifcates'); CertField.innerHTML='';}

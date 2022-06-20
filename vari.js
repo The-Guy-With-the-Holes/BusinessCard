@@ -12,15 +12,15 @@ const Debug = {
 const Get = {
     Title:document.querySelector('title'),
     Extndbtn : document.getElementById('ExtendButton'),
-   Pages:['Home' ,'About','Contact','Projects', 
+   Pages:['Home' ,'About','Contact','Certificates'
 ],
     Page:{
     Home: document.getElementById('Home'),     
     Page2 : document.getElementById('secondBox'),
-    About : document.getElementById('About'),
-    Contact: document.getElementById('Contact'),
+    About :document.getElementById('About'),
+    Contact:document.getElementById('Contact'),
     Projects: document.getElementById('Projects'),
-    Cert: document.getElementById('Cert_Wrapper') ,},
+    Cert: document.getElementById('Certificates') ,},
     Rev : {
         Form : document.getElementById('ReviewForm') ,
         Btn :document.getElementById("RevBTNX01"),
@@ -51,7 +51,7 @@ const QOTD = [
     'Never lose sight of your mission, be driven, this life is a prison if you don\'t have vision. You\'re in it to win it. so.. GO GET IT!',
     'They are all looking for someone to save them, instead of looking inside to see what they gave them, A strong Will, strong Mind, causes mayhem',
     'I got a clear view, We\'re going to make it soon, Just keep pushing through, What have you go to lose?',
-    'The best views can only be seen after the hardests climbs'
+    'The best views come after the hardests climbs'
 ]
 
 const Carousel = {
