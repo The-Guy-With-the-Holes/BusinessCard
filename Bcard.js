@@ -1,7 +1,4 @@
 //###################################//
-let bitcoinRun=false; 
-
-
 
 function submitName(){ 
 let name = document.getElementById('myinput').value;
@@ -53,28 +50,6 @@ function logCookie() {
         }
     } 
 
-function countforbitcoin(){
-
-if( bitcoinRun=true)return Log('BTC already running', 'Ko');
-    bitcoinRun=true;
-
-   setTimeout(() => { 
-    
-    let img = document.getElementById("locko");  
-    let x =img.backgroundImage;
-    if(img.style.backgroundImage){
-        x='url(i/₿.png)';
-        console.warn('Profile Image has been helf for five seconds')
-    }
-    else {  
-        Log(('Background not held for five second'+x),'count for ₿');
-        }
-return bitcoinRun=false;  }, 5000);
-
-}
-
-// Javascript for business card//
-// Compile me nice please <3 //
 
 function generateHex(hexWidth,hexLength){
 let hexArray= "0123456789abcdef";  

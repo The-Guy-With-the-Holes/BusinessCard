@@ -12,12 +12,13 @@ const Debug = {
 const Get = {
     Title:document.querySelector('title'),
     Extndbtn : document.getElementById('ExtendButton'),
-   Pages:['Home' ,'About','Contact','Certificates'
-],
+   Pages:['Home' ,'About','Contact','Recommends','Certificates'
+],AboutPages:['About','Contact',],
     Page:{
     Home: document.getElementById('Home'),     
     Page2 : document.getElementById('secondBox'),
     About :document.getElementById('About'),
+    Recommends:document.getElementById('Recommends'),
     Contact:document.getElementById('Contact'),
     Projects: document.getElementById('Projects'),
     Cert: document.getElementById('Certificates') ,},
@@ -26,6 +27,13 @@ const Get = {
         Btn :document.getElementById("RevBTNX01"),
     },   
 }
+
+const sponsors = [
+    test=['Name','Link','About','Image'],
+    GF=['Gardener FamilyFarms','link','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg'],
+    JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png'],
+    DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and a wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png'],
+]
 
 let Create = {
     Div : document.createElement('div'),
@@ -39,9 +47,6 @@ let Create = {
     },
 }
 
-const str = {
-    B:'Basic'
-}
 
 //Quotes of the day
 const QOTD = [

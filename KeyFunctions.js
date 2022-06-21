@@ -64,8 +64,7 @@ function createClass(name,rules){
 //Elements
 
 //NavBAR
-const NavBarElements =['Home','About',
-//'Contact',
+const NavBarElements =['Home','About','Recommends',
 //'Projects',
 'Certificates'];
 function AddNavBar(title){
@@ -78,7 +77,7 @@ if(title=="Home") {}//{NavBarElements.push('Extend');}
   let NavBar =  document.createElement('nav');
 
 createClass('.NavBar',"display:block; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding:2% 1% 2% 1%; overflow:hidden;");
-setAttributes(NavBar, { 'class' : 'NavBar' });
+setAttributes(NavBar,{'class':'NavBar' });
 createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-stroke:0.03vmin black; padding:0.5vh 0.5vw 0 0.5vw; margin:1px; border-radius: 10%; border: 2px double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); min-height:content; min-width:10%;')
   for (let i = 0; i < NavBarElements.length; i++){
       let Name = NavBarElements[i]; console.log(Name);
@@ -90,21 +89,19 @@ createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-s
       if (Name == title || false && Name != NavBarElements[0]) {
       li.setAttribute('id','NavBar_Selected');}
       
-      if(Name=="About"){ let s = document.createElement('span');
-      s.append(li); NavBar.append(s); 
-      let ABTdrops =['About (Me)','Contact',
-    //  'Projects'
-    ];
+      if(Name=="About"){ let s = document.createElement('span'); 
+      let ABTdrops = Get.AboutPages;
+      
       for(let d = 0; d<ABTdrops.length; d++){
         let list = document.createElement('li');
         let text=ABTdrops[(d)].split(' ',1);
         setAttributes(list,{'onclick':'flip(\''+'About\',\''+text+'\')','class':'Aboutdropdown-content'});
         list.innerText=text;
         s.append(list);
-
-        }
+        } 
       s.setAttribute('class','Aboutdropdown');
-      continue;}
+      li.append(s);
+      }
       //Float last element
       if ( i ==(NavBarElements.length-1) ){ setAttributes(li,{'style':'float:right;'}); }
       NavBar.append(li);

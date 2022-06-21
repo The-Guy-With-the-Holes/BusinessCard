@@ -36,18 +36,16 @@ function flip(page,sub){
     if (Get.Page.Page2.style.display!="none") closeExtProfile();
 //    if(page=="Extend"){if(!sub){sub='Basic'}return extendProfile(sub);}      
      LoadNewNavBar(page);
-if(page=="About"){if (sub==null) {   
-    if(GT.innerText=="Home"){ toggleAboutDropdown(false); }
-    else{toggleAboutDropdown();}
-    return    }
-else if(sub){page = sub; }
+if(page=="About"){if (!Get.AboutPages.includes(sub)) {   
+  return  toggleAboutDropdown();}
+else { page = sub;toggleAboutDropdown();}
 }
 if (GT.innerText=="Certificates"){clearCerts();}   
 if(Get.Pages.includes(page)){
     checkPagestoclear(); 
     GT.innerText=page;
     createPage(page);
-}  
+}
 //Log('Flip completed full function, page was probably already open', 'FLip LL')
 }
 

@@ -25,7 +25,7 @@ p {
 
 
 /* Pages, -->
-Home - About(sub) - Certificates*/
+Home - About(sub) - Recommend Certificates*/
 
 .box-main { 
     position: relative; top: 0; padding: 1%;
@@ -36,3 +36,32 @@ Home - About(sub) - Certificates*/
     animation: HomeAnimation 3s linear 2s infinite both;
 }
 
+/*Recommends*/
+#Recommends{
+    height: max-content;padding-bottom: 30%;}
+.RecTitle{ text-align:center;
+    display:block; margin-bottom: 1vh;
+ font-size:10vw; -webkit-text-stroke:1vmin #ff000099;  
+}
+.Recommendations {
+    max-width:88%; min-height: max-content; display: inline-block;
+    margin:3% auto 0 5%; border:2px solid gray; 
+    background-color: aliceblue;
+}
+.RecomName{
+     text-align: center; font-size: larger; font-weight: 700;
+     -webkit-text-stroke: 0.1vmin aquamarine; margin-bottom:1vh ;
+}
+.Recommendations > img {
+    width:59%; max-height: 40vw; min-height: 10vw;
+    float: right;
+}
+.Recommendations >button{ 
+display: inline-block; margin-top: 1vh;
+background-color: aliceblue;
+ 
+}
+.RecomAbout {
+ float: left; vertical-align: top; 
+ max-width: 40%;  
+}
