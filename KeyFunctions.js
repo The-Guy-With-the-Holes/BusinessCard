@@ -4,7 +4,10 @@ for(el in x){
   console.log(s+'\n'+x);
 }
 }
-
+function UnlockDEVtools(){
+  alert('DEV MODE');
+  window.location.replace("http://localhost:5500/BusinessCard/hello-world.php");
+}
 //Date
 function getDatearr(){
   let today = new Date();
@@ -69,7 +72,7 @@ const NavBarElements =['Home','About','Recommends',
 'Certificates'];
 function AddNavBar(title){
     console.log('Adding nav bar');
-
+if(Debug.Developer==true&&!NavBarElements.includes('DEV')){NavBarElements.unshift('DEV')}
 if(!title){title = document.querySelector('title').innerText;}
 if(title=="Home") {}//{NavBarElements.push('Extend');}
 
@@ -102,6 +105,8 @@ createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-s
       s.setAttribute('class','Aboutdropdown');
       li.append(s);
       }
+      //Debug
+      if(Name=="DEV"){li.setAttribute('onclick','UnlockDEVtools()')}
       //Float last element
       if ( i ==(NavBarElements.length-1) ){ setAttributes(li,{'style':'float:right;'}); }
       NavBar.append(li);
