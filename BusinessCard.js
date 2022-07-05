@@ -49,8 +49,18 @@ if(Get.Pages.includes(page)){
 //Log('Flip completed full function, page was probably already open', 'FLip LL')
 }
 
-
 //Page 1 Main
+
+//IDLE TIMER
+function addidleclass(){
+let targ = document.getElementById('locko');
+if(!targ.classList.contains('idle')){targ.classList="mainx idle";} 
+}
+function removeidleclass(){
+    let targ = document.getElementById('locko');
+    if(targ.classList.contains('idle')){targ.classList="mainx"}
+}
+
 
 // Sets New rotation & Background for .Balls
 function IconHovered(e,callfrom){

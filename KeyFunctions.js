@@ -5,9 +5,10 @@ for(el in x){
 }
 }
 function UnlockDEVtools(){
-  alert('DEV MODE');
-  window.location.replace("http://localhost:5500/BusinessCard/hello-world.php");
+ // alert('DEV MODE');
+ appendTasklist();
 }
+
 //Date
 function getDatearr(){
   let today = new Date();
@@ -162,3 +163,25 @@ console.warn(Quote);
 document.querySelector('nav').after(div);
   }
 
+//Tasklist
+function appendTasklist(){
+  let tasklist = document.createElement('div'); tasklist.setAttribute('class','Tasklist');
+  let title = document.createElement('p');  title.setAttribute('class','TaskTitle');
+  title.append((document.createTextNode("Tasklist:")));  tasklist.append(title);
+for(let i=0; i < TODO.length; i++){ let Todo= document.createElement('p'); 
+//checked
+ let checkbox = document.createElement('input'); setAttributes(checkbox,{'class':'TaskCHECK TaskItems','type':'checkbox'});
+
+if(TODO[i].includes('//')){ checkbox.checked=true;
+  TODO[i]=TODO[i].replace('//','');Todo.setAttribute('style','text-decoration:line-through;');
+}  
+
+Todo.append((document.createTextNode(TODO[i]))); Todo.setAttribute('class','TaskItems') 
+   let span = document.createElement('span'); span.append(checkbox); span.append(Todo); span.setAttribute('class','Taskblock');
+  tasklist.append(span); 
+}
+  createClass('.TaskCHECK','width:2.5vh; height:2.5vh;'); createClass('.TaskItems','display:inline;'); createClass('.Taskblock','display:block;margin-top:1vh;'); ;
+  createClass('.TaskTitle','text-align:center; webkit-text-stroke: 2vmin PURPLE; ');
+  createClass('.Tasklist','background-color:#fff; margin-top:1vh;');
+  document.body.append(tasklist);
+}

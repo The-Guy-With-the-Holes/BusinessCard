@@ -6,35 +6,20 @@
     }    
 </style></head>
 <body>
-    <?php
-$host="127.0.0.1";
-$port="3306";
-$socket="MySQL";
-$user="webmaster";
-$password="NOsql!";
-$dbname="business";
+<?php
+phpinfo();
+$servername = "localhost";
+$username = "root";
+$password = "NOsql!";
 
-$conn =   mysqli_connect($host, $user, $password, $dbname, $port, $socket)
-	or die ('Could not connect to the database server' . mysqli_connect_error());
+// Create connection
+$conn = mysqli_connect($servername, $username, $password);
+
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
-
-$sql = "SELECT id,name,email,password FROM users;";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  echo "<table><tr><th>ID</th><th>Name</th><th>Email</th><th>password</th></tr>";
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["email"]."</td><td>".$row['password']."</td></tr>";
-  }
-  echo "</table>";
-} else {
-  echo "0 results";
-}
-$conn->close();
+echo "Connected successfully";
 ?>
 </body>
 </html>

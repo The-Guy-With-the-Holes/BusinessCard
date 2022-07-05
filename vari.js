@@ -2,20 +2,24 @@ const Debug = {
     T:false,
     Developer:false,
     User:true,
-    Hex:true,
+    Hex:false,
     Icon:true,
     List:true,
 }
-
-
-
+const TODO=[
+    
+    'CSS refactoring',
+    '//Add DEV functionality',
+    '//Fix HTML LINKS'
+];
 
 // Variables
 const Get = {
     Title:document.querySelector('title'),
     Extndbtn : document.getElementById('ExtendButton'),
-   Pages:['Home' ,'About','Contact','Recommends','Certificates'
-],AboutPages:['About','Contact',],
+    Pages:['Home' ,'About','Contact','Recommends','Certificates'
+        ],
+    AboutPages:['About','Contact',],
     Page:{
     Home: document.getElementById('Home'),     
     Page2 : document.getElementById('secondBox'),
