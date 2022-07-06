@@ -13,7 +13,7 @@ button{  cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rg
 header {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-image: url(pic/Banner/Home.png); background-size: cover; background-repeat: no-repeat; background-position: center;
     text-align: center; padding:1vh 0 3vh 0;
-    margin-bottom: 3%; height: 10vh; width: 100%;
+    margin-bottom: 3%; height: 18vh; width: 100%;
 }
 footer{text-align: center;}
 select{max-width: 100%; font-size: xx-small;}
@@ -33,7 +33,7 @@ h2 { display: block;width: 100vw; text-align: center; margin-bottom: 2%;}
 /* NAV */
 nav { box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-color: rgba(37, 29, 29, 0.336);
-     margin-bottom: 4vh;
+     margin-bottom: 4vh; 
 }
 nav > * {max-width: fit-content; }
 #NavHome { box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
