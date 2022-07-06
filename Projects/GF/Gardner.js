@@ -1,6 +1,9 @@
 //
 let CP='Home';
-const Pages =['Home','Store','Contact'];
+
+
+const Pages =['Home','Store',//'Contact'
+];
 
 
 function setAttributes(el, attrs) {
