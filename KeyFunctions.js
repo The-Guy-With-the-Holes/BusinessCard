@@ -80,7 +80,7 @@ if(title=="Home") {}//{NavBarElements.push('Extend');}
   let body = document.body;  
   let NavBar =  document.createElement('nav');
 
-createClass('.NavBar',"display:block; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding:2% 1% 2% 1%; overflow:hidden;");
+createClass('.NavBar',"display:block;margin-bottom:1vh; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding:2% 1% 2% 1%; overflow:hidden;");
 setAttributes(NavBar,{'class':'NavBar' });
 createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-stroke:0.03vmin black; padding:0.5vh 0.5vw 0 0.5vw; margin:1px; border-radius: 10%; border: 2px double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); min-height:content; min-width:10%;')
   for (let i = 0; i < NavBarElements.length; i++){

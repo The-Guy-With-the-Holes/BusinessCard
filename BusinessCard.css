@@ -17,17 +17,18 @@ html {
 body {
     cursor: crosshair; overflow: hidden;
     width: 100vw; height: fit-content;
-    background-color: #fff000; 
+    background: radial-gradient(circle,#000000da,black,gray); padding: 1%; 
 }
 
 p {
     font-family: 'Courier New', Courier, monospace;
-    font-size: large; font-style: italic;
+    font-style: italic;
 }
 
 
 /* Pages, --> .box-main
-Home - About(sub) - Recommends - Certificates*/
+Home - About(sub) - Recommends - Certificates
+Rows will be seperated by '*' */
 
 .box-main { 
     position: relative; top: 0; padding: 1%;
@@ -38,6 +39,14 @@ Home - About(sub) - Recommends - Certificates*/
     animation: HomeAnimation 3s linear 2s infinite both;
 }
 
+/****************************/
+/*Home == Home.CSS*/
+
+/****************************/
+/*About == About.CSS*/
+
+
+/*****************************/
 /* Recommends */
 #Recommends{
     height: max-content;
@@ -70,3 +79,12 @@ background-color: aliceblue;
  float: left; vertical-align: top; 
  max-width: 40%;  font-size: 5.5vw;
 }
+/*****************************/
+/* Certificates = Certificates/Certificates.css */
+
+/*****************************/
+/* Footer*/
+footer{background:repeating-linear-gradient(150deg, rgb(92, 90, 90),white,#afafaf,gray,#cfcfcf,gray,gray,white);
+border: 1vmin double #fff000; font-size:3vw;text-align: left;}
+footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
+#cc{font-size: 2vw; max-width: 30vw; margin-left: 6vw;}
