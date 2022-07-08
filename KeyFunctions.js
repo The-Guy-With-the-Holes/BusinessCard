@@ -107,7 +107,7 @@ createClass('.NavListitem','cursor:pointer; display:inline-block; -webkit-text-s
       li.append(s);
       }
       //Debug
-      if(Name=="DEV"){li.setAttribute('onclick','UnlockDEVtools()')}
+      if(Name=="DEV"){li.setAttribute('onclick','UnlockDEVtools()'); UnlockDEVtools();}
       //Float last element
       if ( i ==(NavBarElements.length-1) ){ setAttributes(li,{'style':'float:right;'}); }
       NavBar.append(li);

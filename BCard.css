@@ -1,8 +1,8 @@
 #QuoteBox {
-    display:block; margin:0 auto; padding:0.2% 5% 3% 5%;
-    background-color:#fafafa; z-index:4; 
-    text-align:center; color:gray; 
-    border:2vmin double red; 
+    display:block; z-index:4; color:gray; 
+margin:0 auto; margin-bottom: 2vh; text-align:center;
+    padding:0.2% 5% 3% 5%;
+    background-color:#fafafa; border:2vmin double red; 
     -webkit-text-stroke:0.1vmin gold;
 }
 #TimeQuoteBox{

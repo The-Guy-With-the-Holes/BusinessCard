@@ -75,15 +75,18 @@
     padding: 4% 0 4% 0 ;
     background: repeating-linear-gradient(27deg, blue,skyblue,lightblue,dodgerblue,white);
 }
+
 #GridDiv > button, #MainTitle{
     border: 2px solid red;
     display: inline-block;   
     text-align: center;
     vertical-align: bottom;
 }
+
 #GridDiv > button {
    margin-bottom: 0;
 }
+
 /* Fow/Rev Buttons */
 .FloatBtn{ 
     display: inline-block;
