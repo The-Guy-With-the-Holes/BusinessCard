@@ -22,8 +22,8 @@ if (t=="Home"){return;}
 if (t=="Certificates"){ return createCertTable();}
 if (t=="Recommends"){return CreateRecommendationpage();}
 if (t=="Projects"){ return createProjectsPage();}     
-if(t=="About"){ CreateAboutPage(); return toggleAboutDropdown(0);}
-if(t=="Contact"){ CreateContactpage(t); toggleAboutDropdown(0);}
+if (t=="About"){ CreateAboutPage(); return toggleAboutDropdown(0);}
+if (t=="Contact"){ CreateContactpage(t); toggleAboutDropdown(0);}
 }
 
 function CreateAboutPage(){

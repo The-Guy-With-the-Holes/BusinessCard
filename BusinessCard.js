@@ -77,14 +77,7 @@ function IconHovered(e,callfrom){
     console.log(callfrom+': Caller Created >> Hex :'+(Background));   
 }
 
-
-
-
-
-
-
 // Page 1(f) #About
-
 
 document.querySelectorAll('ul>li').forEach(item => {
     item.addEventListener('click', e => { 
