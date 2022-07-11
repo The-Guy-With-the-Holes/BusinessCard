@@ -1,12 +1,10 @@
-function Tesetr(){
-  let x = ['asa: sla','lal: 020 0202'];
-for(el in x){
-  console.log(s+'\n'+x);
-}
-}
 function UnlockDEVtools(){
- // alert('DEV MODE');
- appendTasklist();
+ //Delay adds enough time to generate main elements
+ //else => error ////alert('DEV MODE');
+ setTimeout(() => { let x = document.getElementById('DevTL');
+  if(!x){ 
+  appendTasklist(x);
+ }}, 50);
 }
 
 
@@ -165,8 +163,12 @@ document.querySelector('nav').after(div);
   }
 
 //Tasklist
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 function appendTasklist(){
-  let tasklist = document.createElement('div'); tasklist.setAttribute('class','Tasklist');
+  let tasklist = document.createElement('div'); setAttributes(tasklist,{'id':'DevTL','class':'Tasklist'});
   let title = document.createElement('p');  title.setAttribute('class','TaskTitle');
   title.append((document.createTextNode("Tasklist:")));  tasklist.append(title);
 for(let i=0; i < TODO.length; i++){ let Todo= document.createElement('p'); 
@@ -184,5 +186,9 @@ Todo.append((document.createTextNode(TODO[i]))); Todo.setAttribute('class','Task
   createClass('.TaskCHECK','width:2.5vh; height:2.5vh;'); createClass('.TaskItems','display:inline;'); createClass('.Taskblock','display:block;margin-top:1vh;'); ;
   createClass('.TaskTitle','text-align:center; webkit-text-stroke: 2vmin PURPLE; ');
   createClass('.Tasklist','background-color:#fff; margin-top:1vh;');
-  document.body.append(tasklist);
+ let nav= document.querySelector('.NavBar');
+ 
+insertAfter(nav,tasklist);
+//document.body.insertBefore(tasklist,nav);
+  
 }

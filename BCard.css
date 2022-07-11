@@ -1,10 +1,11 @@
 #QuoteBox {
     display:block; z-index:4; color:gray; 
-margin:0 auto; margin-bottom: 2vh; text-align:center;
+    margin:0 auto; margin-bottom: 2vh; text-align:center;
     padding:0.2% 5% 3% 5%;
     background-color:#fafafa; border:2vmin double red; 
     -webkit-text-stroke:0.1vmin gold;
 }
+
 #TimeQuoteBox{
     font-size: 3vw; text-align: right; display: inline-block; right: 100%;
     color: #000; -webkit-text-stroke:0.1vmin gold; margin: 0 10% 6% 0;
@@ -20,6 +21,15 @@ margin:0 auto; margin-bottom: 2vh; text-align:center;
      -webkit-text-stroke:1vw red; border: 1vw solid #ff000055;
      font-size:large; opacity: 0.7; }
 #CloseQuoteBox:hover{transform: scale(1.2); background-color: #ff000055;}
+
+.Tasklist{
+    margin-bottom: 1vh; padding: 1%;
+}
+.TaskTitle{
+    color:#11ffad; -webkit-text-stroke: 0.225vmin #990099;
+}
+
+
 
 @keyframes HomeAnimation {
    0%{background:linear-gradient(0deg,salmon,lightpink);}

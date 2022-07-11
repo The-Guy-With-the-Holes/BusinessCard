@@ -46,7 +46,7 @@ if(Get.Pages.includes(page)){
     GT.innerText=page;
     createPage(page);
 }
-//Log('Flip completed full function, page was probably already open', 'FLip LL')
+console.log('Flip completed full function, About was probably clicked --called from Flip ');
 }
 
 //Page 1 Main

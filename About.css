@@ -38,7 +38,7 @@ h4 {
 }
 
 
-.projects  {  max-width: 30vw; display: inline-table; margin: auto; vertical-align: top;}
+.projects  {  max-width: 30vw; display: inline-table; margin: 2%;  vertical-align: top;}
 .projects > *  {
    border: 0.9vmin double  #000;
     font-size: 3vw; 

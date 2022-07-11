@@ -8,10 +8,9 @@ const Debug = {
 }
 
 const TODO=[
-    
-    '//CSS refactoring',
-    'Better DEV functionality',
-    'Fix HTML LINKS'
+    ' Create Dlink to Farms work',
+    ' JS & CSS Page refactoring',
+    ' Fix HTML LINKS--2/3'
 ];
 
 // Variables
@@ -34,6 +33,18 @@ const Get = {
         Btn :document.getElementById("RevBTNX01"),
     },   
 }
+const About ={ lists:['Hobbies','Passions'], 
+                MainTXT:[' Hi there! my name is Jack,',
+                'I was born & live in australia, my interests include coding, business management, investing and traveling'],
+
+              Hobbies:['Body-Modification',
+                       'Coding','Philosophy'],
+              Passions:['Advocating equal rights',
+                        'Protecting our planet',
+                        'Fighting for Data Protection'],
+              Goals:[''],
+              Projects:['CryptoKorns','Gardner Family Farms',
+                        'The Rand Dumb'],}
 
 const sponsors = [
     test=['Name','Link','About','Image'],
@@ -66,18 +77,6 @@ const QOTD = [
     'The best views come after the hardests climbs'
 ]
 
-const Carousel = {
-        Target:'Basic',
-        Index:0,
-        Max:22,
-        Min:0,
-
-        Names:[ 'Basic','The Homies', 'Love', 'test','lorren', 'BloodWorks©',
-                'Body-Modification', 'Coding', 'Philosophy',
-                ' All ' , 'EqualRights!', 'DataProtection', 
-                '  '],
-
-    }
 
 //Outdated Get References
 const H5 = document.createElement('h5');
@@ -88,6 +87,12 @@ const Main = document.getElementById("home");
 
 
 // Utility functions
+function randomHex(bits){ if(!bits){bits =8;}
+let hex = ['a','b','c','d','e','f',0,1,2,3,4,5,6,7,8,9];
+for(i in bits){hexRes+= hex[(randomNum(0,9))]; }
+return hexRes;
+}
+
 function randomNum(min,max){
     if(min==undefined||max==undefined){min =0; max = 17;}
   return Math.floor(Math.random() * (max - min) ) + min;

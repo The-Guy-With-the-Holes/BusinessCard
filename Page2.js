@@ -22,8 +22,34 @@ if (t=="Home"){return;}
 if (t=="Certificates"){ return createCertTable();}
 if (t=="Recommends"){return CreateRecommendationpage();}
 if (t=="Projects"){ return createProjectsPage();}     
-if(t=="About"){Get.Page.About.style.display=""; toggleAboutDropdown(0);}
+if(t=="About"){ CreateAboutPage(); return toggleAboutDropdown(0);}
 if(t=="Contact"){ CreateContactpage(t); toggleAboutDropdown(0);}
+}
+
+function CreateAboutPage(){
+  let targ = Get.Page.About;
+  targ.innerHTML="";
+  let title=document.createElement('h4'); title.append((document.createTextNode('About Me')))
+  let abouttext=document.createElement('p'); abouttext.setAttribute('id','about');
+  abouttext.append((document.createTextNode(About.MainTXT[0])),(document.createTextNode(About.MainTXT[1])))  ;
+  targ.append(title,abouttext);
+
+  for(let i=0;  i<About.lists.length; i++){
+    appendAboutLists(About.lists[i],i);
+  }
+}
+
+function appendAboutLists(t,idx){if(!About.lists.includes(t))return;
+  let targ=Get.Page.About;
+  let div = document.createElement('div'); div.setAttribute('class','projects');
+  let ul = document.createElement('ul'); let label = document.createElement('label'); label.append((document.createTextNode(About['lists'][idx])));
+  ul.append(label);
+  for(key in About[t]){
+    let li = document.createElement('li'); li.append((document.createTextNode(About[t][key])))
+  ul.append(li);
+  }
+  div.append(ul);
+  targ.append(div);
 }
 
 function CreateRecommendationpage(){
