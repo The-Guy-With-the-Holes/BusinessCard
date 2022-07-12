@@ -22,9 +22,7 @@ console.error(item+"Is now Cleared"); clearPage((item)); }
 
 function clearPage(item){
     let getItem=document.getElementById(item);
-    if(!getItem){console.error(item+':: No item to clear // Clear page');
-    }
-
+    if(!getItem){console.error(item+':: No item to clear // Clear page');}
     if(getItem.style.display=="none"){return;}
     else {getItem.style.display="none";}
 }

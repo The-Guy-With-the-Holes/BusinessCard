@@ -8,7 +8,7 @@ const Debug = {
 }
 
 const TODO=[
-    ' Create Dlink to Farms work',
+    '// Create Dlink to Farms work',
     ' JS & CSS Page refactoring',
     ' Fix HTML LINKS--2/3'
 ];
@@ -47,8 +47,8 @@ const About ={ lists:['Hobbies','Passions'],
                         'The Rand Dumb'],}
 
 const sponsors = [
-    test=['Name','Link','About','Image'],
-    GF=['Gardener FamilyFarms','www.gardnerfamilyfarm.com','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg'],
+    test=['Name','Link','About','ImageURL'],
+    GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg'],
     JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png'],
 ]

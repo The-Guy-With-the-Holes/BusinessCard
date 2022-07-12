@@ -1,13 +1,3 @@
-function UnlockDEVtools(){
- //Delay adds enough time to generate main elements
- //else => error ////alert('DEV MODE');
- setTimeout(() => { let x = document.getElementById('DevTL');
-  if(!x){ 
-  appendTasklist(x);
- }}, 50);
-}
-
-
 //Date
 function getDatearr(){
   let today = new Date();
@@ -32,11 +22,11 @@ const Stamp= 'UserId:'+todaysDate;
 function getUser(){
 if(Debug.User == true){console.warn(UserLastLogin+" last :: new "+Stamp)}
 //first login
-if(User.New == null){ //console.warn('is new user');
+if(User.New == null){ console.warn('is new user');
   localStorage.setItem('newUser',false); getQOTD(); 
   return localStorage.setItem('UserLastLogin','FirstLogin:1010');}
 //else
-if(User.New == 'false'){ //console.warn('Not a new user');
+if(User.New == 'false'){ console.warn('Not a new user');
     if(UserLastLogin.includes(todaysDate)){}
     else{getQOTD();}
   }
@@ -165,30 +155,4 @@ document.querySelector('nav').after(div);
 //Tasklist
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
-function appendTasklist(){
-  let tasklist = document.createElement('div'); setAttributes(tasklist,{'id':'DevTL','class':'Tasklist'});
-  let title = document.createElement('p');  title.setAttribute('class','TaskTitle');
-  title.append((document.createTextNode("Tasklist:")));  tasklist.append(title);
-for(let i=0; i < TODO.length; i++){ let Todo= document.createElement('p'); 
-//checked
- let checkbox = document.createElement('input'); setAttributes(checkbox,{'class':'TaskCHECK TaskItems','type':'checkbox'});
-
-if(TODO[i].includes('//')){ checkbox.checked=true;
-  TODO[i]=TODO[i].replace('//','');Todo.setAttribute('style','text-decoration:line-through;');
-}  
-
-Todo.append((document.createTextNode(TODO[i]))); Todo.setAttribute('class','TaskItems') 
-   let span = document.createElement('span'); span.append(checkbox); span.append(Todo); span.setAttribute('class','Taskblock');
-  tasklist.append(span); 
-}
-  createClass('.TaskCHECK','width:2.5vh; height:2.5vh;'); createClass('.TaskItems','display:inline;'); createClass('.Taskblock','display:block;margin-top:1vh;'); ;
-  createClass('.TaskTitle','text-align:center; webkit-text-stroke: 2vmin PURPLE; ');
-  createClass('.Tasklist','background-color:#fff; margin-top:1vh;');
- let nav= document.querySelector('.NavBar');
- 
-insertAfter(nav,tasklist);
-//document.body.insertBefore(tasklist,nav);
-  
 }

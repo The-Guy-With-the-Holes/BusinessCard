@@ -24,7 +24,7 @@
     <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
 </head>
 
-<body>
+<body onload="getUser();">
 
 <div id="Certificates" style="display: none ;">
         <div id="Cert_Header">        
@@ -122,30 +122,9 @@
 
 <div id="About"  class="box-main" style="display: none; text-align: center;">
      <!--   <button onclick="flip('Home')">&#10594;</button>
-     --><h4> About me</h4>    
-        <p id="about"> Hi there! my name is Jack,<br>
-            I was born & live in australia, my interests include coding, business management, investing and just
-            general life fufilment (whatever that means).
-        </p>
-          
-      
-     <div class="projects" id="projects-hobbies">    
-           <ul> <label>Hobbies : </label>
-                <li>Body-Modification</li>
-                <li>Coding</li>
-                <li>Philosophy</li>      
-            </ul>
-    </div>
-        <div class="projects" id="projects-passions">     
-            <ul> <label>Passions: </label>
-                <li>Advocating for equal rights</li>
-                <li>Reducing the eco footprint i leave </li>
-                <li>Fighting for data protection</li>
-            </ul>
-    </div>       
-    
+ 
     <div class="projects" id="projects-projects">
-            <!--     <ul ><label>Current projects:</label>
+             <ul ><label>Current projects:</label>
                     <li>3D Labs</li>
                     <li> CRYpt2</li>
                     <li>Deutsch Linguistics</li>
