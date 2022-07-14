@@ -65,7 +65,7 @@ ul>li:hover{
 }
 
 /* ABout - Contact */
-
+#Contact{ height: fit-content;}
 #Contact > * { display: block;}
 .MailButton{
     background-image: url(/i/Mail.png);

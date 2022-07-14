@@ -24,7 +24,7 @@
     <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
 </head>
 
-<body onload="getUser();">
+<body onload="getUser(); dev();">
 
 <div id="Certificates" style="display: none ;">
         <div id="Cert_Header">        
@@ -167,7 +167,7 @@
         var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
 
         // Zero the idle timer on mouse movement.
-        $(this).mousemove(function (e) { console.log('user moved mouse');
+        $(this).mousemove(function (e) {// console.log('user moved mouse');
             idleTime = 0; removeidleclass();
         });
         $(this).keypress(function (e) {

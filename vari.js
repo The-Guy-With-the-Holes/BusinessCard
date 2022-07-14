@@ -8,9 +8,9 @@ const Debug = {
 }
 
 const TODO=[
-    '// Create Dlink to Farms work',
+    'Update Dlink to Farms work',
     ' JS & CSS Page refactoring',
-    ' Fix HTML LINKS--2/3'
+    ' check HTML links'
 ];
 
 // Variables
@@ -46,11 +46,18 @@ const About ={ lists:['Hobbies','Passions'],
               Projects:['CryptoKorns','Gardner Family Farms',
                         'The Rand Dumb'],}
 
+const Recommendations={
+    intro:'Welcome to the Recommendation section, A list of the businesess and services that are best in class!',
+    Types:['Consumables','Bling','Artists','Tradies'],
+}
+
 const sponsors = [
-    test=['Name','Link','About','ImageURL'],
-    GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg'],
-    JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png'],
-    DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png'],
+    test=['Name','Link','About','ImageURL','Tags[C/B/A]'],
+    GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg','C'],
+    KL=['Kilns Cafe','https://www.kilnscafe.com.au','A heart warming Cafe, Run by a kind soul','i/Icons/Kilns.jpg','CA'],
+    JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png','B'],
+    SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
+    DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
 ]
 
 let Create = {
@@ -73,8 +80,9 @@ const QOTD = [
     'You need to believe that you can Achieve anything that you dream',
     'Never lose sight of your mission, be driven, this life is a prison if you don\'t have vision. You\'re in it to win it. so.. GO GET IT!',
     'They are all looking for someone to save them, instead of looking inside to see what they gave them, A strong Will, strong Mind, causes mayhem',
-    'I got a clear view, We\'re going to make it soon, Just keep pushing through, What have you go to lose?',
-    'The best views come after the hardests climbs'
+    'Sometimes, when you are a in a dark place, you think you have been buried, but actually, You have been planted.', 
+    'The best views come after the hardests climbs',
+    'The man who loves walking will walk farther than a man who loves the destination'
 ]
 
 
@@ -87,6 +95,9 @@ const Main = document.getElementById("home");
 
 
 // Utility functions
+function testQ(t){ let x="C";
+    if(x.includes(t)&& t){return true;}
+}
 function randomHex(bits){ if(!bits){bits =8;}
 let hex = ['a','b','c','d','e','f',0,1,2,3,4,5,6,7,8,9];
 for(i in bits){hexRes+= hex[(randomNum(0,9))]; }

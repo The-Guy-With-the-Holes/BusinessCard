@@ -54,13 +54,29 @@ function appendAboutLists(t,idx){if(!About.lists.includes(t))return;
 
 function CreateRecommendationpage(){
   let target = Get.Page.Recommends;
- target.innerHTML="";
+ 
   let title= document.createElement('p');title.append(document.createTextNode('Recommendations:'));
   title.setAttribute('class','RecTitle');
-  target.append(title);
+  let para=document.createElement('p'); para.setAttribute('class','RecommendationsParagraph');
+  para.append(document.createTextNode(Recommendations.intro));
+  let search = document.createElement('div'); search.setAttribute('class','RecommendationsSearch');
+  let recfield = document.createElement('div'); recfield.setAttribute('id','RecommendationsField');
+  for (key in Recommendations.Types){ let RZ = Recommendations.Types[key][0];
+      let p = document.createElement('button'); setAttributes(p,{'onclick':'AppendSponsors(\''+RZ+'\')','class':'RecommendationsType'});
+    p.append((document.createTextNode(Recommendations.Types[key])));
+    search.append(p);  
+  }
+  target.innerHTML="";
+  target.append(title,para,search,recfield);
+  AppendSponsors();
+}
+function AppendSponsors(type){
+  let target = document.getElementById('RecommendationsField');
+  target.innerHTML="";
   for(let i =1; i < sponsors.length; i++){let a =document.createElement('a'); let div = document.createElement('div'); let btn =document.createElement('button');
    let img = document.createElement('img'); let p = document.createElement('p'); let about = document.createElement('p'); 
 
+   if(type&&!sponsors[i][4].includes(type)){continue;}
    setAttributes(a,{'href':sponsors[i][1]});
    a.append((document.createTextNode('>Visit Site!<')))
    btn.append(a); 
@@ -72,6 +88,7 @@ function CreateRecommendationpage(){
 
     div.append(p,img,about,btn);
     setAttributes(div,{'class':'Recommendations'});
+
 target.append(div);  }
 
 }

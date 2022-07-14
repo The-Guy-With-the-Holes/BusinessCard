@@ -33,7 +33,7 @@ if(User.New == 'false'){ console.warn('Not a new user');
   localStorage.setItem('UserLastLogin',todaysDate);
 }
 
-// Number
+// Create
 
 
 // Styles

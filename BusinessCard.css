@@ -54,8 +54,25 @@ Rows will be seperated by '*' */
 
 .RecTitle{ text-align:center;
     display:block; margin-bottom: 1vh;
- font-size:10vw; -webkit-text-stroke:1vmin #ff000099;  
+ font-size:8.2vw; -webkit-text-stroke:1vmin #ff000099;  
 }
+.RecommendationsParagraph{ font-size: 4.2vw;
+    width: 73%; left:0; margin-left: 1%;
+}
+
+.RecommendationsSearch{display: block; text-align: center;
+     width: 80%;  height:min-content; padding: 1%;
+background-color: #afafaf;} 
+.RecommendationsType{ cursor: pointer; display: inline-block; margin: .31%;
+    font-size: medium; border: 4px double gray; background-color: aliceblue;
+}
+.RecommendationsType:hover{color:white; background-color: #afafaf;}
+
+#RecommendationsField{
+width: 100%;  height: fit-content; padding:  1vh 0 2vh 0;
+border: 2px solid red;}
+/* Rec Boxes*/
+
 .Recommendations {
     max-width:88%; min-height: max-content; display: inline-block;
     padding: 0 0 1vh 0; margin:3% auto 0 5%; border:2px solid gray; 
