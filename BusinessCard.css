@@ -1,5 +1,4 @@
-/*SPECIAL-BODY-PAGES*/
-/*##################*/
+
 
 /* Special*/
 ::-webkit-scrollbar{width:0;}
@@ -52,17 +51,17 @@ Rows will be seperated by '*' */
     height: max-content;
     padding: 0 0 10vh 0;}
 
-.RecTitle{ text-align:center;
+.RecTitle{ text-align:center; 
     display:block; margin-bottom: 1vh;
  font-size:8.2vw; -webkit-text-stroke:1vmin #ff000099;  
 }
-.RecommendationsParagraph{ font-size: 4.2vw;
-    width: 73%; left:0; margin-left: 1%;
+.RecommendationsParagraph{ font-size: 3.4vw;
+    width: 68%; left:0; margin-left: 1%;background-color:white;
 }
 
-.RecommendationsSearch{display: block; text-align: center;
-     width: 80%;  height:min-content; padding: 1%;
-background-color: #afafaf;} 
+.RecommendationsSearch{ display: block; width: max-content; height:min-content; 
+    text-align: center; padding: 1%; margin-bottom:1vh; border:0.2vmin solid #000000;
+background-color: #afafaf55; } 
 .RecommendationsType{ cursor: pointer; display: inline-block; margin: .31%;
     font-size: medium; border: 4px double gray; background-color: aliceblue;
 }
@@ -105,3 +104,7 @@ footer{background:repeating-linear-gradient(150deg, rgb(92, 90, 90),white,#afafa
 border: 1vmin double #fff000; font-size:3vw;text-align: left;}
 footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
 #cc{font-size: 2vw; max-width: 30vw; margin-left: 8vw;}
+
+#GFbtn{ cursor: pointer;background-image:url(Projects/GF/pic/GFicon.png);
+    background-repeat: no-repeat; background-position: center; background-size: contain;
+    height:10vmin; width:10vmin; border-radius: 50%; }

@@ -58,7 +58,7 @@ function CreateRecommendationpage(){
   let title= document.createElement('p');title.append(document.createTextNode('Recommendations:'));
   title.setAttribute('class','RecTitle');
   let para=document.createElement('p'); para.setAttribute('class','RecommendationsParagraph');
-  para.append(document.createTextNode(Recommendations.intro));
+//  para.append(document.createTextNode(Recommendations.intro));
   let search = document.createElement('div'); search.setAttribute('class','RecommendationsSearch');
   let recfield = document.createElement('div'); recfield.setAttribute('id','RecommendationsField');
   for (key in Recommendations.Types){ let RZ = Recommendations.Types[key][0];
@@ -70,6 +70,7 @@ function CreateRecommendationpage(){
   target.append(title,para,search,recfield);
   AppendSponsors();
 }
+
 function AppendSponsors(type){
   let target = document.getElementById('RecommendationsField');
   target.innerHTML="";

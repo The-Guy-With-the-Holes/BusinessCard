@@ -1,4 +1,4 @@
-/*Body elements -- main elements -- Item elements*/
+/*Special*/
 ::-webkit-scrollbar{ display: none;}
 /*Body Elements*/
 * { margin: 0 auto; padding: 0 auto;}
@@ -13,9 +13,10 @@ button{  cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rg
 header {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-image: url(pic/Banner/Home.png); background-size: cover; background-repeat: no-repeat; background-position: center;
     text-align: center; padding:1vh 0 3vh 0;
-    margin-bottom: 3%; height: 18vh; width: 100%;
+    margin:0 auto; min-height: 10vh; width: 100%;
 }
 footer{text-align: center;}
+
 select{max-width: 100%; font-size: xx-small;}
 label { font-size: 5.2vw; text-align: center; vertical-align: middle;}
 h2 { display: block;width: 100vw; text-align: center; margin-bottom: 2%;}
@@ -53,17 +54,24 @@ nav > * {max-width: fit-content; }
     margin: 0; /* Important for vertical align on mobile phones */
   }
 .NavDrop:hover .NavDropContent{display: block;}
-/*******************/
+
+/*********Special items**********/
 
 
 #Cart { position: fixed; display: inline; right:0; opacity: 0.7;
 background-color:green ; font-size: x-large; top: 0;}
+#GFlogo {
+    position: fixed; right: 0; top: 0; margin: 1.4%; border-radius: 50%;
+    height: 10vmin; width: 10vmin; background-image: url(pic/GFicon.png);
+    background-position: center; background-repeat: no-repeat; background-size: contain;
+}
+#GFlogo:hover { transform: scale(1.1) rotate(365deg);}
 
 #item_area{
     background-color: #00000055; height: fit-content;
     display: flex; flex-direction: row; overflow:hidden;
 }
-
+/* item_area ->  Home or Store or... */
 /*Home*/
 #Hcontact{font-size:6vw;background-color: #fafafa; margin: 0 4vw 0 4vw ; padding: 0 0 1vh 0;}
 #Hcontact>span{ font-size: 5vw; background-color: aliceblue;  }
@@ -78,7 +86,7 @@ to{background-color: #af0000;transform: rotateX(45deg);}
     color:dodgerblue; text-decoration: underline; cursor: pointer;
 
 }
-.contactInfo b{font-size: 3vw; display:;}
+.contactInfo b{font-size: 3vw;}
 #ciE::after{display: inline-block;
     content: '';} #ciP{}
 #Home_Main

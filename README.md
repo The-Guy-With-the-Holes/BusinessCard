@@ -15,11 +15,20 @@ lines should be of similar intent,
 p{color:red; font-size:10px; font-weight:bold;}
 
 
-JS standard:
-Good luck!
+JS notes:
+
+Page Creation : 
+flip(Page) -> createPage(Page) 
+->create(Page)page -> append()
+
+
 
 Git
---T = Tasklist Changes
+--T  Tasklist Changes
+
+
+
+Bugs & errors::
 
 Missing Certificates (Likely Spelling problems)
 

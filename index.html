@@ -8,20 +8,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-   <!-- <link rel="stylesheet" type="text/css" href="https://raw.githack.com/The-Guy-With-the-Holes/BusinessCard/main/BCard.css"> 
-    -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRFVNNWXY3"></script>
+<script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-JRFVNNWXY3');
+</script>
+
+    <link rel="shortcut icon" href="i/Icons/₿/bweb.ico" type="image/x-icon">
     <link rel="stylesheet" href="Certificates/Certificates.css"> 
     <link rel="stylesheet" href="BCard.css" type="text/css">
     <link rel="stylesheet" href="Home.css" type="text/css">
     <link rel="stylesheet" href="About.css" type="text/css">
+    <link rel="stylesheet" href="BusinessCard.css" type="text/css">
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="BusinessCard.css" type="text/css">
-    <null> <!-- https://the-guy-with-the-holes.github.io/BusinessCard/ --> </null>    
+     
 </head>
 
 <body onload="getUser(); dev();">
@@ -141,6 +147,79 @@
 </div>
 
 <div id="Recommends" class="box-main" style="display:none;">
+</div>  
+<div id="Support" class="box-main" style="display:none;">
+    <div>
+        <div style="
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 259px;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
+        border-radius: 10px;
+        font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
+        ">
+        <img src="https://items-images-production.s3.us-west-2.amazonaws.com/files/a7b552118731ed8d79a1b7ce0a8fd8dcf6890da6/original.png" alt="BloodWeb Donation" onerror="this.style.display='none'" style="width: 100%;">
+        <div style="padding: 20px;">
+        <p style="
+          font-size: 18px;
+          line-height: 20px;
+        ">BloodWeb Donation</p>
+        
+        <a target="_blank" data-url="https://square.link/u/fxyO3fX4?src=embd" href="https://square.link/u/fxyO3fX4?src=embed" style="
+          display: inline-block;
+          font-size: 18px;
+          line-height: 48px;
+          height: 48px;
+          color: #ffffff;
+          min-width: 212px;
+          background-color: #006aff;
+          text-align: center;
+          box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
+          border-radius: 0px;
+        ">Donate</a>
+        </div>
+      </div>
+      </div>
+      
+        <script>
+          function showCheckoutWindow(e) {
+            e.preventDefault();
+      
+            const url = document.getElementById('embedded-checkout-modal-checkout-button').getAttribute('data-url');
+            const title = 'Square Online Checkout';
+      
+            // Some platforms embed in an iframe, so we want to top window to calculate sizes correctly
+            const topWindow = window.top ? window.top : window;
+      
+            // Fixes dual-screen position                                Most browsers          Firefox
+            const dualScreenLeft = topWindow.screenLeft !==  undefined ? topWindow.screenLeft : topWindow.screenX;
+            const dualScreenTop = topWindow.screenTop !==  undefined   ? topWindow.screenTop  : topWindow.screenY;
+      
+            const width = topWindow.innerWidth ? topWindow.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            const height = topWindow.innerHeight ? topWindow.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+      
+            const h = height * .75;
+            const w = 500;
+      
+            const systemZoom = width / topWindow.screen.availWidth;
+            const left = (width - w) / 2 / systemZoom + dualScreenLeft;
+            const top = (height - h) / 2 / systemZoom + dualScreenTop;
+            const newWindow = window.open(url, title, `scrollbars=yes, width=${w / systemZoom}, height=${h / systemZoom}, top=${top}, left=${left}`);
+      
+            if (window.focus) newWindow.focus();
+          }
+      
+          // This overrides the default checkout button click handler to show the embed modal
+          // instead of opening a new tab with the given link url
+          document.getElementById('embedded-checkout-modal-checkout-button').addEventListener('click', function (e) {
+            showCheckoutWindow(e);
+          });
+        </script>
 </div>  
 
 <div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >    

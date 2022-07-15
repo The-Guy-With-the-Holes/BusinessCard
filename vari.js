@@ -8,7 +8,7 @@ const Debug = {
 }
 
 const TODO=[
-    'Update Dlink to Farms work',
+    ' //Update Dlink to Farms work',
     ' JS & CSS Page refactoring',
     ' check HTML links'
 ];
@@ -54,7 +54,7 @@ const Recommendations={
 const sponsors = [
     test=['Name','Link','About','ImageURL','Tags[C/B/A]'],
     GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/im1.jpg','C'],
-    KL=['Kilns Cafe','https://www.kilnscafe.com.au','A heart warming Cafe, Run by a kind soul','i/Icons/Kilns.jpg','CA'],
+    KL=['Kilns Cafe','https://www.kilnscafe.com.au','A heart warming Cafe, Run by a kind soul','i/Sponsors/Kilns.jpg','CA'],
     JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png','B'],
     SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
