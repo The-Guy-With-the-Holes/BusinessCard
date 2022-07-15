@@ -19,7 +19,7 @@ footer{text-align: center;}
 
 select{max-width: 100%; font-size: xx-small;}
 label { font-size: 5.2vw; text-align: center; vertical-align: middle;}
-h2 { display: block;width: 100vw; text-align: center; margin-bottom: 2%;}
+h2 { display: block;width: 100vw; text-align: center; margin-bottom: 2%; font-size: 8vw;}
 
 .title { font-family: "lobster"; font-size: 10vw;
   -webkit-text-fill-color: blueviolet; /* Will override color (regardless of order) */
@@ -104,7 +104,7 @@ to{background-color: #af0000;transform: rotateX(45deg);}
     background-color: #f0f0f0a5; border-radius: 10%;  text-align: center;
  display: block;  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); }
 
-.Oiltitle{-webkit-text-stroke: 0.21vmin seagreen; font-size: small; }
+.Oiltitle{-webkit-text-stroke: 0.21vmin seagreen; }
 
 .Item_wrapper>p:not(.OilTitle){
     text-align: left; font-size: smaller;

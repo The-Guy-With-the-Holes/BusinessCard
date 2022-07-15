@@ -4,7 +4,7 @@ Find out more about me and what i can do! :)
 <!--
 
 css Standard:
-Display inline, up to 48 units, the exception being when the style length begins in the line less than 6 units before line end,
+Display inline, up to 48 units, the exception being when the style length begins in the line less than 6 units before line end, ie:
 
 p{background: radial-gradient(circle,#000000da,black,gray);}
 
@@ -23,8 +23,22 @@ flip(Page) -> createPage(Page)
 
 
 
-Git
---T  Tasklist Changes
+Git Legend :
+For multiple Reports, seperate key by '/'.
+Do not double down on groupings, Higher notifications take priority
+(if MF ! M || if TL ! T)
+
+
+--P(page) Page alteration ('PageAltered')
+
+--X Crit Error found/addressing
+--M Minor Fixes
+--MF Major Fixes
+--B Bug hunting 
+
+--R Refactoring
+--T  Tasklist generic Changes (min. every other push)
+--TL Tasklist Major changes
 
 
 
