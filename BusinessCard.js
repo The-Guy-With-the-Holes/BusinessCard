@@ -50,15 +50,28 @@ console.log('Flip completed full function, About was probably clicked --called f
 //Page 1 Main
 
 //IDLE TIMER
-function addidleclass(){
+function idleclass(clss){ 
 let targ = document.getElementById('locko');
-if(!targ.classList.contains('idle')){targ.classList="mainx idle";} 
+    if(targ.classList.contains('idle')&&clss==false){
+        targ.classList="mainx";iconidle(false);
+    }
+    if(!targ.classList.contains('idle')&&clss==true){
+    targ.classList="mainx idle"; iconidle(true);
+    } return;
 }
-function removeidleclass(){
-    let targ = document.getElementById('locko');
-    if(targ.classList.contains('idle')){targ.classList="mainx"}
+function iconidle(remove){
+    let targ =document.querySelectorAll('.balls');
+for(let i =0; i<targ.length; i++){ let key = targ[i];
+    if(remove ==true){ 
+        if(i%2==0){key.setAttribute('class','balls iconidleF');
+        continue;}
+    key.setAttribute('class','balls iconidleR');
+    }
+    if(remove==false){
+    key.setAttribute('class','balls');
+    }
+    }
 }
-
 
 // Sets New rotation & Background for .Balls
 function IconHovered(e,callfrom){

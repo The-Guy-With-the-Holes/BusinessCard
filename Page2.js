@@ -94,35 +94,47 @@ target.append(div);  }
 
 }
 
-function CreateContactpage(t){
-let d = document.createElement('div');
-let s = document.createElement('span');
-let target = document.getElementById(t);
-  let x = ['Jack.ewers@protonmail.com','+(61) 479 000 429']
-    let h5 = document.createElement('h5')
-    let contactBtns =['tel','mailto']
+function CreateContactpage(t){ let target = document.getElementById(t);
+let d = document.createElement('div'); d.setAttribute('id','ContactWrapper');
+let h5 = document.createElement('h5'); let contactBtns =['tel','mailto'];
+  
+  target.innerHTML = "";
+
+let introText = document.createElement('p'); introText.setAttribute('class','ContactNotes');
+introText.append((document.createTextNode(About.ContactIntro))); 
+  h5.append(document.createTextNode(t));
+  target.append(h5,introText);
     
-    target.innerHTML = "";
-    h5.append(document.createTextNode(t));
-    d.append(h5);
-    
-    for(el in x){ let p = document.createElement('p');
-      if(el==0){ Cont = document.createTextNode("Email: "+x[el]);}  
-      else{ Cont = document.createTextNode("Phone: "+x[el]);}  
-      p.append(Cont);d.append(p);
-    };
+  for(el in About.Contact.Methods){ let p = document.createElement('p'); let span = document.createElement('span');
+    span.append((document.createTextNode(About.Contact.Methods[el]+': '))); span.setAttribute('class','ContactKeys')
+      let  Address = document.createTextNode(About.Contact.Address[el]);  
+    p.append(span,Address);target.append(p);
+  };
+  
     for(el in contactBtns){let a = document.createElement('a');
     let img = document.createElement('img');
     let ph = document.createElement('p');
     setAttributes(img,{'class':'ContactBtns'+' CtBtnsx'+(el)});
-    a.setAttribute('href',contactBtns[el]+':'+x[el]);
+    a.setAttribute('href',contactBtns[el]+':'+About.Contact.Address[el]);
     if(el==0){ph.append((document.createTextNode('Email:')))}
     if(el==1){ph.append((document.createTextNode('Call:')))}
 
     a.append(ph,img);
-    d.append(a)
+    target.append(a);
+  }
+  let contactFinal = document.createElement('p'); setAttributes(contactFinal,{'id':'ContactFinal','class':'ContactNotes'});
+contactFinal.append((document.createTextNode(About.Contact.Outro)))
+target.append(contactFinal);  
+//Bottom icons
+    let wrap = document.createElement('div'); wrap.setAttribute('id','ContactIconWrapper');
+    for (key in Social.Names){let name =Social.Names[key];
+      let a = document.createElement('a'); let img = document.createElement('img');
+      setAttributes(img,{'id':name,'src':'i/Icons/64BIT(GRAY)/'+name+'.png','class':'ContactIcon'});
+      setAttributes(a,{'href':Social.Address[(key)],'target':'_blank'});
+      a.append(img);
+      wrap.append(a);
     }
-  target.append(d);
+  target.append(wrap);
 }   
 
 

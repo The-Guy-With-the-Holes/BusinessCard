@@ -17,10 +17,11 @@
 
 
 /* MAIN */
-#about { box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    font-size: 3vw; min-height: fit-content;
-    background-color: #f0f8ff55;
-    border-radius: 30% 30% 0 0;
+#about {min-height: fit-content; padding:1vh 0 1vh 0;
+   
+     font-size: 3vw;  background-color: #f0f8ff55;
+    border-radius: 30% 30% 0 0; box-shadow: 0 10px 20px rgba(1,0,1,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   
 }
 
 #about button {
@@ -56,7 +57,7 @@ h4 {
     list-style-position: inside;
     padding-left: 0;
     text-align: left;
-    list-style-image: url(i/BloodWeb5X6.png); 
+    list-style-image: url(i/Icons/₿/BloodWeb5X6.png); 
 }
 ul>li:hover{
     background-color: aliceblue;
@@ -64,9 +65,43 @@ ul>li:hover{
     cursor: pointer;
 }
 
-/* ABout - Contact */
-#Contact{ height: fit-content;}
-#Contact > * { display: block;}
-.MailButton{
-    background-image: url(/i/Mail.png);
+/* About - Contact */
+#Contact { height: fit-content; text-align: center;}
+#Contact > p:not(.ContactNotes) { text-align: start; margin-top: 1vh; font-size:4vw; background-color: #faf;}
+.ContactKeys{ background-color: #ff000055;border: 1vmin double goldenrod; 
+    font-size: 5vw; font-weight: 400;}
+#Contact > a { display: inline-block;max-width: min-content; margin: 4%;  }
+#Contact > a > *{display: block;text-align: center; margin: 0 auto;}
+
+.ContactNotes { font-size: 3.8vw; -webkit-text-stroke: 1px green;
+background-color: #11ffad99; border:2vmin double #11ffad ; border-radius: 3% ; 
+ margin-top: 0.5vh; 
 }
+
+.ContactBtns { 
+display: inline-block; width: 20vw; height: 20vw; 
+margin: 20vh 0 0 20vh; border: 1vmin solid greenyellow;
+background-color: #fff; background-position: center;
+background-size: contain; background-repeat: no-repeat;
+}
+
+.ContactBtns:hover{ transform: scale(1.24); border-radius: 50%; border: 1vh double green;}
+.CtBtnsx0{background-image: url(i/Icons/Mail.png);}
+.CtBtnsx1{background-image: url(i/Icons/Phone.png); }
+
+#ContactFinal{opacity: 0.77;}
+#ContactFinal::after{opacity: 0.88; font-size: 5vw;
+    content: ', Jack💙'; background-color: #11ffad39;}
+
+#ContactIconWrapper{width:80%; padding: 2% 0 2.5% 0; margin-bottom: 1.2vh;
+  background-color: #f0f8ff55;
+}
+
+.ContactIcon{ width:8vw ; height: 8vw; margin: 1%;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+cursor: pointer; display: inline-block;  vertical-align: middle;
+background-color: #fafaff55; border: 1px double black; 
+}
+
+.ContactIcon:hover{ transform: scale(1.2); border: 2px double #00000055 ;
+background-color: #11ffad;}

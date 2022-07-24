@@ -21,24 +21,30 @@ Page Creation :
 flip(Page) -> createPage(Page) 
 ->create(Page)page -> append()
 
-
+Sponsor Types:
+[A] Artists
+[B] Bling
+[C] Consumables
+[F] Finance
+[T] Tradies
 
 Git Legend :
 For multiple Reports, seperate key by '/'.
-Do not double down on groupings, Higher notifications take priority
-(if MF ! M || if TL ! T)
-
+ie, "--N/MF/--R" > Networking,MinorFixes & Refactoring
 
 --P(page) Page alteration ('PageAltered')
+--N Networking
+--R Refactoring
+
 
 --X Crit Error found/addressing
---M Minor Fixes
---MF Major Fixes
+--MF Minor Fixes
+--MJ Major Fixes
 --B Bug hunting 
 
---R Refactoring
---T  Tasklist generic Changes (min. every other push)
---TL Tasklist Major changes
+
+--TL  Tasklist generic Changes
+--TM Tasklist Major changes
 
 
 

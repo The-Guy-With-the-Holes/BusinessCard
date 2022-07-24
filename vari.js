@@ -1,16 +1,16 @@
 const Debug = {
     T:false,
     Developer:false,
-    User:true,
+    User:false,
     Hex:false,
-    Icon:true,
-    List:true,
+    Icon:false,
+    List:false,
 }
 
 const TODO=[
-    ' //Update Dlink to Farms work',
-    ' JS & CSS Page refactoring',
-    ' check HTML links'
+    ' Rec Refactoring',
+    ' 3 CSS Page refactoring',
+    ' Fix Certificates'
 ];
 
 // Variables
@@ -33,31 +33,42 @@ const Get = {
         Btn :document.getElementById("RevBTNX01"),
     },   
 }
-const About ={ lists:['Hobbies','Passions'], 
+const About = { lists:['Hobbies','Passions'], 
                 MainTXT:[' Hi there! my name is Jack,',
                 'I was born & live in australia, my interests include coding, business management, investing and traveling'],
-
+// To be made into links
               Hobbies:['Body-Modification',
                        'Coding','Philosophy'],
               Passions:['Advocating equal rights',
-                        'Protecting our planet',
+                        'Reducing carbon footprint',
                         'Fighting for Data Protection'],
               Goals:[''],
               Projects:['CryptoKorns','Gardner Family Farms',
-                        'The Rand Dumb'],}
+                        'The Rand Dumb'],
+    ContactIntro:'Thanks for visiting my site!'+
+    ' You can find my contact deets and more on this page.',
+    Contact:{
+    Outro:'--Y\'all are Awesome!',
+        Methods:['Email','Phone'],
+        Address:['Webmaster@JackEwers.com','+(61) 479 000 429']
+    },
+}
 
 const Recommendations={
     intro:'Welcome to the Recommendation section, A list of the businesess and services that are best in class!',
-    Types:['Consumables','Bling','Artists','Tradies'],
+    Types:['Consumables','Bling','Artists','Tradies','Finance'],
 }
 
 const sponsors = [
-    test=['Name','Link','About','ImageURL','Tags[C/B/A]'],
-    GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','Projects/GF/pic/GFicon.png','C'],
+    test=['Name','Link','About','ImageURL','Tags[F/C/B/A/T]'],
+    GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/Sponsors/GFicon.ico','C'],
     KL=['Kilns Cafe','https://www.kilnscafe.com.au','A heart warming Cafe, Run by a kind soul','i/Sponsors/Kilns.jpg','CA'],
     JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png','B'],
+    JT=['Stone Heart','https://www.stoneheart.com.au', 'Professional Piercing, Tattooing and Laser', 'https://www.stoneheart.com.au/wp-content/uploads/2021/10/cropped-header-768x616.png', 'B'],
     SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
+    HH=['Hellish Hair','https://www.facebook.com/hellishhairdesign/','Wonderful and Friendly Salon in the heart of freo','i/Sponsors/Hellish.png','T/A'],
+    CC=['Crypto.com','https://www.crypto.com','Crypto Currency and NFT platforms','i/Sponsors/cryptocom.jfif', 'F/A']
 ]
 
 let Create = {
@@ -72,6 +83,14 @@ let Create = {
     },
 }
 
+const Social={
+Names:['Linkedin','Twitter','Facebook','Instagram'],
+
+Address:['https://www.linkedin.com/in/jack-ewers-14a155212/',
+'https://www.twitter.com/Jack_S_Ewers',
+'https://www.facebook.com/BloodWorks.Jack/',
+'https://instagram.com/the_guy_with_the_holes'],
+}
 
 //Quotes of the day
 const QOTD = [
@@ -110,12 +129,10 @@ function randomNum(min,max){
 }
 
 
-
-
 //Balls
 let MainRotations=0;
 function mainimgRotate(){
-    MainRotations++;countforbitcoin(1);
+    MainRotations++;
     document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg')); }
 
 //Suprisingly Simple Ball-Event Handler
