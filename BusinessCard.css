@@ -45,7 +45,7 @@ Rows will be seperated by '*' */
 
 /*****************************/
 /* Recommends */
-#Recommends{
+#Recommends{text-align: center;
     height: max-content;
     padding: 0 0 10vh 0;}
 
@@ -57,11 +57,15 @@ Rows will be seperated by '*' */
     width: 68%; left:0; margin-left: 1%;background-color:white;
 }
 
-.RecommendationsSearch{ display: block; width: max-content; height:min-content; 
-    text-align: center; padding: 1%; margin-bottom:1vh; border:0.2vmin solid #000000;
+.RecommendationsSearch{ display: block; width: 80%; height:min-content; 
+     padding: 1%; margin-bottom:1vh; border:0.2vmin solid #000000;
 background-color: #afafaf55; } 
-.RecommendationsType{ cursor: pointer; display: inline-block; margin: .31%;
-    font-size: medium; border: 4px double gray; background-color: aliceblue;
+
+#SelectRecType{ padding: 2% 0 2% 0; 
+font-size: 3.8vw; text-align: center; color:white; -webkit-text-stroke: 0.05vmin gold;
+    background-color:#afafafbb; border:0.2vmin double goldenrod;
+}
+.RecommendationsType{  font-size: 3vw; color:#000; background-color: #afafafbb;
 }
 .RecommendationsType:hover{color:white; background-color: #afafaf;}
 

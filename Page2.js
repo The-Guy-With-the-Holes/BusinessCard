@@ -61,23 +61,35 @@ function CreateRecommendationpage(){
 //  para.append(document.createTextNode(Recommendations.intro));
   let search = document.createElement('div'); search.setAttribute('class','RecommendationsSearch');
   let recfield = document.createElement('div'); recfield.setAttribute('id','RecommendationsField');
-  for (key in Recommendations.Types){ let RZ = Recommendations.Types[key][0];
-      let p = document.createElement('button'); setAttributes(p,{'onclick':'AppendSponsors(\''+RZ+'\')','class':'RecommendationsType'});
-    p.append((document.createTextNode(Recommendations.Types[key])));
-    search.append(p);  
+  let select = document.createElement('select'); setAttributes(select,{'id':'SelectRecType','onchange':'SwapRecType()'});
+  for (key in Recommendations.Types){ let RZ = Recommendations.Types[key];
+      let option = document.createElement('option'); 
+      setAttributes(option,{'class':'RecommendationsType'});
+    option.append((document.createTextNode(RZ)));
+     select.append(option);
   }
+  search.append(select); 
   target.innerHTML="";
   target.append(title,para,search,recfield);
   AppendSponsors();
 }
 
+function SwapRecType(){let t=document.getElementById('SelectRecType');
+if(Debug.Recom==true){console.log('Changing Rec type: newval='+t.value)}
+if(t.value == "All") {return AppendSponsors();}
+AppendSponsors((t.value[0]));
+}
+
+
 function AppendSponsors(type){
+
   let target = document.getElementById('RecommendationsField');
   target.innerHTML="";
   for(let i =1; i < sponsors.length; i++){let a =document.createElement('a'); let div = document.createElement('div'); let btn =document.createElement('button');
    let img = document.createElement('img'); let p = document.createElement('p'); let about = document.createElement('p'); 
 
    if(type&&!sponsors[i][4].includes(type)){continue;}
+   
    setAttributes(a,{'href':sponsors[i][1]});
    a.append((document.createTextNode('>Visit Site!<')))
    btn.append(a); 
@@ -122,7 +134,8 @@ introText.append((document.createTextNode(About.ContactIntro)));
     a.append(ph,img);
     target.append(a);
   }
-  let contactFinal = document.createElement('p'); setAttributes(contactFinal,{'id':'ContactFinal','class':'ContactNotes'});
+
+let contactFinal = document.createElement('p'); setAttributes(contactFinal,{'id':'ContactFinal','class':'ContactNotes'});
 contactFinal.append((document.createTextNode(About.Contact.Outro)))
 target.append(contactFinal);  
 //Bottom icons

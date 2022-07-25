@@ -5,10 +5,11 @@ const Debug = {
     Hex:false,
     Icon:false,
     List:false,
+    Recom:false,
 }
 
 const TODO=[
-    ' Rec Refactoring',
+    ' Rec Addition',
     ' 3 CSS Page refactoring',
     ' Fix Certificates'
 ];
@@ -56,19 +57,19 @@ const About = { lists:['Hobbies','Passions'],
 
 const Recommendations={
     intro:'Welcome to the Recommendation section, A list of the businesess and services that are best in class!',
-    Types:['Consumables','Bling','Artists','Tradies','Finance'],
+    Types:['All','Consumables','Bling','Artists','Tradies','Finance'],
 }
 
 const sponsors = [
-    test=['Name','Link','About','ImageURL','Tags[F/C/B/A/T]'],
+    test=['Name','Link','About','ImageURL','Tags(Types)[F/C/B/A/T]'],
     GF=['Gardener FamilyFarms','https://gardnerfamilyfarm.com.au','Award Winning, Pesticide Free Olive Oil, Farm to table','i/Sponsors/GFicon.ico','C'],
     KL=['Kilns Cafe','https://www.kilnscafe.com.au','A heart warming Cafe, Run by a kind soul','i/Sponsors/Kilns.jpg','CA'],
     JT=['Opal Heart','https://www.OpalHeart.com.au','Profesional Piercing, with talented staff and a world renowned Owner','https://www.opalheart.com.au/wp-content/uploads/2021/09/logo.png','B'],
     JT=['Stone Heart','https://www.stoneheart.com.au', 'Professional Piercing, Tattooing and Laser', 'https://www.stoneheart.com.au/wp-content/uploads/2021/10/cropped-header-768x616.png', 'B'],
     SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
-    HH=['Hellish Hair','https://www.facebook.com/hellishhairdesign/','Wonderful and Friendly Salon in the heart of freo','i/Sponsors/Hellish.png','T/A'],
-    CC=['Crypto.com','https://www.crypto.com','Crypto Currency and NFT platforms','i/Sponsors/cryptocom.jfif', 'F/A']
+    HH=['Hellish Hair','https://www.facebook.com/hellishhairdesign/','Wonderful and Friendly Salon in the heart of freo','i/Sponsors/Hellish.png','T/A/C'],
+    CC=['Crypto.com','https://www.crypto.com/app/hv5zfaygn9','Crypto Currency and NFT platforms, use referall code hv5zfaygn9 for $25USD in CRO when staking for a ruby or higher card','i/Sponsors/cryptocom.jfif', 'F/A']
 ]
 
 let Create = {
