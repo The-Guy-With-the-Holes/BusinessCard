@@ -47,7 +47,7 @@ if(Get.Pages.includes(page)){
 console.log('Flip completed full function, About was probably clicked --called from Flip ');
 }
 
-//Page 1 Main
+//Home Specific Functions
 
 //IDLE TIMER
 function idleclass(clss){ 
@@ -59,6 +59,7 @@ let targ = document.getElementById('locko');
     targ.classList="mainx idle"; iconidle(true);
     } return;
 }
+
 function iconidle(remove){
     let targ =document.querySelectorAll('.balls');
 for(let i =0; i<targ.length; i++){ let key = targ[i];
@@ -67,16 +68,28 @@ for(let i =0; i<targ.length; i++){ let key = targ[i];
         continue;}
     key.setAttribute('class','balls iconidleR');
     }
-    if(remove==false){
-    key.setAttribute('class','balls');
-    }
+    if(remove==false){key.setAttribute('class','balls');}
     }
 }
+
+let MainRotations=0;
+function mainimgRotate(){
+    MainRotations++;
+    document.documentElement.style.setProperty('--Main-Img-Rotation', (180+(MainRotations*90)+'deg')); 
+}
+
+//Suprisingly Simple Ball-Event Handler
+document.querySelectorAll('.Rotern').forEach(item => {
+item.addEventListener('mouseenter', e => {
+let Child = e.target.querySelector('.balls').id;    
+    IconHovered(e,Child);
+    }) 
+})
 
 // Sets New rotation & Background for .Balls
 function IconHovered(e,callfrom){
     if (!e || !callfrom) return console.error('%cICON Hover ERROR',"color:Green; font-size:4vw;");
-    let H1=(generateHex(2,6)); let H2 =generateHex(2,8);
+    let H1=(randomHex()); let H2 =randomHex();
     let colorarray=  ('#'+H1+',')+('#'+H2+','); 
     let Background= (((randomNum(0,255))+'deg,')+colorarray+colorarray+('#'+H1+',')+('#'+H2));
   
@@ -87,6 +100,9 @@ function IconHovered(e,callfrom){
     if(Debug.Hex==false) return;    
     console.log(callfrom+': Caller Created >> Hex :'+(Background));   
 }
+
+
+
 
 // Page 1(f) #About
 

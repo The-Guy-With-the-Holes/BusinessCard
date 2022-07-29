@@ -5,13 +5,14 @@ const Debug = {
     Hex:false,
     Icon:false,
     List:false,
-    Recom:false,
+    Recom:true,
 }
 
 const TODO=[
-    ' Rec Addition',
-    ' 3 CSS Page refactoring',
-    ' Fix Certificates'
+    '//3 CSS Page refactoring',
+    ' Rec Refactoring',
+    ' Fix Certificates',
+    ' cleaner Bcard.js'
 ];
 
 // Variables
@@ -69,7 +70,7 @@ const sponsors = [
     SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
     HH=['Hellish Hair','https://www.facebook.com/hellishhairdesign/','Wonderful and Friendly Salon in the heart of freo','i/Sponsors/Hellish.png','T/A/C'],
-    CC=['Crypto.com','https://www.crypto.com/app/hv5zfaygn9','Crypto Currency and NFT platforms, use referall code hv5zfaygn9 for $25USD in CRO when staking for a ruby or higher card','i/Sponsors/cryptocom.jfif', 'F/A']
+    CC=['Crypto.com','https://www.crypto.com/app/hv5zfaygn9','Crypto Currency and NFT platforms, use referall code hv5zfaygn9 for $25USD in CRO when staking for a ruby or higher','i/Sponsors/cryptocom.jfif', 'F/A']
 ]
 
 let Create = {
@@ -105,22 +106,15 @@ const QOTD = [
     'The man who loves walking will walk farther than a man who loves the destination'
 ]
 
-
-//Outdated Get References
-const H5 = document.createElement('h5');
-const P = document.createElement('p');
-const Page2 = document.getElementById('secondBox');
-const TB = document.getElementById('about');
-const Main = document.getElementById("home");
-
-
 // Utility functions
 function testQ(t){ let x="C";
     if(x.includes(t)&& t){return true;}
 }
-function randomHex(bits){ if(!bits){bits =8;}
+
+
+function randomHex(bits){ if(!bits){bits =8;} let hexRes='';
 let hex = ['a','b','c','d','e','f',0,1,2,3,4,5,6,7,8,9];
-for(i in bits){hexRes+= hex[(randomNum(0,9))]; }
+for(let i=0; i<bits; i++){hexRes+= hex[(randomNum(0,9))]; }
 return hexRes;
 }
 
@@ -129,20 +123,6 @@ function randomNum(min,max){
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-
-//Balls
-let MainRotations=0;
-function mainimgRotate(){
-    MainRotations++;
-    document.documentElement.style.setProperty('--Mainro', (180+(MainRotations*90)+'deg')); }
-
-//Suprisingly Simple Ball-Event Handler
-document.querySelectorAll('.Rotern').forEach(item => {
-item.addEventListener('mouseenter', e => {
-let Child = e.target.querySelector('.balls').id;    
-    IconHovered(e,Child);
-    }) 
-})
 
 //  Certificate Variables
 const Blocks = {

@@ -1,8 +1,18 @@
 /* Special*/
 ::-webkit-scrollbar{width:0;}
+:root {
+    --icon-background: 20deg,#fff000,#fff, green,#000;
+    --Shiftery-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
+    --Profile-Img-A:url(i/Profile.jpg); --Profile-Img-B:url(i/Profile2.jpg);
+    --Main:180deg;  
+    --rotation-direction:360deg;
+}
+
 #NavBar_Selected{background-color:#aaaaff55; color:#fcffcf55; -webkit-text-stroke: 0.4vmin goldenrod;
     border:0.5vmin solid #00000099; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;}
 
+.Tasklist{margin-bottom: 1vh; padding: 1%; }
+.TaskTitle{color:#11ffad; -webkit-text-stroke: 0.225vmin #990099;}
 /* Body-Level */
 
 * {margin: 0 auto; box-sizing: border-box;}
@@ -17,11 +27,19 @@ body {
     background: radial-gradient(circle,#000000da,black,gray); padding: 1%; 
 }
 
-p {
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
-}
+p{ font-family: 'Courier New', Courier, monospace; font-style: italic; }
 
+header {
+grid-area: header; margin-left: 0 ;
+font-family: Lobster, monospace;
+width: fit-content; height: min-content;
+}
+header > * { display: block; }
+
+footer {
+    margin: 1%;
+    text-align: center;
+}
 
 /* Pages, --> .box-main
 Home - About(sub) - Recommends - Certificates
@@ -97,11 +115,13 @@ background-color: aliceblue;
  float: left; vertical-align: top; 
  max-width: 40%;  font-size: 2.8vw;
 }
+
 /*****************************/
 /* Certificates = Certificates/Certificates.css */
 
 /*****************************/
 /* Footer*/
+
 footer{background:repeating-linear-gradient(150deg, rgb(92, 90, 90),white,#afafaf,gray,#cfcfcf,gray,gray,white);
 border: 1vmin double #fff000; font-size:3vw;text-align: left;}
 footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
@@ -110,3 +130,27 @@ footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
 #GFbtn{ cursor: pointer;background-image:url(i/Sponsors/GFicon.ico);
     background-repeat: no-repeat; background-position: center; background-size: contain;
     height:10vmin; width:10vmin; border-radius: 50%; }
+
+
+/* Quote Box */
+#QuoteBox {
+    display:block; z-index:4;  padding:0.2% 5% 3% 5%;
+    margin:0 auto; margin-bottom: 2vh; text-align:center;
+    background-color:#fafafa; border:2vmin double red; 
+    color:gray; -webkit-text-stroke:0.1vmin gold;
+}
+
+#TimeQuoteBox{
+    font-size: 3vw; text-align: right; display: inline-block; right: 100%;
+    color: #000; -webkit-text-stroke:0.1vmin gold; margin: 0 10% 6% 0;
+}
+
+#QuoteBoxP{background-color:#f5f5f555; text-align: left;}
+#QuoteBoxP::before{content:'Quote';font-size:6vw;-webkit-text-stroke: 0.3vw black;}
+#QuoteBoxP::first-letter{font-size: 8vw;}
+#QuoteBoxP::first-line{font-size: 3.2vw;}
+
+#CloseQuoteBox { position: absolute; right: 2.2%;padding:1%; 
+     -webkit-text-stroke:1vw red; border: 1vw solid #ff000055;
+     font-size:large; opacity: 0.7; }
+#CloseQuoteBox:hover{transform: scale(1.2); background-color: #ff000055;}
