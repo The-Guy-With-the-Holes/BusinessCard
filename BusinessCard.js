@@ -4,14 +4,16 @@ function debug(type,word,action){
     }
 }
 
-function getval(start,end){
-    let v = [];
-
+function getval(start,end){let v = [];
     for(let i =start; i<end+1; i++){
-let arr= i+'%{background:linear-gradient('+i*3.65+'deg,salmon,lightpink);}';
-    v.push(arr);
-}console.log(v.join(' '))
+        let arr= i+'%{background:linear-gradient('+i*3.65+'deg,salmon,lightpink);}';
+        v.push(arr);
+    }
+console.log(v.join(' '))
 }
+
+
+/* Page Management */
 
 function checkPagestoclear(){
 for (let i=0; i<Get.Pages.length; i++){
@@ -28,15 +30,16 @@ function clearPage(item){
 }
 
 function flip(page,sub){
-    let GT =document.title;
-//Checks page is specified and page2 isnt open
-    if(!page) return alert('When flipping, please specify page to flip');
-    if (Get.Page.Page2.style.display!="none") closeExtProfile();
-//    if(page=="Extend"){if(!sub){sub='Basic'}return extendProfile(sub);}      
-     LoadNewNavBar(page);
-if(page=="About"){if (!Get.AboutPages.includes(sub)) {   
-  return  toggleAboutDropdown();}
-else { page = sub;toggleAboutDropdown();}
+let GT =document.title;
+
+//Checks page is specified 
+if(!page) return alert('When flipping, please specify page to flip');
+LoadNewNavBar(page);
+
+//Check About is a true flip & sub exists
+if(page=="About"){
+    if (!Get.AboutPages.includes(sub)) {return  toggleAboutDropdown();}
+    else { page = sub; toggleAboutDropdown();}
 }
 if (GT.innerText=="Certificates"){clearCerts();}   
 if(Get.Pages.includes(page)){
@@ -47,8 +50,8 @@ if(Get.Pages.includes(page)){
 console.log('Flip completed full function, About was probably clicked --called from Flip ');
 }
 
-//Home Specific Functions
 
+/* Home Specific Functions*/
 //IDLE TIMER
 function idleclass(clss){ 
 let targ = document.getElementById('locko');
@@ -102,9 +105,7 @@ function IconHovered(e,callfrom){
 }
 
 
-
-
-// Page 1(f) #About
+/* About Specific functions  */
 
 document.querySelectorAll('ul>li').forEach(item => {
     item.addEventListener('click', e => { 
@@ -118,16 +119,3 @@ document.querySelectorAll('ul>li').forEach(item => {
         debug('List',ListText[0],'Hover'); 
     })
 })
-
-
-//Page2
-
-//Extend Profile
-function extendProfile(name){
-  Get.Extndbtn.style.transform="rotate(180deg)";    
-  if (!name) {console.warn('Please Use name when extending');
-      return CreatePage2("The Homies",true);
-    }
-CreatePage2(name)
-}
-

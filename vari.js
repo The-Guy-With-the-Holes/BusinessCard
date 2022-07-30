@@ -107,10 +107,6 @@ const QOTD = [
 ]
 
 // Utility functions
-function testQ(t){ let x="C";
-    if(x.includes(t)&& t){return true;}
-}
-
 
 function randomHex(bits){ if(!bits){bits =8;} let hexRes='';
 let hex = ['a','b','c','d','e','f',0,1,2,3,4,5,6,7,8,9];

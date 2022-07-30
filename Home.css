@@ -26,7 +26,6 @@ h2 > strong { color: #fff; }
 h2 > strong :hover{ color: crimson ;}
 
 
-
 .mainx:hover {
     animation-name: SpinMain;
     animation-iteration-count: 1;
@@ -124,10 +123,8 @@ h2 > strong :hover{ color: crimson ;}
 }
 
 /*Rotatered??*/
-.hiddenBall {
-    cursor: progress;
-     user-select: none; opacity: 0; 
-}
+.hiddenBall { cursor: progress; user-select: none; opacity: 0; }
+
 #HT{opacity: 0;}
 #HB{opacity: 0;}
 
@@ -159,5 +156,4 @@ h2 > strong :hover{ color: crimson ;}
      81%{background:linear-gradient(295.65deg,salmon,lightpink);} 82%{background:linear-gradient(299.3deg,salmon,lightpink);} 83%{background:linear-gradient(302.95deg,salmon,lightpink);} 84%{background:linear-gradient(306.59999999999997deg,salmon,lightpink);} 85%{background:linear-gradient(310.25deg,salmon,lightpink);} 86%{background:linear-gradient(313.9deg,salmon,lightpink);} 87%{background:linear-gradient(317.55deg,salmon,lightpink);} 88%{background:linear-gradient(321.2deg,salmon,lightpink);} 89%{background:linear-gradient(324.84999999999997deg,salmon,lightpink);} 90%{background:linear-gradient(328.5deg,salmon,lightpink);}
      91%{background:linear-gradient(332.15deg,salmon,lightpink);}92%{background:linear-gradient(335.8deg,salmon,lightpink);} 93%{background:linear-gradient(339.45deg,salmon,lightpink);} 94%{background:linear-gradient(343.09999999999997deg,salmon,lightpink);} 95%{background:linear-gradient(346.75deg,salmon,lightpink);} 96%{background:linear-gradient(350.4deg,salmon,lightpink);} 97%{background:linear-gradient(354.05deg,salmon,lightpink);} 98%{background:linear-gradient(357.7deg,salmon,lightpink);} 99%{background:linear-gradient(361.34999999999997deg,salmon,lightpink);}
      100%{background:linear-gradient(365deg,salmon,lightpink);}
- }
- 
+} 

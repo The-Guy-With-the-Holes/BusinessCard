@@ -1,6 +1,6 @@
-let dropStatus="none"; let Drops=[1,0];
+let dropStatus="none"; 
 let lastDrop = 0;
-function toggleAboutDropdown(c){
+function toggleAboutDropdown(c){ let Drops=[1,0];
   let drop = document.querySelectorAll('.Aboutdropdown-content');  
   
   if (c==0||lastDrop==1) {dropStatus="none";}  
@@ -18,12 +18,18 @@ function createPage(t){
 let target = document.getElementById(t);
 if (!Get.Pages.includes(t)){return console.error('Cannot Create page not refr');}
 if(target.style.display=="none"){target.style.display="";}
-if (t=="Home"){return;}  
-if (t=="Certificates"){ return createCertTable();}
-if (t=="Recommends"){return CreateRecommendationpage();}
-if (t=="Projects"){ return createProjectsPage();}     
-if (t=="About"){ CreateAboutPage(); return toggleAboutDropdown(0);}
-if (t=="Contact"){ CreateContactpage(t); toggleAboutDropdown(0);}
+
+switch (t) {
+  case "Home": break;
+  case "About": CreateAboutPage(); return toggleAboutDropdown(0);
+  case "Contact": CreateContactpage(t); toggleAboutDropdown(0); break;
+  case "Certificates": createCertTable(); break; 
+  case "Recommends": CreateRecommendationpage(); break;
+  case "Projects": createProjectsPage(); break;
+  
+  default: return console.error('createPage didnt match case');
+  }
+
 }
 
 function CreateAboutPage(){
