@@ -17,10 +17,9 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5121163452500057" crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" href="i/Icons/₿/bweb.ico" type="image/x-icon">
-    <link rel="stylesheet" href="Certificates/Certificates.css"> 
-    <link rel="stylesheet" href="Home.css" type="text/css">
-    <link rel="stylesheet" href="About.css" type="text/css">
-    <link rel="stylesheet" href="BusinessCard.css" type="text/css">
+   
+    <link rel="stylesheet" href="CSS/Home.css" type="text/css">  
+    <link rel="stylesheet" href="CSS/BusinessCard.css" type="text/css">
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,24 +30,7 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
      
 </head>
 
-<body onload="getUser(); dev();">
-
-<div id="Certificates" style="display: none ;">
-        <div id="Cert_Header">        
-            <div class="Cert_Title">Jack Ewers Certificates </div>
-            <div id="GridDiv">
-                <button id="Prev" class="FloatBtn" onclick="incBlock('Reverse')"> <p> Prev <strong><strike>>></strike></strong></p> </button>
-                <p id="MainTitle"> Float area </p>
-                <button id="Next" class="FloatBtn" onclick="incBlock('Fowards')"> <p> Next <strong><strike>>></strike></strong></p></button>
-            </div>
-        </div>
-    
-        <div id="MainCertificateField">  
-            <div id="CertField">
-          
-            </div>
-        </div>
-</div>
+<body onload=" dev();">
 
 <div id="Projects" class="box-main" style="display:none;"></div>
 
@@ -123,119 +105,15 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 
 </div>
 
-<div id="About"  class="box-main" style="display: none; text-align: center;">
-     <!--   <button onclick="flip('Home')">&#10594;</button>
- 
-    <div class="projects" id="projects-projects">
-             <ul ><label>Current projects:</label>
-                    <li>3D Labs</li>
-                    <li> CRYpt2</li>
-                    <li>Deutsch Linguistics</li>
-                </ul>
-            -->     
-     </div>   
-</div>
-
-<div id="Contact" class="box-main" style="display: none;"> 
-    <div><h5>Contact</h5>
-        <p>Phone: +(61) 479 000 429</p>
-        <p>Email: Jack.ewers@protonmail.com</p>    
-    </div>
-</div>
-
 <div id="Recommends" class="box-main" style="display:none;">
 </div>  
-<div id="Support" class="box-main" style="display:none;">
-    <div>
-        <div style="
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        width: 259px;
-        background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-        border-radius: 10px;
-        font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
-        ">
-        <img src="https://items-images-production.s3.us-west-2.amazonaws.com/files/a7b552118731ed8d79a1b7ce0a8fd8dcf6890da6/original.png" alt="BloodWeb Donation" onerror="this.style.display='none'" style="width: 100%;">
-        <div style="padding: 20px;">
-        <p style="
-          font-size: 18px;
-          line-height: 20px;
-        ">BloodWeb Donation</p>
-        
-        <a target="_blank" data-url="https://square.link/u/fxyO3fX4?src=embd" href="https://square.link/u/fxyO3fX4?src=embed" style="
-          display: inline-block;
-          font-size: 18px;
-          line-height: 48px;
-          height: 48px;
-          color: #ffffff;
-          min-width: 212px;
-          background-color: #006aff;
-          text-align: center;
-          box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-          border-radius: 0px;
-        ">Donate</a>
-        </div>
-      </div>
-      </div>
-      
-        <script>
-          function showCheckoutWindow(e) {
-            e.preventDefault();
-      
-            const url = document.getElementById('embedded-checkout-modal-checkout-button').getAttribute('data-url');
-            const title = 'Square Online Checkout';
-      
-            // Some platforms embed in an iframe, so we want to top window to calculate sizes correctly
-            const topWindow = window.top ? window.top : window;
-      
-            // Fixes dual-screen position                                Most browsers          Firefox
-            const dualScreenLeft = topWindow.screenLeft !==  undefined ? topWindow.screenLeft : topWindow.screenX;
-            const dualScreenTop = topWindow.screenTop !==  undefined   ? topWindow.screenTop  : topWindow.screenY;
-      
-            const width = topWindow.innerWidth ? topWindow.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-            const height = topWindow.innerHeight ? topWindow.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-      
-            const h = height * .75;
-            const w = 500;
-      
-            const systemZoom = width / topWindow.screen.availWidth;
-            const left = (width - w) / 2 / systemZoom + dualScreenLeft;
-            const top = (height - h) / 2 / systemZoom + dualScreenTop;
-            const newWindow = window.open(url, title, `scrollbars=yes, width=${w / systemZoom}, height=${h / systemZoom}, top=${top}, left=${left}`);
-      
-            if (window.focus) newWindow.focus();
-          }
-      
-          // This overrides the default checkout button click handler to show the embed modal
-          // instead of opening a new tab with the given link url
-          document.getElementById('embedded-checkout-modal-checkout-button').addEventListener('click', function (e) {
-            showCheckoutWindow(e);
-          });
-        </script>
-</div>  
+<script src="JS/vari.js" type="text/javascript"></script>
+<script src="JS/Dev.js" type="text/javascript"></script>
+<script src="JS/KeyFunctions.js" type="text/javascript"></script>
 
-<div id="secondBox" class="box-main" style="transform: scaleY(-1); display: none;" >    
-</div>
-
-
-<footer>
-    <p>Powered By <a href="http://www.bloodweb.net">BloodWorks</a></p><img src="i/Icons/₿/BloodWebX4.png"/>
-    <p id="cc">This page and its contents are copyright of BloodWeb&copy; under the MIT license</p>
-</footer>
-
-
-<script src="vari.js" type="text/javascript"></script>
-<script src="Dev.js" type="text/javascript"></script>
-<script src="KeyFunctions.js" type="text/javascript"></script>
-<script src="Certificates/certificates.js" type="text/javascript"></script>
-<script src="Page2.js" type="text/javascript" ></script>
-<script src="Bcard.js" type="text/javascript"></script>
-<script src="BusinessCard.js" type="text/javascript"></script>  
+<script src="JS/Page2.js" type="text/javascript" ></script>
+<script src="JS/Bcard.js" type="text/javascript"></script>
+<script src="JS/BusinessCard.js" type="text/javascript"></script>  
 <script type="text/javascript">
     let idleTime = 0; let idleAction=15;
     $(document).ready(function () {

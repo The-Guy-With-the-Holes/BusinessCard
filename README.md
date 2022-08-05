@@ -3,24 +3,6 @@ Find out more about me and what i can do! :)
 
 <!--
 
-css Standard:
-Display inline, up to 48 units, the exception being when the style length begins in the line less than 6 units before line end, ie:
-
-p{background: radial-gradient(circle,#000000da,black,gray);}
-
-which obviously exceeds the 48 unit line, is free to display on the continued -6 block line, or on a new line.
-
-lines should be of similar intent, 
-
-p{color:red; font-size:10px; font-weight:bold;}
-
-
-JS notes:
-
-Page Creation : 
-flip(Page) -> createPage(Page) 
-->create(Page)page -> append()
-
 Sponsor Types:
 [A] Artists
 [B] Bling
@@ -28,13 +10,15 @@ Sponsor Types:
 [F] Finance
 [T] Tradies
 
+
 Git Legend :
 For multiple Reports, seperate key by '/'.
-ie, "--N/MF/--R" > Networking,MinorFixes & Refactoring
+ie, "--P(*.js)/MJ/--N Networking,MinorFixes & Refactoring"
+for a commit Message of (Pages=(ALL).js, had major changes, with key notes of Networking, MinorFixes & Refactoring).
 
 --P(page) Page alteration ('PageAltered')
---N Networking
---R Refactoring
+--N Additional Notes 
+
 
 
 --X Crit Error found/addressing
@@ -43,8 +27,6 @@ ie, "--N/MF/--R" > Networking,MinorFixes & Refactoring
 --B Bug hunting 
 
 
---TL  Tasklist generic Changes
---TM Tasklist Major changes
 
 
 

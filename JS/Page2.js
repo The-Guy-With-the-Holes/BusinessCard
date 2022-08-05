@@ -20,11 +20,12 @@ if (!Get.Pages.includes(t)){return console.error('Cannot Create page not refr');
 if(target.style.display=="none"){target.style.display="";}
 
 switch (t) {
+  
   case "Home": break;
   case "About": CreateAboutPage(); return toggleAboutDropdown(0);
   case "Contact": CreateContactpage(t); toggleAboutDropdown(0); break;
   case "Certificates": createCertTable(); break; 
-  case "Recommends": CreateRecommendationpage(); break;
+  case "Recommendations": CreateRecommendationpage(); break;
   case "Projects": createProjectsPage(); break;
   
   default: return console.error('createPage didnt match case');
@@ -148,7 +149,7 @@ target.append(contactFinal);
     let wrap = document.createElement('div'); wrap.setAttribute('id','ContactIconWrapper');
     for (key in Social.Names){let name =Social.Names[key];
       let a = document.createElement('a'); let img = document.createElement('img');
-      setAttributes(img,{'id':name,'src':'i/Icons/64BIT(GRAY)/'+name+'.png','class':'ContactIcon'});
+      setAttributes(img,{'id':name,'src':'../i/Icons/64BIT(GRAY)/'+name+'.png','class':'ContactIcon'});
       setAttributes(a,{'href':Social.Address[(key)],'target':'_blank'});
       a.append(img);
       wrap.append(a);

@@ -1,5 +1,4 @@
 
-
 //Certificates
 var BlockIndex = 0 ;
 var MainTitle = document.querySelector('#MainTitle');
@@ -41,7 +40,7 @@ Get.Title.innerText="Certificates";
 
         //Build and place
         //  text.apppendChild(Para)
-        setAttributes(Img,{'src' : "Certificates/"+BlockIndex+name+'/'+BlockName+'.jpg'
+        setAttributes(Img,{'src' : BlockIndex+name+'/'+BlockName+'.jpg'
                             , 'class':'BlockImg'} )
         text.innerText=BlockName;
         Div.appendChild(text);
@@ -55,3 +54,46 @@ Get.Title.innerText="Certificates";
    function clearCerts(){
        Get.Page.Cert.style.display="none";
    }
+
+   
+//  Certificate Variables
+const Blocks = {
+
+    'Program Hub':
+    ['Fundamentals','DevOps','HTML','HTML Advanced','CSS','JavaScript','TypeScript',
+    'JavaScript Advanced','Node-JS','Meteor-JS','jQuery','React Native', 'WordPress',
+    'Growth Hacking','Google Display Ads','GitHub','Python','SQL','SEO','Ethical Hacking',
+    'Linux','Docker','BootStrap','PHP','NLP', 
+    'CryptoCurrency','BlockChain','Solidity', 'NFTS'
+    ],
+
+    'Solo Learn':
+    ['HTML','CSS','JavaScript','Web-Dev Fundamentals','Responsive Web-Design',
+    'React+Redux',
+    'JS Game Development','Coding for Marketers','JQUERY', 'Python for Beginners',
+     'Python Core','SQL','C'
+    ],
+
+    'Grasshopper': //Completed
+    ['Coding Fundamentals-I','Coding Fundamentals-II', 'Intro to Interviewing',
+     'Array Methods','Debugging', 'Animations', 'Animations II'
+    ],
+
+    'Ethical Hacker': //Completed
+    ['Certified Ethical Hacker',
+    'Intro','Threats & Attack-Vectors', 'Concepts, Types & Phases',
+    'FootPrinting & Recon', 'Scanning-Networks & Enumerations',
+    'System Hacking', 'Malware, Trojans, Worms','Network Sniffing',
+    'Social Engineering', 'Denial of Service', 'Session Hijacking',
+    'WebServer Hacking'
+    ],
+
+    'HackerX': //Completed 
+    ['HackerX Master',
+    'Know the OS', 'Hack the MAC', 'Gathering Information', 'Anonymous Surfing',
+    'Hiding Messages', 'Social-Media Hacking', 'Credit,Debit-Card Fraud',
+    'Keyboard Spying', 'WEP-Cracking', 'WPA,WPA2-Cracking', 'Network Spying', 
+    'Database Hacking', 'Android Hacking', 'Bringing Down a Website',
+    'XSS,Cross-Site-Scripting', 'Making data safe', 'Hacking Passwords', 
+    'WordPress Scanning', 'Vunerability Scanning & Reporting' ]
+}

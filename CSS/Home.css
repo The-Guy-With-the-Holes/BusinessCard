@@ -1,0 +1,145 @@
+/* HOME Profile */
+/* Main*/
+.mainx {
+    position: absolute; top: 1%; right: 1%; 
+    height: 24vmin; width: 24vmin; margin: 0.4vw 0.4vmin 0 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    cursor: move;  border-radius: 50%;
+    background-image: var(--Profile-Img-A); background-size: contain; background-position: center;
+}
+
+/*Text*/
+
+h1 { color: #fff; margin-bottom: 1%;   
+    font-size: 5.5vmin; text-align: left;
+}
+h1 > u { color: #888; 
+    font-size: 10.8vmin; -webkit-text-stroke: 0.11vmin gold;  
+}
+h1>strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin goldenrod;}
+
+h2 { top: 0; color: #000; font-size: 3vmin;
+    height: min-content; max-width:80vw; width: max-content;
+} 
+
+h2 > strong { color: #fff; }
+h2 > strong :hover{ color: crimson ;}
+
+
+.mainx:hover {
+    animation-name: SpinMain;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards ;
+}
+.mainx:hover::after{
+    background-image: url(../i/Profile.jpg);
+}
+.Together > b { 
+    width: max-content; right: 100;
+    text-align: center; background-color: #f5deb355; 
+    font-size: larger;  -webkit-text-stroke: 0.01em #11ffad;
+}
+
+.Together > b::after {content: '💙'; background-color: #99009955; border-radius: 1% 30% 5% 25%;}
+.Together > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
+
+
+/* Icon Boxes */
+#IconBox { position: absolute; bottom: 0; padding: 1%; }
+
+#IconBoxPre { display: none; }
+
+.Boxes{  
+    display: inline-block; min-width: max-content;
+    margin: 1%; padding: 0.5%;
+}
+
+.lower { background-color: #ccffff55; }
+.upper { background-color: #ffccff55; }
+
+/*Single items*/
+.Rotern{ display: inline-block;
+    width: min-content; height: fit-content;
+}
+.Rotern > a {
+    height: 100%;
+    width: 100%;
+}
+.balls:hover{
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.balls {
+    opacity: 0.4; background-color: #fff;
+    cursor: pointer; display: inline; position: relative;
+    max-height: 9vh;  height: 10vmin;
+    max-width: 9vh;  width: 10vmin; 
+    border: 0.5vmin double gold; border-radius: 50%;
+   
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-size: contain; background-repeat: no-repeat; background-position-x: center ; background-position-y: center ; 
+}
+
+
+.Rotern:hover {
+    animation-name:Ball-Background ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#Dhands:hover{opacity: 0;}
+
+
+/* animations*/
+.idle{ animation-name:permspin ; animation-delay: 5s; animation-duration: 10s; animation-fill-mode:both; animation-iteration-count:infinite; animation-timing-function:linear; }
+.iconidleF{ animation:permspin 4s linear alternate infinite ;   } 
+.iconidleR{ animation:permspin 3s linear reverse 3s infinite ;    }   
+
+@keyframes permspin{
+    from{transform: rotate(0);box-shadow: inset 0 0 0 0.2vmin black}
+    to{ transform: rotateY(720deg); box-shadow: inset 0 0 0 1vmin gold; }
+}
+
+@keyframes SpinMain {
+    0% {transform: scale(1.3) rotateY(var(--Mainro)); }
+    50% { transform: scale(1.5) ;opacity: 0.9; }
+    60%{}70%{}80%{}90%{}
+    100%{background-image: var(--Profile-Img-B) ;}
+}
+
+@keyframes Ball-Background{
+    0%{border-radius: 0%;  
+    transform: scale(2) rotate(var(--rotation-direction));
+    }
+    50%{transform: scale(2) ;}
+    60%{}70%{}80%{}
+    90%{border-radius: 5%;}
+    100%{   border-radius: 10%;
+    background: linear-gradient(var(--icon-background)); 
+    }
+}
+
+/*Rotatered??*/
+.hiddenBall { cursor: progress; user-select: none; opacity: 0; }
+
+#HT{opacity: 0;}
+#HB{opacity: 0;}
+
+#Bweb {background-image: url(../i/Icons/₿/BloodWeb.png); }
+#Dhands { opacity: 0.5; background-image: url(../i/dhands.jpg); }
+#Duo {background-image: url(../i/DL.png); }    
+#Fb {background-image: url(../i/FB.png); }
+#Git {background-image: url(../i/git.png); }
+#Stack {background-image: url(../i/Stack.png); }
+#Discord {background-image: url(../i/discord.svg); }
+#LinkD {background-image: url(../i/linkd.png); }
+#Pint {background-image: url(../i/Pint.png); }
+#Certs{background-image: url(../i/Icons/NFTS.png); }
+#Igg {background-image: url(../i/Insta.png); }
+#Mail {background-image: url(../i/Icons/Mail.png); }
+#Reddit {background-image: url(../i/redit.png); }
+#Twit {background-image: url(../i/TWITTER\ CC.png); } 
+

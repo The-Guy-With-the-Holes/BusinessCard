@@ -1,148 +1,186 @@
-/* HOME Profile */
-/* Main*/
-.mainx {
-    position: absolute; top: 1%; right: 1%; 
-    height: 24vmin; width: 24vmin; margin: 0.4vw 0.4vmin 0 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    cursor: move;  border-radius: 50%;
-    background-image: var(--Profile-Img-A); background-size: contain; background-position: center;
+/* Special*/
+::-webkit-scrollbar{width:0;}
+:root {
+    --icon-background: 20deg,#fff000,#fff, green,#000;
+    --Shiftery-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
+    --Profile-Img-A:url(../i/Profile.jpg); --Profile-Img-B:url(../i/Profile2.jpg);
+    --Main:180deg;  
+    --rotation-direction:360deg;
 }
 
-/*Text*/
-
-h1 { color: #fff; margin-bottom: 1%;   
-    font-size: 5.5vmin; text-align: left;
+#NavBar_Selected{background-color:#ffd70055;
+    border:0.5vmin solid #00000099; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;}
+.NavBar{display:block;margin-bottom:1vh; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding:2% 1% 2% 1%; 
 }
-h1 > u { color: #888; 
-    font-size: 10.8vmin; -webkit-text-stroke: 0.11vmin gold;  
+.NavListitem{cursor:pointer; display:inline-block; 
+    padding:0.5vh 0.5vw 0 0.5vw; margin:1px; border-radius: 10%; border: 0.22vmin double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); min-height:content; min-width:10%;
 }
-h1>strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin goldenrod;}
-
-h2 { top: 0; color: #000; font-size: 3vmin;
-    height: min-content; max-width:80vw; width: max-content;
-} 
-
-h2 > strong { color: #fff; }
-h2 > strong :hover{ color: crimson ;}
-
-
-.mainx:hover {
-    animation-name: SpinMain;
-    animation-iteration-count: 1;
-    animation-duration: 3s;
-    animation-fill-mode: forwards ;
+.NavListitem > a {text-decoration: none;
+   color:purple; -webkit-text-stroke:0.11vmin black; 
 }
-.mainx:hover::after{
-    background-image: url(i/Profile.jpg);
-}
-.Together > b { 
-    width: max-content; right: 100;
-    text-align: center; background-color: #f5deb355; 
-    font-size: larger;  -webkit-text-stroke: 0.01em #11ffad;
+.NavListitem:hover{text-decoration: underline;
+    background-color:#aaaaffbb ; 
 }
 
-.Together > b::after {content: '💙'; background-color: #99009955; border-radius: 1% 30% 5% 25%;}
-.Together > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
-
-
-/* Icon Boxes */
-#IconBox { position: absolute; bottom: 0; padding: 1%; }
-
-#IconBoxPre { display: none; }
-
-.Boxes{  
-    display: inline-block; min-width: max-content;
-    margin: 1%; padding: 0.5%;
+/* Nav About */
+.Aboutdropdown {display:block; position:absolute; z-index: 2;  
+    margin-left:-1vw; border: 0.01vmin solid #00000011;
 }
-
-.lower { background-color: #ccffff55; }
-.upper { background-color: #ffccff55; }
-
-/*Single items*/
-.Rotern{ display: inline-block;
-    width: min-content; height: fit-content;
+  
+.Aboutdropdown-content { display:none; cursor:pointer; 
+    min-width: 100px; height: content; padding: 12px 16px;
+    z-index: 2; background-color: #aaaacf; 
+    border-radius:10%;border:1vmin solid #aaaaaa99;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.Rotern > a {
+.Aboutdropdown-content:hover{transform:scale(1.12);}    
+
+
+.Tasklist{margin-bottom: 1vh; padding: 1%; }
+.TaskTitle{color:#11ffad; -webkit-text-stroke: 0.225vmin #990099;}
+/* Body-Level */
+
+* {margin: 0 auto; box-sizing: border-box;}
+
+html {
     height: 100%;
-    width: 100%;
-}
-.balls:hover{
-    opacity: 1;
-    transform: scale(1.25);
+    overflow: scroll; overflow-x:hidden ;}
+
+body {
+    cursor: crosshair; overflow: hidden;
+    width: 100vw; height: fit-content;
+    background: radial-gradient(circle,#000000da,black,gray); padding: 1%; 
 }
 
-.balls {
-    opacity: 0.4; background-color: #fff;
-    cursor: pointer; display: inline; position: relative;
-    max-height: 9vh;  height: 10vmin;
-    max-width: 9vh;  width: 10vmin; 
-    border: 0.5vmin double gold; border-radius: 50%;
-   
+p{ font-family: 'Courier New', Courier, monospace; font-style: italic; }
+
+header {
+grid-area: header; margin-left: 0 ;
+font-family: Lobster, monospace;
+width: fit-content; height: min-content;
+}
+header > * { display: block; }
+
+footer {
+    margin: 1%;
+    text-align: center;
+}
+
+/* Pages, --> .box-main
+Home - About(sub) - Recommends - Certificates
+Rows will be seperated by '*' */
+
+.box-main { 
+    position: relative; top: 0; padding: 1%;
+    max-height: max-content; min-height: 40vh;  height: 60vw;
+    font-size: 5vw; border-radius: 1%;
+    border: 2px solid #fff000 ;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background-size: contain; background-repeat: no-repeat; background-position-x: center ; background-position-y: center ; 
+    animation: HomeAnimation 3s linear 2s infinite both;
 }
 
+/****************************/
+/*Home == Home.CSS*/
 
-.Rotern:hover {
-    animation-name:Ball-Background ;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+/****************************/
+/*About == About.CSS*/
+
+
+/*****************************/
+/* Recommends */
+#Recommendations{text-align: center;
+    height: max-content;
+    padding: 0 0 10vh 0;}
+
+.RecTitle{ text-align:center; 
+    display:block; margin-bottom: 1vh;
+ font-size:8.2vw; -webkit-text-stroke:1vmin #ff000099;  
+}
+.RecommendationsParagraph{ font-size: 3.4vw;
+    width: 68%; left:0; margin-left: 1%;background-color:white;
 }
 
-#Dhands:hover{opacity: 0;}
+.RecommendationsSearch{ display: block; width: 80%; height:min-content; 
+     padding: 1%; margin-bottom:1vh; border:0.2vmin solid #000000;
+background-color: #afafaf55; } 
 
+#SelectRecType{ padding: 2% 0 2% 0; 
+font-size: 3.8vw; text-align: center; color:white; -webkit-text-stroke: 0.05vmin gold;
+    background-color:#afafafbb; border:0.2vmin double goldenrod;
+}
+.RecommendationsType{  font-size: 3vw; color:#000; background-color: #afafafbb;
+}
+.RecommendationsType:hover{color:white; background-color: #afafaf;}
 
-/* animations*/
-.idle{ animation-name:permspin ; animation-delay: 5s; animation-duration: 10s; animation-fill-mode:both; animation-iteration-count:infinite; animation-timing-function:linear; }
-.iconidleF{ animation:permspin 4s linear alternate infinite ;   } 
-.iconidleR{ animation:permspin 3s linear reverse 3s infinite ;    }   
+#RecommendationsField{ display: flex; flex-wrap: wrap;
+width: 100%;  height: fit-content; margin:0 auto; padding:  1vh 0 2vh 0;
+border: 2px solid red;}
+/* Rec Boxes */
 
-@keyframes permspin{
-    from{transform: rotate(0);box-shadow: inset 0 0 0 0.2vmin black}
-    to{ transform: rotateY(720deg); box-shadow: inset 0 0 0 1vmin gold; }
+.Recommendations { 
+    max-width:44%; min-height: 4vw; display: inline-block;
+    padding: 0 0 1vh 0; margin:3% auto 1% auto; border:2px solid gray; 
+    background-color: aliceblue;
+}
+.RecomName{
+     text-align: center; font-size: larger; font-weight: 700;
+     -webkit-text-stroke: 0.1vmin aquamarine; margin-bottom:1vh ;
+}
+.Recommendations > img {
+    width:59%; max-height: 40vw; min-height: 10vw;
+    float: right;
+}
+.Recommendations > button{ 
+display: inline; height: content;
+ margin: 0 auto; margin-top: 1vh;
+background-color: aliceblue; 
+ 
+}
+.RecomAbout {
+ float: left; vertical-align: top; 
+ max-width: 40%;  font-size: 2.8vw;
 }
 
-@keyframes SpinMain {
-    0% {transform: scale(1.3) rotateY(var(--Mainro)); }
-    50% { transform: scale(1.5) ;opacity: 0.9; }
-    60%{}70%{}80%{}90%{}
-    100%{background-image: var(--Profile-Img-B) ;}
+/*****************************/
+/* Certificates = Certificates/Certificates.css */
+
+/*****************************/
+/* Footer*/
+
+footer{background:repeating-linear-gradient(150deg, rgb(92, 90, 90),white,#afafaf,gray,#cfcfcf,gray,gray,white);
+border: 1vmin double #fff000; font-size:3vw;text-align: left;}
+footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
+#cc{font-size: 2vw; max-width: 30vw; margin-left: 8vw;}
+
+#GFbtn{ cursor: pointer;background-image:url(../i/Sponsors/GFicon.ico);
+    background-repeat: no-repeat; background-position: center; background-size: contain;
+    height:10vmin; width:10vmin; border-radius: 50%; }
+
+
+/* Quote Box */
+#QuoteBox {
+    display:block; z-index:4;  padding:0.2% 5% 3% 5%;
+    margin:0 auto; margin-bottom: 2vh; text-align:center;
+    background-color:#fafafa; border:2vmin double red; 
+    color:gray; -webkit-text-stroke:0.1vmin gold;
 }
 
-@keyframes Ball-Background{
-    0%{border-radius: 0%;  
-    transform: scale(2) rotate(var(--rotation-direction));
-    }
-    50%{transform: scale(2) ;}
-    60%{}70%{}80%{}
-    90%{border-radius: 5%;}
-    100%{   border-radius: 10%;
-    background: linear-gradient(var(--icon-background)); 
-    }
+#TimeQuoteBox{
+    font-size: 3vw; text-align: right; display: inline-block; right: 100%;
+    color: #000; -webkit-text-stroke:0.1vmin gold; margin: 0 10% 6% 0;
 }
 
-/*Rotatered??*/
-.hiddenBall { cursor: progress; user-select: none; opacity: 0; }
+#QuoteBoxP{background-color:#f5f5f555; text-align: left;}
+#QuoteBoxP::before{content:'Quote';font-size:6vw;-webkit-text-stroke: 0.3vw black;}
+#QuoteBoxP::first-letter{font-size: 8vw;}
+#QuoteBoxP::first-line{font-size: 3.2vw;}
 
-#HT{opacity: 0;}
-#HB{opacity: 0;}
+#CloseQuoteBox { position: absolute; right: 2.2%;padding:1%; 
+     -webkit-text-stroke:1vw red; border: 1vw solid #ff000055;
+     font-size:large; opacity: 0.7; }
+#CloseQuoteBox:hover{transform: scale(1.2); background-color: #ff000055;}
 
-#Bweb {background-image: url(i/Icons/₿/BloodWeb.png); }
-#Dhands { opacity: 0.5; background-image: url(i/dhands.jpg); }
-#Duo {background-image: url(i/DL.png); }    
-#Fb {background-image: url(i/FB.png); }
-#Git {background-image: url(i/git.png); }
-#Stack {background-image: url(i/Stack.png); }
-#Discord {background-image: url(i/discord.svg); }
-#LinkD {background-image: url(i/linkd.png); }
-#Pint {background-image: url(i/Pint.png); }
-#Certs{background-image: url(i/Icons/NFTS.png); }
-#Igg {background-image: url(i/Insta.png); }
-#Mail {background-image: url(i/Icons/Mail.png); }
-#Reddit {background-image: url(i/redit.png); }
-#Twit {background-image: url(i/TWITTER\ CC.png); } 
-
+/*Box Main animation*/
 @keyframes HomeAnimation {
     0%{background:linear-gradient(0deg,salmon,lightpink);}
      1%{background:linear-gradient(3.65deg,salmon,lightpink);}2%{background:linear-gradient(7.3deg,salmon, lightpink);}3%{background:linear-gradient(10.95deg,salmon, lightpink);}4%{background:linear-gradient(14.6deg,salmon, lightpink);}5%{background:linear-gradient(18.35deg,salmon, lightpink);}6%{background:linear-gradient(22deg,salmon, lightpink);}7%{background:linear-gradient(25.65deg,salmon, lightpink);}8%{background:linear-gradient(29.3deg,salmon, lightpink);} 9%{background:linear-gradient(32.95deg,salmon, lightpink);}10%{background:linear-gradient(36.6deg,salmon, lightpink);}
