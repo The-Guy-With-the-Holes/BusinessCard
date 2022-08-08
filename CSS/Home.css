@@ -1,4 +1,6 @@
 /* HOME Profile */
+#Home {     max-width: 800px; max-height: fit-content;
+padding-bottom:8% ;}
 /* Main*/
 .mainx {
     position: absolute; top: 1%; right: 1%; 
@@ -20,12 +22,15 @@ h1>strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin gold
 
 h2 { top: 0; color: #000; font-size: 3vmin;
     height: min-content; max-width:80vw; width: max-content;
-} 
+margin-left: 2%;} 
 
 h2 > strong { color: #fff; }
 h2 > strong :hover{ color: crimson ;}
 
-
+#DR {width :25% ; margin-right: 0%;
+    font-size: medium; 
+background-color: beige; border: 3.5px double coral;
+}
 .mainx:hover {
     animation-name: SpinMain;
     animation-iteration-count: 1;

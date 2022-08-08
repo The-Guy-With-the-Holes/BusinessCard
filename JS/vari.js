@@ -18,7 +18,6 @@ const Nav =  { e:['Home','About','Certificates'],
 }
 
 const TODO=[
-    '//3 CSS Page refactoring',
     ' Rec Refactoring',
     ' Fix Certificates',
     ' cleaner Bcard.js'
@@ -42,9 +41,9 @@ const Get = {
         Form : document.getElementById('ReviewForm') ,
         Btn :document.getElementById("RevBTNX01"),
     },
-    Footer:['Powered BY ','BloodWorks','https://jackewers.com/i/Icons/₿/BloodWebX4.png',
-        'This page and its contents are copyright of BloodWeb© under the',
-        'MIT license']   
+    Footer:['Powered by ','BloodWorks','https://jackewers.com/i/Icons/₿/BloodWebX4.png',
+        'This page and its contents are copyright of BloodWeb© under the ',
+        ' MIT license']   
 }
 const About = { lists:['Hobbies','Passions'], 
                 MainTXT:[' Hi there! my name is Jack,',

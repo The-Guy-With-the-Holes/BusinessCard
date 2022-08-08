@@ -23,5 +23,6 @@ Allow:*.js?
 Allow:*.js$
 Allow:*.ico
 #Directories
-Disallow; /i/*
+Allow: /i/icons/₿/*
+Disallow: /i/*
 #Files
