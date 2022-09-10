@@ -1,6 +1,6 @@
 /* HOME Profile */
-#Home {     max-width: 800px; max-height: fit-content;
-padding-bottom:8% ;}
+#Home {     max-width: 80%; max-height: fit-content;
+padding-bottom:1vw ;}
 /* Main*/
 .mainx {
     position: absolute; top: 1%; right: 1%; 
@@ -9,6 +9,7 @@ padding-bottom:8% ;}
     cursor: move;  border-radius: 50%;
     background-image: var(--Profile-Img-A); background-size: contain; background-position: center;
 }
+
 
 /*Text*/
 
@@ -26,6 +27,9 @@ margin-left: 2%;}
 
 h2 > strong { color: #fff; }
 h2 > strong :hover{ color: crimson ;}
+
+h3 > p { text-align: center;}
+
 
 #DR {width :25% ; margin-right: 0%;
     font-size: medium; 
@@ -50,8 +54,69 @@ background-color: beige; border: 3.5px double coral;
 .Together > b::before{content: '💙'; background-color: #99009955; border-radius: 30% 1% 25% 5%; }
 
 
+
+/* Content */
+
+main {
+   padding: 2%;
+    display: flex;
+    flex-wrap:wrap;
+    background-color: #ffffff5f;
+}
+main > *:not(#main-extended-about,#main-intro) { 
+    flex:0.49; align-self: top;
+}
+main p {font-size:medium;}
+#main-intro { margin: 9% 0 15% 0;}
+#main-desc {width: 70%;}
+#main-extended-about{margin: 2%;}
+
+
+
+/*image slider*/
+#main-image-slider {  padding: 2% 2% 3% 2%;
+    text-align: center;
+    background-color: #fafafa55;
+    border: 2px solid #1dafad20;
+}
+#image-main{ 
+    width: 32vw; height:32vw;
+    padding: 8.2%;
+    margin-bottom: 5%; 
+    border: 3px double yellow;
+    display: block;
+}
+
+#button-main  button {
+    font-size: larger; 
+    -webkit-text-stroke: 0.08vmin sienna;
+    border: 0.08vmin solid orangered; border-radius: 70% 70% 70% 70%;
+    background-color: #ff000055;
+}
+#button-main > button:hover{ transform: scale(1.2); cursor: pointer; } 
+
+
+input[type="radio"]{ 
+    opacity: 0.3;
+    box-shadow: inset 0 0 0 10px hsla(0,0%,0%,.4),
+    0 1px 1px hsla(0,0%,100%,.8);
+    color: #000;
+}
+input[type="radio"]:checked {
+    opacity:0.81 ;
+    background-color: #ff6;
+    box-shadow: inset 0 0 0 1px rgb(154, 170, 11),
+                inset 0 2px 2px rgb(240, 197, 6),
+                0 1px 1px rgb(232, 236, 3),
+                0 0 2px 2px rgba(100, 102, 3, 0.479);
+}
+
+
+
+
 /* Icon Boxes */
-#IconBox { position: absolute; bottom: 0; padding: 1%; }
+
+#IconBox {padding: 1%; width: min-content; }
 
 #IconBoxPre { display: none; }
 

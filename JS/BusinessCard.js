@@ -51,6 +51,57 @@ console.log('Flip completed full function, About was probably clicked --called f
 }
 
 
+/*########################
+ Main Image/img Slider
+//########################*/
+
+let radio = document.querySelectorAll('.radio-main');   
+
+let slider = document.querySelectorAll('.slider-main');
+
+
+
+class MainImageSlider{
+    constructor(position, max){
+        this.position = position;
+        this.max = max;
+        this.img = document.getElementById('image-main');
+    }
+
+    setPosition(inc){
+        for(let i=0; i<radio.length; i++){radio[(i)].checked=false};
+        
+        if(inc){
+            if (inc==">"){this.position++; }
+            if (inc=="<"){this.position--; }
+            
+            if (!isNaN(inc)){ this.position=inc;}
+        }
+        if(this.position > this.max){ this.position=0;}
+        else if (this.position<0){this.position=this.max;}
+        
+        radio[(this.position)].checked=true;
+        this.img.src='i/Personal/mainimg'+this.position+'.png';
+    }
+    
+}
+
+let mainimg = new MainImageSlider(0,2);
+mainimg.setPosition();
+
+for (let i=0; i<slider.length; i++){ 
+    let arrow= slider[(i)].innerText;
+    slider[(i)].setAttribute('onclick','mainimg.setPosition(\''+arrow+'\')');
+} 
+
+radio.forEach(el => el.addEventListener('click', event => {
+    mainimg.setPosition(event.target.getAttribute("value"));
+    
+}));
+
+
+
+
 /* Home Specific Functions*/
 //IDLE TIMER
 function idleclass(clss){ 

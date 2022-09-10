@@ -1,86 +1,171 @@
 /* Special*/
-::-webkit-scrollbar{width:0;}
-:root {
-    --icon-background: 20deg,#fff000,#fff, green,#000;
-    --Shiftery-Background: linear-gradient( 40deg,#aadddd,#ddaa00,#ff11ff,#11ffad);
-    --Profile-Img-A:url(../i/Profile.jpg); --Profile-Img-B:url(../i/Profile2.jpg);
-    --Main:180deg;  
-    --rotation-direction:360deg;
+::-webkit-scrollbar {
+    width: 0;
 }
 
-#NavBar_Selected{background-color:#ffd70055;
-    border:0.5vmin solid #00000099; box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099 ;}
-.NavBar{display:block;margin-bottom:1vh; background:linear-gradient(200deg, #aaaaff,#888,#888,#888, gray, #aaaaff,#aaaaff); border: 1vmin groove gray;padding:1%;font-size: 4vw; color:white;   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding:2% 1% 2% 1%; 
+:root {
+    --icon-background: 20deg, #fff000, #fff, green, #000;
+    --Shiftery-Background: #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad;
+    --Shifter-Rotation:40deg;
+    --Profile-Img-A: url(../i/Profile.jpg);
+    --Profile-Img-B: url(../i/Profile2.jpg);
+    --Main: 180deg;
+    --rotation-direction: 360deg;
 }
-.NavListitem{cursor:pointer; display:inline-block; 
-    padding:0.5vh 0.5vw 0 0.5vw; margin:1px; border-radius: 10%; border: 0.22vmin double gray; background-color: #88888855;box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); min-height:content; min-width:10%;
+
+#NavBar_Selected {
+    background-color: #ffd700a5;
+    border: 0.5vmin solid #00000099;
+    box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099;
 }
-.NavListitem > a {text-decoration: none;
-   color:purple; -webkit-text-stroke:0.11vmin black; 
+
+.NavBar {
+    display: block;
+    margin-bottom: 1vh;
+    background:linear-gradient(40deg, var(--Shiftery-Background), var(--Shiftery-Background)); border: 1vmin groove gray;
+    font-size: large;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 2% 1% 2% 1%;
 }
-.NavListitem:hover{text-decoration: underline;
-    background-color:#aaaaffbb ; 
+
+.NavListitem {
+    cursor: pointer;
+    display: inline-block; text-align:center;
+    margin: 0.1%; padding: 1.4%;
+    border-radius: 10%;
+    border: 0.42vmin double gray;
+    background-color: #fafafaa9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    min-height: content;
+    min-width: 10%;
+}
+
+.NavListitem>a {
+    text-decoration: none;
+    color: purple;
+    -webkit-text-stroke: 0.11vmin black;
+}
+
+.NavListitem:hover {
+    text-decoration: underline;
+    background-color: #aaaaffbb;
 }
 
 /* Nav About */
-.Aboutdropdown {display:block; position:absolute; z-index: 2;  
-    margin-left:-1vw; border: 0.01vmin solid #00000011;
+.Aboutdropdown {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    margin-left: -1vw;
+    border: 0.01vmin solid #00000011;
 }
-  
-.Aboutdropdown-content { display:none; cursor:pointer; 
-    min-width: 100px; height: content; padding: 12px 16px;
-    z-index: 2; background-color: #aaaacf; 
-    border-radius:10%;border:1vmin solid #aaaaaa99;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+.Aboutdropdown-content {
+    display: none;
+    cursor: pointer;
+    min-width: 100px;
+    height: content;
+    padding: 12px 16px;
+    z-index: 2;
+    background-color: #aaaacf;
+    border-radius: 10%;
+    border: 1vmin solid #aaaaaa99;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
-.Aboutdropdown-content:hover{transform:scale(1.12);}    
+
+.Aboutdropdown-content:hover {
+    transform: scale(1.12);
+}
 
 
-.Tasklist{margin-bottom: 1vh; padding: 1%; }
-.TaskTitle{color:#11ffad; -webkit-text-stroke: 0.225vmin #990099;}
+.Tasklist {
+    margin-bottom: 1vh;
+    padding: 1%;
+}
+
+.TaskTitle {
+    color: #11ffad;
+    -webkit-text-stroke: 0.225vmin #990099;
+}
+
 /* Body-Level */
 
-* {margin: 0 auto; box-sizing: border-box;}
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
 html {
     height: 100%;
-    overflow: scroll; overflow-x:hidden ;}
+    overflow: scroll;
+    overflow-x: hidden;
+}
 
 body {
-    cursor: crosshair; overflow: hidden;
-    width: 100vw; height: fit-content;
-    background: radial-gradient(circle,#000000da,black,gray); padding: 1%; 
+    cursor: crosshair;
+    overflow: hidden;
+    width: 100vw;
+    height: fit-content;
+    background: radial-gradient(circle, #000000da, black, gray);
+    padding: 1%;
 }
 
-p{ font-family: 'Courier New', Courier, monospace; font-style: italic; }
+hr{margin: 1%;}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
 
 header {
-grid-area: header; margin-left: 0 ;
-font-family: Lobster, monospace;
-width: fit-content; height: min-content;
+    grid-area: header;
+    margin-left: 0;
+    font-family: Lobster, monospace;
+    width: fit-content;
+    height: min-content;
 }
-header > * { display: block; }
+
+header>* {
+    display: block;
+}
 
 footer {
-    margin: 1%; font-size:3vw; text-align: left; border: 1vmin double #fff000; 
-    background:repeating-linear-gradient(150deg, rgb(92, 90, 90),white,#afafaf,gray,#cfcfcf,gray,gray,white);
+    display: flex; align-items: center;
+    margin: 1%;
+    font-size: 3vw;
+    text-align: left;
+    border: 1vmin double #fff000;
+    background:linear-gradient(40deg,var(--Shiftery-Background), var(--Shiftery-Background));
 }
 
-footer > * { display: inline-block; margin-left:1vw; vertical-align: middle;}
+#Bloodworks{ padding: 3%;
+background-color: #fafafa55;   
+}
 
-#cc{font-size: 2vw; max-width: 30vw; margin-left: 8vw;}
-#cc > a { display: block; text-align: center;}
+#cc {
+    font-size: 2vw;
+    max-width: 30vw;
+
+}
+
+#cc>a {
+    display: block;
+    text-align: center;
+}
 
 /* Pages, --> .box-main
 Home - About(sub) - Recommends - Certificates
 Rows will be seperated by '*' */
 
-.box-main { 
-    position: relative; top: 0; padding: 1%;
-    max-height: max-content; min-height: 40vh;  
-    font-size: 5vw; border-radius: 1%;
-    border: 2px solid #fff000 ;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+.box-main {
+    position: relative;
+    top: 0;
+    padding: 1%;
+    max-height: max-content;
+    font-size: 5vw;
+    border-radius: 1%;
+    border: 2px solid #fff000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     animation: HomeAnimation 3s linear 2s infinite both;
 }
 
@@ -93,103 +178,618 @@ Rows will be seperated by '*' */
 
 /*****************************/
 /* Recommends */
-#Recommendations{text-align: center;
+#Recommendations {
+    text-align: center;
     height: max-content;
-    padding: 0 0 10vh 0;}
-
-.RecTitle{ text-align:center; 
-    display:block; margin-bottom: 1vh;
- font-size:8.2vw; -webkit-text-stroke:1vmin #ff000099;  
-}
-.RecommendationsParagraph{ font-size: 3.4vw;
-    width: 68%; left:0; margin-left: 1%;background-color:white;
+    padding: 0 0 10vh 0;
 }
 
-.RecommendationsSearch{ display: block; width: 80%; height:min-content; 
-     padding: 1%; margin-bottom:1vh; border:0.2vmin solid #000000;
-background-color: #afafaf55; } 
-
-#SelectRecType{ padding: 2% 0 2% 0; 
-font-size: 3.8vw; text-align: center; color:white; -webkit-text-stroke: 0.05vmin gold;
-    background-color:#afafafbb; border:0.2vmin double goldenrod;
+.RecTitle {
+    text-align: center;
+    display: block;
+    margin-bottom: 1vh;
+    font-size: 8.2vw;
+    -webkit-text-stroke: 1vmin #ff000099;
 }
-.RecommendationsType{  font-size: 3vw; color:#000; background-color: #afafafbb;
-}
-.RecommendationsType:hover{color:white; background-color: #afafaf;}
 
-#RecommendationsField{ display: flex; flex-wrap: wrap;
-width: 100%;  height: fit-content; margin:0 auto; padding:  1vh 0 2vh 0;
-border: 2px solid red;}
+.RecommendationsParagraph {
+    font-size: 3.4vw;
+    width: 68%;
+    left: 0;
+    margin-left: 1%;
+    background-color: white;
+}
+
+.RecommendationsSearch {
+    display: block;
+    width: 80%;
+    height: min-content;
+    padding: 1%;
+    margin-bottom: 1vh;
+    border: 0.2vmin solid #000000;
+    background-color: #afafaf55;
+}
+
+#SelectRecType {
+    padding: 2% 0 2% 0;
+    font-size: 3.8vw;
+    text-align: center;
+    color: white;
+    -webkit-text-stroke: 0.05vmin gold;
+    background-color: #afafafbb;
+    border: 0.2vmin double goldenrod;
+}
+
+.RecommendationsType {
+    font-size: 3vw;
+    color: #000;
+    background-color: #afafafbb;
+}
+
+.RecommendationsType:hover {
+    color: white;
+    background-color: #afafaf;
+}
+
+#RecommendationsField {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 1vh 0 2vh 0;
+    border: 2px solid red;
+}
+
 /* Rec Boxes */
 
-.Recommendations { 
-    max-width:44%; min-height: 4vw; display: inline-block;
-    padding: 0 0 1vh 0; margin:3% auto 1% auto; border:2px solid gray; 
+.Recommendations {
+    max-width: 44%;
+    min-height: 4vw;
+    display: inline-block;
+    padding: 0 0 1vh 0;
+    margin: 3% auto 1% auto;
+    border: 2px solid gray;
     background-color: aliceblue;
 }
-.RecomName{
-     text-align: center; font-size: larger; font-weight: 700;
-     -webkit-text-stroke: 0.1vmin aquamarine; margin-bottom:1vh ;
+
+.RecomName {
+    text-align: center;
+    font-size: larger;
+    font-weight: 700;
+    -webkit-text-stroke: 0.1vmin aquamarine;
+    margin-bottom: 1vh;
 }
-.Recommendations > img {
-    width:59%; max-height: 40vw; min-height: 10vw;
+
+.Recommendations>img {
+    width: 59%;
+    max-height: 40vw;
+    min-height: 10vw;
     float: right;
 }
-.Recommendations > button{ 
-display: inline; height: content;
- margin: 0 auto; margin-top: 1vh;
-background-color: aliceblue; 
- 
+
+.Recommendations>button {
+    display: inline;
+    height: content;
+    margin: 0 auto;
+    margin-top: 1vh;
+    background-color: aliceblue;
+
 }
+
 .RecomAbout {
- float: left; vertical-align: top; 
- max-width: 40%;  font-size: 2.8vw;
+    float: left;
+    vertical-align: top;
+    max-width: 40%;
+    font-size: 2.8vw;
 }
 
 /*****************************/
 /* Certificates = Certificates/Certificates.css */
 
 
-#GFbtn{ cursor: pointer;background-image:url(../i/Sponsors/GFicon.ico);
-    background-repeat: no-repeat; background-position: center; background-size: contain;
-    height:10vmin; width:10vmin; border-radius: 50%; }
+/*Project Slider*/
+
+#projects {
+    width: auto;
+    padding: 1% 0 3% 0;
+    background-color: white;
+}
+
+#Projects-im {
+    margin-top: 1%;
+    border: 6px solid black;
+    width: 40%;
+    height: 40%;
+}
+
+#Project-input {
+    display: inline-block;
+    margin-left: 8%;
+}
+
+#Projects-desc {
+    position: absolute;
+    width: 50%;
+    right: 1%;
+    font-size: small;
+}
+
+
+/*Special*/
+#GFbtn {
+    cursor: pointer;
+    background-image: url(../i/Sponsors/GFicon.ico);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 50%;
+}
 
 
 /* Quote Box */
 #QuoteBox {
-    display:block; z-index:4;  padding:0.2% 5% 3% 5%;
-    margin:0 auto; margin-bottom: 2vh; text-align:center;
-    background-color:#fafafa; border:2vmin double red; 
-    color:gray; -webkit-text-stroke:0.1vmin gold;
+    display: block;
+    z-index: 4;
+    padding: 0.2% 5% 3% 5%;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+    text-align: center;
+    background-color: #fafafa;
+    border: 2vmin double red;
+    color: gray;
+    -webkit-text-stroke: 0.1vmin gold;
 }
 
-#TimeQuoteBox{
-    font-size: 3vw; text-align: right; display: inline-block; right: 100%;
-    color: #000; -webkit-text-stroke:0.1vmin gold; margin: 0 10% 6% 0;
+#TimeQuoteBox {
+    font-size: 3vw;
+    text-align: right;
+    display: inline-block;
+    right: 100%;
+    color: #000;
+    -webkit-text-stroke: 0.1vmin gold;
+    margin: 0 10% 6% 0;
 }
 
-#QuoteBoxP{background-color:#f5f5f555; text-align: left;}
-#QuoteBoxP::before{content:'Quote';font-size:6vw;-webkit-text-stroke: 0.3vw black;}
-#QuoteBoxP::first-letter{font-size: 8vw;}
-#QuoteBoxP::first-line{font-size: 3.2vw;}
+#QuoteBoxP {
+    background-color: #f5f5f555;
+    text-align: left;
+}
 
-#CloseQuoteBox { position: absolute; right: 2.2%;padding:1%; 
-     -webkit-text-stroke:1vw red; border: 1vw solid #ff000055;
-     font-size:large; opacity: 0.7; }
-#CloseQuoteBox:hover{transform: scale(1.2); background-color: #ff000055;}
+#QuoteBoxP::before {
+    content: 'Quote';
+    font-size: 6vw;
+    -webkit-text-stroke: 0.3vw black;
+}
+
+#QuoteBoxP::first-letter {
+    font-size: 8vw;
+}
+
+#QuoteBoxP::first-line {
+    font-size: 3.2vw;
+}
+
+#CloseQuoteBox {
+    position: absolute;
+    right: 2.2%;
+    padding: 1%;
+    -webkit-text-stroke: 1vw red;
+    border: 1vw solid #ff000055;
+    font-size: large;
+    opacity: 0.7;
+}
+
+#CloseQuoteBox:hover {
+    transform: scale(1.2);
+    background-color: #ff000055;
+}
 
 /*Box Main animation*/
 @keyframes HomeAnimation {
-    0%{background:linear-gradient(0deg,salmon,lightpink);}
-     1%{background:linear-gradient(3.65deg,salmon,lightpink);}2%{background:linear-gradient(7.3deg,salmon, lightpink);}3%{background:linear-gradient(10.95deg,salmon, lightpink);}4%{background:linear-gradient(14.6deg,salmon, lightpink);}5%{background:linear-gradient(18.35deg,salmon, lightpink);}6%{background:linear-gradient(22deg,salmon, lightpink);}7%{background:linear-gradient(25.65deg,salmon, lightpink);}8%{background:linear-gradient(29.3deg,salmon, lightpink);} 9%{background:linear-gradient(32.95deg,salmon, lightpink);}10%{background:linear-gradient(36.6deg,salmon, lightpink);}
-     11%{background:linear-gradient(40.15deg,salmon,lightpink);}12%{background:linear-gradient(43.8deg,salmon, lightpink);}13%{background:linear-gradient(47.45deg,salmon, lightpink);}14%{background:linear-gradient(51.1deg,salmon, lightpink);}15%{background:linear-gradient(54.75deg,salmon, lightpink);}16%{background:linear-gradient(58.4deg,salmon, lightpink);}17%{background:linear-gradient(62.05deg,salmon, lightpink);}18%{background:linear-gradient(65.7deg,salmon, lightpink);} 19%{background:linear-gradient(69.35deg,salmon, lightpink);}20%{background:linear-gradient(73deg,salmon, lightpink);}
-     21%{background:linear-gradient(76.65deg,salmon,lightpink);}22%{background:linear-gradient(80.3deg,salmon, lightpink);}23%{background:linear-gradient(83.95deg,salmon, lightpink);}24%{background:linear-gradient(87.6deg,salmon, lightpink);}25%{background:linear-gradient(91.25deg,salmon, lightpink);}26%{background:linear-gradient(94.9deg,salmon, lightpink);}27%{background:linear-gradient(98.55deg,salmon, lightpink);}28%{background:linear-gradient(102.2.3deg,salmon, lightpink);} 29%{background:linear-gradient(105.85deg,salmon, lightpink);}30%{background:linear-gradient(109.5deg,salmon, lightpink);}
-     31%{background:linear-gradient(113.15deg,salmon,lightpink);}32%{background:linear-gradient(116.5deg,salmon, lightpink);}33%{background:linear-gradient(120.45deg,salmon, lightpink);}34%{background:linear-gradient(124.1deg,salmon, lightpink);}35%{background:linear-gradient(127.75deg,salmon, lightpink);}36%{background:linear-gradient(131.4deg,salmon, lightpink);}37%{background:linear-gradient(135.04deg,salmon, lightpink);}38%{background:linear-gradient(138.7deg,salmon, lightpink);} 39%{background:linear-gradient(142.35deg,salmon, lightpink);}40%{background:linear-gradient(146deg,salmon, lightpink);}
-     41%{background:linear-gradient(149.65deg,salmon,lightpink);} 42%{background:linear-gradient(153.29999999999998deg,salmon,lightpink);} 43%{background:linear-gradient(156.95deg,salmon,lightpink);} 44%{background:linear-gradient(160.6deg,salmon,lightpink);} 45%{background:linear-gradient(164.25deg,salmon,lightpink);} 46%{background:linear-gradient(167.9deg,salmon,lightpink);} 47%{background:linear-gradient(171.54999999999998deg,salmon,lightpink);} 48%{background:linear-gradient(175.2deg,salmon,lightpink);} 49%{background:linear-gradient(178.85deg,salmon,lightpink);} 50%{background:linear-gradient(182.5deg,salmon,lightpink);} 
-     51%{background:linear-gradient(186.15deg,salmon,lightpink);} 52%{background:linear-gradient(189.79999999999998deg,salmon,lightpink);} 53%{background:linear-gradient(193.45deg,salmon,lightpink);} 54%{background:linear-gradient(197.1deg,salmon,lightpink);} 55%{background:linear-gradient(200.75deg,salmon,lightpink);} 56%{background:linear-gradient(204.4deg,salmon,lightpink);} 57%{background:linear-gradient(208.04999999999998deg,salmon,lightpink);} 58%{background:linear-gradient(211.7deg,salmon,lightpink);} 59%{background:linear-gradient(215.35deg,salmon,lightpink);} 60%{background:linear-gradient(219deg,salmon,lightpink);} 
-     61%{background:linear-gradient(222.65deg,salmon,lightpink);} 62%{background:linear-gradient(226.29999999999998deg,salmon,lightpink);} 63%{background:linear-gradient(229.95deg,salmon,lightpink);} 64%{background:linear-gradient(233.6deg,salmon,lightpink);} 65%{background:linear-gradient(237.25deg,salmon,lightpink);} 66%{background:linear-gradient(240.9deg,salmon,lightpink);} 67%{background:linear-gradient(244.54999999999998deg,salmon,lightpink);} 68%{background:linear-gradient(248.2deg,salmon,lightpink);} 69%{background:linear-gradient(251.85deg,salmon,lightpink);} 70%{background:linear-gradient(255.5deg,salmon,lightpink);} 
-     71%{background:linear-gradient(259.15deg,salmon,lightpink);} 72%{background:linear-gradient(262.8deg,salmon,lightpink);} 73%{background:linear-gradient(266.45deg,salmon,lightpink);} 74%{background:linear-gradient(270.09999999999997deg,salmon,lightpink);} 75%{background:linear-gradient(273.75deg,salmon,lightpink);} 76%{background:linear-gradient(277.4deg,salmon,lightpink);} 77%{background:linear-gradient(281.05deg,salmon,lightpink);} 78%{background:linear-gradient(284.7deg,salmon,lightpink);} 79%{background:linear-gradient(288.34999999999997deg,salmon,lightpink);} 80%{background:linear-gradient(292deg,salmon,lightpink);} 
-     81%{background:linear-gradient(295.65deg,salmon,lightpink);} 82%{background:linear-gradient(299.3deg,salmon,lightpink);} 83%{background:linear-gradient(302.95deg,salmon,lightpink);} 84%{background:linear-gradient(306.59999999999997deg,salmon,lightpink);} 85%{background:linear-gradient(310.25deg,salmon,lightpink);} 86%{background:linear-gradient(313.9deg,salmon,lightpink);} 87%{background:linear-gradient(317.55deg,salmon,lightpink);} 88%{background:linear-gradient(321.2deg,salmon,lightpink);} 89%{background:linear-gradient(324.84999999999997deg,salmon,lightpink);} 90%{background:linear-gradient(328.5deg,salmon,lightpink);}
-     91%{background:linear-gradient(332.15deg,salmon,lightpink);}92%{background:linear-gradient(335.8deg,salmon,lightpink);} 93%{background:linear-gradient(339.45deg,salmon,lightpink);} 94%{background:linear-gradient(343.09999999999997deg,salmon,lightpink);} 95%{background:linear-gradient(346.75deg,salmon,lightpink);} 96%{background:linear-gradient(350.4deg,salmon,lightpink);} 97%{background:linear-gradient(354.05deg,salmon,lightpink);} 98%{background:linear-gradient(357.7deg,salmon,lightpink);} 99%{background:linear-gradient(361.34999999999997deg,salmon,lightpink);}
-     100%{background:linear-gradient(365deg,salmon,lightpink);}
-} 
+    0% {
+        background: linear-gradient(0deg, salmon, lightpink);
+    }
+
+    1% {
+        background: linear-gradient(3.65deg, salmon, lightpink);
+    }
+
+    2% {
+        background: linear-gradient(7.3deg, salmon, lightpink);
+    }
+
+    3% {
+        background: linear-gradient(10.95deg, salmon, lightpink);
+    }
+
+    4% {
+        background: linear-gradient(14.6deg, salmon, lightpink);
+    }
+
+    5% {
+        background: linear-gradient(18.35deg, salmon, lightpink);
+    }
+
+    6% {
+        background: linear-gradient(22deg, salmon, lightpink);
+    }
+
+    7% {
+        background: linear-gradient(25.65deg, salmon, lightpink);
+    }
+
+    8% {
+        background: linear-gradient(29.3deg, salmon, lightpink);
+    }
+
+    9% {
+        background: linear-gradient(32.95deg, salmon, lightpink);
+    }
+
+    10% {
+        background: linear-gradient(36.6deg, salmon, lightpink);
+    }
+
+    11% {
+        background: linear-gradient(40.15deg, salmon, lightpink);
+    }
+
+    12% {
+        background: linear-gradient(43.8deg, salmon, lightpink);
+    }
+
+    13% {
+        background: linear-gradient(47.45deg, salmon, lightpink);
+    }
+
+    14% {
+        background: linear-gradient(51.1deg, salmon, lightpink);
+    }
+
+    15% {
+        background: linear-gradient(54.75deg, salmon, lightpink);
+    }
+
+    16% {
+        background: linear-gradient(58.4deg, salmon, lightpink);
+    }
+
+    17% {
+        background: linear-gradient(62.05deg, salmon, lightpink);
+    }
+
+    18% {
+        background: linear-gradient(65.7deg, salmon, lightpink);
+    }
+
+    19% {
+        background: linear-gradient(69.35deg, salmon, lightpink);
+    }
+
+    20% {
+        background: linear-gradient(73deg, salmon, lightpink);
+    }
+
+    21% {
+        background: linear-gradient(76.65deg, salmon, lightpink);
+    }
+
+    22% {
+        background: linear-gradient(80.3deg, salmon, lightpink);
+    }
+
+    23% {
+        background: linear-gradient(83.95deg, salmon, lightpink);
+    }
+
+    24% {
+        background: linear-gradient(87.6deg, salmon, lightpink);
+    }
+
+    25% {
+        background: linear-gradient(91.25deg, salmon, lightpink);
+    }
+
+    26% {
+        background: linear-gradient(94.9deg, salmon, lightpink);
+    }
+
+    27% {
+        background: linear-gradient(98.55deg, salmon, lightpink);
+    }
+
+    28% {
+        background: linear-gradient(102.2.3deg, salmon, lightpink);
+    }
+
+    29% {
+        background: linear-gradient(105.85deg, salmon, lightpink);
+    }
+
+    30% {
+        background: linear-gradient(109.5deg, salmon, lightpink);
+    }
+
+    31% {
+        background: linear-gradient(113.15deg, salmon, lightpink);
+    }
+
+    32% {
+        background: linear-gradient(116.5deg, salmon, lightpink);
+    }
+
+    33% {
+        background: linear-gradient(120.45deg, salmon, lightpink);
+    }
+
+    34% {
+        background: linear-gradient(124.1deg, salmon, lightpink);
+    }
+
+    35% {
+        background: linear-gradient(127.75deg, salmon, lightpink);
+    }
+
+    36% {
+        background: linear-gradient(131.4deg, salmon, lightpink);
+    }
+
+    37% {
+        background: linear-gradient(135.04deg, salmon, lightpink);
+    }
+
+    38% {
+        background: linear-gradient(138.7deg, salmon, lightpink);
+    }
+
+    39% {
+        background: linear-gradient(142.35deg, salmon, lightpink);
+    }
+
+    40% {
+        background: linear-gradient(146deg, salmon, lightpink);
+    }
+
+    41% {
+        background: linear-gradient(149.65deg, salmon, lightpink);
+    }
+
+    42% {
+        background: linear-gradient(153.29999999999998deg, salmon, lightpink);
+    }
+
+    43% {
+        background: linear-gradient(156.95deg, salmon, lightpink);
+    }
+
+    44% {
+        background: linear-gradient(160.6deg, salmon, lightpink);
+    }
+
+    45% {
+        background: linear-gradient(164.25deg, salmon, lightpink);
+    }
+
+    46% {
+        background: linear-gradient(167.9deg, salmon, lightpink);
+    }
+
+    47% {
+        background: linear-gradient(171.54999999999998deg, salmon, lightpink);
+    }
+
+    48% {
+        background: linear-gradient(175.2deg, salmon, lightpink);
+    }
+
+    49% {
+        background: linear-gradient(178.85deg, salmon, lightpink);
+    }
+
+    50% {
+        background: linear-gradient(182.5deg, salmon, lightpink);
+    }
+
+    51% {
+        background: linear-gradient(186.15deg, salmon, lightpink);
+    }
+
+    52% {
+        background: linear-gradient(189.79999999999998deg, salmon, lightpink);
+    }
+
+    53% {
+        background: linear-gradient(193.45deg, salmon, lightpink);
+    }
+
+    54% {
+        background: linear-gradient(197.1deg, salmon, lightpink);
+    }
+
+    55% {
+        background: linear-gradient(200.75deg, salmon, lightpink);
+    }
+
+    56% {
+        background: linear-gradient(204.4deg, salmon, lightpink);
+    }
+
+    57% {
+        background: linear-gradient(208.04999999999998deg, salmon, lightpink);
+    }
+
+    58% {
+        background: linear-gradient(211.7deg, salmon, lightpink);
+    }
+
+    59% {
+        background: linear-gradient(215.35deg, salmon, lightpink);
+    }
+
+    60% {
+        background: linear-gradient(219deg, salmon, lightpink);
+    }
+
+    61% {
+        background: linear-gradient(222.65deg, salmon, lightpink);
+    }
+
+    62% {
+        background: linear-gradient(226.29999999999998deg, salmon, lightpink);
+    }
+
+    63% {
+        background: linear-gradient(229.95deg, salmon, lightpink);
+    }
+
+    64% {
+        background: linear-gradient(233.6deg, salmon, lightpink);
+    }
+
+    65% {
+        background: linear-gradient(237.25deg, salmon, lightpink);
+    }
+
+    66% {
+        background: linear-gradient(240.9deg, salmon, lightpink);
+    }
+
+    67% {
+        background: linear-gradient(244.54999999999998deg, salmon, lightpink);
+    }
+
+    68% {
+        background: linear-gradient(248.2deg, salmon, lightpink);
+    }
+
+    69% {
+        background: linear-gradient(251.85deg, salmon, lightpink);
+    }
+
+    70% {
+        background: linear-gradient(255.5deg, salmon, lightpink);
+    }
+
+    71% {
+        background: linear-gradient(259.15deg, salmon, lightpink);
+    }
+
+    72% {
+        background: linear-gradient(262.8deg, salmon, lightpink);
+    }
+
+    73% {
+        background: linear-gradient(266.45deg, salmon, lightpink);
+    }
+
+    74% {
+        background: linear-gradient(270.09999999999997deg, salmon, lightpink);
+    }
+
+    75% {
+        background: linear-gradient(273.75deg, salmon, lightpink);
+    }
+
+    76% {
+        background: linear-gradient(277.4deg, salmon, lightpink);
+    }
+
+    77% {
+        background: linear-gradient(281.05deg, salmon, lightpink);
+    }
+
+    78% {
+        background: linear-gradient(284.7deg, salmon, lightpink);
+    }
+
+    79% {
+        background: linear-gradient(288.34999999999997deg, salmon, lightpink);
+    }
+
+    80% {
+        background: linear-gradient(292deg, salmon, lightpink);
+    }
+
+    81% {
+        background: linear-gradient(295.65deg, salmon, lightpink);
+    }
+
+    82% {
+        background: linear-gradient(299.3deg, salmon, lightpink);
+    }
+
+    83% {
+        background: linear-gradient(302.95deg, salmon, lightpink);
+    }
+
+    84% {
+        background: linear-gradient(306.59999999999997deg, salmon, lightpink);
+    }
+
+    85% {
+        background: linear-gradient(310.25deg, salmon, lightpink);
+    }
+
+    86% {
+        background: linear-gradient(313.9deg, salmon, lightpink);
+    }
+
+    87% {
+        background: linear-gradient(317.55deg, salmon, lightpink);
+    }
+
+    88% {
+        background: linear-gradient(321.2deg, salmon, lightpink);
+    }
+
+    89% {
+        background: linear-gradient(324.84999999999997deg, salmon, lightpink);
+    }
+
+    90% {
+        background: linear-gradient(328.5deg, salmon, lightpink);
+    }
+
+    91% {
+        background: linear-gradient(332.15deg, salmon, lightpink);
+    }
+
+    92% {
+        background: linear-gradient(335.8deg, salmon, lightpink);
+    }
+
+    93% {
+        background: linear-gradient(339.45deg, salmon, lightpink);
+    }
+
+    94% {
+        background: linear-gradient(343.09999999999997deg, salmon, lightpink);
+    }
+
+    95% {
+        background: linear-gradient(346.75deg, salmon, lightpink);
+    }
+
+    96% {
+        background: linear-gradient(350.4deg, salmon, lightpink);
+    }
+
+    97% {
+        background: linear-gradient(354.05deg, salmon, lightpink);
+    }
+
+    98% {
+        background: linear-gradient(357.7deg, salmon, lightpink);
+    }
+
+    99% {
+        background: linear-gradient(361.34999999999997deg, salmon, lightpink);
+    }
+
+    100% {
+        background: linear-gradient(365deg, salmon, lightpink);
+    }
+}

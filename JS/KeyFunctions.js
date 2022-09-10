@@ -5,6 +5,7 @@ function getDatearr() {
   return currentDay;
 }
 
+
 //Storage
 function removeQOTD() { document.getElementById('QuoteBox').remove(); }
 let todaysDate = (getDatearr());
@@ -40,7 +41,6 @@ function createClass(name, rules) {
   else
     style.sheet.insertRule(name + "{" + rules + "}", 0);
 }
-
 
 
 //NavBAR
@@ -121,17 +121,40 @@ function AppendFooter(){
   let t = document.body; let footer=document.createElement('footer');
   let p = document.createElement('p'); let text1 = document.createTextNode(Get.Footer[0]); 
   let text2=document.createElement('a'); text2.appendChild((document.createTextNode(Get.Footer[1])));
-  text2.setAttribute('href','http://bloodweb.net');
-  p.append(text1,text2);
+  setAttributes(p,{'id':'Bloodworks'});
+  setAttributes( text2,{'href':'http://bloodweb.net'});
 
   let img = document.createElement('img'); img.setAttribute('src',Get.Footer[2]);  
   let cc = document.createElement('p'); cc.setAttribute('id','cc');
-  let license = document.createElement('a'); license.setAttribute('href','LICENSE');
-  license.append(document.createTextNode(Get.Footer[4]));
+  let license = document.createElement('a'); setAttributes(license,{'href':'LICENSE'});
+ p.append(text1,text2,img); 
+ license.append(document.createTextNode(Get.Footer[4]));
   cc.append((document.createTextNode(Get.Footer[3])),license);
 
-footer.append(p,img,cc);
+footer.append(p,cc);
 t.append(footer);
+}
+
+//Shiftery
+let shifterychain = ['#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad','#aadddd', '#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad'
+,'#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad','#aadddd', '#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad'];
+
+
+function ShifteryPush (){
+    
+    shifterychain.push(shifterychain[0]);
+    shifterychain.shift();
+    Shiftery();
+}
+
+function Shiftery(){
+ 
+  let nav = document.querySelector('.NavBar'); 
+  let footer=document.querySelector('footer');
+  
+  nav.style.background="linear-gradient(-40deg,"+shifterychain+")";
+  footer.style.background="linear-gradient(40deg,"+shifterychain+")";
+   
 }
 
 //Quote of the day

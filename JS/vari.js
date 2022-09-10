@@ -18,9 +18,9 @@ const Nav =  { e:['Home','About','Certificates'],
 }
 
 const TODO=[
-    ' Rec Refactoring',
+    ' Scaling issues',
     ' Fix Certificates',
-    ' cleaner Bcard.js'
+   
 ];
 
 // Variables
