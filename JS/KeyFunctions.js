@@ -135,27 +135,57 @@ footer.append(p,cc);
 t.append(footer);
 }
 
-//Shiftery
-let shifterychain = ['#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad','#aadddd', '#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad'
-,'#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad','#aadddd', '#ddaa00', '#ff11ff', '#11ffad','#aadddd','#ddaa00', '#ff11ff', '#11ffad'];
+function createHexchain(hexlength){ 
+  if (!hexlength){return console.error('Hex length not defined');}
+  let hlen=hexlength; let hexchain=[];
+
+  for (let i =0; i < hlen; i++){ hexchain.push("#"+randomHex()); }
+  return hexchain;
+}
+
+/*########################
+//      Shiftery
+########################## 
+Shiftery defualt = 8
+*/
+
+let shifterychain = [
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
+  '#ddaa00', '#ff11ff', '#11ffad', '#aadddd'];
 
 
-function ShifteryPush (){
-    
+
+class Shiftery {
+  constructor(deg) {
+    this.deg = deg + 'deg,';
+    this.Shiftarg1 = document.querySelector('nav');
+    this.Shiftarg2 = document.querySelector('footer');
+  }
+
+  Shifet() {
+    this.Shiftarg1.style.background = "linear-gradient(-" + this.deg + shifterychain + ")";
+    this.Shiftarg2.style.background = "linear-gradient(" + this.deg + shifterychain + ")";
+    console.log('Shifet');
+  }
+  pushShift() {
     shifterychain.push(shifterychain[0]);
     shifterychain.shift();
-    Shiftery();
+    return Shift.Shifet();
+  }
 }
 
-function Shiftery(){
- 
-  let nav = document.querySelector('.NavBar'); 
-  let footer=document.querySelector('footer');
-  
-  nav.style.background="linear-gradient(-40deg,"+shifterychain+")";
-  footer.style.background="linear-gradient(40deg,"+shifterychain+")";
-   
-}
+shifterychain=(createHexchain((randomNum(10,99))));
+let shifteryTimer = 145;
+let Shift = new Shiftery((randomNum(0,360)));
+var shifteryInterval = setInterval(Shift.pushShift, shifteryTimer);
+//###################################################################
+
 
 //Quote of the day
 function getQOTD() {

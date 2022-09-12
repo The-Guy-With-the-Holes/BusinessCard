@@ -63,22 +63,28 @@ main {
     flex-wrap:wrap;
     background-color: #ffffff5f;
 }
+main > * { 
+    height: fit-content;
+    vertical-align: middle;
+    text-align: center;           }
 main > *:not(#main-extended-about,h3) { 
-    flex:0.49; align-self: top;
+    flex:0.49;
 }
-h3{flex:0.5}
-main p {font-size:medium;}
-#main-intro { margin: 9% 0 15% 0; width}
-#main-desc {width: 70%;font-size:small;}
-#main-extended-about{margin: 2%;}
+h3{flex:0.59; margin-top: 2%;
+    background-color: #ffffff3f;
+}
+
+#main-intro { 
+    font-size: 2.8vw;
+    margin: 9% 0 15% 0; width:100%;}
+#main-desc {width: 70%; font-size:2.6vw; margin-top: 35%;padding-bottom: 30%; }
+#main-extended-about{margin: 2%; font-size: 2.8vw;}
 
 
 
 /*image slider*/
 #main-image-slider {  
-    padding: 2% 2% 3% 2%; margin-top: 4% ;
-    text-align: center; height:fit-content;
-    vertical-align: middle;
+    padding: 2% 2% 3% 2%; margin-top: 2% ;
     background-color: #fafafa55;
     border: 2px solid #1dafad20;
 }
@@ -99,7 +105,9 @@ main p {font-size:medium;}
 #button-main > button:hover{ transform: scale(1.2); cursor: pointer; } 
 
 
-input[type="radio"]{ 
+input[type="radio"]{
+    border: 0; vertical-align: bottom;
+    width: 12.2%; height: fit-content;
     opacity: 0.3;
     box-shadow: inset 0 0 0 10px hsla(0,0%,0%,.4),
     0 1px 1px hsla(0,0%,100%,.8);

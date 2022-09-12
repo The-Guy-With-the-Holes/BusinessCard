@@ -69,8 +69,8 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
         
        
         <h3>  
-            <p id="main-intro">  Hi there, thanks for checking out my page! </p>
-        
+            <!--<p id="main-intro">  Hi there, thanks for checking out my page! </p>
+            -->
             <p id="main-desc">
              I'm a dad, software developer and body-mod ethuisiast from Perth, Western Australia
             </p>  
@@ -168,7 +168,7 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
     $(document).ready(function () {
         // Increment the idle time counter every minute.
         var idleInterval = setInterval(timerIncrement, 1000); // 1 second
-        var shifteryInterval = setInterval(ShifteryPush, 100);
+//        var shifteryInterval = setInterval(Shift.pushShift, 150);
         // Zero the idle timer on mouse movement.
         $(this).mousemove(function (e) {// console.log('user moved mouse');
             idleTime = 0; idleclass(false);
