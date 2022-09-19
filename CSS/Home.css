@@ -1,9 +1,10 @@
 /* HOME Profile */
-#Home {     max-width: 80%; max-height: fit-content;
+#Home {     max-width: 92%; max-height: fit-content;
 padding-bottom:1vw ;}
 /* Main*/
+#Mainimg{width: fit-content;}
 .mainx {
-    position: absolute; top: 1%; right: 1%; 
+    float: right;
     height: 24vmin; width: 24vmin; margin: 0.4vw 0.4vmin 0 0;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: move;  border-radius: 50%;
@@ -12,12 +13,17 @@ padding-bottom:1vw ;}
 
 
 /*Text*/
+header{
+    display: block;
+ text-align: center; width:92%;
+  background-color: #11ffad;
+}
 
-h1 { color: #fff; margin-bottom: 1%;   
-    font-size: 5.5vmin; text-align: left;
+h1 { color: #fff; margin-bottom: 1%;   margin-left: 1%;
+    font-size: 5.2vmin; text-align: left;
 }
 h1 > u { color: #888; 
-    font-size: 10.8vmin; -webkit-text-stroke: 0.11vmin gold;  
+    font-size: 9.8vmin; -webkit-text-stroke: 0.11vmin gold;  
 }
 h1>strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin goldenrod;}
 
@@ -25,7 +31,7 @@ h2 { top: 0; color: #000; font-size: 3vmin;
     height: min-content; max-width:80vw; width: max-content;
 margin-left: 2%;} 
 
-h2 > strong { color: #fff; }
+h2 > strong { color: #fff; width: fit-content;}
 h2 > strong :hover{ color: crimson ;}
 
 h3 > p { text-align: center;}
@@ -63,22 +69,52 @@ main {
     flex-wrap:wrap;
     background-color: #ffffff5f;
 }
-main > * { 
-    height: fit-content;
-    vertical-align: middle;
-    text-align: center;           }
+main > * {  vertical-align: middle; text-align: center;  }
 main > *:not(#main-extended-about,h3) { 
     flex:0.49;
 }
+
+
+
 h3{flex:0.59; margin-top: 2%;
     background-color: #ffffff3f;
+    border: 2px double #00000019;
+    padding-bottom: 10%;
 }
 
-#main-intro { 
+#main-intro {
     font-size: 2.8vw;
-    margin: 9% 0 15% 0; width:100%;}
-#main-desc {width: 70%; font-size:2.6vw; margin-top: 35%;padding-bottom: 30%; }
-#main-extended-about{margin: 2%; font-size: 2.8vw;}
+    margin: 9% 0 15% 0; width:100%;
+}
+#main-desc {
+    width: 70%; font-size:2.6vw; margin-top: 30%; padding: 0.3%; 
+    border-top: 12px double #fafafa6f;
+    border-bottom: 12px double#fafaf02f;
+}
+.Lister{
+    animation-name: Lisiter;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+}
+@keyframes Lisiter {
+    0%{}
+    50%{background-color: #fafafa55; transform: rotateY(60deg);}
+    100%{ }
+}
+#main-desc-flip{
+    opacity:0; cursor: pointer; user-select: none;
+    float: right; margin: 2% 2% 0 0 ;
+    width: fit-content; height: fit-content; 
+    background-color: #faebd755; border: 2px solid #ff6ae155 ;
+    font-size: 4vw;
+}
+#main-desc-flip:hover{
+    scale: 1.18; border:2.4px solid #ff6ae199; transform: rotateZ(380deg);
+}
+#main-extended-about{margin:4% 2% 2% 2%;
+     font-size: 2.8vw;}
 
 
 
@@ -96,8 +132,9 @@ h3{flex:0.59; margin-top: 2%;
     display: block;
 }
 
+
 #button-main  button {
-    font-size: larger; 
+    font-size: x-large; text-decoration:line-through;
     -webkit-text-stroke: 0.08vmin sienna;
     border: 0.08vmin solid orangered; border-radius: 70% 70% 70% 70%;
     background-color: #ff000055;
@@ -123,8 +160,17 @@ input[type="radio"]:checked {
 }
 
 
-
-
+#Home-Icon-Button{
+    display: block;
+    text-align: center;
+    margin-top: -2%;
+    padding: 0 2% 0 2%;
+    color:#fff; font-size: 4vw;
+    background-color: greenyellow;
+    border-radius: 30%; border: 0.2vmin double white;
+    content: 'U+26BC';
+}
+ 
 /* Icon Boxes */
 
 #IconBox {padding: 1%; width: min-content; }

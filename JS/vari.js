@@ -20,7 +20,6 @@ const Nav =  { e:['Home','About','Certificates'],
 const TODO=[
     ' Scaling issues',
     ' Fix Certificates',
-   
 ];
 
 // Variables
@@ -30,17 +29,20 @@ const Get = {
     Pages:['Home' ,'About','Contact','Recommendations','Certificates'],
     AboutPages:['About','Recommendations','Contact',],
     Page:{
-    Home: document.getElementById('Home'),     
+    Home: document.getElementById('Home'), 
+     
     Page2 : document.getElementById('secondBox'),
     About :document.getElementById('About'),
     Recommends:document.getElementById('Recommendations'),
     Contact:document.getElementById('Contact'),
     Projects: document.getElementById('Projects'),
     Cert: document.getElementById('Certificates') ,},
-    Rev : {
-        Form : document.getElementById('ReviewForm') ,
-        Btn :document.getElementById("RevBTNX01"),
-    },
+    
+    Main : {
+        main_desc:'I\'m a dad, software developer and body-mod ethuisiast from Perth, Western Australia',
+    }   ,
+
+   
     Footer:['Powered by ','BloodWorks','https://jackewers.com/i/Icons/₿/BloodWebX4.png',
         'This page and its contents are copyright of BloodWeb© under the ',
         ' MIT license']   
@@ -96,9 +98,11 @@ let Create = {
 }
 
 const Social={
-Names:['Linkedin','Twitter','Facebook','Instagram'],
+Names:['Github','Linkedin','Twitter','Facebook','Instagram'],
 
-Address:['https://www.linkedin.com/in/jack-ewers-14a155212/',
+Address:[
+'https://github.com/the-guy-with-the-holes/BusinessCard',
+'https://www.linkedin.com/in/jack-ewers-14a155212/',
 'https://www.twitter.com/Jack_S_Ewers',
 'https://www.facebook.com/BloodWorks.Jack/',
 'https://instagram.com/the_guy_with_the_holes'],

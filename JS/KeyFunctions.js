@@ -5,12 +5,16 @@ function getDatearr() {
   return currentDay;
 }
 
-
 //Storage
 function removeQOTD() { document.getElementById('QuoteBox').remove(); }
 let todaysDate = (getDatearr());
 
 // Utility functions
+function randomNum(min, max) {
+  if (min == undefined || max == undefined) { min = 0; max = 17; }
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function randomHex(bits) {
   if (!bits) { bits = 8; } let hexRes = '';
   let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -18,12 +22,12 @@ function randomHex(bits) {
   return hexRes;
 }
 
-function randomNum(min, max) {
-  if (min == undefined || max == undefined) { min = 0; max = 17; }
-  return Math.floor(Math.random() * (max - min)) + min;
+function createHexchain(hexlength){ 
+  if (!hexlength){return console.error('Hex length not defined');}
+  let hlen=hexlength; let hexchain=[];
+  for (let i =0; i < hlen; i++){ hexchain.push("#"+randomHex()); }
+  return hexchain;
 }
-
-
 
 // Styles
 function setAttributes(el, attrs) {
@@ -44,7 +48,6 @@ function createClass(name, rules) {
 
 
 //NavBAR
-
 function AddNavBar(title) {
 
   if (Debug.Developer == true && !Nav.e.includes('DEV')) { Nav.e.unshift('DEV') }
@@ -52,7 +55,7 @@ function AddNavBar(title) {
   if (title == "Home") { }//{Nav.e.push('Extend');}
 
   let body = document.body;
-  let NavBar = document.createElement('nav');
+  let NavBar = document.createElement('div');
   setAttributes(NavBar, { 'class': 'NavBar' });
 
   for (let i = 0; i < Nav.e.length; i++) {
@@ -99,9 +102,11 @@ function AddNavBar(title) {
     if (i == (Nav.e.length - 1)) { setAttributes(li, { 'style': 'float:right;' }); }
     NavBar.append(li);
   }
-  body.prepend(NavBar);
-  //clean up
-  if (Nav.e.includes('Extend')) { Nav.e.pop(); }
+  let header = document.querySelector('#hr1');
+header.prepend(NavBar);
+/*  body.prepend(NavBar);
+*/
+  
   AppendFooter();
 }
 
@@ -118,7 +123,8 @@ AddNavBar();
 
 
 function AppendFooter(){
-  let t = document.body; let footer=document.createElement('footer');
+  let t = document.getElementById('hr2'); let footer=document.createElement('footer');
+  let span = document.createElement('span');
   let p = document.createElement('p'); let text1 = document.createTextNode(Get.Footer[0]); 
   let text2=document.createElement('a'); text2.appendChild((document.createTextNode(Get.Footer[1])));
   setAttributes(p,{'id':'Bloodworks'});
@@ -127,29 +133,34 @@ function AppendFooter(){
   let img = document.createElement('img'); img.setAttribute('src',Get.Footer[2]);  
   let cc = document.createElement('p'); cc.setAttribute('id','cc');
   let license = document.createElement('a'); setAttributes(license,{'href':'LICENSE'});
- p.append(text1,text2,img); 
+ p.append(text1,text2); 
  license.append(document.createTextNode(Get.Footer[4]));
   cc.append((document.createTextNode(Get.Footer[3])),license);
-
-footer.append(p,cc);
+span.append(p,img);
+footer.append(span,cc);
 t.append(footer);
 }
 
-function createHexchain(hexlength){ 
-  if (!hexlength){return console.error('Hex length not defined');}
-  let hlen=hexlength; let hexchain=[];
 
-  for (let i =0; i < hlen; i++){ hexchain.push("#"+randomHex()); }
-  return hexchain;
-}
 
 /*########################
 //      Shiftery
 ########################## 
-Shiftery defualt = 8
 */
+const ShifteryAttr = {
+  colors:(createHexchain((randomNum(10,99)))),
+  speed:200,
+  deg:40,
+  incDeg:false,
+  shape:'conic',
+  targets:
+    [ document.querySelector('.NavBar'), document.querySelector('footer')
+  ],
+  debug:false,
+  running:false,
+}
 
-let shifterychain = [
+let shifterydef = [
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
@@ -161,65 +172,56 @@ let shifterychain = [
 
 
 
-class Shiftery {
-  constructor(deg) {
-    this.deg = deg + 'deg,';
-    this.Shiftarg1 = document.querySelector('nav');
-    this.Shiftarg2 = document.querySelector('footer');
+function Shiftery() {
+shifterychain = ShifteryAttr.colors;
+let deg = ShifteryAttr.deg; let shape = ShifteryAttr.shape;
+let Shiftargs = ShifteryAttr.targets;
+let build1; let build2;
+switch (shape) {
+  case 'radial':
+    build1="radial-gradient("+shifterychain + ")";
+    build2="radial-gradient("+shifterychain + ")";
+    break;
+  case 'conic':
+    build1="conic-gradient("+shifterychain + ")";
+    build2="conic-gradient("+shifterychain + ")";
+    break;
+  default:
+    build1="linear-gradient(-"+deg+'deg,'+shifterychain + ")";
+    build2="linear-gradient("+deg+'deg,'+shifterychain + ")";
+    break;
+}
+for (let i = 0; i< Shiftargs.length; i++){
+  if(i<1){Shiftargs[i].style.background = build1;}
+  else{Shiftargs[i].style.background = build2;}
+}
+  
+  
+  if(ShifteryAttr.incDeg==true){ deg++; 
+    if (deg>360){deg=0;}
+    ShifteryAttr.deg=deg;
   }
-
-  Shifet() {
-    this.Shiftarg1.style.background = "linear-gradient(-" + this.deg + shifterychain + ")";
-    this.Shiftarg2.style.background = "linear-gradient(" + this.deg + shifterychain + ")";
-    console.log('Shifet');
-  }
-  pushShift() {
-    shifterychain.push(shifterychain[0]);
-    shifterychain.shift();
-    return Shift.Shifet();
-  }
+  shifterychain.push(shifterychain[0]);
+  shifterychain.shift();
+  if(ShifteryAttr.debug==true){console.log('Shiftery cycle');}
 }
 
-shifterychain=(createHexchain((randomNum(10,99))));
-let shifteryTimer = 145;
-let Shift = new Shiftery((randomNum(0,360)));
-var shifteryInterval = setInterval(Shift.pushShift, shifteryTimer);
-//###################################################################
+let shifteryInterval ;
 
+function changeShifteryState (running,speed,colors,shape,deg,incDeg){
+  ShifteryAttr.running=running; ShifteryAttr.speed=speed
+  if (colors){ShifteryAttr.colors=colors;}
+  if(shape){ShifteryAttr.shape=shape;}
 
-//Quote of the day
-function getQOTD() {
-  let day = new Date().getDay();
-  let Quote = QOTD[(day)]
-  createQOTDbox(Quote, day);
+  if (deg){ShifteryAttr.deg=deg;
+    if(incDeg){ShifteryAttr.incDeg=incDeg;}
+  }
+  clearInterval(shifteryInterval);
+  if(running==false)return Shiftery();
+  if(running==true){shifteryInterval=setInterval(Shiftery,speed);}
 }
 
-
-function createQOTDbox(Quote, Day) {
-  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  let div = document.createElement('div'); let p = document.createElement('p');
-  let closebtn = document.createElement('button');
-  let time = document.createElement('p');
-  let currentDay = getDatearr();
-
-  closebtn.append(document.createTextNode('X'));
-  setAttributes(closebtn, { 'onclick': 'removeQOTD()', 'id': 'CloseQuoteBox' })
-
-  time.append((document.createTextNode(days[Day] + ' ' + (currentDay))), (document.createElement('br')),)
-  setAttributes(time, { 'id': 'TimeQuoteBox' })
-
-  p.append((" of the day: "), time)
-  p.append(document.createElement('br'), "\" ", document.createTextNode(Quote), " \"");
-  setAttributes(p, { 'id': 'QuoteBoxP', 'style': 'color:gold; font-size:3vw; font-weight:700; -webkit-text-stroke:0.1vmin #000;' });
-
-  div.append(closebtn);
-  div.append(p);
-  setAttributes(div, { 'id': 'QuoteBox' });
-
-
-  console.warn(Quote);
-  document.querySelector('nav').after(div);
-}
+changeShifteryState(false,64,shifterydef);
 
 //Tasklist
 function insertAfter(referenceNode, newNode) {

@@ -32,26 +32,23 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 
 <body onload=" dev();">
 
-<div id="Projects" class="box-main" style="display:none;"></div>
 
-<div id="Home" class="box-main">
-   
-    <header class="box-grid" onclick="changeColor('h1')">
-        <h1><u src="i//Sponsors/cryptocom.jfif">J</u><strong>ack Ewers </strong>,<br> Digital Business-Card </h1> 
-        <h2> Everybody has a
-             <strong >Vision</strong>
-             ,<br> lets work on ours <span class="Together"> <b>Together</b>
+    <header class="box-main">
+         <span id="Mainimg">
+    <!-- Profile image && text box-->
+        <img onmouseenter="mainimgRotate()" id="locko" class="mainx" />
+        </span>
+        <h1><u src="i//Sponsors/cryptocom.jfif">J</u><strong>ack Ewers</strong>,<br> Digital Business-Card </h1>
+        <h2>Everybody has a <strong>Vision,</strong>
+        <br> lets work on ours <span class="Together"> <b>Together</b>
             </span>
         </h2>
- 
-    </header> 
+   
+    </header>
+    <hr id="hr1"> 
 
-    <span class="box-grid" id="Mainimg">
-        <!-- Profile image && text box-->
-        <img onmouseenter="mainimgRotate()" id="locko" class="mainx" />
-    </span>
-    <hr> <hr>
-  
+<div id="Home" class="box-main">
+    <hr>
     <main>
 
         <span id="main-image-slider"> 
@@ -59,7 +56,7 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
             <img id="image-main" src="./i/Icons/₿/BloodWebX2.png" alt="main-img slider" />
             <div id="button-main" style=" width: 100%;">
                 <button class="slider-main" style="float: left ;"><</button>
-                <button class="slider-main" style="float: right;">></button>
+                <button  class="slider-main" style="float: right;" id="right-slider-btn">></button>
           
                 <input type="radio" class="radio-main" value="0">
                 <input type="radio" class="radio-main" value="1">
@@ -71,6 +68,8 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
         <h3>  
             <!--<p id="main-intro">  Hi there, thanks for checking out my page! </p>
             -->
+            <button id="main-desc-flip" onclick="flipmainText();">&#11150;</button>
+
             <p id="main-desc">
              I'm a dad, software developer and body-mod ethuisiast from Perth, Western Australia
             </p>  
@@ -81,29 +80,16 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
             and a place for me to store digital data, we got too many accounts
             <br> <br>  Hit me up on my extended socials to chat or see what i'm up to!
         </p>
-
         
+
+
     </main>
-    <!-- 
-    <div id="projects">
-        <p id="Projects-Title">jackewers.com</p>
-        <p id="Projects-desc" >Coding this webpage! (i know how meta)
-            it takes a lot of resources to build and maintain a website
-            its also a really enjoyable process
-
-            i started to build jackewers.com as a proof of work for my Coding
-            in 2022 through github pages
-        </p>
-        <img src="i/Projects/Proj1.png" id="Projects-im" alt="Projects-desc">
-        <br><span id="Project-input">
-            <button><</button>
-            <input type="radio">
-            <input type="radio">
-            <button>></button>
-        </span>
-        
-    </div>
+<!--  
+    <button id="Home-Icon-Button" onclick="switchIconBox(false)"> ⇪ </button>
 -->
+
+<hr> <hr>
+
 
 <!-- Icon Boxes [Upper, Lower]-->    
    <div id="IconBox" class="box-grid">
@@ -155,7 +141,7 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 
 </div>
 
-
+<hr id="hr2">
 <script src="JS/vari.js" type="text/javascript"></script>
 <script src="JS/Dev.js" type="text/javascript"></script>
 <script src="JS/KeyFunctions.js" type="text/javascript"></script>

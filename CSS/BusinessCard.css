@@ -106,7 +106,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: fit-content;
-    background: radial-gradient(circle, #000000da, black, gray);
+    background: radial-gradient(circle, #fafafada, black, gray);
     padding: 1%;
 }
 
@@ -119,39 +119,34 @@ p {
 
 header {
     grid-area: header;
-    margin-left: 0;
     font-family: Lobster, monospace;
-    width: fit-content;
     height: min-content;
 }
 
-header>* {
-    display: block;
-}
+
 
 footer {
     display: flex; align-items: center;
-    margin: 1%;
-    font-size: 3vw;
-    text-align: left;
+    margin: 1%;  
+    font-size: 1.2vw;
+   text-align: center;
     border: 1vmin double #fff000;
     background:linear-gradient(40deg,var(--Shiftery-Background), var(--Shiftery-Background));
 }
+footer > span { width:50%; display:inline;}
+footer > span > img{display: inline; vertical-align: middle;}
 
-#Bloodworks{ padding: 3%;
+#Bloodworks{ padding:1.4%; display: inline-block;
 background-color: #fafafa55;   
 }
 
+
 #cc {
-    font-size: 2vw;
     max-width: 30vw;
-
+    background-color: #fafafa55;  
 }
 
-#cc>a {
-    display: block;
-    text-align: center;
-}
+
 
 /* Pages, --> .box-main
 Home - About(sub) - Recommends - Certificates
@@ -162,7 +157,6 @@ Rows will be seperated by '*' */
     top: 0;
     padding: 1%;
     max-height: max-content;
-    font-size: 5vw;
     border-radius: 1%;
     border: 2px solid #fff000;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);

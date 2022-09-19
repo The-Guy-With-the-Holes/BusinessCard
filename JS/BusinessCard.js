@@ -30,7 +30,7 @@ function clearPage(item){
 }
 
 function flip(page,sub){
-let GT =document.title;
+let GT = document.title;
 
 //Checks page is specified 
 if(!page) return alert('When flipping, please specify page to flip');
@@ -59,8 +59,6 @@ let radio = document.querySelectorAll('.radio-main');
 
 let slider = document.querySelectorAll('.slider-main');
 
-
-
 class MainImageSlider{
     constructor(position, max){
         this.position = position;
@@ -74,7 +72,7 @@ class MainImageSlider{
         if(inc){
             if (inc==">"){this.position++; }
             if (inc=="<"){this.position--; }
-            
+          
             if (!isNaN(inc)){ this.position=inc;}
         }
         if(this.position > this.max){ this.position=0;}
@@ -91,13 +89,79 @@ mainimg.setPosition();
 
 for (let i=0; i<slider.length; i++){ 
     let arrow= slider[(i)].innerText;
-    slider[(i)].setAttribute('onclick','mainimg.setPosition(\''+arrow+'\')');
+    slider[(i)].setAttribute('onclick','mainimg.setPosition(\''+arrow+'\'); unlockQOTD();');
 } 
 
 radio.forEach(el => el.addEventListener('click', event => {
     mainimg.setPosition(event.target.getAttribute("value"));
     
 }));
+
+/*###################################################################
+  h3 and quote of the day
+*/
+
+let QuoteoftheDay = getQOTD();
+
+//Quote of the day
+function getQOTD(day) {
+  if(!day){ day = new Date().getDay(); }
+  return QOTD[(day)];  
+  //createQOTDbox(Quote, day);
+}
+
+function unlockQOTD(){ // runs on right image scroll
+  let flipbtn = document.getElementById('main-desc-flip');
+  if(flipbtn.style.opacity==0){flipbtn.style.opacity=0.8; flipmainText();}
+}
+
+function setDefaultmainText(){
+let a = document.getElementById('main-desc');
+a.innerText = Get.Main.main_desc;
+a.style.fontSize="2.6vw";
+}
+
+function flipmainText(){ let m = document.getElementById('main-desc');
+    if(m.innerText.includes(QuoteoftheDay)){setDefaultmainText();}
+    else{replaceMainDesc();}
+    m.classList.add('Lister');
+    setTimeout(() => {
+        m.classList="";
+    },1000 );
+}
+
+
+function replaceMainDesc(Quote){
+    let desc = document.getElementById('main-desc');
+    let quoteFont;
+    let x = getQOTD(); 
+    if(Quote){ let x=Quote; }
+    
+    if(x.length>50 && x.length<99){ quoteFont='10vw';}
+    else if(x.length>100){ quoteFont='2vw';}
+    
+    desc.style.fontSize=quoteFont;
+    desc.innerText= x+'\n\n-- Quote of the day';
+}
+
+function switchIconBox(show){
+let IconBoxMaster = document.getElementById('IconBox');
+let IconSwitch = document.getElementById('Home-Icon-Button');
+
+    switch (show) {
+        case true:
+            IconBoxMaster.style.display="block";
+            IconSwitch.innerText="⇪"; 
+            IconSwitch.setAttribute('onclick',"switchIconBox(false)");
+            break;
+        case false:
+            IconBoxMaster.style.display="none";
+            IconSwitch.innerText="⇩";
+            IconSwitch.setAttribute('onclick',"switchIconBox(true)");
+            break;
+    }
+}
+
 
 
 
