@@ -18,8 +18,11 @@ const Nav =  { e:['Home','About','Certificates'],
 }
 
 const TODO=[
-    ' Scaling issues',
-    ' Fix Certificates',
+    'Redesign Nav ☰ > ⚞',
+    'Workout 15 mins',
+    'Create About Contact',
+    'Turn Floating icons into js load function, keep CSS',
+    'Code NfC - Jackewers.com'
 ];
 
 // Variables
