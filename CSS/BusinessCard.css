@@ -7,6 +7,8 @@
     --icon-background: 20deg, #fff000, #fff, green, #000;
     --Shiftery-Background: #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad;
     --Shifter-Rotation:40deg;
+    --Main-color-A: salmon;
+    --Main-color-B:lightpink;
     --Profile-Img-A: url(../i/Profile.jpg);
     --Profile-Img-B: url(../i/Profile2.jpg);
     --Main: 180deg;
@@ -18,20 +20,51 @@
     border: 0.5vmin solid #00000099;
     box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099;
 }
+nav {
+     border: 1vmin groove gray;
+    background: conic-gradient( var(--Shiftery-Background), var(--Shiftery-Background));
+    display:block;
+    margin:1vh 0 1vh 0 ;
+    padding:1%;
+}
 
+#hr1{width: 98vw; margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
+#NavSwitch{ display: block; width: fit-content;
+    margin:0 auto;
+    font-size: x-large;
+    color:white;
+    -webkit-text-stroke: 1px black;
+    background-color: #000000bf;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 0.5% 0.5% 1% 0.5%;
+text-decoration: none;}
+#NavSwitch:hover{
+    transform: scale(1.12);
+    background-color: #000000ef;
+}
 .NavBar {
-    display: block;
-    margin-bottom: 1vh;
-    background:linear-gradient(40deg, var(--Shiftery-Background), var(--Shiftery-Background)); border: 1vmin groove gray;
+    position:fixed; z-index: 2;
+    top:0; left:0;
+    height: 100%; width:45%;
+    background:linear-gradient( -45deg, var(--Shiftery-Background), var(--Shiftery-Background)); 
+    border: 1vmin groove gray;
     font-size: large;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 2% 1% 2% 1%;
+    transition: 0.5s;
 }
-
-.NavListitem {
+#Nav-Close-btn{
     cursor: pointer;
-    display: inline-block; text-align:center;
-    margin: 0.1%; padding: 1.4%;
+    display:block;
+    margin-right:0 ;
+    font-size: large;
+    -webkit-text-stroke: 0.08vw red;
+    background-color: #fafacfcc;
+    border: 0.42vmin double gray;
+}
+.NavListitem {cursor: pointer;
+    display: block; text-align:center;
+    margin: 12.1%; padding: 3% 1.4% 3% 1.4%;
     border-radius: 10%;
     border: 0.42vmin double gray;
     background-color: #fafafaa9;
@@ -88,6 +121,39 @@
     -webkit-text-stroke: 0.225vmin #990099;
 }
 
+#LD-slider{
+    position: fixed;
+    bottom:0; right:0;
+    margin:0 2% 2%0;
+    width:8vw; height:6vw;
+    padding:.9% .6vw 0 .6vw;
+    border-radius: 40%;
+}
+.Dark-slider{
+    border: .2vw double lightslategrey;
+    background-color:#fafafa99;
+}
+.Light-slider{
+    border: .2vw double #00000099;
+    background-color:lightslategrey;
+}
+
+#LD-icon{ 
+    cursor: pointer;
+    height: 3.5vw; width:2vw;
+    vertical-align: middle;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.Light-icon{
+    float:left; border: .6vw double black;
+    background-color:white;
+}
+.Dark-icon{
+    float:right;border: .6vw double white;
+    background-color:black;
+}
+
 /* Body-Level */
 
 * {
@@ -102,14 +168,19 @@ html {
 }
 
 body {
-    cursor: crosshair;
     overflow: hidden;
     width: 100vw;
     height: fit-content;
-    background: radial-gradient(circle, #fafafada, black, gray);
     padding: 1%;
 }
-
+.Dark-Body{ color:white;
+    border:1px solid #afafaf55;background: radial-gradient(circle, #fafafada, #090909dd, gray);
+    -webkit-text-stroke:  .2px #09090999;
+}
+.Light-Body{ color:black;
+    border:1px solid #90909055;background: radial-gradient(circle, white, #fafafada, gray, azure);
+    -webkit-text-stroke:  .1px #fafafa4f;
+}
 hr{margin: 1%;}
 
 p {
@@ -121,17 +192,18 @@ header {
     grid-area: header;
     font-family: Lobster, monospace;
     height: min-content;
+    margin-top: 1%;
 }
-
 
 
 footer {
     display: flex; align-items: center;
-    margin: 1%;  
+    margin: 1%;  color:#000;
+    padding:1%;
     font-size: 1.2vw;
-   text-align: center;
+    text-align: center;
     border: 1vmin double #fff000;
-    background:linear-gradient(40deg,var(--Shiftery-Background), var(--Shiftery-Background));
+    background:conic-gradient(var(--Shiftery-Background), var(--Shiftery-Background));
 }
 footer > span { width:50%; display:inline;}
 footer > span > img{display: inline; vertical-align: middle;}
@@ -157,10 +229,11 @@ Rows will be seperated by '*' */
     top: 0;
     padding: 1%;
     max-height: max-content;
-    border-radius: 1%;
+    border-radius: 2%;
     border: 2px solid #fff000;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    animation: HomeAnimation 3s linear 2s infinite both;
+    background-color:var(--Main-color-A);
+    animation: HomeAnimation 3s cubic-bezier(0.075, 0.82, 0.165, 1) 5s infinite forwards;
 }
 
 /****************************/
@@ -379,411 +452,4 @@ Rows will be seperated by '*' */
 #CloseQuoteBox:hover {
     transform: scale(1.2);
     background-color: #ff000055;
-}
-
-/*Box Main animation*/
-@keyframes HomeAnimation {
-    0% {
-        background: linear-gradient(0deg, salmon, lightpink);
-    }
-
-    1% {
-        background: linear-gradient(3.65deg, salmon, lightpink);
-    }
-
-    2% {
-        background: linear-gradient(7.3deg, salmon, lightpink);
-    }
-
-    3% {
-        background: linear-gradient(10.95deg, salmon, lightpink);
-    }
-
-    4% {
-        background: linear-gradient(14.6deg, salmon, lightpink);
-    }
-
-    5% {
-        background: linear-gradient(18.35deg, salmon, lightpink);
-    }
-
-    6% {
-        background: linear-gradient(22deg, salmon, lightpink);
-    }
-
-    7% {
-        background: linear-gradient(25.65deg, salmon, lightpink);
-    }
-
-    8% {
-        background: linear-gradient(29.3deg, salmon, lightpink);
-    }
-
-    9% {
-        background: linear-gradient(32.95deg, salmon, lightpink);
-    }
-
-    10% {
-        background: linear-gradient(36.6deg, salmon, lightpink);
-    }
-
-    11% {
-        background: linear-gradient(40.15deg, salmon, lightpink);
-    }
-
-    12% {
-        background: linear-gradient(43.8deg, salmon, lightpink);
-    }
-
-    13% {
-        background: linear-gradient(47.45deg, salmon, lightpink);
-    }
-
-    14% {
-        background: linear-gradient(51.1deg, salmon, lightpink);
-    }
-
-    15% {
-        background: linear-gradient(54.75deg, salmon, lightpink);
-    }
-
-    16% {
-        background: linear-gradient(58.4deg, salmon, lightpink);
-    }
-
-    17% {
-        background: linear-gradient(62.05deg, salmon, lightpink);
-    }
-
-    18% {
-        background: linear-gradient(65.7deg, salmon, lightpink);
-    }
-
-    19% {
-        background: linear-gradient(69.35deg, salmon, lightpink);
-    }
-
-    20% {
-        background: linear-gradient(73deg, salmon, lightpink);
-    }
-
-    21% {
-        background: linear-gradient(76.65deg, salmon, lightpink);
-    }
-
-    22% {
-        background: linear-gradient(80.3deg, salmon, lightpink);
-    }
-
-    23% {
-        background: linear-gradient(83.95deg, salmon, lightpink);
-    }
-
-    24% {
-        background: linear-gradient(87.6deg, salmon, lightpink);
-    }
-
-    25% {
-        background: linear-gradient(91.25deg, salmon, lightpink);
-    }
-
-    26% {
-        background: linear-gradient(94.9deg, salmon, lightpink);
-    }
-
-    27% {
-        background: linear-gradient(98.55deg, salmon, lightpink);
-    }
-
-    28% {
-        background: linear-gradient(102.2.3deg, salmon, lightpink);
-    }
-
-    29% {
-        background: linear-gradient(105.85deg, salmon, lightpink);
-    }
-
-    30% {
-        background: linear-gradient(109.5deg, salmon, lightpink);
-    }
-
-    31% {
-        background: linear-gradient(113.15deg, salmon, lightpink);
-    }
-
-    32% {
-        background: linear-gradient(116.5deg, salmon, lightpink);
-    }
-
-    33% {
-        background: linear-gradient(120.45deg, salmon, lightpink);
-    }
-
-    34% {
-        background: linear-gradient(124.1deg, salmon, lightpink);
-    }
-
-    35% {
-        background: linear-gradient(127.75deg, salmon, lightpink);
-    }
-
-    36% {
-        background: linear-gradient(131.4deg, salmon, lightpink);
-    }
-
-    37% {
-        background: linear-gradient(135.04deg, salmon, lightpink);
-    }
-
-    38% {
-        background: linear-gradient(138.7deg, salmon, lightpink);
-    }
-
-    39% {
-        background: linear-gradient(142.35deg, salmon, lightpink);
-    }
-
-    40% {
-        background: linear-gradient(146deg, salmon, lightpink);
-    }
-
-    41% {
-        background: linear-gradient(149.65deg, salmon, lightpink);
-    }
-
-    42% {
-        background: linear-gradient(153.29999999999998deg, salmon, lightpink);
-    }
-
-    43% {
-        background: linear-gradient(156.95deg, salmon, lightpink);
-    }
-
-    44% {
-        background: linear-gradient(160.6deg, salmon, lightpink);
-    }
-
-    45% {
-        background: linear-gradient(164.25deg, salmon, lightpink);
-    }
-
-    46% {
-        background: linear-gradient(167.9deg, salmon, lightpink);
-    }
-
-    47% {
-        background: linear-gradient(171.54999999999998deg, salmon, lightpink);
-    }
-
-    48% {
-        background: linear-gradient(175.2deg, salmon, lightpink);
-    }
-
-    49% {
-        background: linear-gradient(178.85deg, salmon, lightpink);
-    }
-
-    50% {
-        background: linear-gradient(182.5deg, salmon, lightpink);
-    }
-
-    51% {
-        background: linear-gradient(186.15deg, salmon, lightpink);
-    }
-
-    52% {
-        background: linear-gradient(189.79999999999998deg, salmon, lightpink);
-    }
-
-    53% {
-        background: linear-gradient(193.45deg, salmon, lightpink);
-    }
-
-    54% {
-        background: linear-gradient(197.1deg, salmon, lightpink);
-    }
-
-    55% {
-        background: linear-gradient(200.75deg, salmon, lightpink);
-    }
-
-    56% {
-        background: linear-gradient(204.4deg, salmon, lightpink);
-    }
-
-    57% {
-        background: linear-gradient(208.04999999999998deg, salmon, lightpink);
-    }
-
-    58% {
-        background: linear-gradient(211.7deg, salmon, lightpink);
-    }
-
-    59% {
-        background: linear-gradient(215.35deg, salmon, lightpink);
-    }
-
-    60% {
-        background: linear-gradient(219deg, salmon, lightpink);
-    }
-
-    61% {
-        background: linear-gradient(222.65deg, salmon, lightpink);
-    }
-
-    62% {
-        background: linear-gradient(226.29999999999998deg, salmon, lightpink);
-    }
-
-    63% {
-        background: linear-gradient(229.95deg, salmon, lightpink);
-    }
-
-    64% {
-        background: linear-gradient(233.6deg, salmon, lightpink);
-    }
-
-    65% {
-        background: linear-gradient(237.25deg, salmon, lightpink);
-    }
-
-    66% {
-        background: linear-gradient(240.9deg, salmon, lightpink);
-    }
-
-    67% {
-        background: linear-gradient(244.54999999999998deg, salmon, lightpink);
-    }
-
-    68% {
-        background: linear-gradient(248.2deg, salmon, lightpink);
-    }
-
-    69% {
-        background: linear-gradient(251.85deg, salmon, lightpink);
-    }
-
-    70% {
-        background: linear-gradient(255.5deg, salmon, lightpink);
-    }
-
-    71% {
-        background: linear-gradient(259.15deg, salmon, lightpink);
-    }
-
-    72% {
-        background: linear-gradient(262.8deg, salmon, lightpink);
-    }
-
-    73% {
-        background: linear-gradient(266.45deg, salmon, lightpink);
-    }
-
-    74% {
-        background: linear-gradient(270.09999999999997deg, salmon, lightpink);
-    }
-
-    75% {
-        background: linear-gradient(273.75deg, salmon, lightpink);
-    }
-
-    76% {
-        background: linear-gradient(277.4deg, salmon, lightpink);
-    }
-
-    77% {
-        background: linear-gradient(281.05deg, salmon, lightpink);
-    }
-
-    78% {
-        background: linear-gradient(284.7deg, salmon, lightpink);
-    }
-
-    79% {
-        background: linear-gradient(288.34999999999997deg, salmon, lightpink);
-    }
-
-    80% {
-        background: linear-gradient(292deg, salmon, lightpink);
-    }
-
-    81% {
-        background: linear-gradient(295.65deg, salmon, lightpink);
-    }
-
-    82% {
-        background: linear-gradient(299.3deg, salmon, lightpink);
-    }
-
-    83% {
-        background: linear-gradient(302.95deg, salmon, lightpink);
-    }
-
-    84% {
-        background: linear-gradient(306.59999999999997deg, salmon, lightpink);
-    }
-
-    85% {
-        background: linear-gradient(310.25deg, salmon, lightpink);
-    }
-
-    86% {
-        background: linear-gradient(313.9deg, salmon, lightpink);
-    }
-
-    87% {
-        background: linear-gradient(317.55deg, salmon, lightpink);
-    }
-
-    88% {
-        background: linear-gradient(321.2deg, salmon, lightpink);
-    }
-
-    89% {
-        background: linear-gradient(324.84999999999997deg, salmon, lightpink);
-    }
-
-    90% {
-        background: linear-gradient(328.5deg, salmon, lightpink);
-    }
-
-    91% {
-        background: linear-gradient(332.15deg, salmon, lightpink);
-    }
-
-    92% {
-        background: linear-gradient(335.8deg, salmon, lightpink);
-    }
-
-    93% {
-        background: linear-gradient(339.45deg, salmon, lightpink);
-    }
-
-    94% {
-        background: linear-gradient(343.09999999999997deg, salmon, lightpink);
-    }
-
-    95% {
-        background: linear-gradient(346.75deg, salmon, lightpink);
-    }
-
-    96% {
-        background: linear-gradient(350.4deg, salmon, lightpink);
-    }
-
-    97% {
-        background: linear-gradient(354.05deg, salmon, lightpink);
-    }
-
-    98% {
-        background: linear-gradient(357.7deg, salmon, lightpink);
-    }
-
-    99% {
-        background: linear-gradient(361.34999999999997deg, salmon, lightpink);
-    }
-
-    100% {
-        background: linear-gradient(365deg, salmon, lightpink);
-    }
 }

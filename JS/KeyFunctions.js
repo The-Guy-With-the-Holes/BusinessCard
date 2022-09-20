@@ -5,9 +5,7 @@ function getDatearr() {
   return currentDay;
 }
 
-//Storage
-function removeQOTD() { document.getElementById('QuoteBox').remove(); }
-let todaysDate = (getDatearr());
+
 
 // Utility functions
 function randomNum(min, max) {
@@ -46,7 +44,69 @@ function createClass(name, rules) {
     style.sheet.insertRule(name + "{" + rules + "}", 0);
 }
 
+// ### Load In Functions ###
+const ColorShifter = {
+  colors:{
+  light_A:'salmon', dark_A:'black',
+  light_B:'lightpink', dark_B:'gray',
+},
+type:'Light',
+  deg:0,
+  inc:0.9,
+  timer:setInterval(ColorShift,20),
+}
 
+function ColorShift(){
+  let t =document.querySelectorAll('.ColorShifter');
+  let deg = ColorShifter.deg; let c = ColorShifter.colors;
+  let x ='-';
+  
+  for(let i=0; i<t.length; i++) {
+    if(i > 0){x = '' ;}
+    if(ColorShifter.type=="Light"){ t[i].style.background="linear-gradient("+x+deg+"deg,"+c.light_A+','+c.light_B+")"; }
+    else{t[i].style.background="linear-gradient("+x+deg+"deg,"+c.dark_A+','+c.dark_B+")";} 
+}
+  deg+=ColorShifter.inc;
+  if(deg>365){deg = 0;}
+  ColorShifter.deg=deg;
+}
+
+let ColorShiftertimer =setInterval(ColorShift,80) ;
+
+function AddLightDarkSwitcher(){
+  let sich= document.createElement('button'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
+  let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
+  slider.append(sich);
+  Get.Body.append(slider);
+  Get.Body.setAttribute('class','LB');
+}
+
+function LDswitch(type){
+  let slider = document.getElementById('LD-slider');
+  let Switch = document.getElementById('LD-icon');  
+ 
+  if(slider.classList.contains('Light-slider')){type="Dark";}
+  else{ type="Light";}
+    ColorShifter.type=type;
+    slider.setAttribute('class',type+'-slider');
+    Switch.setAttribute('class',type+'-icon');
+    Get.Body.setAttribute('class',type+'-Body');
+  
+  
+}
+
+function AddMainNav(){
+  let nav = document.createElement('nav');
+  let target =document.getElementById('hr1');
+  let item = document.createElement('a');
+
+  setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'LoadNewNavBar()'});
+  item.append(document.createTextNode('☰'));
+  nav.append(item);
+  target.prepend(nav);
+}
+AddMainNav();
+AddLightDarkSwitcher();
 //NavBAR
 function AddNavBar(title) {
 
@@ -54,9 +114,15 @@ function AddNavBar(title) {
   if (!title) { title = document.querySelector('title').innerText; }
   if (title == "Home") { }//{Nav.e.push('Extend');}
 
-  let body = document.body;
   let NavBar = document.createElement('div');
   setAttributes(NavBar, { 'class': 'NavBar' });
+
+  let clsbtn=document.createElement('button');
+  clsbtn.append((document.createTextNode('X')));
+  setAttributes(clsbtn,{'id':'Nav-Close-btn', 'onclick':'clearNavBar()'});
+
+  NavBar.append(clsbtn);
+
 
   for (let i = 0; i < Nav.e.length; i++) {
     let Name = Nav.e[i]; if (Debug.Nav == true) { console.log('Creating Nav' + Name); }
@@ -72,14 +138,14 @@ function AddNavBar(title) {
     setAttributes(li, { 'class': 'NavListitem', 'name': Name });
     li.append(a);
     if (Name == title || false && Name != Nav.e[0]) {
-      a.setAttribute('href', '#');
-      li.setAttribute('id', 'NavBar_Selected');
+      a.setAttribute('href', '#Home');
+      setAttributes(li,{'id':'NavBar_Selected','onclick':'clearNavBar()'});
     }
 
     if (Name == "About") {
       let s = document.createElement('span');
       let ABTdrops = Get.AboutPages;
-      a.removeAttribute('href'); a.setAttribute('onclick', 'toggleAboutDropdown()');
+      a.removeAttribute('href'); li.setAttribute('onclick', 'toggleAboutDropdown()');
 
       for (let d = 0; d < ABTdrops.length; d++) {
         let list = document.createElement('a');
@@ -99,28 +165,33 @@ function AddNavBar(title) {
     //Debug
     if (Name == "DEV") { li.setAttribute('onclick', 'UnlockDEVtools()'); UnlockDEVtools(); }
     //Float last element
-    if (i == (Nav.e.length - 1)) { setAttributes(li, { 'style': 'float:right;' }); }
+    if (i == (Nav.e.length - 1)) { setAttributes(li, { 'style': 'float:bottom;' }); }
     NavBar.append(li);
   }
-  let header = document.querySelector('#hr1');
-header.prepend(NavBar);
-/*  body.prepend(NavBar);
-*/
-  
-  AppendFooter();
+ 
+  Get.Body.prepend(NavBar);
 }
+
+Get.Nav.Switch=document.getElementById('NavSwitch');
 
 function clearNavBar() {
   let Nav = document.querySelector('.NavBar');
-  if (Nav) { Nav.remove(); }
+  if (Nav) {
+    Get.Nav.Switch.innerText="☰";
+    Get.Nav.Switch.setAttribute('onclick','LoadNewNavBar()');
+    Nav.remove();
+  }
 }
 
 function LoadNewNavBar(t) {
-  clearNavBar();
+  clearNavBar(); 
   AddNavBar(t);
+  Get.Nav.Switch.innerText="⚞";
+  Get.Nav.Switch.setAttribute('onclick','clearNavBar()');
 }
-AddNavBar();
 
+
+AppendFooter();
 
 function AppendFooter(){
   let t = document.getElementById('hr2'); let footer=document.createElement('footer');
@@ -142,7 +213,6 @@ t.append(footer);
 }
 
 
-
 /*########################
 //      Shiftery
 ########################## 
@@ -154,7 +224,7 @@ const ShifteryAttr = {
   incDeg:false,
   shape:'conic',
   targets:
-    [ document.querySelector('.NavBar'), document.querySelector('footer')
+    [ document.querySelector('.NavBar'), document.querySelector('footer'),
   ],
   debug:false,
   running:false,

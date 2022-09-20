@@ -18,15 +18,21 @@ const Nav =  { e:['Home','About','Certificates'],
 }
 
 const TODO=[
-    'Redesign Nav ☰ > ⚞',
-    'Workout 15 mins',
     'Create About Contact',
     'Turn Floating icons into js load function, keep CSS',
-    'Code NfC - Jackewers.com'
 ];
 
 // Variables
 const Get = {
+    Body: document.body,
+
+    HR:{    1:document.getElementById('hr1'),
+            2:document.getElementById('hr2'), },
+
+    Nav:{
+        Switch:document.getElementById('NavSwitch'),
+    },
+
     Title:document.querySelector('title'),
     Extndbtn : document.getElementById('ExtendButton'),
     Pages:['Home' ,'About','Contact','Recommendations','Certificates'],
@@ -46,7 +52,7 @@ const Get = {
     }   ,
 
    
-    Footer:['Powered by ','BloodWorks','https://jackewers.com/i/Icons/₿/BloodWebX4.png',
+    Footer:['Powered by ','BloodWorks','/i/Icons/₿/BloodWebX4.png',
         'This page and its contents are copyright of BloodWeb© under the ',
         ' MIT license']   
 }
