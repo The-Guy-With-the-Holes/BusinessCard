@@ -14,20 +14,20 @@ padding-bottom:1vw ;
 
 
 /*Text*/
-header{
+header {
     display: block;
- text-align: center; width:94%;
-  background-color: #11ffad;
+    text-align: center; width:94%;
+    background-color: #11ffad;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  
 }
 
 h1 { color: #fff; margin-bottom: 1%;   margin-left: 1%;
     font-size: 5.2vmin; text-align: left;
 }
+
 h1 > u { color: #888; 
-    font-size: 9.8vmin; -webkit-text-stroke: 0.11vmin gold;  
-}
+    font-size: 9.8vmin; -webkit-text-stroke: 0.11vmin gold;   }
+
 h1>strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin goldenrod;}
 
 h2 { top: 0; color: #000; font-size: 3vmin;
