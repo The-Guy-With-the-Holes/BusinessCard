@@ -10,10 +10,10 @@ const Debug = {
     Recom:true,
 }
 
-const Nav =  { e:['Home','About','Certificates'],
+const Nav =  { 
+    e:['Home','About','Certificates'],
     Home:'index',
     About:['About','Contact','Recommendations'],
-   
     Certificates:'Certificates',
 }
 
@@ -27,7 +27,8 @@ const Get = {
     Body: document.body,
 
     HR:{    1:document.getElementById('hr1'),
-            2:document.getElementById('hr2'), },
+            2:document.getElementById('hr2'), 
+        },
 
     Nav:{
         Switch:document.getElementById('NavSwitch'),
@@ -52,8 +53,8 @@ const Get = {
     }   ,
 
    
-    Footer:['Powered by ','BloodWorks','/i/Icons/₿/BloodWebX4.png',
-        'This page and its contents are copyright of BloodWeb© under the ',
+    Footer:['Powered by ','₿loodWorks','i/Icons/₿/₿loodWebX4.png',
+        'This page and its contents are copyright of ₿loodWeb© under the ',
         ' MIT license']   
 }
 const About = { lists:['Hobbies','Passions'], 

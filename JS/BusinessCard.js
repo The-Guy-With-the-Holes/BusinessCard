@@ -138,9 +138,9 @@ function replaceMainDesc(Quote){
     let x = getQOTD(); 
     if(Quote){ let x=Quote; }
     
-    if (x.length<=50){ quoteFont="2.6vw";}
-    else if(x.length>50 && x.length<=99){ quoteFont='2.4vw';}
-    else if(x.length>=100){ quoteFont='2vw';}
+    if (x.length<=50){ quoteFont="2.8w";}
+    else if(x.length>50 && x.length<=99){ quoteFont='2.6vw';}
+    else if(x.length>=100){ quoteFont='2.3vw';}
     
     desc.style.fontSize=quoteFont;
     desc.innerText= x+'\n\n-- Quote of the day';

@@ -226,9 +226,7 @@ background-color: #fafafa55;
 
 
 
-/* Pages, --> .box-main
-Home - About(sub) - Recommends - Certificates
-Rows will be seperated by '*' *11111111111111111111111111111111111/
+/* Pages, --> .box-main*/
 
 .box-main {
     position: relative;

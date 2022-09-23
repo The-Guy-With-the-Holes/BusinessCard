@@ -11,7 +11,15 @@ padding-bottom:1vw ;
     cursor: move;  border-radius: 50%;
     background-image: var(--Profile-Img-A); background-size: contain; background-position: center;
 }
-
+.mainx:hover {
+    animation-name: SpinMain;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards ;
+}
+.mainx:hover::after{
+    background-image: url(i/Profile.jpg);
+}
 
 /*Text*/
 header {
@@ -44,15 +52,7 @@ h3 > p { text-align: center;}
     font-size: medium; 
 background-color: beige; border: 3.5px double coral;
 }
-.mainx:hover {
-    animation-name: SpinMain;
-    animation-iteration-count: 1;
-    animation-duration: 3s;
-    animation-fill-mode: forwards ;
-}
-.mainx:hover::after{
-    background-image: url(../i/Profile.jpg);
-}
+
 .Together > b { 
     width: max-content; right: 100;
     text-align: center; background-color: #f5deb355; 
@@ -90,10 +90,11 @@ h3{flex:0.59; margin-top: 2%;
     margin: 9% 0 15% 0; width:100%;
 }
 #main-desc {
-    width: 70%; font-size:2.6vw; margin-top: 30%; padding: 0.3%; 
+    width: 70%; font-size:2.8vw; margin-top: 25%; padding: 0.3%; 
     border-top: 12px double #fafafa6f;
     border-bottom: 12px double#fafaf02f;
 }
+
 .Lister{
     animation-name: Lisiter;
     animation-duration: 1s;
