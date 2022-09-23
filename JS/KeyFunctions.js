@@ -33,7 +33,7 @@ function setAttributes(el, attrs) {
     el.setAttribute(key, attrs[key]);
   }
 }
-
+    
 function createClass(name, rules) {
   var style = document.createElement('style');
   style.type = 'text/css';
@@ -49,13 +49,15 @@ const ColorShifter = {
   colors:{
   light_A:'salmon', dark_A:'black',
   light_B:'lightpink', dark_B:'gray',
-},
-type:'Light',
+  },
+  icons:['☼' , '☽'],
+  type:'Light',
   deg:0,
   inc:0.9,
   timer:setInterval(ColorShift,20),
 }
 
+//Main content background
 function ColorShift(){
   let t =document.querySelectorAll('.ColorShifter');
   let deg = ColorShifter.deg; let c = ColorShifter.colors;
@@ -70,12 +72,16 @@ function ColorShift(){
   if(deg>365){deg = 0;}
   ColorShifter.deg=deg;
 }
-
 let ColorShiftertimer =setInterval(ColorShift,80) ;
 
+
+// Light/Dark mode
+
 function AddLightDarkSwitcher(){
-  let sich= document.createElement('button'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
+  let sich= document.createElement('p'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
   let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
+ 
+  sich.append((document.createTextNode('☼')));
   slider.append(sich);
   Get.Body.append(slider);
   Get.Body.setAttribute('class','LB');
@@ -84,16 +90,22 @@ function AddLightDarkSwitcher(){
 function LDswitch(type){
   let slider = document.getElementById('LD-slider');
   let Switch = document.getElementById('LD-icon');  
+  let symbol = ColorShifter.icons;
  
-  if(slider.classList.contains('Light-slider')){type="Dark";}
-  else{ type="Light";}
+  if(slider.classList.contains('Light-slider')){type="Dark"; symbol = symbol[1];}
+  else{ type="Light"; symbol = symbol[0];}
+
     ColorShifter.type=type;
     slider.setAttribute('class',type+'-slider');
     Switch.setAttribute('class',type+'-icon');
     Get.Body.setAttribute('class',type+'-Body');
-  
-  
+    updateSlider(symbol); ShiftSwitch(type);
 }
+
+function updateSlider(icon){
+  if (!!icon){ document.getElementById('LD-icon').innerText=icon; }
+}
+
 
 function AddMainNav(){
   let nav = document.createElement('nav');
@@ -172,7 +184,7 @@ function AddNavBar(title) {
   Get.Body.prepend(NavBar);
 }
 
-Get.Nav.Switch=document.getElementById('NavSwitch');
+Get.Nav.Switch = document.getElementById('NavSwitch');
 
 function clearNavBar() {
   let Nav = document.querySelector('.NavBar');
@@ -218,19 +230,22 @@ t.append(footer);
 ########################## 
 */
 const ShifteryAttr = {
-  colors:(createHexchain((randomNum(10,99)))),
+  default:true,
+  debug:false,
+  running:false, 
   speed:200,
+  shape:'conic',
   deg:40,
   incDeg:false,
-  shape:'conic',
+  colors:(createHexchain((randomNum(10,99)))),
+ 
   targets:
-    [ document.querySelector('.NavBar'), document.querySelector('footer'),
+    [ document.querySelector('nav'), document.querySelector('footer'),
   ],
-  debug:false,
-  running:false,
+  
 }
 
-let shifterydef = [
+let lShift = [
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
@@ -240,7 +255,35 @@ let shifterydef = [
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd'];
 
+let dShift = [
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+  '#020', '#2a2','#303','#000',
+];
 
+
+
+let shifteryInterval ;
+
+//Beta
+function ShiftSwitch(type){
+
+  if(ShifteryAttr.default==true){
+    switch (type) {
+      
+      case 'Light':
+        ShifteryAttr.colors = lShift; break;
+
+      case 'Dark':
+        ShifteryAttr.colors = dShift; break;
+  }
+}
+}
 
 function Shiftery() {
 shifterychain = ShifteryAttr.colors;
@@ -261,9 +304,9 @@ switch (shape) {
     build2="linear-gradient("+deg+'deg,'+shifterychain + ")";
     break;
 }
-for (let i = 0; i< Shiftargs.length; i++){
-  if(i<1){Shiftargs[i].style.background = build1;}
-  else{Shiftargs[i].style.background = build2;}
+  for (let i = 0; i< Shiftargs.length; i++){
+    if(i<1){Shiftargs[i].style.background = build1; continue;}
+    Shiftargs[i].style.background = build2;
 }
   
   
@@ -273,10 +316,10 @@ for (let i = 0; i< Shiftargs.length; i++){
   }
   shifterychain.push(shifterychain[0]);
   shifterychain.shift();
+
   if(ShifteryAttr.debug==true){console.log('Shiftery cycle');}
 }
 
-let shifteryInterval ;
 
 function changeShifteryState (running,speed,colors,shape,deg,incDeg){
   ShifteryAttr.running=running; ShifteryAttr.speed=speed
@@ -291,7 +334,7 @@ function changeShifteryState (running,speed,colors,shape,deg,incDeg){
   if(running==true){shifteryInterval=setInterval(Shiftery,speed);}
 }
 
-changeShifteryState(false,64,shifterydef);
+changeShifteryState(true,64,lShift);
 
 //Tasklist
 function insertAfter(referenceNode, newNode) {

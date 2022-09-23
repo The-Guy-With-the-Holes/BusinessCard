@@ -24,12 +24,14 @@ nav {
      border: 1vmin groove gray;
     background: conic-gradient( var(--Shiftery-Background), var(--Shiftery-Background));
     display:block;
-    margin:1vh 0 1vh 0 ;
-    padding:1%;
+    margin: 1vh 0 1vh 0 ;
+    padding: 1%;
 }
 
 #hr1{width: 98vw; margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
-#NavSwitch{ display: block; width: fit-content;
+
+#NavSwitch{ 
+    display: block; width: fit-content;
     margin:0 auto;
     font-size: x-large;
     color:white;
@@ -37,7 +39,8 @@ nav {
     background-color: #000000bf;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 0.5% 0.5% 1% 0.5%;
-text-decoration: none;}
+text-decoration: none;
+}
 #NavSwitch:hover{
     transform: scale(1.12);
     background-color: #000000ef;
@@ -124,10 +127,10 @@ text-decoration: none;}
 #LD-slider{
     position: fixed;
     bottom:0; right:0;
-    margin:0 2% 2%0;
-    width:8vw; height:6vw;
-    padding:.9% .6vw 0 .6vw;
-    border-radius: 40%;
+    margin:2vw;
+    width:50px; height: max-content ;
+    padding:1vw 1vw 1vw 1vw ;
+    border-radius: 12%;
 }
 .Dark-slider{
     border: .2vw double lightslategrey;
@@ -140,10 +143,15 @@ text-decoration: none;}
 
 #LD-icon{ 
     cursor: pointer;
-    height: 3.5vw; width:2vw;
-    vertical-align: middle;
+    display: flex;
+    height: 20px; width:20px;
+    font-size: 20px;
     border-radius: 50%;
     transition: 0.5s;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 .Light-icon{
     float:left; border: .6vw double black;
