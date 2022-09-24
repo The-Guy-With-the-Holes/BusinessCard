@@ -177,8 +177,9 @@ input[type="radio"]:checked {
  
 /* Icon Boxes */
 
-#IconBox {padding: 1%; width: min-content; }
-
+#IconBox {display:block; padding: 1%;   margin:auto;
+    text-align: center;
+}
 #IconBoxPre { display: none; }
 
 .Boxes{  

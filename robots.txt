@@ -12,17 +12,27 @@
 #
 # For more information about the robots.txt standard, see:
 # http://www.robotstxt.org/robotstxt.html
-
-
-User-agent: *
+ 
+### Allow Bots (google) ###
+User-agent: Googlebot
+Disallow:
+### Disallow Bots (christcrawler) ###
+User-agent: christcrawler
+Disallow: /
+###################
 Crawl-delay: 5
-#Main
+### Content ###
 Allow:*.css?
 Allow:*.css$
 Allow:*.js?
 Allow:*.js$
 Allow:*.ico
-#Directories
+### Directories ###
 Allow: /i/icons/₿/*
 Disallow: /i/*
-#Files
+Disallow: /JS
+Disallow: /css
+Disallow: /Certfificates
+### Files ###
+Disallow:
+

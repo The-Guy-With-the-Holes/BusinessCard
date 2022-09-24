@@ -125,10 +125,10 @@ text-decoration: none;
 }
 
 #LD-slider{
-    position: fixed;
+    position: absolute;
     bottom:0; right:0;
     margin:2vw;
-    width:50px; height: max-content ;
+    width:50px;
     padding:1vw 1vw 1vw 1vw ;
     border-radius: 12%;
 }
@@ -138,26 +138,29 @@ text-decoration: none;
 }
 .Light-slider{
     border: .2vw double #00000099;
-    background-color:lightslategrey;
+    background-color: #77889999;
 }
 
 #LD-icon{ 
-    cursor: pointer;
-    display: flex;
-    height: 20px; width:20px;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: 0.5s;
-    align-items: center;
-    justify-content: center;
+height: 6vw;
+width: 6vw;
+border-radius: 50%;
+text-align: center;
+
+background-size: contain;
+background-position-x: center;
+background-position-y: center;
 }
+
 .Light-icon{
     float:left; border: .6vw double black;
     background-color:white;
+    background-image: url(/i/Icons/64BIT\(GRAY\)/Uni-Sun.png);
 }
 .Dark-icon{
     float:right;border: .6vw double white;
     background-color:black;
+    background-image: url(/i/Icons/64BIT\(GRAY\)/Uni-Moon.png);
 }
 
 /* Body-Level */

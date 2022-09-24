@@ -78,10 +78,10 @@ let ColorShiftertimer =setInterval(ColorShift,80) ;
 // Light/Dark mode
 
 function AddLightDarkSwitcher(){
-  let sich= document.createElement('p'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
+  let sich= document.createElement('div'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
   let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
- 
-  sich.append((document.createTextNode('☼')));
+
+  
   slider.append(sich);
   Get.Body.append(slider);
   Get.Body.setAttribute('class','LB');
@@ -92,19 +92,17 @@ function LDswitch(type){
   let Switch = document.getElementById('LD-icon');  
   let symbol = ColorShifter.icons;
  
-  if(slider.classList.contains('Light-slider')){type="Dark"; symbol = symbol[1];}
-  else{ type="Light"; symbol = symbol[0];}
+  if(slider.classList.contains('Light-slider')){type="Dark"; }
+  else{ type="Light"; }
 
     ColorShifter.type=type;
     slider.setAttribute('class',type+'-slider');
     Switch.setAttribute('class',type+'-icon');
     Get.Body.setAttribute('class',type+'-Body');
-    updateSlider(symbol); ShiftSwitch(type);
+     ShiftSwitch(type);
 }
 
-function updateSlider(icon){
-  if (!!icon){ document.getElementById('LD-icon').innerText=icon; }
-}
+
 
 
 function AddMainNav(){

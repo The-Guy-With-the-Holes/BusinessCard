@@ -18,6 +18,8 @@ const Nav =  {
 }
 
 const TODO=[
+    'Main image slider icons -- Noview IOS',
+    'Main social icons -- float right IOS',
     'Create About Contact',
     'Turn Floating icons into js load function, keep CSS',
 ];
