@@ -39,7 +39,7 @@ nav {
     background-color: #000000bf;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 0.5% 0.5% 1% 0.5%;
-text-decoration: none;
+    text-decoration: none;
 }
 #NavSwitch:hover{
     transform: scale(1.12);
@@ -65,7 +65,8 @@ text-decoration: none;
     background-color: #fafacfcc;
     border: 0.42vmin double gray;
 }
-.NavListitem {cursor: pointer;
+.NavListitem {
+    cursor: pointer;
     display: block; text-align:center;
     margin: 12.1%; padding: 3% 1.4% 3% 1.4%;
     border-radius: 10%;
@@ -109,9 +110,7 @@ text-decoration: none;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-.Aboutdropdown-content:hover {
-    transform: scale(1.12);
-}
+.Aboutdropdown-content:hover { transform: scale(1.12); }
 
 
 .Tasklist {
@@ -126,7 +125,7 @@ text-decoration: none;
 
 #LD-slider{
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     bottom:0; right:0;
     margin:2vw;
     width:14vw;
