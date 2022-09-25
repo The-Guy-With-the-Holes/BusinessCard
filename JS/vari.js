@@ -22,6 +22,7 @@ const TODO=[
     'Main social icons -- float right IOS',
     'Create About Contact',
     'Turn Floating icons into js load function, keep CSS',
+    'Certificates'+'PG-TS/jQ/'+'HX-MDS',
 ];
 
 // Variables
