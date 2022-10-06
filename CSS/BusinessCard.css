@@ -33,9 +33,9 @@ nav {
 #NavSwitch{ 
     display: block; width: fit-content;
     margin:0 auto;
-    font-size: x-large;
+    font-size: max(2vw,2.4vh);
     color:white;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: max(.2vw,.24vh) whitesmoke;
     background-color: #000000bf;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 0.5% 0.5% 1% 0.5%;
@@ -70,6 +70,7 @@ nav {
     display: block; text-align:center;
     margin: 12.1%; padding: 3% 1.4% 3% 1.4%;
     border-radius: 10%;
+    font-size: min(6.32vw,2.8vh);
     border: 0.42vmin double gray;
     background-color: #fafafaa9;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -128,8 +129,8 @@ nav {
     position: fixed;
     bottom:0; right:0;
     margin:2vw;
-    width:14vw;
-    padding:1vw 1vw 1vw 1vw ;
+    width:13vmin;
+    padding: 1vw  ;
     border-radius: 12%;
 }
 .Dark-slider{
@@ -143,12 +144,17 @@ nav {
 
 #LD-icon{ 
 border: 0.6vw double;
-height: 6vw; width: 6vw; text-align: center;
+height: 6vw; width: 6vw; 
+max-height: 3.5vh ; max-width: 3.5vh;
+text-align: center;
 border-radius: 50%;
 background-size: contain; background-position-x: center; background-position-y: center;
 transition: 0.5s;
 }
 
+#LD-icon:hover{
+    transform: scale(1.2);
+}
 .Light-icon{
     float:left; 
     border-color: #000; background-color:white;
@@ -386,76 +392,4 @@ background-color: #fafafa55;
     width: 50%;
     right: 1%;
     font-size: small;
-}
-
-
-/*Special*/
-#GFbtn {
-    cursor: pointer;
-    background-image: url(../i/Sponsors/GFicon.ico);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 10vmin;
-    width: 10vmin;
-    border-radius: 50%;
-}
-
-
-/* Quote Box */
-#QuoteBox {
-    display: block;
-    z-index: 4;
-    padding: 0.2% 5% 3% 5%;
-    margin: 0 auto;
-    margin-bottom: 2vh;
-    text-align: center;
-    background-color: #fafafa;
-    border: 2vmin double red;
-    color: gray;
-    -webkit-text-stroke: 0.1vmin gold;
-}
-
-#TimeQuoteBox {
-    font-size: 3vw;
-    text-align: right;
-    display: inline-block;
-    right: 100%;
-    color: #000;
-    -webkit-text-stroke: 0.1vmin gold;
-    margin: 0 10% 6% 0;
-}
-
-#QuoteBoxP {
-    background-color: #f5f5f555;
-    text-align: left;
-}
-
-#QuoteBoxP::before {
-    content: 'Quote';
-    font-size: 6vw;
-    -webkit-text-stroke: 0.3vw black;
-}
-
-#QuoteBoxP::first-letter {
-    font-size: 8vw;
-}
-
-#QuoteBoxP::first-line {
-    font-size: 3.2vw;
-}
-
-#CloseQuoteBox {
-    position: absolute;
-    right: 2.2%;
-    padding: 1%;
-    -webkit-text-stroke: 1vw red;
-    border: 1vw solid #ff000055;
-    font-size: large;
-    opacity: 0.7;
-}
-
-#CloseQuoteBox:hover {
-    transform: scale(1.2);
-    background-color: #ff000055;
 }

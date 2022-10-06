@@ -43,7 +43,10 @@ function createClass(name, rules) {
   else
     style.sheet.insertRule(name + "{" + rules + "}", 0);
 }
-
+//Tasklist
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
 // ### Load In Functions ###
 const ColorShifter = {
   colors:{
@@ -110,98 +113,41 @@ function AddMainNav(){
   let target =document.getElementById('hr1');
   let item = document.createElement('a');
 
-  setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'LoadNewNavBar()'});
+  setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'AddNavBar()'});
   item.append(document.createTextNode('☰'));
   nav.append(item);
   target.prepend(nav);
 }
+
 AddMainNav();
-AddLightDarkSwitcher();
-//NavBAR
-function AddNavBar(title) {
-
-  if (Debug.Developer == true && !Nav.e.includes('DEV')) { Nav.e.unshift('DEV') }
-  if (!title) { title = document.querySelector('title').innerText; }
-  if (title == "Home") { }//{Nav.e.push('Extend');}
-
-  let NavBar = document.createElement('div');
-  setAttributes(NavBar, { 'class': 'NavBar' });
-
-  let clsbtn=document.createElement('button');
-  clsbtn.append((document.createTextNode('X')));
-  setAttributes(clsbtn,{'id':'Nav-Close-btn', 'onclick':'clearNavBar()'});
-
-  NavBar.append(clsbtn);
-
-
-  for (let i = 0; i < Nav.e.length; i++) {
-    let Name = Nav.e[i]; if (Debug.Nav == true) { console.log('Creating Nav' + Name); }
-    let Adr = Name + '/' + Nav[Name] + '.html';
-    let a = document.createElement('a'); a.append((document.createTextNode(Name)));
-    let li = document.createElement('li');
-
-    //Fixes Links
-    if (Name == "Home") { Adr = "index.html"; }
-    if (title != "Home") { Adr = "../" + Adr; }
-
-    setAttributes(a, { 'href': Adr });
-    setAttributes(li, { 'class': 'NavListitem', 'name': Name });
-    li.append(a);
-    if (Name == title || false && Name != Nav.e[0]) {
-      a.setAttribute('href', '#Home');
-      setAttributes(li,{'id':'NavBar_Selected','onclick':'clearNavBar()'});
-    }
-
-    if (Name == "About") {
-      let s = document.createElement('span');
-      let ABTdrops = Get.AboutPages;
-      a.removeAttribute('href'); li.setAttribute('onclick', 'toggleAboutDropdown()');
-
-      for (let d = 0; d < ABTdrops.length; d++) {
-        let list = document.createElement('a');
-        let text = ABTdrops[(d)].split(' ', 1);
-        if (title == "Home") {
-          setAttributes(list, { 'href': "About/" + text + '.html', 'class': 'Aboutdropdown-content' });
-        }
-        else {
-          setAttributes(list, { 'href': "../About/" + text + '.html', 'class': 'Aboutdropdown-content' });
-        }
-        list.innerText = text;
-        s.append(list);
-      }
-      s.setAttribute('class', 'Aboutdropdown');
-      li.append(s);
-    }
-    //Debug
-    if (Name == "DEV") { li.setAttribute('onclick', 'UnlockDEVtools()'); UnlockDEVtools(); }
-    //Float last element
-    if (i == (Nav.e.length - 1)) { setAttributes(li, { 'style': 'float:bottom;' }); }
-    NavBar.append(li);
-  }
- 
-  Get.Body.prepend(NavBar);
-}
-
 Get.Nav.Switch = document.getElementById('NavSwitch');
+
+function AddNavBar() {
+  let Nav = document.querySelector('.NavBar');
+  if (Nav) {
+    Get.Nav.Switch.innerText="⚞";
+    setAttributes(Get.Nav.Switch,{
+      'onclick':'clearNavBar()','style':'border:.42vmin double gold;'
+    });
+    Nav.style.display="";
+  }
+}
 
 function clearNavBar() {
   let Nav = document.querySelector('.NavBar');
   if (Nav) {
     Get.Nav.Switch.innerText="☰";
-    Get.Nav.Switch.setAttribute('onclick','LoadNewNavBar()');
-    Nav.remove();
+    setAttributes(Get.Nav.Switch,{
+      'onclick':'AddNavBar()','style':'border:.42vmin double gray;'
+    });
+   
+    Nav.style.display="none";
   }
 }
 
-function LoadNewNavBar(t) {
-  clearNavBar(); 
-  AddNavBar(t);
-  Get.Nav.Switch.innerText="⚞";
-  Get.Nav.Switch.setAttribute('onclick','clearNavBar()');
-}
 
 
-AppendFooter();
+
 
 function AppendFooter(){
   let t = document.getElementById('hr2'); let footer=document.createElement('footer');
@@ -269,18 +215,21 @@ let dShift = [
 let shifteryInterval ;
 
 //Beta
-function ShiftSwitch(type){
 
+function ShiftSwitch(type){
+  let nav = document.querySelector('.NavBar');
   if(ShifteryAttr.default==true){
     switch (type) {
-      
       case 'Light':
         ShifteryAttr.colors = lShift; break;
-
       case 'Dark':
         ShifteryAttr.colors = dShift; break;
+    }
+
+    if(ShifteryAttr.running==false){
+      changeShifteryState(false,64,ShifteryAttr.colors);
+    }
   }
-}
 }
 
 function Shiftery() {
@@ -332,9 +281,11 @@ function changeShifteryState (running,speed,colors,shape,deg,incDeg){
   if(running==true){shifteryInterval=setInterval(Shiftery,speed);}
 }
 
-changeShifteryState(true,64,lShift);
 
-//Tasklist
-function insertAfter(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
+
+
+
+
+AddLightDarkSwitcher();
+AppendFooter();
+changeShifteryState(false,64,lShift);

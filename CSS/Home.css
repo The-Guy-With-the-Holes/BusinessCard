@@ -136,9 +136,14 @@ h3{flex:0.59; margin-top: 2%;
     display: block;
 }
 
-
+#slider-radio{
+     display: inline-block;
+     width:max-content;
+}
 #button-main  button {
-    font-size: x-large; text-decoration:line-through;
+    font-size: max(4vw, 40%,);
+    
+    text-decoration:line-through;
     -webkit-text-stroke: 0.08vmin sienna;
     border: 0.08vmin solid orangered; border-radius: 70% 70% 70% 70%;
     background-color: #ff000055;
@@ -147,6 +152,7 @@ h3{flex:0.59; margin-top: 2%;
 
 
 input[type="radio"]{
+   
     border: 0; vertical-align: bottom;
     height: fit-content;
     opacity: 0.3;
@@ -186,8 +192,6 @@ input[type="radio"]:checked {
     display: inline-block; min-width: max-content;
     margin: 1%; padding: 0.5%;
 }
-
-.lower { background-color: #ccffff55; }
 .upper { background-color: #ffccff55; }
 
 /*Single items*/
@@ -209,7 +213,6 @@ input[type="radio"]:checked {
     max-height: 9vh;  height: 10vmin;
     max-width: 9vh;  width: 10vmin; 
     border: 0.5vmin double gold; border-radius: 50%;
-   
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     background-size: contain; background-repeat: no-repeat; background-position-x: center ; background-position-y: center ; 
 }
@@ -257,21 +260,10 @@ input[type="radio"]:checked {
 /*Rotatered??*/
 .hiddenBall { cursor: progress; user-select: none; opacity: 0; }
 
-#HT{opacity: 0;}
-#HB{opacity: 0;}
-
-#Bweb {background-image: url(../i/Icons/₿/BloodWeb.png); }
-#Dhands { opacity: 0.5; background-image: url(../i/dhands.jpg); }
 #Duo {background-image: url(../i/DL.png); }    
-#Fb {background-image: url(../i/FB.png); }
 #Git {background-image: url(../i/git.png); }
-#Stack {background-image: url(../i/Stack.png); }
-#Discord {background-image: url(../i/discord.svg); }
 #LinkD {background-image: url(../i/linkd.png); }
-#Pint {background-image: url(../i/Pint.png); }
 #Certs{background-image: url(../i/Icons/NFTS.png); }
 #Igg {background-image: url(../i/Insta.png); }
-#Mail {background-image: url(../i/Icons/Mail.png); }
-#Reddit {background-image: url(../i/redit.png); }
 #Twit {background-image: url(../i/TWITTER\ CC.png); } 
 

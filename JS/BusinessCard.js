@@ -14,42 +14,6 @@ console.log(v.join(' '))
 }
 
 
-/* Page Management */
-
-function checkPagestoclear(){
-for (let i=0; i<Get.Pages.length; i++){
-    let item = Get.Pages[(i)]
-    if(document.getElementById(item).style.display!="none"){
-console.error(item+"Is now Cleared"); clearPage((item)); }
-}}
-
-function clearPage(item){
-    let getItem=document.getElementById(item);
-    if(!getItem){console.error(item+':: No item to clear // Clear page');}
-    if(getItem.style.display=="none"){return;}
-    else {getItem.style.display="none";}
-}
-
-function flip(page,sub){
-let GT = document.title;
-
-//Checks page is specified 
-if(!page) return alert('When flipping, please specify page to flip');
-LoadNewNavBar(page);
-
-//Check About is a true flip & sub exists
-if(page=="About"){
-    if (!Get.AboutPages.includes(sub)) {return  toggleAboutDropdown();}
-    else { page = sub; toggleAboutDropdown();}
-}
-if (GT.innerText=="Certificates"){clearCerts();}   
-if(Get.Pages.includes(page)){
-    checkPagestoclear(); 
-    GT.innerText=page;
-    createPage(page);
-}
-console.log('Flip completed full function, About was probably clicked --called from Flip ');
-}
 
 
 /*########################
@@ -229,7 +193,6 @@ document.querySelectorAll('ul>li').forEach(item => {
         let ListText = e.target.innerText.split(' ');      
         test(e); CreatePage2(ListText);               
         debug('List',ListText[0],'Click');    
-       // DIV (x.parentElement.parentElement);
     }) 
     item.addEventListener('mouseenter', e => {
         let ListText = e.target.innerText.split(' '); 
