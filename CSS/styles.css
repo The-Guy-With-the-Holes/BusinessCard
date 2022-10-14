@@ -1,0 +1,10 @@
+#Tools{position: fixed; right: 0; top: 0;
+    height: max-content; width: max-content;
+    padding-right: 1px;}
+.tool-icons{
+display: block;
+background-color: aqua;
+border-radius: 50%; border: 0.2vh solid navy;
+height: 4vh; width: 4vh;
+margin:0 auto;
+}

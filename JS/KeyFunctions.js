@@ -6,7 +6,6 @@ function getDatearr() {
 }
 
 
-
 // Utility functions
 function randomNum(min, max) {
   if (min == undefined || max == undefined) { min = 0; max = 17; }
@@ -47,6 +46,75 @@ function createClass(name, rules) {
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
+
+
+
+//#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#%#%#%
+//              Tools
+//#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
+let Title = document.title;
+const Root = '';
+if (Title=="Working directory"){Root = 'WD'};
+if (Title.includes("jackewers.com")){Root = 'BusinessCard'};
+
+let requestRoot = function (targ) {
+  if (Root == targ){return '';}
+  else if(Root=='WD'){return targ+'/';} 
+  else return '../'+targ+'/';
+}
+
+
+const Tools = [
+  ['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'],
+  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','startshiftery'],
+  
+]
+function appendTools(){
+      let ToolBar = document.createElement('div'); ToolBar.setAttribute('id','Tools');
+      let i = document.createElement('img'); let span = document.createElement('span');
+      
+      setAttributes(i,{'src':'i/BloodW.png','id':'Tools-Switch','class':'tool-icons', 'onclick':'switchTools("open")'});
+      setAttributes(span,{'id':'Tools-Extended','style':'display:none;'});
+
+      ToolBar.append(i,span);
+      document.body.append(ToolBar);
+}
+
+function switchTools(arg){
+  let M = document.getElementById('Tools-Switch');
+  let E = document.getElementById('Tools-Extended');
+  
+  switch (arg) {    
+      case 'open':
+          M.src=requestRoot('BusinessCard')+"i/Templates/X.png";
+          M.setAttribute('onclick',"switchTools('close')");
+          E.style.display=""; break;
+      
+      case 'close':
+          M.src=requestRoot('BusinessCard')+"i/BloodW.png";
+          M.setAttribute('onclick',"switchTools('open')");
+          E.style.display="none"; break;
+  }
+
+}
+
+let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('cannot append tool');}
+  let E = document.getElementById('Tools-Extended');
+  
+  let ele = document.createElement('img');
+  setAttributes(ele,{'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
+  E.append(ele);
+}
+
+appendTools();
+for (ele in Tools){
+  appendTool(Tools[ele][0],Tools[ele][1],Tools[ele][2]);
+  }
+
+//#### EO TOOLS
+//#%%#%#%#%#%#%#%#%#%#%#%#%#%%#%#
+
+
 // ### Load In Functions ###
 const ColorShifter = {
   colors:{
@@ -116,7 +184,7 @@ function AddMainNav(){
   setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'AddNavBar()'});
   item.append(document.createTextNode('☰'));
   nav.append(item);
-  target.prepend(nav);
+  target.append(nav);
 }
 
 AddMainNav();
