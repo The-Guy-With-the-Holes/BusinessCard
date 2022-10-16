@@ -124,48 +124,6 @@ nav {
     -webkit-text-stroke: 0.225vmin #990099;
 }
 
-#LD-slider{
-    cursor: pointer;
-    position: fixed;
-    bottom:0; right:0;
-    margin:2vw;
-    width:13vmin;
-    padding: 1vw  ;
-    border-radius: 12%;
-}
-.Dark-slider{
-    border: .2vw double lightslategrey;
-    background-color:#fafafa99;
-}
-.Light-slider{
-    border: .2vw double #00000099;
-    background-color: #77889999;
-}
-
-#LD-icon{ 
-border: 0.6vw double;
-height: 6vw; width: 6vw; 
-max-height: 3.5vh ; max-width: 3.5vh;
-text-align: center;
-border-radius: 50%;
-background-size: contain; background-position-x: center; background-position-y: center;
-transition: 0.5s;
-}
-
-#LD-icon:hover{
-    transform: scale(1.2);
-}
-.Light-icon{
-    float:left; 
-    border-color: #000; background-color:white;
-    background-image: url(../i/Icons/64-BIT/Uni-Sun.png);
-}
-
-.Dark-icon{
-    float:right; 
-    border-color: white; background-color:black;
-    background-image: url(../i/Icons/64-BIT/Uni-Moon.png);
-}
 
 
 /* Body-Level */

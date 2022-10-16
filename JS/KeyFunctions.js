@@ -64,11 +64,14 @@ let requestRoot = function (targ) {
 }
 
 
-const Tools = [
-  ['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'],
-  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','startshiftery'],
+const Tools = [ 
   
+  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','ToggleShiftery()'],
+  //['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'],
+ 
 ]
+
+// Required
 function appendTools(){
       let ToolBar = document.createElement('div'); ToolBar.setAttribute('id','Tools');
       let i = document.createElement('img'); let span = document.createElement('span');
@@ -89,13 +92,11 @@ function switchTools(arg){
           M.src=requestRoot('BusinessCard')+"i/Templates/X.png";
           M.setAttribute('onclick',"switchTools('close')");
           E.style.display=""; break;
-      
       case 'close':
           M.src=requestRoot('BusinessCard')+"i/BloodW.png";
           M.setAttribute('onclick',"switchTools('open')");
           E.style.display="none"; break;
   }
-
 }
 
 let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('cannot append tool');}
@@ -109,10 +110,7 @@ let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('c
 appendTools();
 for (ele in Tools){
   appendTool(Tools[ele][0],Tools[ele][1],Tools[ele][2]);
-  }
-
-//#### EO TOOLS
-//#%%#%#%#%#%#%#%#%#%#%#%#%#%%#%#
+}
 
 
 // ### Load In Functions ###
@@ -148,13 +146,14 @@ let ColorShiftertimer =setInterval(ColorShift,80) ;
 
 // Light/Dark mode
 
-function AddLightDarkSwitcher(){
+function AddLightDarkSwitcher(targ){
   let sich= document.createElement('div'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
   let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
 
   
   slider.append(sich);
-  Get.Body.append(slider);
+  if (!targ){targ = 'Tools-Extended';}
+  document.getElementById(targ).append(slider);
   Get.Body.setAttribute('class','LB');
 }
 
@@ -172,6 +171,13 @@ function LDswitch(type){
     Get.Body.setAttribute('class',type+'-Body');
      ShiftSwitch(type);
 }
+
+
+
+//#### EO TOOLS
+//#%%#%#%#%#%#%#%#%#%#%#%#%#%%#%#
+
+
 
 
 
@@ -236,27 +242,11 @@ footer.append(span,cc);
 t.append(footer);
 }
 
-
+AppendFooter();
 /*########################
 //      Shiftery
 ########################## 
 */
-const ShifteryAttr = {
-  default:true,
-  debug:false,
-  running:false, 
-  speed:200,
-  shape:'conic',
-  deg:40,
-  incDeg:false,
-  colors:(createHexchain((randomNum(10,99)))),
- 
-  targets:
-    [ document.querySelector('nav'), document.querySelector('footer'),
-  ],
-  
-}
-
 let lShift = [
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
   '#ddaa00', '#ff11ff', '#11ffad', '#aadddd',
@@ -277,6 +267,23 @@ let dShift = [
   '#020', '#2a2','#303','#000',
   '#020', '#2a2','#303','#000',
 ];
+const ShifteryAttr = {
+  default:true,
+  debug:false,
+  running:false, 
+  speed:200,
+  shape:'conic',
+  deg:40,
+  incDeg:false,
+  colors:lShift,
+ 
+  targets:
+    [ document.querySelector('nav'), document.querySelector('footer'),
+  ],
+  
+}
+
+
 
 
 
@@ -349,11 +356,19 @@ function changeShifteryState (running,speed,colors,shape,deg,incDeg){
   if(running==true){shifteryInterval=setInterval(Shiftery,speed);}
 }
 
+let checkShiftery = function (){
+if (ShifteryAttr.incDeg == true) {  Shiftery(); 
+  setTimeout(() => { checkShiftery(); }, 1000); 
+  }
+}
+let ToggleShiftery = function () {
+  if (ShifteryAttr.incDeg == false){ShifteryAttr.incDeg = true; return checkShiftery(); }
+  ShifteryAttr.incDeg = false;  return checkShiftery();
+}
 
 
-
-
-
+let OL = function(){
+  changeShifteryState(false,64);
 AddLightDarkSwitcher();
-AppendFooter();
-changeShifteryState(false,64,lShift);
+checkShiftery();
+}
