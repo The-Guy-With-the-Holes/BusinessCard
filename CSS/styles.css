@@ -11,6 +11,7 @@
     height: 4vh; width: 4vh;
     margin:0 auto;
 }
+
 #Tools > .tool-icons {
     border: 2px solid black;
 }
