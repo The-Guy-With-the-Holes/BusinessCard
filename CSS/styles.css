@@ -1,3 +1,5 @@
+::-webkit-scrollbar {  width: 0; }
+
 #Tools { 
     position: fixed; right: 0; top: 0;
     height: max-content; width: max-content;
@@ -8,12 +10,14 @@
     display: block;
     background-color: aqua;
     border-radius: 50%; border: 0.2vh solid navy;
-    height: 4vh; width: 4vh;
+    height: max(5vh,5vw); width: max(5vh,5vw);
     margin:0 auto;
+    margin-bottom: .8vh; margin-right: .8vw;
 }
 
 #Tools > .tool-icons {
-    border: 2px solid black;
+    border: 4px double black;
+     margin-top: .8vw; margin-right: .4vw;
 }
 
 

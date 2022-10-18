@@ -1,11 +1,10 @@
-//Date
+//Get Objects 
 function getDatearr() {
   let today = new Date();
   let currentDay = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
   return currentDay;
 }
-
-
+let DT = document.title;
 // Utility functions
 function randomNum(min, max) {
   if (min == undefined || max == undefined) { min = 0; max = 17; }
@@ -65,10 +64,7 @@ let requestRoot = function (targ) {
 
 
 const Tools = [ 
-  
   ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','ToggleShiftery()'],
-  //['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'],
- 
 ]
 
 // Required
@@ -105,6 +101,10 @@ let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('c
   let ele = document.createElement('img');
   setAttributes(ele,{'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
   E.append(ele);
+}
+
+if (DT=="Working Directory"){
+  Tools.push(['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'])
 }
 
 appendTools();

@@ -1,8 +1,4 @@
 /* Special*/
-::-webkit-scrollbar {
-    width: 0;
-}
-
 :root {
     --icon-background: 20deg, #fff000, #fff, green, #000;
     --Shiftery-Background: #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad,#aadddd, #ddaa00, #ff11ff, #11ffad;
