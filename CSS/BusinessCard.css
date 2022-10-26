@@ -5,8 +5,6 @@
     --Shifter-Rotation:40deg;
     --Main-color-A: salmon;
     --Main-color-B:lightpink;
-    --Profile-Img-A: url(../i/Profile.jpg);
-    --Profile-Img-B: url(../i/Profile2.jpg);
     --Main: 180deg;
     --rotation-direction: 360deg;
 }
@@ -176,8 +174,9 @@ footer {
 footer > span { width:50%; display:inline;}
 footer > span > img{display: inline; vertical-align: middle;}
 
-#Bloodworks{ padding:1.4%; display: inline-block;
-background-color: #fafafa55;   
+#Bloodworks{ 
+    padding:1.4%; display: inline-block;
+    background-color: #fafafa55;   
 }
 
 

@@ -1,4 +1,7 @@
+
+
 //Get Objects 
+
 function getDatearr() {
   let today = new Date();
   let currentDay = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
@@ -51,10 +54,10 @@ function insertAfter(referenceNode, newNode) {
 //#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#%#%#%
 //              Tools
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
-let Title = document.title;
-const Root = '';
-if (Title=="Working directory"){Root = 'WD'};
-if (Title.includes("jackewers.com")){Root = 'BusinessCard'};
+
+let Root = '';
+if (DT=="Working directory"){Root = 'WD'};
+if (DT.includes("jackewers.com")){Root = 'BusinessCard'};
 
 let requestRoot = function (targ) {
   if (Root == targ){return '';}
@@ -64,7 +67,8 @@ let requestRoot = function (targ) {
 
 
 const Tools = [ 
-  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','ToggleShiftery()'],
+  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','ToggleShiftery();'],
+  ['Funny hat',requestRoot('BusinessCard')+'i/Templates/Crazyhat.png','ToggleCrazyHat();'],
 ]
 
 // Required
@@ -136,7 +140,7 @@ function ColorShift(){
     if(i > 0){x = '' ;}
     if(ColorShifter.type=="Light"){ t[i].style.background="linear-gradient("+x+deg+"deg,"+c.light_A+','+c.light_B+")"; }
     else{t[i].style.background="linear-gradient("+x+deg+"deg,"+c.dark_A+','+c.dark_B+")";} 
-}
+  }
   deg+=ColorShifter.inc;
   if(deg>365){deg = 0;}
   ColorShifter.deg=deg;
@@ -243,6 +247,45 @@ t.append(footer);
 }
 
 AppendFooter();
+
+
+
+
+// Color Funcs
+
+const Crazy_Hat = {
+  on:false,
+  target:document.getElementsByClassName('Crazy_Hat'),
+};
+
+function replaceCrazyHat (string,type){ 
+  if (!string || isNaN(type)){ return console.error('X-CH str:'+string+' type:'+type);}
+  let res; 
+  if(string.includes('BusinessCard')){string = string.split('BusinessCard/'); string = string[1]; }
+  if(type == 0){ res = string.replace('.','_Crazy_Hat.');  }
+  if(type > 0 ){res = string.replace('_Crazy_Hat.','.');}
+  console.log('RP Crazy_hat :'+res);
+  return res;  
+}
+
+let ToggleCrazyHat = function ( ){
+    
+  console.log("toggling CrazyHat to :"+!Crazy_Hat.on);
+  Crazy_Hat.on = Crazy_Hat.on? false : true
+
+  for (e in Crazy_Hat.target){ 
+    let i = Crazy_Hat.target[(e)];
+    if( i == "[object HTMLImageElement]"){
+      if (Crazy_Hat.on==true){ i.src=replaceCrazyHat( i.src , 0); } 
+      if (Crazy_Hat.on==false){ i.src=replaceCrazyHat( i.src , 1); }
+    }  
+    else {console.log("i+"+i+", was not an img element");}
+  }
+ 
+  return console.log(Crazy_Hat.on);
+}
+
+
 /*########################
 //      Shiftery
 ########################## 

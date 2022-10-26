@@ -12,7 +12,7 @@
     border-radius: 50%; border: 0.2vh solid navy;
     height: max(5vh,5vw); width: max(5vh,5vw);
     margin:0 auto;
-    margin-bottom: .8vh; margin-right: .8vw;
+    margin-bottom: .8vh; margin-right: .4vw;
 }
 
 #Tools > .tool-icons {
