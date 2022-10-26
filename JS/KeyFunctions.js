@@ -150,14 +150,13 @@ let ColorShiftertimer =setInterval(ColorShift,80) ;
 
 // Light/Dark mode
 
-function AddLightDarkSwitcher(targ){
+function AddLightDarkSwitcher(){
   let sich= document.createElement('div'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
   let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
 
   
   slider.append(sich);
-  if (!targ){targ = 'Tools-Extended';}
-  document.getElementById(targ).append(slider);
+  document.getElementById('Tools-Extended').append(slider);
   Get.Body.setAttribute('class','LB');
 }
 
