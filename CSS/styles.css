@@ -7,6 +7,7 @@
 }
 
 .tool-icons{
+    cursor:pointer;
     display: block;
     background-color: aqua;
     border-radius: 50%; border: 0.2vh solid navy;
@@ -14,6 +15,7 @@
     margin:0 auto;
     margin-bottom: .8vh; margin-right: .4vw;
 }
+.tool-icons:hover{ transform: scale(1.14); border: 4px double goldenrod;}
 
 #Tools > .tool-icons {
     border: 4px double black;
@@ -21,23 +23,46 @@
 }
 
 
+/* Special tool styles*/
+
+.tool-icons[alt=Shifterytrue]{
+    animation-name:spin360;
+    animation-duration: 11s;
+    
+    animation-play-state: running;
+    animation-iteration-count: infinite;    
+    animation-fill-mode: forwards;
+    animation-timing-function:cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+@keyframes spin360 {
+    from{}
+    50%,to{transform: rotateZ(360deg);}
+}
 
 /* Slider */
+.Dark-Body{ color:white;
+    border:1px solid #afafaf55;background: radial-gradient(circle, #fafafada, #090909dd, gray);
+    -webkit-text-stroke:  .2px #09090999;
+}
+.Light-Body{ color:black;
+    border:1px solid #90909055;background: radial-gradient(circle, white, #fafafada, gray, azure);
+    -webkit-text-stroke:  .1px #fafafa4f;
+}
 #LD-slider{
     cursor: pointer;
     position: fixed;
     bottom:0; right:0;
     margin:2vw;
-    width:13vmin;
+    width:15vmin;
     padding: 1vw  ;
     border-radius: 12%;
 }
 .Dark-slider{
-    border: .2vw double lightslategrey;
+    border: .4vmin double lightslategrey;
     background-color:#fafafa99;
 }
 .Light-slider{
-    border: .2vw double #00000099;
+    border: .4vmin double #00000099;
     background-color: #77889999;
 }
 

@@ -137,10 +137,10 @@ let IconSwitch = document.getElementById('Home-Icon-Button');
 function idleclass(clss){ 
 let targ = document.getElementById('locko');
     if(targ.classList.contains('idle')&&clss==false){
-        targ.classList="mainx";iconidle(false);
+        targ.classList="mainx Crazy_Hat";iconidle(false);
     }
     if(!targ.classList.contains('idle')&&clss==true){
-    targ.classList="mainx idle"; iconidle(true);
+    targ.classList="mainx Crazy_Hat idle"; iconidle(true);
     } return;
 }
 

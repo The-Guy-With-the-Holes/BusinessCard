@@ -139,14 +139,7 @@ body {
     height: fit-content;
     padding: 1%;
 }
-.Dark-Body{ color:white;
-    border:1px solid #afafaf55;background: radial-gradient(circle, #fafafada, #090909dd, gray);
-    -webkit-text-stroke:  .2px #09090999;
-}
-.Light-Body{ color:black;
-    border:1px solid #90909055;background: radial-gradient(circle, white, #fafafada, gray, azure);
-    -webkit-text-stroke:  .1px #fafafa4f;
-}
+
 hr{margin: 1%;}
 
 p {

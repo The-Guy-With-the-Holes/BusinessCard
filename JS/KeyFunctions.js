@@ -1,6 +1,9 @@
 
 
 //Get Objects 
+let log = function (t) {console.log(t);}
+
+function allowDrop(event) {event.preventDefault();}
 
 function getDatearr() {
   let today = new Date();
@@ -13,9 +16,15 @@ function randomNum(min, max) {
   if (min == undefined || max == undefined) { min = 0; max = 17; }
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
+let isEven = function (num){
+  if(!num || isNaN(num)) return console.error('Num required');
+  if(num % 2 ==0)return true;
+  return false;
+}
 function randomHex(bits) {
-  if (!bits) { bits = 8; } let hexRes = '';
+  if (!bits) { bits = 8; } 
+  
+  let hexRes = '';
   let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   for (let i = 0; i < bits; i++) { hexRes += hex[(randomNum(0, 9))]; }
   return hexRes;
@@ -67,7 +76,7 @@ let requestRoot = function (targ) {
 
 
 const Tools = [ 
-  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shift.png','ToggleShiftery();'],
+  ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shiftplay.png','ToggleShiftery();'],
   ['Funny hat',requestRoot('BusinessCard')+'i/Templates/Crazyhat.png','ToggleCrazyHat();'],
 ]
 
@@ -76,7 +85,7 @@ function appendTools(){
       let ToolBar = document.createElement('div'); ToolBar.setAttribute('id','Tools');
       let i = document.createElement('img'); let span = document.createElement('span');
       
-      setAttributes(i,{'src':'i/BloodW.png','id':'Tools-Switch','class':'tool-icons', 'onclick':'switchTools("open")'});
+      setAttributes(i,{'src':requestRoot('BusinessCard')+'i/Templates/Tools.png','id':'Tools-Switch','class':'tool-icons', 'onclick':'switchTools("open")'});
       setAttributes(span,{'id':'Tools-Extended','style':'display:none;'});
 
       ToolBar.append(i,span);
@@ -93,7 +102,7 @@ function switchTools(arg){
           M.setAttribute('onclick',"switchTools('close')");
           E.style.display=""; break;
       case 'close':
-          M.src=requestRoot('BusinessCard')+"i/BloodW.png";
+          M.src=requestRoot('BusinessCard')+'i/Templates/Tools.png';
           M.setAttribute('onclick',"switchTools('open')");
           E.style.display="none"; break;
   }
@@ -103,7 +112,7 @@ let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('c
   let E = document.getElementById('Tools-Extended');
   
   let ele = document.createElement('img');
-  setAttributes(ele,{'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
+  setAttributes(ele,{'name':name,'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
   E.append(ele);
 }
 
@@ -278,9 +287,8 @@ let ToggleCrazyHat = function ( ){
       if (Crazy_Hat.on==true){ i.src=replaceCrazyHat( i.src , 0); } 
       if (Crazy_Hat.on==false){ i.src=replaceCrazyHat( i.src , 1); }
     }  
-    else {console.log("i+"+i+", was not an img element");}
+
   }
- 
   return console.log(Crazy_Hat.on);
 }
 
@@ -404,8 +412,15 @@ if (ShifteryAttr.incDeg == true) {  Shiftery();
   }
 }
 let ToggleShiftery = function () {
-  if (ShifteryAttr.incDeg == false){ShifteryAttr.incDeg = true; return checkShiftery(); }
-  ShifteryAttr.incDeg = false;  return checkShiftery();
+  let S_tool = document.getElementsByName('Shiftery');
+    ShifteryAttr.incDeg = !ShifteryAttr.incDeg; 
+    
+    if(ShifteryAttr.incDeg!=true){ S_tool[0].src='i/Templates/Shiftplay.png';}
+    else { S_tool[0].src='i/Templates/Shiftpause.png';} 
+    S_tool[0].alt='Shiftery'+ShifteryAttr.incDeg;
+
+    return checkShiftery(); 
+
 }
 
 
