@@ -13,9 +13,32 @@ function getval(start,end){let v = [];
 console.log(v.join(' '))
 }
 
+const PageState = {
+    page:'default',
+    header:{text1:'',superText:['','','',''],img:''},
+
+}
+
+let setPagestate = function (page,text1,Stext,img) { if(!page){page=DT;}
+    if(!text1 || !img){throw new SyntaxError('Need args');}
+    PageState.page = page;
+    PageState.header.text1=text1;
+    PageState.header.img=img;
+    if(Stext.length == 4){
+    for(e in Stext){PageState.header.superText[e]=Stext[e];     console.log(PageState.header.superText[e])
+    }}
+}
 
 
+let createElement = function(element, properties) { let el = document.createElement(element);
+    for (var prop in properties) {el[prop] = properties[prop];}
+    return el;
+}
+let tNode = function (t){ return document.createTextNode(t);}
 
+
+setPagestate('home','Digital Business-Card',['Everybody has a',' Vision,','Lets work on ours ','Together'],'i/Personal/Profile.png');
+appendHeader();
 /*########################
  Main Image/img Slider
 //########################*/
