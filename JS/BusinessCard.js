@@ -30,11 +30,6 @@ let setPagestate = function (page,text1,Stext,img) { if(!page){page=DT;}
 }
 
 
-let createElement = function(element, properties) { let el = document.createElement(element);
-    for (var prop in properties) {el[prop] = properties[prop];}
-    return el;
-}
-let tNode = function (t){ return document.createTextNode(t);}
 
 
 setPagestate('home','Digital Business-Card',['Everybody has a',' Vision,','Lets work on ours ','Together'],'i/Personal/Profile.png');

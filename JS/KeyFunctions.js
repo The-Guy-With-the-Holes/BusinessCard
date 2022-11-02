@@ -10,7 +10,9 @@ function getDatearr() {
   let currentDay = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
   return currentDay;
 }
+
 let DT = document.title;
+
 // Utility functions
 function randomNum(min, max) {
   if (min == undefined || max == undefined) { min = 0; max = 17; }
@@ -53,6 +55,13 @@ function createClass(name, rules) {
   else
     style.sheet.insertRule(name + "{" + rules + "}", 0);
 }
+
+let createElement = function(element, properties) { let el = document.createElement(element);
+  for (var prop in properties) {el[prop] = properties[prop];}
+  return el;
+}
+let tNode = function (t){ return document.createTextNode(t);}
+
 //Tasklist
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -67,10 +76,11 @@ function insertAfter(referenceNode, newNode) {
 let Root = '';
 if (DT=="Working directory"){Root = 'WD'};
 if (DT.includes("jackewers.com")){Root = 'BusinessCard'};
+if (DT.includes("Free Chess")){Root = '../../../WD'};
 
 let requestRoot = function (targ) {
   if (Root == targ){return '';}
-  else if(Root=='WD'){return targ+'/';} 
+  else if(Root.includes('WD')){return targ+'/';} 
   else return '../'+targ+'/';
 }
 
@@ -82,12 +92,12 @@ const Tools = [
 
 // Required
 function appendTools(){
-      let ToolBar = document.createElement('div'); ToolBar.setAttribute('id','Tools');
-      let i = document.createElement('img'); let span = document.createElement('span');
+      let ToolBar = createElement('div',{id:'Tools'}); 
+      let span = createElement('span',{id:'Tools-Extended',classList:'HiddenTools'});
       
-      setAttributes(i,{'src':requestRoot('BusinessCard')+'i/Templates/Tools.png','id':'Tools-Switch','class':'tool-icons', 'onclick':'switchTools("open")'});
-      setAttributes(span,{'id':'Tools-Extended','style':'display:none;'});
-
+      let i = createElement('img',{src:requestRoot('BusinessCard')+'i/Templates/Tools.png',id:'Tools-Switch',classList:'tool-icons',});
+      i.setAttribute('onclick',"switchTools('open')");
+      
       ToolBar.append(i,span);
       document.body.append(ToolBar);
 }
@@ -100,11 +110,11 @@ function switchTools(arg){
       case 'open':
           M.src=requestRoot('BusinessCard')+"i/Templates/X.png";
           M.setAttribute('onclick',"switchTools('close')");
-          E.style.display=""; break;
+          E.setAttribute('class','VisibileTools'); break;
       case 'close':
           M.src=requestRoot('BusinessCard')+'i/Templates/Tools.png';
           M.setAttribute('onclick',"switchTools('open')");
-          E.style.display="none"; break;
+          E.setAttribute('class','HiddenTools'); break;
   }
 }
 
@@ -359,20 +369,16 @@ let shifteryInterval ;
 //Beta
 
 function ShiftSwitch(type){
-  let nav = document.querySelector('.NavBar');
   if(ShifteryAttr.default==true){
     switch (type) {
-      case 'Light':
-        ShifteryAttr.colors = lShift; break;
-      case 'Dark':
-        ShifteryAttr.colors = dShift; break;
+      case 'Light': ShifteryAttr.colors = lShift; break;
+      case 'Dark': ShifteryAttr.colors = dShift; break;
     }
-
-    if(ShifteryAttr.running==false){
-      changeShifteryState(false,64,ShifteryAttr.colors);
-    }
+    if(ShifteryAttr.running==false){ changeShifteryState(false,64,ShifteryAttr.colors); }
   }
+  
 }
+
 
 function Shiftery() {
 shifterychain = ShifteryAttr.colors;
@@ -424,16 +430,19 @@ function changeShifteryState (running,speed,colors,shape,deg,incDeg){
 }
 
 let checkShiftery = function (){
-if (ShifteryAttr.incDeg == true) {  Shiftery(); 
-  setTimeout(() => { checkShiftery(); }, 1000); 
+  if (ShifteryAttr.incDeg == true) { Shiftery(); 
+    setTimeout(() => { 
+      checkShiftery(); 
+    }, 1000); 
   }
 }
+
 let ToggleShiftery = function () {
   let S_tool = document.getElementsByName('Shiftery');
     ShifteryAttr.incDeg = !ShifteryAttr.incDeg; 
     
-    if(ShifteryAttr.incDeg!=true){ S_tool[0].src='i/Templates/Shiftplay.png';}
-    else { S_tool[0].src='i/Templates/Shiftpause.png';} 
+    if(ShifteryAttr.incDeg!=true){ S_tool[0].src=requestRoot('BusinessCard')+'i/Templates/Shiftplay.png';}
+    else { S_tool[0].src=requestRoot('BusinessCard')+'i/Templates/Shiftpause.png';} 
     S_tool[0].alt='Shiftery'+ShifteryAttr.incDeg;
 
     return checkShiftery(); 
@@ -443,6 +452,6 @@ let ToggleShiftery = function () {
 
 let OL = function(){
   changeShifteryState(false,64);
-AddLightDarkSwitcher();
-checkShiftery();
+  AddLightDarkSwitcher();
+  checkShiftery();
 }
