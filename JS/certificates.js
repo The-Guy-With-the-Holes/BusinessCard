@@ -1,4 +1,5 @@
-
+setPagestate('Certificates','Digital Certificates',['We are all','COnn3ct3d,','Lets learn, ','Together'],'../i/Personal/Profile.png');
+appendHeader();
 //Certificates
 var BlockIndex = 0 ;
 var MainTitle = document.querySelector('#MainTitle');

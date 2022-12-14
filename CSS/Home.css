@@ -1,3 +1,5 @@
+
+
 /* HOME Profile */
 #Home {     max-width: 92%; max-height: fit-content;
 padding-bottom:1vw ;
@@ -211,7 +213,7 @@ input[type="radio"]:checked {
 }
 
 .balls {
-    opacity: 0.4; background-color: #fff;
+    opacity: 0.65; background-color: #fff;
     cursor: pointer; display: inline; position: relative;
     max-height: 9vh;  height: 10vmin;
     max-width: 9vh;  width: 10vmin; 

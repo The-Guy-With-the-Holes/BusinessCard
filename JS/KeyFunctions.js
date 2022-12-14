@@ -1,33 +1,81 @@
+function isNeg(x) { if (!isNaN(x) && x < 0) { return true; } }
 
+function setRange(i, min, max) {
+    if (i < min) return  min;
+    if (i > max) return max;
+    return i;
+}
+function inRange(num,min,max){if(num<=max&&num>=min)return true;}
 
-//Get Objects 
 let log = function (t) {console.log(t);}
 
 function allowDrop(event) {event.preventDefault();}
 
+//Date
 function getDatearr() {
   let today = new Date();
-  let currentDay = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+  let currentDay = new Date(today.getFullYear()+"," + (today.getMonth() + 1) + ',' +today.getDate()  );
   return currentDay;
 }
 
-let DT = document.title;
+function DateDif(date) {
+  date.split('/'); let time = date[0] + date[1];
+  let d1 = date.slice(9);
+  let month =d1[3]+d1[4]; let day =d1[0]+d1[1];
+  let year = 20+d1[6]+d1[7];
 
-// Utility functions
-function randomNum(min, max) {
-  if (min == undefined || max == undefined) { min = 0; max = 17; }
-  return Math.floor(Math.random() * (max - min)) + min;
+  const date1 = new Date(year+','+month+','+day);
+  const date2 = new Date();
+
+let DIfference =[(date1.getFullYear()-date2.getFullYear()),(date1.getMonth()-date2.getMonth()),(date1.getDay()-date2.getDay())];
+  return "Y/M/D:"+DIfference;
 }
-let isEven = function (num){
-  if(!num || isNaN(num)) return console.error('Num required');
-  if(num % 2 ==0)return true;
+
+let isPHP = function(){ if(window.location.href.includes('php')){return true;}
   return false;
 }
-function randomHex(bits) {
-  if (!bits) { bits = 8; } 
+
+// Page maninpulation
+let isSafari = /.*Version.*Safari.*/.test(navigator.userAgent);
+
+function ScrollHome(dir,target){ 
+  let WindowFrame =  document.body.scrollTop || document.documentElement.scrollTop || window.scrollY;
+ 
+    if( WindowFrame > 0 ){
+        window.requestAnimationFrame(ScrollHome);
+        window.scrollTo(0,WindowFrame-(WindowFrame/5));
+        console.log('Window Scroll location = '+WindowFrame);
+    }  
+}
+
+function ScrollTarget(dir,target){
+  let Frame = document.getElementById(target).scrollTop;
+
+  if(Frame > 0  && dir!='V' ){}
+
+}
+
+function SetFavicon(img,root){
   
-  let hexRes = '';
-  let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+}
+
+let reloadPage = function(){ window.location.reload(true); return false; }
+
+let sWL = function (t){  if(Social.Links.hasOwnProperty(t)){ return window.location=Social.Links[t]['href'];}
+  window.location='/';
+}
+
+// Utility functions
+function randomNum(min, max) { if (min == undefined || max == undefined) { min = 0; max = 17; }
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+let isEven = function (num){ if(!num || isNaN(num)) return console.error('Num required');
+  if(num % 2 == 0)return true;
+  return false;
+}
+function randomHex(bits) {if (!bits) { bits = 8; } 
+  let hexRes = ''; let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   for (let i = 0; i < bits; i++) { hexRes += hex[(randomNum(0, 9))]; }
   return hexRes;
 }
@@ -39,7 +87,15 @@ function createHexchain(hexlength){
   return hexchain;
 }
 
-// Styles
+// Styles and elements
+
+let createElement = function(element, properties) { let el = document.createElement(element);
+  for (var prop in properties) {el[prop] = properties[prop];}
+  return el;
+}
+let tNode = function (t){ return document.createTextNode(t);}
+let BR = function(){return createElement('br');}
+
 function setAttributes(el, attrs) {
   for (var key in attrs) {
     el.setAttribute(key, attrs[key]);
@@ -56,12 +112,6 @@ function createClass(name, rules) {
     style.sheet.insertRule(name + "{" + rules + "}", 0);
 }
 
-let createElement = function(element, properties) { let el = document.createElement(element);
-  for (var prop in properties) {el[prop] = properties[prop];}
-  return el;
-}
-let tNode = function (t){ return document.createTextNode(t);}
-
 //Tasklist
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -73,25 +123,22 @@ function insertAfter(referenceNode, newNode) {
 //              Tools
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
 
-let Root = '';
-if (DT=="Working directory"){Root = 'WD'};
-if (DT.includes("jackewers.com")){Root = 'BusinessCard'};
-if (DT.includes("Free Chess")){Root = '../../../WD'};
-
-let requestRoot = function (targ) {
-  if (Root == targ){return '';}
-  else if(Root.includes('WD')){return targ+'/';} 
-  else return '../'+targ+'/';
-}
-
 
 const Tools = [ 
+  ['Return to top',requestRoot('BusinessCard')+'i/Templates/RThome.png','ScrollHome();'],
   ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shiftplay.png','ToggleShiftery();'],
-  ['Funny hat',requestRoot('BusinessCard')+'i/Templates/Crazyhat.png','ToggleCrazyHat();'],
 ]
 
 // Required
-function appendTools(){
+let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('cannot append tool');}
+  let E = document.getElementById('Tools-Extended');
+  
+  let ele = document.createElement('img');
+  setAttributes(ele,{'name':name,'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
+  E.append(ele);
+}
+
+function appendToolbar(){
       let ToolBar = createElement('div',{id:'Tools'}); 
       let span = createElement('span',{id:'Tools-Extended',classList:'HiddenTools'});
       
@@ -100,6 +147,7 @@ function appendTools(){
       
       ToolBar.append(i,span);
       document.body.append(ToolBar);
+      for(ele in Tools){appendTool(Tools[(ele)][0],Tools[(ele)][1],Tools[(ele)][2],);}
 }
 
 function switchTools(arg){
@@ -118,29 +166,33 @@ function switchTools(arg){
   }
 }
 
-let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('cannot append tool');}
-  let E = document.getElementById('Tools-Extended');
-  
-  let ele = document.createElement('img');
-  setAttributes(ele,{'name':name,'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
-  E.append(ele);
+if(Root=="BusinessCard"){  Tools.push(['Funny hat','i/Templates/Crazyhat.png','ToggleCrazyHat();']);}
+if (Get.DT=="Working Directory" || isPHP()===true ){
+  Tools.push(
+    ['CallTaskList',requestRoot('BusinessCard')+'i/Templates/TL.png',''],
+    ['OpenFinance',requestRoot('BusinessCard')+'i/Templates/PiGraph.png','']
+  );
+ if (Get.DT!="Working Directory" && isPHP()===true )Tools.splice(1,0,['Home',requestRoot('BusinessCard')+'i/BloodW.png',"sWL('localhost')"]); 
 }
 
-if (DT=="Working Directory"){
-  Tools.push(['Tasklist',requestRoot('BusinessCard')+'i/Templates/TL.png','CallTaskList()'])
-}
-
-appendTools();
-for (ele in Tools){
-  appendTool(Tools[ele][0],Tools[ele][1],Tools[ele][2]);
-}
+document.body.addEventListener('click', function(e) {
+  if(e.target.classList.contains('tool-icons')){
+    console.warn("Tools interaction "+e.target.name+'/'+e.target);
+    switch (e.target.name) {
+      case 'OpenFinance': break;
+      case 'CallTaskList': break;
+    }  
+    return window[(e.target.name)]();
+  }
+})
 
 
 // ### Load In Functions ###
+
+
 const ColorShifter = {
-  colors:{
-  light_A:'salmon', dark_A:'black',
-  light_B:'lightpink', dark_B:'gray',
+  colors:{ light_A:'salmon', dark_A:'black',
+           light_B:'lightpink', dark_B:'gray',
   },
   icons:['☼' , '☽'],
   type:'Light',
@@ -170,13 +222,13 @@ let ColorShiftertimer =setInterval(ColorShift,80) ;
 // Light/Dark mode
 
 function AddLightDarkSwitcher(){
-  let sich= document.createElement('div'); setAttributes(sich,{'id':'LD-icon','class':'Light-icon'});
-  let slider=document.createElement('span'); setAttributes(slider,{'id':'LD-slider','class':'Light-slider','onclick':'LDswitch()'});
-
+  let sich = createElement('div',{id:'LD-icon',className:'Light-icon'});
+  let slider = createElement('span',{id:'LD-slider',className:'Light-slider'});
+  slider.setAttribute('onclick',"LDswitch();");
   
   slider.append(sich);
   document.getElementById('Tools-Extended').append(slider);
-  Get.Body.setAttribute('class','LB');
+  Get.Body.setAttribute('class','Light-Body');
 }
 
 function LDswitch(type){
@@ -200,40 +252,23 @@ function LDswitch(type){
 //#%%#%#%#%#%#%#%#%#%#%#%#%#%%#%#
 
 
-function appendHeader(){
-  let header = createElement("header",{className:'box-main ColorShifter'});
-  
-  let mainImg = createElement('span',{id:'Mainimg'}); mainImg.append((createElement('img',{src:PageState.header.img,id:'locko',className:'mainx Crazy_Hat',onmouseenter:'mainimgRotate()'})));
-
-  let j = createElement('u'); j.append((tNode('J')));
-  let Ewers = createElement('strong'); Ewers.append((tNode('ack Ewers')));
-  let ST1 = createElement('strong'); ST1.append(tNode(" "+PageState.header.superText[1]));
- 
-  let b = createElement('b'); b.append(tNode(PageState.header.superText[3]+" ")) 
-  let ST2 = createElement('span',{className:'Together'});  ST2.append(b);
-
-  let h1 = createElement('h1',{name:'h1'}); h1.append(j,Ewers,tNode(','),createElement('br'),tNode(PageState.header.text1)); 
-  let h2 = createElement('h2',{name:'h2'}); h2.append(tNode(PageState.header.superText[0]," "),ST1,createElement('br'),tNode(PageState.header.superText[2]+" "),ST2);
-  
-  header.append(mainImg,h1,h2);
-  document.body.prepend(header);
-}
-
+//Appenders
 
 
 function AddMainNav(){
   let nav = document.createElement('nav');
-  let target =document.getElementById('hr1');
-  let item = document.createElement('a');
-
-  setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'AddNavBar()'});
+  let target = createElement('hr',{id:'hr1'});
+  let item = document.createElement('a'); setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'AddNavBar()'});
   item.append(document.createTextNode('☰'));
+
   nav.append(item);
-  target.append(nav);
+  target.append(nav); 
+  
+  document.querySelector('header').parentNode.insertBefore(target, document.querySelector('header').nextSibling);
+ 
 }
 
-AddMainNav();
-Get.Nav.Switch = document.getElementById('NavSwitch');
+
 
 function AddNavBar() {
   let Nav = document.querySelector('.NavBar');
@@ -258,30 +293,41 @@ function clearNavBar() {
   }
 }
 
+function NavSwitch(type){ if(!type){return error;}
+let Nav = document.querySelector('.NavBar');
 
+if(Nav){
+  
+  switch (type) {
+      case 'Open':
+        Get.Nav.Switch.innerText="⚞";
 
+        break;
+  
+      case 'Close':
+       // 'onclick':'AddNavBar()','style':'border:.42vmin double gray;'
+       break;
+  }
+}
+}
 
 
 function AppendFooter(){
-  let t = document.getElementById('hr2'); let footer=document.createElement('footer');
-  let span = document.createElement('span');
-  let p = document.createElement('p'); let text1 = document.createTextNode(Get.Footer[0]); 
-  let text2=document.createElement('a'); text2.appendChild((document.createTextNode(Get.Footer[1])));
-  setAttributes(p,{'id':'Bloodworks'});
-  setAttributes( text2,{'href':'http://bloodweb.net'});
+  let footer = createElement('footer');
+  let p = createElement('p',{id:'Bloodworks'}); 
+  let text1 = document.createTextNode(Get.Footer[0]); 
+  let text2=createElement('a',{'href':'http://bloodweb.net',innerText:Get.Footer[1]}); 
 
-  let img = document.createElement('img'); img.setAttribute('src',Get.Footer[2]);  
-  let cc = document.createElement('p'); cc.setAttribute('id','cc');
-  let license = document.createElement('a'); setAttributes(license,{'href':'LICENSE'});
- p.append(text1,text2); 
- license.append(document.createTextNode(Get.Footer[4]));
-  cc.append((document.createTextNode(Get.Footer[3])),license);
-span.append(p,img);
-footer.append(span,cc);
-t.append(footer);
+  let img = createElement('img',{src:Get.Footer[2]});  
+  let cc = createElement('p',{id:'cc'});
+  let license = createElement('a',{href:'LICENSE'});
+ 
+  p.append(text1,text2,tNode(Get.Footer[3]),license,tNode(Get.Footer[4])); 
+footer.append(p,img);
+document.body.append(footer);
+
 }
 
-AppendFooter();
 
 
 
@@ -297,8 +343,8 @@ function replaceCrazyHat (string,type){
   if (!string || isNaN(type)){ return console.error('X-CH str:'+string+' type:'+type);}
   let res; 
   if(string.includes('BusinessCard')){string = string.split('BusinessCard/'); string = string[1]; }
-  if(type == 0){ res = string.replace('.','_Crazy_Hat.');  }
-  if(type > 0 ){res = string.replace('_Crazy_Hat.','.');}
+  if(type == 0){ res = string.replace('.png','_Crazy_Hat.png');  }
+  if(type > 0 ){res = string.replace('_Crazy_Hat.png','.png');}
   console.log('RP Crazy_hat :'+res);
   return res;  
 }
@@ -367,6 +413,10 @@ const ShifteryAttr = {
 let shifteryInterval ;
 
 //Beta
+let setShiftargs = function(a,b){
+  ShifteryAttr.targets[0]=document.querySelector(a);
+  ShifteryAttr.targets[1]=document.querySelector(b);
+  Get.Nav.Switch = document.getElementById('NavSwitch');}
 
 function ShiftSwitch(type){
   if(ShifteryAttr.default==true){
@@ -446,12 +496,17 @@ let ToggleShiftery = function () {
     S_tool[0].alt='Shiftery'+ShifteryAttr.incDeg;
 
     return checkShiftery(); 
-
 }
 
 
 let OL = function(){
+  AddMainNav();
+  appendToolbar();
+
+  AppendFooter();
+  setShiftargs('nav','footer');
   changeShifteryState(false,64);
   AddLightDarkSwitcher();
   checkShiftery();
+  dev();
 }

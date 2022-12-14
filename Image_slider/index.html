@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project: Image Slider</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="../../BusinessCard/CSS/styles.css" type="text/css">
+</head>
+<body onload="AppendFooter();setShiftargs('header','footer');
+changeShifteryState(true,2000);">
+    <header>
+        <h1>&#127876;2022 Ewers Christmas Card&#127876;</h1>
+        <h2> Thanks for being a part of our family  </h2>
+    </header>
+
+    <div id="slide_main" class="Standard_slider">
+        <img id="fullscreen_slider_switch" src="EI.png" style="display: block;"/>
+        <!--
+            <div class="image_blocks fadeAnimation">
+                <div class="numbertext">index+1/total+1</div>
+                <img class="slider_images" src="../Agate.png" alt="" srcset="">
+                <div class="captiontext"> i am caption one text</div>
+            </div>
+        -->
+  
+        <a class="prev" >&#10094;</a>
+        <a class="next" >&#10095;</a>
+        <div style="text-align: center;" id="slider_dot_div"><!-- Generated span.slider_dots-->  </div>
+    </div>
+    <script src="../../BusinessCard/JS/Dev.js" type="text/javascript"></script>
+    <script src="../../BusinessCard/JS/vari.js" type="text/javascript"></script>
+    <script src="../../BusinessCard/JS/KeyFunctions.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>

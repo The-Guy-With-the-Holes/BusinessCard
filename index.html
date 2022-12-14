@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jack Ewers, Digital Business Card.">
     <title>jackewers.com Home-Page</title>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
+<--Global site tag (gtag.js) - Google Analytics --<
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRFVNNWXY3"></script>
 <script>window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-JRFVNNWXY3');
 </script>
-<!-- Google ADS-->
+<-- Google ADS --<
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5121163452500057" crossorigin="anonymous"></script>
-
+-->
     <link rel="shortcut icon" href="i/Icons/₿/bweb.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="CSS/styles.css" type="text/css">
@@ -31,11 +31,11 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
      
 </head>
 
-<body onload="OL();">
+<body onload="OL(); dev();">
 
   
 
-<hr id="hr1"> 
+
 
 <div id="Home" class="box-main ColorShifter">
     <hr>
@@ -117,14 +117,17 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 
 <div class="NavBar" style="display:none;"><button id="Nav-Close-btn" onclick="clearNavBar()">X</button><li class="NavListitem" name="Home" id="NavBar_Selected" onclick="clearNavBar()"><a href="#Home">Home</a></li><li class="NavListitem" name="About" onclick="toggleAboutDropdown()"><a>About</a><span class="Aboutdropdown"><a href="About/About.html" class="Aboutdropdown-content">About</a><a href="About/Recommendations.html" class="Aboutdropdown-content">Recommendations</a><a href="About/Contact.html" class="Aboutdropdown-content">Contact</a></span></li><li class="NavListitem" name="Certificates" style="float:bottom;"><a href="Certificates/Certificates.html">Certificates</a></li></div>
 
-<hr id="hr2">
+
 <script src="JS/vari.js" type="text/javascript"></script>
+
 <script src="JS/Dev.js" type="text/javascript"></script>
 <script src="JS/KeyFunctions.js" type="text/javascript"></script>
+<script src="JS/BusinessCard.js" type="text/javascript"></script>  
 
 <script src="JS/Page2.js" type="text/javascript" ></script>
 
-<script src="JS/BusinessCard.js" type="text/javascript"></script>  
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvlXrMQaPIFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
     let idleTime = 0; let idleAction=15;
     $(document).ready(function () {

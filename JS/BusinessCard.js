@@ -19,7 +19,7 @@ const PageState = {
 
 }
 
-let setPagestate = function (page,text1,Stext,img) { if(!page){page=DT;}
+let setPagestate = function (page,text1,Stext,img) { if(!page){page=Get.DT;}
     if(!text1 || !img){throw new SyntaxError('Need args');}
     PageState.page = page;
     PageState.header.text1=text1;
@@ -29,11 +29,29 @@ let setPagestate = function (page,text1,Stext,img) { if(!page){page=DT;}
     }}
 }
 
+function appendHeader(){
+    let header = createElement("header",{className:'box-main ColorShifter'});
+    
+    let mainImg = createElement('span',{id:'Mainimg'}); mainImg.append((createElement('img',{src:PageState.header.img,id:'locko',className:'mainx Crazy_Hat',onmouseenter:'mainimgRotate()'})));
+  
+    let j = createElement('u'); j.append((tNode('J')));
+    let Ewers = createElement('strong'); Ewers.append((tNode('ack Ewers')));
+    let ST1 = createElement('strong'); ST1.append(tNode(" "+PageState.header.superText[1]));
+   
+    let b = createElement('b'); b.append(tNode(PageState.header.superText[3]+" ")) 
+    let ST2 = createElement('span',{className:'Together'});  ST2.append(b);
+  
+    let h1 = createElement('h1',{name:'h1'}); h1.append(j,Ewers,tNode(','),createElement('br'),tNode(PageState.header.text1)); 
+    let h2 = createElement('h2',{name:'h2'}); h2.append(tNode(PageState.header.superText[0]," "),ST1,createElement('br'),tNode(PageState.header.superText[2]+" "),ST2);
+    
+    header.append(mainImg,h1,h2);
+    document.body.prepend(header);
+}
 
-
-
+if(document.title.includes('jackewers.com')){
 setPagestate('home','Digital Business-Card',['Everybody has a',' Vision,','Lets work on ours ','Together'],'i/Personal/Profile.png');
 appendHeader();
+}
 /*########################
  Main Image/img Slider
 //########################*/

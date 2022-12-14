@@ -1,14 +1,19 @@
-const Debug = {
-    T:false,
-    Developer:false,
-    User:false,
-    Nav:true,
-    Pages:true,
-    Hex:false,
-    Icon:false,
-    List:false,
-    Recom:true,
+let Root = '';
+if (document.title=="Working directory"){Root = 'WD'};
+if (document.title.includes("jackewers.com")){Root = 'BusinessCard'};
+if (document.title.includes("project:")){Root="Projects";}
+
+
+
+let requestRoot = function (targ) {
+  if (Root == targ){return '';}
+  else if(Root.includes('Projects')){return "../../"+targ+"/";}
+  else if(Root.includes('WD')){return targ;}
+  else if(!window.location.href.includes(targ)) return '../'+targ+'/';
+  else {return '../'; }
 }
+
+let setBasevari = function(t,v){ Get.Main[t] = v;}
 
 const Nav =  { 
     e:['Home','About','Certificates'],
@@ -17,21 +22,12 @@ const Nav =  {
     Certificates:'Certificates',
 }
 
-const TODO=[
-    'Main image slider icons -- Noview IOS',
-    'Main social icons -- float right IOS',
-    'Create About Contact',
-    'Turn Floating icons into js load function, keep CSS',
-    'Certificates'+'PG-TS/jQ/'+'HX-MDS',
-];
+const CurrentProject='Image_slider';
 
 // Variables
 const Get = {
     Body: document.body,
-
-    HR:{    1:document.getElementById('hr1'),
-            2:document.getElementById('hr2'), 
-        },
+    DT: document.title,
 
     Nav:{
         Switch:document.getElementById('NavSwitch'),
@@ -53,10 +49,12 @@ const Get = {
     
     Main : {
         main_desc:'I\'m a dad, software developer and body-mod ethuisiast from Perth, Western Australia',
+        main_Img:requestRoot('BusinessCard')+'i/Personal/Profile.png',
+   
     }   ,
 
    
-    Footer:['Powered by ','₿loodWorks','i/Icons/₿/₿loodWebX4.png',
+    Footer:['Powered by ', '₿loodWeb' , requestRoot('BloodWeb') + '/₿/bweb.ico',
         'This page and its contents are copyright of ₿loodWeb© under the ',
         ' MIT license']   
 }
@@ -94,7 +92,7 @@ const sponsors = [
     JT=['Stone Heart','https://www.stoneheart.com.au', 'Professional Piercing, Tattooing and Laser', 'https://www.stoneheart.com.au/wp-content/uploads/2021/10/cropped-header-768x616.png', 'B'],
     SC=['Spectrum Ceilings','https://hipages.com.au/connect/spectrumceilings','Specialists in the installation of commercial interior wall and ceiling finishes','https://mediacache.homeimprovementpages.com.au/creative/sites/2585001_2590000/2585637/thumbnail.gif','T'],
     DJ=['DJ Bronia','http://www.djbronia.com.au','Dj & Mood Enhancement Technician, brings the beats and wonderful atmosphere','http://www.djbronia.com.au/wp-content/themes/r2d2-modified/images/DJBronia_logo_610px.png','A'],
-    HH=['Hellish Hair','https://www.facebook.com/hellishhairdesign/','Wonderful and Friendly Salon in the heart of freo','../i/Sponsors/Hellish.png','T/A/C'],
+    HH=['Hellish Hair','https://www.facebook.com/hellishhaird', 'Professional Hair styling'],
     CC=['Crypto.com','https://www.crypto.com/app/hv5zfaygn9','Crypto Currency and NFT platforms','../i/Sponsors/cryptocom.jfif', 'F/A']
 ]
 
@@ -119,6 +117,16 @@ Address:[
 'https://www.twitter.com/Jack_S_Ewers',
 'https://www.facebook.com/BloodWorks.Jack/',
 'https://instagram.com/the_guy_with_the_holes'],
+
+Links:{
+    Github: { href:"https://www.github.com/the-guy-with-the-holes/BusinessCard", img:requestRoot('BusinessCard')+'i/Icons/64-BIT/Github.png' },
+    Twitter: { href:"https://www.twitter.com/Jack_S_Ewers", img:requestRoot('BusinessCard')+'i/Icons/64-BIT/Twitter.png' },
+    LinkedIn: { href:"https://www.linkedin.com/in/jack-ewers-14a155212/", img:requestRoot('BusinessCard')+'i/Icons/64-BIT/Linkedin.png' },
+    Instagram: { href:"https://www.instagram.com/the_guy_with_the_holes", img:requestRoot('BusinessCard')+'i/Icons/64-BIT/Instagram.png' },
+    Facebook: { href:"https://www.facebook.com/BloodWorks.Jack/", img:requestRoot('BusinessCard')+'i/Icons/64-BIT/Facebook.png' },
+
+}
+
 }
 
 //Quotes of the day
@@ -128,7 +136,7 @@ const QOTD = [
     'You need to believe that you can Achieve anything that you dream',
     'Never lose sight of your mission, be driven, this life is a prison if you don\'t have vision. You\'re in it to win it. so.. GO GET IT!',
     'They are all looking for someone to save them, instead of looking inside to see what they gave them, A strong Will, strong Mind, causes mayhem',
-    'Sometimes, when you are a in a dark place, you think you have been buried, but actually, You have been planted.', 
+    'Sometimes, when you are in a dark place, you think you have been buried, but actually, You have been planted.', 
     'The best views come after the hardests climbs',
     'The man who loves walking will walk farther than a man who loves the destination'
 ]

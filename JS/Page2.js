@@ -96,6 +96,7 @@ function AppendSponsors(type) {
 
   let target = document.getElementById('RecommendationsField');
   target.innerHTML = "";
+  
   for (let i = 1; i < sponsors.length; i++) {
     let a = document.createElement('a'); let div = document.createElement('div'); let btn = document.createElement('button');
     let img = document.createElement('img'); let p = document.createElement('p'); let about = document.createElement('p');
@@ -145,6 +146,7 @@ function CreateContactpage(t) {
     
     
     p.append(span, Address); target.append(p);
+    AppendFooter();
   };
 
 
@@ -153,11 +155,11 @@ function CreateContactpage(t) {
   target.append(contactFinal);
   //Bottom icons
   let wrap = document.createElement('div'); wrap.setAttribute('id', 'ContactIconWrapper');
-  for (key in Social.Names) {
-    let name = Social.Names[key];
-    let a = document.createElement('a'); let img = document.createElement('img');
-    setAttributes(img, { 'id': name, 'src': '../i/Icons/64BIT(GRAY)/' + name + '.png', 'class': 'ContactIcon' });
-    setAttributes(a, { 'href': Social.Address[(key)], 'target': '_blank' });
+  for (let i =0; i < Object.keys(Social.Links).length; i++) {
+    let name = Object.keys(Social.Links)[(i)];  let hrf = Object.values(Social.Links[name])[1];
+    let a = createElement('a',{href: hrf, target:'_blank'}); 
+    let img = createElement('img',{ id: name, className: 'ContactIcon', src: requestRoot('BusinessCard')+'i/Icons/64-BIT/'+name+'.png' });
+ 
     a.append(img);
     wrap.append(a);
   }

@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {  width: 0; }
 
+
 #Tools { 
     position: fixed; right: 0; top: 0;
     height: max-content; width: max-content;
@@ -48,39 +49,42 @@
 
 /* Slider */
 .Dark-Body{ color:white;
-    border:1px solid #afafaf55;background: radial-gradient(circle, #fafafada, #090909dd, gray);
+    border:4px double #afafaff9; 
+    background: radial-gradient(circle, #fafafada, #090909dd, gray);
     -webkit-text-stroke:  .2px #09090999;
 }
 .Light-Body{ color:black;
-    border:1px solid #90909055;background: radial-gradient(circle, white, #fafafada, gray, azure);
-    -webkit-text-stroke:  .1px #fafafa4f;
+    border:4px double #9090909f;
+    background: radial-gradient(circle, white, #fafafada, gray, azure);
+    -webkit-text-stroke:  .2px #fafafa4f;
 }
 #LD-slider{
     cursor: pointer;
     position: fixed;
     bottom:0; right:0;
     margin:2vw;
-    width:15vmin;
+    width:min(4rem,14vw);
     padding: 1vw  ;
     border-radius: 12%;
 }
 .Dark-slider{
     border: .4vmin double lightslategrey;
-    background-color:#fafafa99;
+    background-color:#fafafac4;
 }
 .Light-slider{
     border: .4vmin double #00000099;
-    background-color: #77889999;
+    background-color: #03030399;
 }
 
 #LD-icon{ 
-border: 0.6vw double;
-height: 6vw; width: 6vw; 
-max-height: 3.5vh ; max-width: 3.5vh;
-text-align: center;
-border-radius: 50%;
-background-size: contain; background-position-x: center; background-position-y: center;
-transition: 0.5s;
+    border: 0.6vw double;
+    height: 6vw; width: 6vw; 
+    max-height: 3.5vh ; max-width: 3.5vh;
+    padding: 4%;
+    text-align: center;
+    border-radius: 50%;
+    background-size: contain; background-position-x: center; background-position-y: center;
+    transition: 0.5s;
 }
 
 #LD-icon:hover{
@@ -96,4 +100,29 @@ transition: 0.5s;
     float:right; 
     border-color: white; background-color:black;
     background-image: url(../i/Icons/64-BIT/Uni-Moon.png);
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    margin: 0 auto; margin-top: 0.8vh; margin-bottom: 0.4vh;
+    color: #000;
+    padding: 0.1% 0.4%;
+    width: 94%;
+    text-align: center;
+    border: 1vmin double #fff000;
+}
+
+footer > * { margin: 0 auto; width: 65vw; }
+footer  > img { 
+    vertical-align: middle;  
+    width: min(7vw,5vh); height: min(7vw,5vh);
+    background-color: #fafafa55;   
+}
+
+#Bloodworks{  margin-left: 2%;
+    font-size:min(3vw,2vh); margin-right: 0; margin-top: 0; margin-bottom: 0;
+    padding:0.3%; 
+    background-color: #fafafa55;   
 }

@@ -9,20 +9,53 @@
     --rotation-direction: 360deg;
 }
 
+
+
+@media only screen and (max-width:600px) { /* EXTRA SMAll Phones*/
+    html{background-color: #fff;}
+}
+
+@media only screen and (min-width:600px) {/* Potrait Tablets and small phones*/
+    body{background-color: #11ffad;}
+}
+
+@media only screen and (min-width:800px) {/*Laptops, Vert Tablets and larger*/
+    body{display:none;}
+    
+}
+
+* {margin: 0 auto;    box-sizing: border-box; }
+
+html {
+    margin-top: 0.8vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    overflow: hidden;
+    width: 100vw; max-width: min(98vw);
+    height: fit-content;
+    padding: 1%;
+}
+
+
+/* Navigation */
 #NavBar_Selected {
     background-color: #ffd700a5;
     border: 0.5vmin solid #00000099;
     box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099;
 }
+
+#hr1{ margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
+
 nav {
      border: 1vmin groove gray;
     background: conic-gradient( var(--Shiftery-Background), var(--Shiftery-Background));
-    display:block;
-    margin: 1vh 0 1vh 0 ;
-    padding: 1%;
+    display:block; padding: 0.2vh 0 0.2vh 0;
 }
 
-#hr1{width: 98vw; margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
+
 
 #NavSwitch{ 
     display: block; width: fit-content;
@@ -122,23 +155,6 @@ nav {
 
 /* Body-Level */
 
-* {
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-body {
-    overflow: hidden;
-    width: 100vw;
-    height: fit-content;
-    padding: 1%;
-}
 
 hr{margin: 1%;}
 
@@ -155,28 +171,8 @@ header {
 }
 
 
-footer {
-    display: flex; align-items: center;
-    margin: 1%;  color:#000;
-    padding:1%;
-    font-size: 1.2vw;
-    text-align: center;
-    border: 1vmin double #fff000;
-    background:conic-gradient(var(--Shiftery-Background), var(--Shiftery-Background));
-}
-footer > span { width:50%; display:inline;}
-footer > span > img{display: inline; vertical-align: middle;}
-
-#Bloodworks{ 
-    padding:1.4%; display: inline-block;
-    background-color: #fafafa55;   
-}
 
 
-#cc {
-    max-width: 30vw;
-    background-color: #fafafa55;  
-}
 
 
 
