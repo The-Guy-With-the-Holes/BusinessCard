@@ -54,9 +54,8 @@ const Get = {
     }   ,
 
    
-    Footer:['Powered by ', '₿loodWeb' , requestRoot('BloodWeb') + '/₿/bweb.ico',
-        'This page and its contents are copyright of ₿loodWeb© under the ',
-        ' MIT license']   
+    Footer:['Powered by ', '₿loodWeb' , 'favicon.ico',
+        'This page and its contents are licensed for free use under the creative commons, it is distrubuted without warranty']   
 }
 const About = { lists:['Hobbies','Passions'], 
                 MainTXT:[' Hi there! my name is Jack,',

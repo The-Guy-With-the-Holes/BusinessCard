@@ -1,10 +1,10 @@
 let slide_Array = { 
-
+    
     images:[
-        { caption:'🎄Christmas 2021🎄'},
+        {src:'Christmas2022.jpg', caption:'🎄Christmas 2022🎄'},
         { caption:'Enjoying some park play time'},
-        { caption:'We love our little Sebastian'},
-        { caption:'Dads always going to carry your weight on his shoulders'},
+        { caption:'We love our Sebastian'},
+        { caption:'Dads got you on his shoulders'},
         { caption:'Our time is limited and that\'s what makes it special '},
         { caption:'Sometimes i help with the shopping'},
         { caption:'I ride fast wheels'},
@@ -32,17 +32,18 @@ let slide_Array = {
         { caption:'It\'s been a good one, see you next Year! ♥'}
     ],
 
+    imgSrc:'../../Cards/Christmas2022/photo',
     slide_Index:1, 
     TotalIndexMoves:0,
     expandViewkeycount:0,
     lastKey:'none',
 
 };
-
+// 
 
 for (let i = 0; i < slide_Array.images.length; i++){
     let Caption = slide_Array.images[i].caption;
-    let imgSrc=("Christmas2022/photo"+(i+1)+".jpg"); 
+    let imgSrc=slide_Array.images[i].src??(slide_Array.imgSrc+(i+1)+".jpg"); 
     if(i+1==slide_Array.images.length){imgSrc="Christmas2022/photoE.jpg";}
     
     let image_blocks = createElement('div',{className:"image_blocks fadeAnimation"})
@@ -59,16 +60,37 @@ for (let i = 0; i < slide_Array.images.length; i++){
 }
 
 
+
 let slider_switch = document.getElementById("fullscreen_slider_switch");
 let promptFullscreen = function(x){x==true?slider_switch.className="promptSlider":slider_switch.style.display="none";}
 let fullscreen = document.getElementById('slide_main').className.includes('fullScreen')?true:false;
+
+let PrevNext = document.querySelector('.prev')||document.querySelector('.next');
+
+function promptSliderInteraction(action){
+
+    switch (action) {
+        case 'PrevNext':
+            animatePrevNext();
+            break;  
+        case 'Fullscreen':
+            promptFullscreen();
+        break;
+        
+        default:
+            promptFullscreen(); animatePrevNext();
+            break;
+    }
+}
 
 showSlides(slide_Array.slide_Index);
 
 
 function plus_Slides(n){ 
     slide_Array.TotalIndexMoves++;
-    showSlides(slide_Array.slide_Index=parseInt(slide_Array.slide_Index)+parseInt(n)); }
+    showSlides(slide_Array.slide_Index=parseInt(slide_Array.slide_Index)+parseInt(n)); 
+    setSliderBackgroundRotation(((365/slide_Array.images.length)*slide_Array.slide_Index).toFixed(1));
+}
 
 function showSlides(n){
     console.warn(slide_Array.slide_Index);
@@ -78,11 +100,17 @@ function showSlides(n){
     let slider_Dots = document.getElementsByClassName('slider_dots');
     let expandkey = document.getElementById("fullscreen_slider_switch");
 
+
  if(expandkey.style.display!="none" && slide_Array.expandViewkeycount>2 || slide_Array.lastKey=="plus" ){
     expandkey.style.display="none";
  }
- if(fullscreen!=true && n==slide_Array.images.length||slide_Array.TotalIndexMoves<3||n==0){promptFullscreen(true);}
-    
+ if(n==0||n==slide_Array.images.length||slide_Array.TotalIndexMoves<3){
+    if(fullscreen!=true&&slide_Array.TotalIndexMoves<3){
+        promptFullscreen(true);
+    }
+    if(n==0&&fullscreen!=true){promptSliderInteraction('all');}
+}
+
  //makes sure slides in range
     if(n > slides.length){slide_Array.slide_Index=1;}
     if(n < 1){slide_Array.slide_Index=slides.length;}
@@ -100,14 +128,16 @@ function showSlides(n){
     slider_Dots[slide_Array.slide_Index-1].className="slider_dots active";   
 }
 
+let setSliderBackgroundRotation = function(deg){
+    console.warn(deg);
+    document.querySelector('.Standard_slider').style.background="linear-gradient("+deg+", #000,#000,#000,#faf )";
+}
 
 
-
-document.getElementById('slide_main').addEventListener('click', function (e) {
-    
+document.body.addEventListener('click', function (e) {
     const classN = e.target.className;
     let ID = e.target.id; 
-    let ParentClass =e.target.parentNode.className;
+    let ParentClass = e.target.parentNode.className;
     console.log(e.target+"was cicked"+" id:"+ID+" Class:"+classN+" parent(id):"+ParentClass);
 
     if(classN.includes("prev")||classN.includes('next')||classN.includes("slider_dots")){
@@ -140,6 +170,5 @@ document.getElementById('slide_main').addEventListener('click', function (e) {
         }
         slide_Array.lastKey='change';
         fullscreen = !fullscreen;
-
     }
 })

@@ -318,7 +318,7 @@ function AppendFooter(){
   let text1 = document.createTextNode(Get.Footer[0]); 
   let text2=createElement('a',{'href':'http://bloodweb.net',innerText:Get.Footer[1]}); 
 
-  let img = createElement('img',{src:Get.Footer[2]});  
+  let img = createElement('img',{src:'favicon.ico'});  
   let cc = createElement('p',{id:'cc'});
   let license = createElement('a',{href:'LICENSE'});
  

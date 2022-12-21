@@ -19,10 +19,6 @@
     body{background-color: #11ffad;}
 }
 
-@media only screen and (min-width:800px) {/*Laptops, Vert Tablets and larger*/
-    body{display:none;}
-    
-}
 
 * {margin: 0 auto;    box-sizing: border-box; }
 
