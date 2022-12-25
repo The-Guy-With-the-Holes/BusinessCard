@@ -28,8 +28,8 @@ let slide_Array = {
         { caption:'Bananas & Biscuits! Yum!'},
         { caption:'So much to see!'},
         { caption:'Bubbles!'},
-        { caption:'Isn\'t Christmas Wonderful..'},
-        { caption:'It\'s been a good one, see you next Year! ♥'}
+        { caption:'It\'s been a good one, see you next Year! ♥'},
+       
     ],
 
     imgSrc:'../../Cards/Christmas2022/photo',
@@ -37,6 +37,7 @@ let slide_Array = {
     TotalIndexMoves:0,
     expandViewkeycount:0,
     lastKey:'none',
+    useExpandKey:false,
 
 };
 // 
@@ -61,24 +62,20 @@ for (let i = 0; i < slide_Array.images.length; i++){
 
 
 
-let slider_switch = document.getElementById("fullscreen_slider_switch");
-let promptFullscreen = function(x){x==true?slider_switch.className="promptSlider":slider_switch.style.display="none";}
+//let slider_switch = document.getElementById("fullscreen_slider_switch");
+//let promptFullscreen = function(x){x==true?slider_switch.className="promptSlider":slider_switch.style.display="none";}
 let fullscreen = document.getElementById('slide_main').className.includes('fullScreen')?true:false;
 
 let PrevNext = document.querySelector('.prev')||document.querySelector('.next');
 
 function promptSliderInteraction(action){
-
+    if(slide_Array.useExpandKey==false){ return; }
     switch (action) {
-        case 'PrevNext':
-            animatePrevNext();
-            break;  
-        case 'Fullscreen':
-            promptFullscreen();
-        break;
+        case 'PrevNext': animatePrevNext();  break;  
+        case 'Fullscreen':  break;
         
         default:
-            promptFullscreen(); animatePrevNext();
+             animatePrevNext();
             break;
     }
 }
@@ -93,20 +90,15 @@ function plus_Slides(n){
 }
 
 function showSlides(n){
-    console.warn(slide_Array.slide_Index);
+    console.log("Showing Slide "+slide_Array.slide_Index);
    
     let i;
     let slides = document.getElementsByClassName("image_blocks");
     let slider_Dots = document.getElementsByClassName('slider_dots');
-    let expandkey = document.getElementById("fullscreen_slider_switch");
-
-
- if(expandkey.style.display!="none" && slide_Array.expandViewkeycount>2 || slide_Array.lastKey=="plus" ){
-    expandkey.style.display="none";
- }
+  
  if(n==0||n==slide_Array.images.length||slide_Array.TotalIndexMoves<3){
     if(fullscreen!=true&&slide_Array.TotalIndexMoves<3){
-        promptFullscreen(true);
+       // promptFullscreen(true);
     }
     if(n==0&&fullscreen!=true){promptSliderInteraction('all');}
 }
@@ -130,7 +122,7 @@ function showSlides(n){
 
 let setSliderBackgroundRotation = function(deg){
     console.warn(deg);
-    document.querySelector('.Standard_slider').style.background="linear-gradient("+deg+", #000,#000,#000,#faf )";
+    return document.querySelector('.Standard_slider').style.background="linear-gradient("+deg+"deg, #000,#000,#000,#faf )";
 }
 
 
@@ -151,19 +143,22 @@ document.body.addEventListener('click', function (e) {
     
 
     if(ID=="fullscreen_slider_switch"||ParentClass.includes('image_blocks')){
-        ID= document.getElementById("fullscreen_slider_switch");
-       
+      
+        slide_Array.expandViewkeycount++;
         if(fullscreen == true){ 
            
             document.getElementById("slider_dot_div").style.display="block";
             document.getElementById('slide_main').className="Standard_slider"; 
-            ID.src="EI.png"; promptFullscreen(true);
+           // ID.src="EI.png"; 
+           //promptFullscreen(true);
             document.body.scrollTop=80;
         }
         else if(fullscreen==false){ 
-            slide_Array.expandViewkeycount++;
-            ID.src="X.png"; 
-            let ClearIcon = setTimeout(() => {promptFullscreen(false);},2500 );
+         
+           // ID.src="X.png"; 
+            let ClearIcon = setTimeout(() => {
+                //promptFullscreen(false);
+            },2500 );
             document.getElementById("slider_dot_div").style.display="none";
             document.getElementById('slide_main').className="fullScreen_slider"; 
             ScrollHome(); ClearIcon;
