@@ -45,7 +45,7 @@ let slide_Array = {
 for (let i = 0; i < slide_Array.images.length; i++){
     let Caption = slide_Array.images[i].caption;
     let imgSrc=slide_Array.images[i].src??(slide_Array.imgSrc+(i+1)+".jpg"); 
-    if(i+1==slide_Array.images.length){imgSrc="Christmas2022/photoE.jpg";}
+    if(i+1==slide_Array.images.length){imgSrc="Christmas2022/photoHT.jpg";}
     
     let image_blocks = createElement('div',{className:"image_blocks fadeAnimation"})
     let image_node = createElement('img',{src:imgSrc})

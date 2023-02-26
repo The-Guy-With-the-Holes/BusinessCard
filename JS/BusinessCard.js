@@ -146,22 +146,23 @@ function replaceMainDesc(Quote){
     desc.innerText= x+'\n\n-- Quote of the day';
 }
 
+const ShowIconBox = function(show){ let IconBoxMaster = document.getElementById('IconBox');
+show===true?IconBoxMaster.style.display="block":IconBoxMaster.style.display="none";
+}
 function switchIconBox(show){
-let IconBoxMaster = document.getElementById('IconBox');
-let IconSwitch = document.getElementById('Home-Icon-Button');
-
+    ShowIconBox(show);
+    /*
+let IconSwitch = document.getElementById('Home-Icon-Button');    
     switch (show) {
         case true:
-            IconBoxMaster.style.display="block";
             IconSwitch.innerText="⇪"; 
             IconSwitch.setAttribute('onclick',"switchIconBox(false)");
             break;
         case false:
-            IconBoxMaster.style.display="none";
             IconSwitch.innerText="⇩";
             IconSwitch.setAttribute('onclick',"switchIconBox(true)");
             break;
-    }
+    }*/
 }
 
 

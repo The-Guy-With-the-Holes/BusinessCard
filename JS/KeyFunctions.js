@@ -1,3 +1,12 @@
+/* Local */
+const LS_Name = function (s){
+  if (s=='' || s==undefined) return localStorage.getItem('name');
+  localStorage.setItem('name',s); 
+}
+
+
+const weekDay= ['Sun','Mon','Tue','Wed','Thur','Fri','Sat'];
+
 function isNeg(x) { if (!isNaN(x) && x < 0) { return true; } }
 
 function setRange(i, min, max) {
@@ -18,6 +27,23 @@ function getDatearr() {
   return currentDay;
 }
 
+let timeDif = function(time){let today = new Date();
+  let iTime = time.split(':'); 
+  let curTime = toString( today.getHours(),":"+today.getMinutes()+":",today.getSeconds());
+ 
+if(time>curTime){
+  return "Not >24hrs";
+}
+else{return "<24hrs"+(time-curTime)}
+let Dif=[ 
+  second = curTime[2]-iTime[2],
+ minute = curTime[1]-iTime[1],
+hour = curTime[0]-iTime[0] ]
+
+if(Dif.second<0){Dif.minute-1; Dif.second = 5555; }
+
+ return "InputTIme:"+time+" curTime:"+curTime+"\n Dif:"+[hourDif,minuteDif,secondDif>0?secondDif:60+secondDif];
+}
 function DateDif(date) {
   date.split('/'); let time = date[0] + date[1];
   let d1 = date.slice(9);
@@ -29,6 +55,9 @@ function DateDif(date) {
 
 let DIfference =[(date1.getFullYear()-date2.getFullYear()),(date1.getMonth()-date2.getMonth()),(date1.getDay()-date2.getDay())];
   return "Y/M/D:"+DIfference;
+}
+let daysUntil = function(date){ const today = new Date();
+  let diff = date - today;return Math.floor(diff/(1000*60*60*24));
 }
 
 let isPHP = function(){ if(window.location.href.includes('php')){return true;}
@@ -102,7 +131,7 @@ function setAttributes(el, attrs) {
   }
 }
     
-function createClass(name, rules) {
+function createStyleRule(name, rules) {
   var style = document.createElement('style');
   style.type = 'text/css';
   document.getElementsByTagName('head')[0].appendChild(style);
@@ -130,12 +159,12 @@ const Tools = [
 ]
 
 // Required
-let appendTool = function(name,img,func){ if ( !img || !func ){ console.error('cannot append tool');}
+let appendTool = function(name,img,func){ if ( !img || !name){ console.error('cannot append tool');}
   let E = document.getElementById('Tools-Extended');
   
   let ele = document.createElement('img');
-  setAttributes(ele,{'name':name,'alt':name,'onclick':func,'src':img,'class':'tool-icons'});
-  E.append(ele);
+  setAttributes(ele,{'name':name,'alt':name,'src':img,'class':'tool-icons','onclick':func});
+ document.getElementById('Tools-Extended').append(ele);
 }
 
 function appendToolbar(){
@@ -301,7 +330,6 @@ if(Nav){
   switch (type) {
       case 'Open':
         Get.Nav.Switch.innerText="⚞";
-
         break;
   
       case 'Close':
