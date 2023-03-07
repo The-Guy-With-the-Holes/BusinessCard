@@ -24,7 +24,7 @@ function allowDrop(event) {event.preventDefault();}
 const CheckAge = function(DOB){
   let today = new Date();
   let birthDate = new Date(DOB);
-  const age = today.getFullYear() - birthDate.getFullYear();
+  let age = today.getFullYear() - birthDate.getFullYear();
   let monthDif = today.getMonth(); - birthDate.getMonth();
   if (monthDif < 0 || (monthDif===0 && today.getDate() < birthDate.getDate())){
     age--; // Over declared age adjusted here 
