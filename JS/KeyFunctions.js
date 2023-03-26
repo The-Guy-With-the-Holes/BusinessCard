@@ -95,15 +95,19 @@ function ScrollTarget(dir,target){
 
 }
 
-function SetFavicon(img,root){
-  
-}
-
 let reloadPage = function(){ window.location.reload(true); return false; }
+
+//Edit Elements
+const Toggle_Ele_Display=function(element,DisplayType,enforce){let x = element; if(enforce===true||x.style.display=="none"){x.style.display=DisplayType;}else x.style.display="none";}
+const CToggle_Ele=function(arr){for(e in arr){let a = arr[e];Toggle_Ele_Display(a[0],a[1],a[2]??null)}}
+
+
 
 let sWL = function (t){  if(Social.Links.hasOwnProperty(t)){ return window.location=Social.Links[t]['href'];}
   window.location='/';
 }
+
+
 
 // Utility functions
 function randomNum(min, max) { if (min == undefined || max == undefined) { min = 0; max = 17; }
@@ -163,12 +167,12 @@ function insertAfter(referenceNode, newNode) {
 //              Tools
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
 
-
+if(document.title=-'sassa'){
 const Tools = [ 
   ['Return to top',requestRoot('BusinessCard')+'i/Templates/RThome.png','ScrollHome();'],
   ['Shiftery',requestRoot('BusinessCard')+'i/Templates/Shiftplay.png','ToggleShiftery();'],
 ]
-
+}
 // Required
 let appendTool = function(name,img,func){ if ( !img || !name){ console.error('cannot append tool');}
   let E = document.getElementById('Tools-Extended');
@@ -283,7 +287,7 @@ function LDswitch(type){
     slider.setAttribute('class',type+'-slider');
     Switch.setAttribute('class',type+'-icon');
     Get.Body.setAttribute('class',type+'-Body');
-     ShiftSwitch(type);
+    ShiftSwitch(type);
 }
 
 
@@ -305,7 +309,6 @@ function AddMainNav(){
   target.append(nav); 
   
   document.querySelector('header').parentNode.insertBefore(target, document.querySelector('header').nextSibling);
- 
 }
 
 
@@ -314,9 +317,7 @@ function AddNavBar() {
   let Nav = document.querySelector('.NavBar');
   if (Nav) {
     Get.Nav.Switch.innerText="⚞";
-    setAttributes(Get.Nav.Switch,{
-      'onclick':'clearNavBar()','style':'border:.42vmin double gold;'
-    });
+    setAttributes(Get.Nav.Switch,{'onclick':'clearNavBar()','style':'border:.42vmin double gold;'});
     Nav.style.display="";
   }
 }
