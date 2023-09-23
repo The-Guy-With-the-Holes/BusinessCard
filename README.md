@@ -32,8 +32,7 @@ for a commit Message of (Pages=(ALL).js, had major changes, with key notes of Ne
 
 Bugs & errors::
 
-Missing Certificates (Likely Spelling problems)
-
+Missing Certificates (Likely Spelling errors)
 
 Grasshopper: All & Folder
 Phub: TS ,JS ADV, JQUERY
