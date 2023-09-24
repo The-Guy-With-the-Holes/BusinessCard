@@ -36,3 +36,4 @@ Disallow: /Certfificates
 ### Files ###
 Disallow:
 
+## Copyright Jackewers.com 2023
