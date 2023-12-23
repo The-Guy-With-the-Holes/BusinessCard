@@ -1,74 +1,78 @@
-
- 
- #slide_main{
-    border: 3px ridge #0a0a0a;
-    overflow: hidden; 
-}
+*{ margin:0 auto; padding:0;}
 
 [class*="_slider"]{
-    background-color: #000; 
-
+    background-color: #000;  border:.25vw ridge blue;
+    overflow: hidden; 
+    /* min-height: 85dvh; */
 }
+
+/* #SLide_Main */
 .Standard_slider{
     position:relative; 
-    min-height:60vh; width: 90vw; 
+    width: 90vw; 
+    height: 90svh;
     padding: 0.4vh 0.4vh 2vh 0.4vh;
 }
+
 .fullScreen_slider{
-    padding-top: 4vh ; 
-    padding-bottom: 0vh ;
-   height: 100vh; width: 100vw;
+    height: 100dvh; width: 99.75vw;
     position: absolute; 
-    margin: auto;
-    top:.4%; left: 0; right: 0;
-    margin-top: 0.112%;
-  
 }
 
-.Standard_slider>.image_blocks>img{ min-height: 54vh; }
-.Standard_slider>.next,.Standard_slider>.prev {
-    border: 2vw double #fafafa77; 
-    background-color: #f2f2f255; opacity: 0.9;
-    -webkit-text-stroke: 2px #000000;
-    font-size: 6.8rem;
+/* Standard settings */
+h1 { color:#aaa; margin-bottom: min(.5dvh,.5vw); text-align: center;}
+
+/* Elements to hide on fullscreen */
+.fullScreen_slider .slider_dot_div,.fullScreen_slider h1,.fullScreen_slider #slider_settings{ 
+    display:none; 
 }
 
-/* FUllscreen >  */
+/* elements to change on fullscreen */
 .fullScreen_slider .image_blocks{
-margin: 0 auto;
+  margin: 0 auto;
 }
+
 .fullScreen_slider>.image_blocks>img{
-    min-height: 70vh; max-height: 86vh;
+    height: 100dvh;
+     /* max-height: 86vh; */
 }
     
 .fullScreen_slider>.next,.fullScreen_slider>.prev{ 
-    font-size: 7.8rem;
+    font-size: 4.8rem;
     -webkit-text-stroke: 4px #00000055;
  }
 
 .fullScreen_slider>.image_blocks>.numbertext {
-    background-color: #000; 
-    border: 4px double #fff;
-    margin-top: 3.5vh;
+    /* background-color: #000;  */
+    color:red;
 }
+
 .fullScreen_slider>.image_blocks>.captiontext{
     background-color: #000;
     font-size: x-large;  
     position: absolute;
     margin: 0 auto; left: 0; right:0;
-    bottom: 8vh;
-    }
+    bottom: 0vh;
+}
 
+.Standard_slider>.image_blocks>img{ min-height: 62vh; }
+.Standard_slider>.next,.Standard_slider>.prev {
+    /* border: 2vw double #fafafa77;  */
+    background-color: #f2f2f255; opacity: 0.9;
+    -webkit-text-stroke: 2px #000000;
+    font-size: 4.8rem;
+}
 
-
+/* FUllscreen >  */
 
 .image_blocks{
 text-align: center; overflow: auto;
-vertical-align: middle;}
+vertical-align: middle;
+}
 .image_blocks> img{
 text-align: center; background-color: #000;
 max-height: 100%; max-width: 100%; display: block; margin: 0 auto; 
-border: 2vw double #00000099;
+/* border: 2vw double #00000099; */
 }
 .numbertext {
 color: #f2f2f2;
@@ -96,8 +100,56 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .next{right: 0;border-radius:  3px 0 0 3px ;}
 .prev:hover,.next:hover{ opacity: 0.6; background-color: #00000055;}
+
+
+
+
+
+.captiontext{
+    background-color: #00000055;
+    border: 1.2px double gold;
+    font-size: medium;
+    max-width: 75vw; word-wrap: break-word;
+    padding: .5vh 2vw;
+    text-align: center;
+}
+.captiontext>p{
+    background-color:#000000a9;
+    color: white;
+    -webkit-text-stroke: 0.2px gold;
+    border: 2px solid #c0c0c055;
+    width: fit-content;
+    padding: 1%;
+}
+
+#slider_dot_div{
+    margin: 0 auto;
+    max-width: 90vw; 
+    background-color: lightcoral;
+    padding: 0.8vh 0;
+    border: 2px double #000;
+    border-bottom: 8px solid #000;
+}
+.slider_dots{
+    cursor: pointer;
+    height: 15px; width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
     
-    
+#slider_settings{
+    position: absolute;
+    margin: 0 auto;
+    background-color: #000;
+    bottom:0;
+    padding:4% 1%;
+    left:0;right:0;
+   
+}
+
 #fullscreen_slider_switch{
     cursor: pointer; opacity: 0.4;
     text-align: center;
@@ -144,7 +196,7 @@ background-color: #71737199;
 }
     
 .promptPlud{
-      animation-name: promptPlud;
+    animation-name: promptPlud;
     animation-duration: 1s;
     animation-iteration-count: 2;
     animation-fill-mode: forwards;
@@ -156,44 +208,6 @@ background-color: #71737199;
         to{ opacity: .8;transform: scale(1.12);  }
     }
 
-
-
-
-
-.captiontext{
-    background-color: #00000055;
-    border: 6px double gold;
-    font-size: medium;
-    max-width: 75vw; word-wrap: break-word;
-    padding: .5vh 2vw;
-    text-align: center;
-}
-.captiontext>p{
-    background-color:#000000a9;
-    color: white;
-    -webkit-text-stroke: 0.2px gold;
-    border: 2px solid #c0c0c055;
-    width: fit-content;
-    padding: 1%;
-}
-
-#slider_dot_div{
-    margin: 0 auto;
-    max-width: 90vw; 
-    background-color: #00ffffcf;
-    padding: 0.8vh 0;
-    border: 2px double #000;
-    border-bottom: 8px solid #000;
-}
-.slider_dots{
-    cursor: pointer;
-    height: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
 .active, .dot:hover,#clos{background-color: #717371;}
 
 .fadeAnimation{

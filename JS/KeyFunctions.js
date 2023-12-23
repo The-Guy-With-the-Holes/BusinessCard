@@ -1,168 +1,3 @@
-/* Local */
-const LS_Name = function (s){
-  if (s=='' || s==undefined) return localStorage.getItem('name');
-  localStorage.setItem('name',s); 
-}
-
-
-const weekDay= ['Sun','Mon','Tue','Wed','Thur','Fri','Sat'];
-
-function isNeg(x) { if (!isNaN(x) && x < 0) { return true; } }
-
-function setRange(i, min, max) {
-    if (i < min) return  min;
-    if (i > max) return max;
-    return i;
-}
-function inRange(num,min,max){if(num<=max&&num>=min)return true;}
-
-let log = function (t) {console.log(t);}
-
-function allowDrop(event) {event.preventDefault();}
-
-//Date
-const CheckAge = function(DOB){
-  let today = new Date();
-  let birthDate = new Date(DOB);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  let monthDif = today.getMonth() - birthDate.getMonth();
-  if (monthDif < 0 || (monthDif===0 && today.getDate() < birthDate.getDate())){
-    age--; // Over declared age adjusted here 
-  }
-  return age;
-}
-
-function getDatearr() {
-  let today = new Date();
-  let currentDay = new Date(today.getFullYear()+"," + (today.getMonth() + 1) + ',' +today.getDate()  );
-  return currentDay;
-}
-
-let timeDif = function(time){let today = new Date();
-  let iTime = time.split(':'); 
-  let curTime = toString( today.getHours(),":"+today.getMinutes()+":",today.getSeconds());
- 
-if(time>curTime){
-  return "Not >24hrs";
-}
-else{return "<24hrs"+(time-curTime)}
-let Dif=[ 
-  second = curTime[2]-iTime[2],
- minute = curTime[1]-iTime[1],
-hour = curTime[0]-iTime[0] ]
-
-if(Dif.second<0){Dif.minute-1; Dif.second = 5555; }
-
- return "InputTIme:"+time+" curTime:"+curTime+"\n Dif:"+[hourDif,minuteDif,secondDif>0?secondDif:60+secondDif];
-}
-function DateDif(date) {
-  date.split('/'); let time = date[0] + date[1];
-  let d1 = date.slice(9);
-  let month =d1[3]+d1[4]; let day =d1[0]+d1[1];
-  let year = 20+d1[6]+d1[7];
-
-  const date1 = new Date(year+','+month+','+day);
-  const date2 = new Date();
-
-let DIfference =[(date1.getFullYear()-date2.getFullYear()),(date1.getMonth()-date2.getMonth()),(date1.getDay()-date2.getDay())];
-  return "Y/M/D:"+DIfference;
-}
-let daysUntil = function(date){ const today = new Date();
-  let diff = date - today;return Math.floor(diff/(1000*60*60*24));
-}
-
-let isPHP = function(){ if(window.location.href.includes('php')){return true;}
-  return false;
-}
-
-// Page maninpulation
-let isSafari = /.*Version.*Safari.*/.test(navigator.userAgent);
-
-function ScrollHome(dir,target){ 
-  let WindowFrame =  document.body.scrollTop || document.documentElement.scrollTop || window.scrollY;
- 
-    if( WindowFrame > 0 ){
-        window.requestAnimationFrame(ScrollHome);
-        window.scrollTo(0,WindowFrame-(WindowFrame/5));
-        console.log('Window Scroll location = '+WindowFrame);
-    }  
-}
-
-function ScrollTarget(dir,target){
-  let Frame = document.getElementById(target).scrollTop;
-
-  if(Frame > 0  && dir!='V' ){}
-
-}
-
-let reloadPage = function(){ window.location.reload(true); return false; }
-
-//Edit Elements
-const Toggle_Ele_Display=function(element,DisplayType,enforce){let x = element; if(enforce===true||x.style.display=="none"){x.style.display=DisplayType;}else x.style.display="none";}
-const CToggle_Ele=function(arr){for(e in arr){let a = arr[e];Toggle_Ele_Display(a[0],a[1],a[2]??null)}}
-
-
-
-let sWL = function (t){  if(Social.Links.hasOwnProperty(t)){ return window.location=Social.Links[t]['href'];}
-  window.location='/';
-}
-
-
-
-// Utility functions
-function randomNum(min, max) { if (min == undefined || max == undefined) { min = 0; max = 17; }
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-let isEven = function (num){ if(!num || isNaN(num)) return console.error('Num required');
-  if(num % 2 == 0)return true;
-  return false;
-}
-function randomHex(bits) {if (!bits) { bits = 8; } 
-  let hexRes = ''; let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  for (let i = 0; i < bits; i++) { hexRes += hex[(randomNum(0, 9))]; }
-  return hexRes;
-}
-
-function createHexchain(hexlength){ 
-  if (!hexlength){return console.error('Hex length not defined');}
-  let hlen=hexlength; let hexchain=[];
-  for (let i =0; i < hlen; i++){ hexchain.push("#"+randomHex()); }
-  return hexchain;
-}
-
-// Styles and elements
-
-let createElement = function(element, properties) { let el = document.createElement(element);
-  for (var prop in properties) {el[prop] = properties[prop];}
-  return el;
-}
-let tNode = function (t){ return document.createTextNode(t);}
-let BR = function(){return createElement('br');}
-
-function setAttributes(el, attrs) {
-  for (var key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-}
-    
-function createStyleRule(name, rules) {
-  var style = document.createElement('style');
-  style.type = 'text/css';
-  document.getElementsByTagName('head')[0].appendChild(style);
-  if (!(style.sheet || {}).insertRule)
-    (style.styleSheet || style.sheet).addRule(name, rules);
-  else
-    style.sheet.insertRule(name + "{" + rules + "}", 0);
-}
-
-//Tasklist
-function insertAfter(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
-
-
 //#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#%#%#%
 //              Tools
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
@@ -271,14 +106,14 @@ function AddLightDarkSwitcher(){
   slider.setAttribute('onclick',"LDswitch();");
   
   slider.append(sich);
-  document.getElementById('Tools-Extended').append(slider);
+  document.body.prepend(slider);
   Get.Body.setAttribute('class','Light-Body');
 }
 
 function LDswitch(type){
   let slider = document.getElementById('LD-slider');
   let Switch = document.getElementById('LD-icon');  
-  let symbol = ColorShifter.icons;
+  //let symbol = ColorShifter.icons;
  
   if(slider.classList.contains('Light-slider')){type="Dark"; }
   else{ type="Light"; }
@@ -307,8 +142,8 @@ function AddMainNav(){
 
   nav.append(item);
   target.append(nav); 
-  
-  document.querySelector('header').parentNode.insertBefore(target, document.querySelector('header').nextSibling);
+  document.body.prepend(target);
+  //document.querySelector('header').parentNode.insertBefore(target, document.querySelector('header').nextSibling);
 }
 
 
@@ -358,14 +193,13 @@ function AppendFooter(){
   let text1 = document.createTextNode(Get.Footer[0]); 
   let text2=createElement('a',{'href':'http://bloodweb.net',innerText:Get.Footer[1]}); 
 
-  let img = createElement('img',{src:'favicon.ico'});  
+  let img = createElement('img',{src:'http://www.bloodweb.net/favicon.ico'});  
   let cc = createElement('p',{id:'cc'});
   let license = createElement('a',{href:'LICENSE'});
  
-  p.append(text1,text2,tNode(Get.Footer[3]),license,tNode(Get.Footer[4])); 
+p.append(text1,text2,tNode(Get.Footer[3]),license,tNode(Get.Footer[4])); 
 footer.append(p,img);
 document.body.append(footer);
-
 }
 
 

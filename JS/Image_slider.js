@@ -1,69 +1,78 @@
 let slide_Array = { 
-    
-    images:[
-        {src:'Christmas2022.jpg', caption:'🎄Christmas 2022🎄'},
-        { caption:'Enjoying some park play time'},
-        { caption:'We love our Sebastian'},
-        { caption:'Dads got you on his shoulders'},
-        { caption:'Our time is limited and that\'s what makes it special '},
-        { caption:'Sometimes i help with the shopping'},
-        { caption:'I ride fast wheels'},
-        { caption:'We love the water'},
-        { caption:'*really, love the water..'},
-        { caption:'And of course we love eachother'},
-        //11
-        { caption:'Dressing up'},
-        { caption:'We laugh with our family'},
-        { caption:'Spend time playing our games'},
-        { caption:'And spend even more time playing with water'},
-        { caption:'We love learning together'},
-        { caption:'Exploring new enviroments'},
-        { caption:'Wearing SillyHats'},
-        { caption:'Getting our hands dirty'},
-        { caption:'Playing in the sand'},
-        { caption:'Swimming with Mum and Aunty Emma'},
-        //21
-        { caption:'Having good food'},
-        { caption:'Double fisting drinks'},
-        { caption:'Bananas & Biscuits! Yum!'},
-        { caption:'So much to see!'},
-        { caption:'Bubbles!'},
-        { caption:'It\'s been a good one, see you next Year! ♥'},
-       
-    ],
 
-    imgSrc:'../../Cards/Christmas2022/photo',
-    slide_Index:1, 
+    // images:[
+    //     // {src:'new_capture.jpg', caption:'🎄Christmas 2022🎄'},
+    //     { caption:'Enjoying some park play time'},
+    //     { caption:'We love our Sebastian'},
+     
+    // ],
+
+    imgSrc:'../../../test/captures/',
+    img0:'new_capture.jpg',
+    
+    slide_Index:0, 
     TotalIndexMoves:0,
     expandViewkeycount:0,
     lastKey:'none',
     useExpandKey:false,
 
+    settings:{
+        Slider_dots:[true,"#slider_dot_div"],
+        Captions:[true,".captiontext"],
+        Img_count:[true,".numbertext"],
+    }
+
 };
-// 
 
-for (let i = 0; i < slide_Array.images.length; i++){
-    let Caption = slide_Array.images[i].caption;
-    let imgSrc=slide_Array.images[i].src??(slide_Array.imgSrc+(i+1)+".jpg"); 
-    if(i+1==slide_Array.images.length){imgSrc="Christmas2022/photoHT.jpg";}
-    
-    let image_blocks = createElement('div',{className:"image_blocks fadeAnimation"})
-    let image_node = createElement('img',{src:imgSrc})
-    let numText = createElement('div',{innerText:(i+1)+"/"+slide_Array.images.length,className:"numbertext"});
-    let captionText = createElement('div',{ className:'captiontext'})
-    let dot = createElement('button',{ className:"slider_dots",value:i+1}); 
-    let p = createElement('p',{innerText:Caption});
 
-    captionText.append(p);
-    image_blocks.append(numText,image_node,captionText);
-    document.querySelector('.prev').before(image_blocks);    
-    document.getElementById("slider_dot_div").append(dot);
+function toggle_slider_settings(s) {
+    setting_name=s.id;
+    setting=slide_Array.settings[setting_name];
+    setting[0]=!setting[0];
+
+    // Get all settings
+    change_group=document.querySelectorAll(setting[1])
+
+    if (setting[0]==true){
+        s.innerText=`${setting_name}:ON`;
+        group_set="block";
+    }
+    else {
+        s.innerText=`${setting_name}:OFF`;
+        group_set="none";
+    }
+    // Show / Display the setting
+    for (let i = 0; i<change_group.length; i++){change_group[i].style.display=group_set;}
+} 
+
+
+function build_slider(islider) {
+slide_Array.images=islider
+    for (let i = 0; i < slide_Array.images.length; i++){
+        let Caption = slide_Array.images[i].caption??"ramp";
+        let imgSrc=slide_Array.images[i].src??(slide_Array.imgSrc+"capture_"+i+".jpg"); 
+        // set img1 as img0 
+        if(i==0){imgSrc=slide_Array.imgSrc+slide_Array.img0;}
+        
+        let image_blocks = createElement('div',{className:"image_blocks fadeAnimation"})
+        let image_node = createElement('img',{src:imgSrc})
+        let numText = createElement('div',{innerText:(i+1)+"/"+slide_Array.images.length,className:"numbertext"});
+        let captionText = createElement('div',{ className:'captiontext'})
+        let dot = createElement('button',{ className:"slider_dots",value:i}); 
+        let p = createElement('p',{innerText:Caption});
+
+        captionText.append(p);
+        image_blocks.append(numText,image_node,captionText);
+        document.querySelector('.prev').before(image_blocks);    
+        document.getElementById("slider_dot_div").append(dot);
+    }
+  showSlides(1);
 }
-
 
 
 //let slider_switch = document.getElementById("fullscreen_slider_switch");
 //let promptFullscreen = function(x){x==true?slider_switch.className="promptSlider":slider_switch.style.display="none";}
+
 let fullscreen = document.getElementById('slide_main').className.includes('fullScreen')?true:false;
 
 let PrevNext = document.querySelector('.prev')||document.querySelector('.next');
@@ -71,16 +80,14 @@ let PrevNext = document.querySelector('.prev')||document.querySelector('.next');
 function promptSliderInteraction(action){
     if(slide_Array.useExpandKey==false){ return; }
     switch (action) {
-        case 'PrevNext': animatePrevNext();  break;  
         case 'Fullscreen':  break;
+        //case 'PrevNext': animatePrevNext();  break;  
         
         default:
              animatePrevNext();
-            break;
+        break;
     }
 }
-
-showSlides(slide_Array.slide_Index);
 
 
 function plus_Slides(n){ 
@@ -103,26 +110,23 @@ function showSlides(n){
     if(n==0&&fullscreen!=true){promptSliderInteraction('all');}
 }
 
- //makes sure slides in range
-    if(n > slides.length){slide_Array.slide_Index=1;}
-    if(n < 1){slide_Array.slide_Index=slides.length;}
-    // prompt full screen slide three
-
+    //makes sure slides in range
+    if(n > slides.length-1){slide_Array.slide_Index=0 ;}
+    if(n < 0){slide_Array.slide_Index=slides.length-1;}
     
-
-    //hides slides
+    //hide all slides
     for(i=0;i<slides.length;i++){slides[i].style.display="none";}
-        //Removes active class 
+    //Removes all active class 
     for(i=0; i<slider_Dots.length; i++){slider_Dots[i].className=slider_Dots[i].className.replace("active","");}
 
-        // Sets active
-    slides[slide_Array.slide_Index-1].style.display='block';
-    slider_Dots[slide_Array.slide_Index-1].className="slider_dots active";   
+    // Display Slide && Set active class
+    slides[slide_Array.slide_Index].style.display='block';
+    slider_Dots[slide_Array.slide_Index].className="slider_dots active";   
 }
 
 let setSliderBackgroundRotation = function(deg){
     console.warn(deg);
-    return document.querySelector('.Standard_slider').style.background="linear-gradient("+deg+"deg, #000,#000,#000,#faf )";
+    return document.querySelector('.Standard_slider').style.background="linear-gradient("+deg+"deg, #000,#000,#000,lightcoral )";
 }
 
 
@@ -147,11 +151,12 @@ document.body.addEventListener('click', function (e) {
         slide_Array.expandViewkeycount++;
         if(fullscreen == true){ 
            
-            document.getElementById("slider_dot_div").style.display="block";
+            document.querySelector("h1").style.display="block";
             document.getElementById('slide_main').className="Standard_slider"; 
            // ID.src="EI.png"; 
            //promptFullscreen(true);
-            document.body.scrollTop=80;
+         
+           // document.body.scrollTop=80;
         }
         else if(fullscreen==false){ 
          
@@ -159,9 +164,11 @@ document.body.addEventListener('click', function (e) {
             let ClearIcon = setTimeout(() => {
                 //promptFullscreen(false);
             },2500 );
-            document.getElementById("slider_dot_div").style.display="none";
+            document.querySelector("h1").style.display="none";
+
+            // document.getElementById("slider_dot_div").style.display="none";
             document.getElementById('slide_main').className="fullScreen_slider"; 
-            ScrollHome(); ClearIcon;
+         //   ScrollHome(); ClearIcon;
         }
         slide_Array.lastKey='change';
         fullscreen = !fullscreen;

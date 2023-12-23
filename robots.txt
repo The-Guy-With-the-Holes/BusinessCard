@@ -33,6 +33,7 @@ Disallow: /i/*
 Disallow: /JS
 Disallow: /css
 Disallow: /Certfificates
+Disallow: exclude.list
 ### Files ###
 Disallow:
 

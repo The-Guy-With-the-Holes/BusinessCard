@@ -30,6 +30,7 @@ let setPagestate = function (page,text1,Stext,img) { if(!page){page=Get.DT;}
 }
 
 function appendHeader(){
+    // The main Element//
     let header = createElement("header",{className:'box-main ColorShifter'});
     
     let mainImg = createElement('span',{id:'Mainimg'}); mainImg.append((createElement('img',{src:PageState.header.img,id:'locko',className:'mainx Crazy_Hat',onmouseenter:'mainimgRotate()'})));
