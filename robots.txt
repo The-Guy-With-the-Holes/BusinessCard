@@ -1,5 +1,5 @@
 #
-# robots.txt
+# v1 robots.txt
 #
 # This file is to prevent the crawling and indexing of certain parts
 # of your site by web crawlers and spiders run by sites like Yahoo!
