@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2023 Hewers Christmas Card</title>
 
-    <link type="text/css" rel="stylesheet" href="../jackewers.com/CSS/styles.css"></link>
+    <link type="text/css" rel="stylesheet" href="../CSS/styles.css"></link>
     <!-- <link type="text/css" rel="stylesheet" href="../bloodweb.net/BloodWeb_Styles.css"></link> -->
     <style>
 
@@ -14,8 +14,7 @@
         .HnF_styles {
             background-color: #f5f5dcf8;
             border: 1vmin inset #fff000;
-            margin:0 auto;
-         
+            margin:0 auto;   
             text-align: center;
         }
 
@@ -173,23 +172,15 @@
 
             let img = createEle('img',{src:'Christmas-2023/favicon.ico'});  
       
-            p.append(text1,text2,tNode(' This page and its contents are licensed for free use under the creative commons and is distrubuted without warranty')); 
+            p.append(text1,text2,document.createTextNode(' This page and its contents are licensed for free use under the creative commons and is distrubuted without warranty')); 
             footer.append(p);
             document.body.append(footer);
         }
- AppendFooter()         
+        
+        AppendFooter()         
+        
         }, 20);
 
-        SLIDE = document.querySelector('dialog')
-
-        imgs=document.querySelectorAll('.expandable-img');
-        addEventListener('onclick',imgs=> [
-
-        ])
-
-    function OpenSlide(){
-        
-    }
     </script>
 </body>
 
