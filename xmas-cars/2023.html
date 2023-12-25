@@ -15,6 +15,7 @@
             background-color: #f5f5dcf8;
             border: 1vmin inset #fff000;
             margin:0 auto;
+         
             text-align: center;
         }
 
@@ -112,6 +113,37 @@
             <img class="expandable-img" src="Christmas-2023/Christmas-2023-9" />   
         </span>
 
+        <span id="card-section-4" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-10" />   
+        </span>
+
+        <span id="card-section-5" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-11" />   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-12" />   
+        </span>
+
+
+        <span id="card-section-6" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-13" />   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-14" />   
+        </span>
+
+        <span id="card-section-7" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-15" />   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-16" />   
+        </span>
+
+
+        <span id="card-section-8" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-17" />   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-18" />
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-19" />
+        </span>
+
+        <span id="card-section-9" class="csec">   
+            <img class="expandable-img" src="Christmas-2023/Christmas-2023-20" />   
+        </span>
+
     </div>
 
 
@@ -121,25 +153,30 @@
     </h6>
 
     <!-- <script type="text/javascript" src="../blo"></script> -->    
-    <script type="text/javascript" src="../bloodweb.net/KeyFunctions.js"></script>
+    <!-- <script type="text/javascript" src="../bloodweb.net/KeyFunctions.js"></script> -->
     <!-- <script type="text/javascript" src="../jackewers.com/JS/vari.js"></script> -->
     
     <!-- <script type="text/javascript" src="../jackewers.com/JS/KeyFunctions.js"></script> -->
     <script>
+        let createEle = function (element, properties) {
+            let el = document.createElement(element);
+            for (var prop in properties) { el[prop] = properties[prop]; }
+            return el;
+        }
 // Script to attach footer
         setTimeout(() => {
             function AppendFooter(){
-          let footer = createElement('footer');
-            let p = createElement('p',{id:'Bloodworks'}); 
+          let footer = createEle('footer');
+            let p = createEle('p',{id:'Bloodworks'}); 
             let text1 = document.createTextNode("Powered by "); 
-            let text2=createElement('a',{'href':'http://bloodweb.net',innerText:"₿loodWeb.net"}); 
+            let text2=createEle('a',{'href':'http://bloodweb.net',innerText:"₿loodWeb.net"}); 
 
-            let img = createElement('img',{src:'Christmas-2023/favicon.ico'});  
+            let img = createEle('img',{src:'Christmas-2023/favicon.ico'});  
       
             p.append(text1,text2,tNode(' This page and its contents are licensed for free use under the creative commons and is distrubuted without warranty')); 
             footer.append(p);
             document.body.append(footer);
-}
+        }
  AppendFooter()         
         }, 20);
 
