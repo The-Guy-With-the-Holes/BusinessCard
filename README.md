@@ -1,10 +1,9 @@
 # BusinessCard
 Find out more about me and what i can do! :)
 
-
-<kbd> Test </kbd>
-
-<a href="jackewers.com"></a>
+This page and its contents are served as a github page under the domain(cname):
+<kbd><a href="jackewers.com">www.jackewers.com</a>
+</kbd>
 <!--
 
 Sponsor Types:
