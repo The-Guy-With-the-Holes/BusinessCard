@@ -1,10 +1,20 @@
 
-@media only screen and (max-width:600px) { /* EXTRA SMAll Phones*/
+@media (max-width:600px) { /* EXTRA SMAll Phones*/
     html{background-color: #fff;}
+
+    /* NAV */
+    .NavListitem{display:none;}
+    .Nav_Switch{display:block;} 
+   /* *{color:green;} */
 }
 
-@media only screen and (min-width:600px) {/* Potrait Tablets and small phones*/
+@media (min-width:600px) {/* Potrait Tablets and small phones*/
     body{background-color: #11ffad;}
+    /* NAV */
+    .NavListitem{display:block;}
+    .Nav_Switch{display:none;} 
+  
+   /* *{color:red;} */
 }
 
 :root {
@@ -47,13 +57,18 @@ header {
     font-family: Lobster, monospace;
     height: min-content;
     margin-top: 1%;
+    border-top: 1vmin groove gray;  border-bottom: 1vmin groove gray;
+   background: conic-gradient( var(--Shiftery-Background), var(--Shiftery-Background));
+   display:block; padding: 0.2vh 0 0.2vh 0;
+   text-align: center; width:94%;
+   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+  
 
 hr{margin: 1%;}
 
 p {
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
+    font-family: 'Courier New', Courier, monospace; font-style: italic;
 }
 
 /* HOME Profile */
@@ -79,14 +94,7 @@ margin-bottom: 1vh;
 }
 
 
-/*Text*/
-header {
-    display: block;
-    text-align: center; width:94%;
-    background-color: #11ffad;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
+#banner_img{ max-width:100%;}
 h1 { color: #fff; margin-bottom: 1%;   margin-left: 1%;
     font-size: 5.2vmin; text-align: left;
 }
@@ -95,6 +103,75 @@ h1 > u { color: #888;
     font-size: 9.8vmin; -webkit-text-stroke: 0.11vmin gold;   }
 
 h1 > strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin goldenrod;}
+
+.Horizontal_NavBar {
+    background-color: #fafafaaa;
+    border: 1vmin groove gray;
+    font-size: large;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: .4% 1% .4% 1%;
+    /* transition: 0.5s;  */
+    display:flex;
+    align-items:center;
+    justify-items:center;
+}
+
+.Horizontal_NavBar > .NavListitem {
+    text-align:center;
+    padding: 3% 1.4% 3% 1.4%;
+    border-radius: 10%;
+    font-size: min(6.32vw,2.8vh);
+    border: 0.42vmin double gray;
+    background-color: #fafafaa9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    min-height: content;
+    min-width: 10%;
+}
+ #NavBar_Selected {
+    background-color: #ffd700a5;
+    border: 0.5vmin solid #00000099;
+    box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099;
+}
+
+#hr1{ margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
+
+.Nav_Switch{ 
+ width: fit-content;
+    margin:0 auto;
+    font-size: max(2vw,2.4vh);
+    background-color: #000000bf;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: 0.5% 0.5% 1% 0.5%;
+    text-decoration: none;
+}
+.Nav_Switch:hover{
+    transform: scale(1.12);
+    background-color: #000000ef;
+}
+.NavListitem {
+    cursor: pointer;
+  text-align:center;
+    /* margin: 12.1%; padding: 3% 1.4% 3% 1.4%; */
+    border-radius: 10%;
+    font-size: min(6.32vw,2.8vh);
+    border: 0.42vmin double gray;
+    background-color: #fafafaa9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    min-height: content;
+    min-width: 10%;
+}
+
+.NavListitem>a {
+    text-decoration: none;
+    color: purple;
+    -webkit-text-stroke: 0.11vmin black;
+}
+
+.NavListitem:hover {
+    text-decoration: underline;
+    background-color: #aaaaffbb;
+}
+
 
 h2 {
     top: 0; margin-left: 2%;
@@ -243,38 +320,8 @@ input[type="radio"]:checked {
     border-radius: 30%; border: 0.2vmin double white;
     content: 'U+26BC';
 }
- /* Navigation */
-#NavBar_Selected {
-    background-color: #ffd700a5;
-    border: 0.5vmin solid #00000099;
-    box-shadow: 0 1vmin 1vmin #00000055, 0 1vmin 1vmin #00000099;
-}
 
-#hr1{ margin: 0 auto; margin-top: 1vh; margin-bottom: 1vh;}
-
-nav {
-     border: 1vmin groove gray;
-    background: conic-gradient( var(--Shiftery-Background), var(--Shiftery-Background));
-    display:block; padding: 0.2vh 0 0.2vh 0;
-}
-
-
-
-#NavSwitch{ 
-    display: block; width: fit-content;
-    margin:0 auto;
-    font-size: max(2vw,2.4vh);
-    color:white;
-    -webkit-text-stroke: max(.2vw,.24vh) whitesmoke;
-    background-color: #000000bf;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: 0.5% 0.5% 1% 0.5%;
-    text-decoration: none;
-}
-#NavSwitch:hover{
-    transform: scale(1.12);
-    background-color: #000000ef;
-}
+/*
 .NavBar {
     position:fixed; z-index: 2;
     top:0; left:0;
@@ -286,6 +333,7 @@ nav {
     padding: 2% 1% 2% 1%;
     transition: 0.5s;
 }
+*/
 #Nav-Close-btn{
     cursor: pointer;
     display:block;
@@ -295,29 +343,7 @@ nav {
     background-color: #fafacfcc;
     border: 0.42vmin double gray;
 }
-.NavListitem {
-    cursor: pointer;
-    display: block; text-align:center;
-    margin: 12.1%; padding: 3% 1.4% 3% 1.4%;
-    border-radius: 10%;
-    font-size: min(6.32vw,2.8vh);
-    border: 0.42vmin double gray;
-    background-color: #fafafaa9;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    min-height: content;
-    min-width: 10%;
-}
 
-.NavListitem>a {
-    text-decoration: none;
-    color: purple;
-    -webkit-text-stroke: 0.11vmin black;
-}
-
-.NavListitem:hover {
-    text-decoration: underline;
-    background-color: #aaaaffbb;
-}
 
 /* Nav About */
 .Aboutdropdown {

@@ -30,7 +30,7 @@ const Get = {
     DT: document.title,
 
     Nav:{
-        Switch:document.getElementById('NavSwitch'),
+        Switch:document.querySelector('.Nav_Switch'),
     },
 
     Title:document.querySelector('title'),

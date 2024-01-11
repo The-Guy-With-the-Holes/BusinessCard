@@ -134,80 +134,52 @@ function LDswitch(type){
 //Appenders
 
 
-function AddMainNav(){
-  let nav = document.createElement('nav');
-  let target = createElement('hr',{id:'hr1'});
-  let item = document.createElement('a'); setAttributes(item,{'id':'NavSwitch','class':'NavListitem','onclick':'AddNavBar()'});
-  item.append(document.createTextNode('☰'));
+function AddMainNav(nav_pages){
+  let header = document.createElement('header');
+  let target = createElement('hr',{id:'hr1'}); // item to attach to
+ 
+  let Nav_Switch =createElement('li',{id:'Vertical_Nav_Switch',className:'Nav_Switch NavListitem',innerHTML:`<a href="javascript:Toggle_Vertical_Nav('Open')">☰ Menu</a>`});
+ 
+  let nav_banner=createElement('h1',{id:'Nav_Heading',innerHTML:'<img id="banner_img" src="https://www.joeltron.com/wp-content/uploads/2022/06/cropped-joeltron_dot_com-1536x318.png">'})
+  let main_nav=createElement('nav',{className:"Horizontal_NavBar"}) 
+  main_nav.append(Nav_Switch);
 
-  nav.append(item);
-  target.append(nav); 
+  for (let i = nav_pages.length; i--;){
+    let n = nav_pages[i];
+    nav_item=createElement("li",{className:"NavListitem",name:n[0],innerHTML:`<a href='${n[1]}'> ${n[0]} </a>`})
+    main_nav.prepend(nav_item);
+  }
+
+  header.append(nav_banner,main_nav);
+  target.append(header); 
   document.body.prepend(target);
   //document.querySelector('header').parentNode.insertBefore(target, document.querySelector('header').nextSibling);
 }
 
 
-
-function AddNavBar() {
-  let Nav = document.querySelector('.NavBar');
-  if (Nav) {
-    Get.Nav.Switch.innerText="⚞";
-    setAttributes(Get.Nav.Switch,{'onclick':'clearNavBar()','style':'border:.42vmin double gold;'});
-    Nav.style.display="";
-  }
-}
-
-function clearNavBar() {
-  let Nav = document.querySelector('.NavBar');
-  if (Nav) {
-    Get.Nav.Switch.innerText="☰";
-    setAttributes(Get.Nav.Switch,{
-      'onclick':'AddNavBar()','style':'border:.42vmin double gray;'
-    });
-   
-    Nav.style.display="none";
-  }
-}
-
-function NavSwitch(type){ if(!type){return error;}
-let Nav = document.querySelector('.NavBar');
-
-if(Nav){
+function Toggle_Vertical_Nav(type){ 
+  if(!type){return error;}
   
-  switch (type) {
-      case 'Open':
-        Get.Nav.Switch.innerText="⚞";
+  let Nav = document.querySelector('.NavBar');
+  let Get_Nav_Switch=document.getElementById('Vertical_Nav_Switch'); 
+
+
+  if(Nav){
+    switch (type) {
+        case 'Close':
+          Get_Nav_Switch.innerHTML=`<a href="javascript:Toggle_Vertical_Nav('Open')">☰ Menu</a>`;
+          Nav.style.display="none";    
+          break;
+    
+        case 'Open':
+          Get_Nav_Switch.innerHTML=`<a href="javascript:Toggle_Vertical_Nav('Close')">⚞ Menu</a>`;
+          Nav.style.display="block";
         break;
-  
-      case 'Close':
-       // 'onclick':'AddNavBar()','style':'border:.42vmin double gray;'
-       break;
+    }
   }
 }
-}
-
-
-function AppendFooter(){
-  let footer = createElement('footer');
-  let p = createElement('p',{id:'Bloodworks'}); 
-  let text1 = document.createTextNode(Get.Footer[0]); 
-  let text2=createElement('a',{'href':'http://bloodweb.net',innerText:Get.Footer[1]}); 
-
-  let img = createElement('img',{src:'http://www.bloodweb.net/favicon.ico'});  
-  let cc = createElement('p',{id:'cc'});
-  let license = createElement('a',{href:'LICENSE'});
- 
-p.append(text1,text2,tNode(Get.Footer[3]),license,tNode(Get.Footer[4])); 
-footer.append(p,img);
-document.body.append(footer);
-}
-
-
-
-
 
 // Color Funcs
-
 const Crazy_Hat = {
   on:false,
   target:document.getElementsByClassName('Crazy_Hat'),
@@ -290,7 +262,7 @@ let shifteryInterval ;
 let setShiftargs = function(a,b){
   ShifteryAttr.targets[0]=document.querySelector(a);
   ShifteryAttr.targets[1]=document.querySelector(b);
-  Get.Nav.Switch = document.getElementById('NavSwitch');}
+  Get_Nav_Switch = document.getElementById('NavSwitch');}
 
 function ShiftSwitch(type){
   if(ShifteryAttr.default==true){
@@ -374,13 +346,16 @@ let ToggleShiftery = function () {
 
 
 let OL = function(){
-  AddMainNav();
-  appendToolbar();
+  console.log("Beginning OL");
+  AddMainNav([["Home","/"],['About','/About']]);
+  //appendToolbar();
 
-  AppendFooter();
-  setShiftargs('nav','footer');
-  changeShifteryState(false,64);
+  //AppendFooter();
+  setShiftargs('header','footer');
+ // changeShifteryState(false,64);
   AddLightDarkSwitcher();
-  checkShiftery();
-  dev();
+
+
+ // checkShiftery();
+ // dev();
 }
