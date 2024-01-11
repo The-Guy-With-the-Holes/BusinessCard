@@ -1,6 +1,9 @@
 # BusinessCard
 Find out more about me and what i can do! :)
 
+This page and its contents are served as a github page under the domain(cname):
+<kbd><a href="http://www.jackewers.com">www.jackewers.com</a>
+</kbd>
 <!--
 
 Sponsor Types:
