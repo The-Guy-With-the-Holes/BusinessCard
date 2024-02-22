@@ -198,50 +198,7 @@ function Tag_Images(words){
     } console.log('Images have been Tagged');
 }
 
-const createFooter=function(type,socials,branding){
 
-   //socials=[ ['name','link','image'] ]
-    let content=createElement('div',{className:'Boxes upper'});     
-    for(let i=0; i<socials.length; i++){
-        let x=socials[i];
-
-        let container=createElement('div',{
-            className:`balls${isEven(i)?'x':'y'} Rotern`});
-            container_content=createElement('a',{href:x[1], target:'blank_',
-            innerHTML:`${type=="balls"&&x[2]?`<img src="${x[2]}" class="balls">`:tNode(x[0])}`
-        });
-
-        container.append(container_content);
-        content.append(container);	
-    }
-
-    let wrapper=createElement('div',{id:'IconBox',className:'box-grid'})//,innerHTML:content});
-    wrapper.append(content);
-    buildFooter(wrapper,branding);
-}
-const append_foot_brand=function(location_to_append){
-    // let container=createElement('div',{});
-
-    let container = createElement('p',{id:'Bloodworks',
-        innerHTML:
-        //<p> Some rights reserved under the creative commons <a href="http://www.bloodweb.net/Internal/License.txt">License</a> </p>
-        `
-        <p style="text-align:right; margin-right:min(2vw,16px)">Powered by &#127341;<a href="http://www.bloodweb.net">Bloodweb.net<img src="http://www.bloodweb.net/favicon.ico"></img></a></p>
-        `
-    });
-    
-    //let img = createElement('img',{src:'http://www.bloodweb.net/favicon.ico'});  
-    // container.append(p);
-
-    return location_to_append?location_to_append.append(container):document.querySelector('footer').append(container);
-}
-
- const buildFooter=function(content,branding) {
-    footer=createElement('footer',{style:'background-color:salmon;'});
-    footer.append(content)
-    document.body.append(footer);  
-    if (branding===true){append_foot_brand();}
-}
 
 const setCookie=function(name,val,exdays=365){const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));

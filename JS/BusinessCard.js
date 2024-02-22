@@ -123,6 +123,7 @@ a.innerText = Get.Main.main_desc;
 a.style.fontSize="2.6vw";
 }
 
+
 function flipmainText(){ let m = document.getElementById('main-desc');
     if(m.innerText.includes(QuoteoftheDay)){setDefaultmainText();}
     else{replaceMainDesc();}
