@@ -1,0 +1,58 @@
+*{text-align: center;}
+html,footer{background-color:white;}
+html{background-image: url(../i/background.webp); background-repeat: no-repeat; background-size: cover;}
+
+body{padding-bottom: 18dvh;}
+h1 img{
+    max-width:8em;
+    border-radius:25%;
+}
+
+h1{font-size:min(1.1em,7vw);margin-top: 1%; color:#595959;}
+
+#AML_container{
+    background-color:aliceblue;
+    width: 80vw;
+    margin:0 auto;
+    padding:4%;
+    min-height: min(95dvh,max-content);
+    
+    /* max(50em,90vh); */
+}
+
+.AML_link{
+    display:block;
+    margin:0 auto;
+    margin-bottom:.6em;
+    text-align: center;
+    font-size:1.5em;
+    padding:.6em .6em .6em 1.6em;
+    width:50vw;
+    background-color:lightgreen;
+    background-position: 0;
+    background-repeat: no-repeat;
+    background-size: 2em;
+    border-radius: 10%;
+}
+.AML_link img{
+    width:20px;
+    margin: 0 auto;
+}
+
+footer{
+    display:flex;margin:0 auto;position:fixed; bottom:0;left:0;right:0;
+    width:100vw;
+    /* padding:.2em 0; */
+    justify-content: center; align-items: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    -webkit-text-stroke: .08em hotpink;
+}
+footer > * {
+    display:inline;
+    margin:2%;
+}
+footer img{
+    max-width:3em;
+}

@@ -114,11 +114,25 @@ const CToggle_Ele = function (arr) { for (e in arr) { let a = arr[e]; TeD(a[0], 
 
 // Styles and elements
 
-let createElement = function (element, properties) {
+
+
+
+
+
+const createElement = function (element, properties) {
     let el = document.createElement(element);
     for (var prop in properties) { el[prop] = properties[prop]; }
     return el;
 }
+
+
+
+
+
+
+
+
+
 
 let tNode = function (t) { return document.createTextNode(t); }
 let BR = function () { return createElement('br'); }

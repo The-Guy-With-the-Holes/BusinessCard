@@ -40,14 +40,14 @@ function switchTools(arg){
   }
 }
 
-if(Root=="BusinessCard"){  Tools.push(['Funny hat','i/Templates/Crazyhat.png','ToggleCrazyHat();']);}
-if (Get.DT=="Working Directory" || isPHP()===true ){
-  Tools.push(
-    ['CallTaskList',requestRoot('BusinessCard')+'i/Templates/TL.png',''],
-    ['OpenFinance',requestRoot('BusinessCard')+'i/Templates/PiGraph.png','']
-  );
- if (Get.DT!="Working Directory" && isPHP()===true )Tools.splice(1,0,['Home',requestRoot('BusinessCard')+'i/BloodW.png',"sWL('localhost')"]); 
-}
+// if(Root=="BusinessCard"){  Tools.push(['Funny hat','i/Templates/Crazyhat.png','ToggleCrazyHat();']);}
+// if (Get.DT=="Working Directory" || isPHP()===true ){
+//   Tools.push(
+//     ['CallTaskList',requestRoot('BusinessCard')+'i/Templates/TL.png',''],
+//     ['OpenFinance',requestRoot('BusinessCard')+'i/Templates/PiGraph.png','']
+//   );
+//  if (Get.DT!="Working Directory" && isPHP()===true )Tools.splice(1,0,['Home',requestRoot('BusinessCard')+'i/BloodW.png',"sWL('localhost')"]); 
+// }
 
 document.body.addEventListener('click', function(e) {
   if(e.target.classList.contains('tool-icons')){
@@ -230,17 +230,18 @@ function Toggle_Vertical_Nav(type){
   }
 }
 
-window.addEventListener('scroll',function(){
-  let header=document.querySelector('header');
-  let nav=header.querySelector('nav');
-  let scrollPosition=window.scrollY;
+if (window.location.pathname.split('/').pop().includes('index.html')){
+  window.addEventListener('scroll',function(){
+    let header=document.querySelector('header');
+    let nav=header.querySelector('nav');
+    let scrollPosition=window.scrollY;
 
-  if(scrollPosition > header.clientHeight-header.clientHeight/2){
-    nav.classList.add('sticky_nav')
-  }
-  else{nav.classList.remove('sticky_nav')}
-})
-
+    if(scrollPosition > header.clientHeight-header.clientHeight/2){
+      nav.classList.add('sticky_nav')
+    }
+    else{nav.classList.remove('sticky_nav')}
+  })
+}
 // Color Funcs
 const Crazy_Hat = {
   on:false,
@@ -341,13 +342,5 @@ AddLightDarkSwitcher();
   //Scroll page to top (Helps with js created elements)
   ScrollHome();
 
-  //appendFixedLogo()
-  //AppendFooter();
-  //setShiftargs('header','footer');
-  
-  // changeShifteryState(false,64);
-  
 
- // checkShiftery();
- // dev();
 }

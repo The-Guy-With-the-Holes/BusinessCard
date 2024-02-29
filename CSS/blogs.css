@@ -1,0 +1,27 @@
+/* title text(h1) > author > img*/
+header>* {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    width: 95vw;
+    font-size: min(36px,1.6em);
+}
+
+.author>* {display:inline;}
+.author>img{max-width:min(5vw,2em);}
+
+header>img {
+    width: 100vw;
+}
+
+/* Opening Content (h2) */
+h2 {}
+
+/* Main content, (usually an ordered-list)*/
+main {
+    max-width: 85vw;
+    margin: 0 auto;
+}
