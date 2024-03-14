@@ -1,5 +1,4 @@
 //HTML title should match short title ie: Example_Post == Example_Blog.short_title
-current_blog=blogs[`${document.title.replaceAll(' ','_')}`];
 
 const blogs={
 
@@ -103,7 +102,7 @@ const blogs={
         - **Security Audits:**
             Conduct regular security audits to assess the effectiveness of your cybersecurity measures. Identify areas for improvement and implement necessary adjustments.
 
-        - **Employee Reporting:**
+        - **Employee Report                                                                                                                                                                                                             ing:**
             <p>Encourage employees to report any suspicious activities promptly. Establish clear communication channels for reporting potential security incidents.</p>
 
         <p>By incorporating these cybersecurity measures and leveraging tools like TOR and Kali Linux, your small business can significantly enhance its resilience against cyber threats. Stay vigilant, adapt to emerging threats, and continuously educate your team to foster a secure and proactive cybersecurity culture within your organization.</p>
@@ -111,8 +110,10 @@ const blogs={
         
     },
 
-
 }
+
+current_blog=blogs[`${document.title.replaceAll(' ','_')}`];
+
 
 function create_blog_header(blog){
     let published_date=new Date(blog.meta.publish_date);

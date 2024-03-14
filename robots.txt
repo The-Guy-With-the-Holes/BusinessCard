@@ -16,9 +16,11 @@
 ### Allow Bots (google) ###
 User-agent: Googlebot
 Disallow:
+
 ### Disallow Bots (christcrawler) ###
 User-agent: christcrawler
 Disallow: /
+
 ###################
 Crawl-delay: 5
 ### Content ###
@@ -27,13 +29,14 @@ Allow:*.css$
 Allow:*.js?
 Allow:*.js$
 Allow:*.ico
+
 ### Directories ###
 Allow: /i/icons/₿/*
 Disallow: /i/*
 Disallow: /JS
 Disallow: /css
 Disallow: /Certfificates
-Disallow: exclude.list
+
 ### Files ###
 Disallow:
 

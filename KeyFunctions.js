@@ -128,12 +128,6 @@ const createElement = function (element, properties) {
 
 
 
-
-
-
-
-
-
 let tNode = function (t) { return document.createTextNode(t); }
 let BR = function () { return createElement('br'); }
 
@@ -152,6 +146,12 @@ function createStyleRule(name, rules) { var style = createElement('style',{type:
 }
 
 //Images
+
+function replace_img_src(target,new_src){ 
+    if(!target||!new_src){return console.log('Provide target / new src')}
+    target.setAttribute('src',new_src);
+}
+
 function appendFixedLogo (text, size, time, subtext, kill,location='/') {
     console.log('add dialog');    
     if (kill && location == '') { location = document.body; }

@@ -171,7 +171,7 @@ function AddMainNav(nav_pages){
   let Nav_Switch =createElement('a',{id:'Vertical_Nav_Switch',className:'Nav_Switch NavListitem',href:"javascript:Toggle_Vertical_Nav('Open')",innerHTML:"☰ Menu"});
  
   let nav_banner=createElement('h1',{ id:'Nav_Heading',
-    innerHTML:'<img id="banner_img" src="favicon.png" alt="Favicon Image"/> <p> Jackewers.com</p>'
+    innerHTML:'<img id="banner_img" src="favicon.ico" alt="Favicon Image"/> <p> Jackewers.com</p>'
   })
   let main_nav=createElement('nav',{className:"Horizontal_NavBar"}) 
   main_nav.append(Nav_Switch);
@@ -191,19 +191,17 @@ function AddMainNav(nav_pages){
 }
 
 function AddVerticalNav(nav_pages){
-  // Create the main nav and the close button
-  let nav=createElement('div',{className:'Vertical_NavBar',innerHTML:`<button id="Nav-Close-btn" onclick="Toggle_Vertical_Nav('Close')">X</button>`})
-
-  for (let i = 0; i<nav_pages.length; i++ ){
-    let x = nav_pages[i];
+  // Create the main nav and(NOT) the close button
+  let nav=createElement('div',{className:'Vertical_NavBar'})//,innerHTML:`<button id="Nav-Close-btn" onclick="Toggle_Vertical_Nav('Close')">X</button>`})
+  for (let i = 0; i<nav_pages.length; i++ ){ let x = nav_pages[i];
     let li=createElement('li',{className:'NavListitem'});
-   
-    let a =createElement('a',{href:x[1],innerHTML:x[0]}) 
+    let a =createElement('a',{href:x[1],innerHTML:x[0]}); 
     if (x[2]) a.setAttribute('onclick',x[2]);
     li.append(a);
     nav.append(li);
-    console.log('x'+x[0]+x[1])
+    //console.log('creating nav:'+x[0]+x[1])
   }
+
   document.body.append(nav);
   // Close the newely created Nav
   Toggle_Vertical_Nav('Close');
@@ -274,73 +272,60 @@ let ToggleCrazyHat = function ( ){
   return console.log(Crazy_Hat.on);
 }
 
-let Socials={   // If social links exist, create Footer function will run
-   settings:{
-       type:'balls', // the icon shape
-      branding:true, // Made by Bweb
-  },   
-  // links:[ // NAME / LINK / IMG-LINK
-  //     ['Twitter', 'https://www.twitter.com/', 'https://www.twitter.com/favicon.ico'],
-  //     ['LinkedIn', 'https://www.linkedin.com/in/jack-ewers-14a155212/', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAZlBMVEUAfrv///8AerkAcLUpgbzE2urI2OnR4u4Adbfs9PlUksUAeLgAbbPN3+30+PuQt9fk7vVpoMtHjsK0z+RAhr8AZbC+1ejb6PIAarKXvdqFs9Z9rtNspc1Xm8ktisGlxt+AqdBjmMfy32DQAAAFJElEQVR4nO2d2ZKjIBRAEckEJcGFjlsW0///k6OxZ5JOFOwBK1znnpepmipbTi67LCQYaAQBi2i+JMjwz5G/O0U28OODjEzou9NjB03kXxnFoMsw9UemzAEXmAGRl4OMbEAXmAHeyJvMHnxcesS+l5GnFQSmC81JdjLp7t3pcMMu7WSSVQSmC03SyayixPSIgKSHdyfCFYeUqPDdiXBFqMgaGpkB3pDzesrMmVyAd8vu0Mu7U4AgCBCo6KArqP06ERZ/ZlkW54TDbppoeLnWaptGUVTuVZJRwN0GzpJNFNwp1UlAjU542gdPRMUFZHCoaOWzS0d6AjhCFcOU1Cuyqd6dtp9Cp1z6+WlwsWknXYIA2LyOOGpcggjU+IHmkU4m+AVJhusyWR8aSJ9CmN4lCAr27iTOhtcmmQhOHXAYay2/U8Pp1hhdggLKLAI/mWXKGEiFFhrqsh6ZAclnYWGWCa5AZHYvPf8xGSDV2bpk1pTN5lQAEZQKYFVVM6VmmQLMKKDSDwB6aiDlf1ZHE0qR6eAmGQUlk3WINQ3OKNOXGgXIpbM56YY0aQynxPQwTUaTULoyf6Bsuk8DqcAMTE7PQpsCvCFYMlZuyk+ALqRfALl9cWkZrLJ/h4bn9JuK+oAZlgFRkXobyZ6oOPEdoIZ/lLCq6OVyEYcQclQeoAJ6SBAEQZD/DkopYezjC8b6/4DZnFFB8vhUq66vdBvvReVGNf06sCVWGt0WzE0y9gNqn3h6gNP42r52yQO5ba8xcd5tijMd51cbdtY98G3+k9OsLSfHsWV7ZW6X9jOVaoheZ2doXmgeKB9G2kKcVDqpcotPkTCX0WEb7et+vfx0dGQg95C8+2Ydnivz5K/cH7m7umApGcoTfVT+PuFwHLiQjDD83UfSsyubZWT4xZzDHjg6qgcWkeHnn6h01G5slpARMz7IPds4yWkLyOjX403ZuOgPuJcRR/PqohFc7CZzLlNlPyr79yczexvXMs3HdP9Fz9Z+a7xrmXrG0oIJWu9k9v9UYG5E1hnNsYwVynY9qE8yge1neq9kbEPjlUzwaRcav2RqKxfPZCK7fOaXTPBpNez0TMau4fRMRlq1m57JBFaFxjcZq0UhC8ukG9WqYju/w7ax2ea2nIzc1vmu2oUdVcWacp5QarMDcSkZucnC8F41UX7I5sXHQ5my4c+Zn4tkzhiUWLQ0y8hs8rG5I3GcMclpcxjLIjKbielwejTHxqY6W0Jm+zH161LzoNpmPnABGTndkRcX4y/R+iWj68eHo+v0HrE5Wsq9TKldcUtNM1E2raZ7mURbHRl3uex9kkn1sxIiN+Qzr2RM+4d3hrbGKxlT1RpOn6XgnUxkWqTODR88fJIx7uqiORyZjfGNhi07PskUxjbPsNPdJxlzA17pqzOfZMxdq52+NvRIRpo/Gxv2IPskYz7o1rDVHWVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQBmVQZg0yKtIgX5cp03yjeSA1n4UTKql7pXlhtIY81pH/9Anz3VvU8EabTfRUz0+fsH+lhQuCIKsGzJ1LRuiFjJy4ChR6Ji7Op/MD3hCbzcJ+ESoSHd6dCFccImJ1kINP0E4F0LVrenjdyaQrKTRh2slIeFcvjcGPspMJtqsoNLQb4ZJZY1n/4f2BFf3VzGUM3obH/XkVt3umCwY8p33dxjZcml1Dlxnuyvy6ATwBbUOTweI3D+SEwl4CpEIAAAAASUVORK5CYII='],
-  //     // ['Instagram', 'https://www.instagram.com', 'https://www.instagram.com/favicon.ico'],
-  //     ['Github', 'https://github.com/The-Guy-With-the-Holes', 'https://github.com/favicon.ico'],
-  //     ['Doulingo', 'https://www.duolingo.com/profile/Spike.edu', 'https://d35aaqx5ub95lt.cloudfront.net/favicon.ico'],
-  //     ['Crypto.com', 'https://crypto.com/nft/profile/spikedeathcore?tab=collectibles', 'https://crypto.com/__assets/favicon-32x32.png?v=0f6f06777a5d4bc338bfeca412628e1c']   
-  // ],
-  createFooter:function(){
-      let content=createElement('div',{className:'Boxes upper'});     
-      for(let i=0; i<Socials.links.length; i++){
-          let x=Socials.links[i];
 
-          let container=createElement('div',{className:`balls${isEven(i)?'x':'y'} Rotern`});
-              container_content=createElement('a',{href:x[1], target:'blank_',innerHTML:`${Socials.settings.type=="balls"&&x[2]?`<img src="${x[2]}" class="balls" alt="${x[0]} link">`: `<img src="${x[2]}"` }`
-          });
-          container.append(container_content);
-          content.append(container);	
-      }
 
-      let deets= createElement('div',{id:'contact_deets',innerHTML:`
-          <p><i>📧</i>Email:<a href="mailto:webmaster@jackewers.com">webmaster@jackewers.com</a></p>
-          <p><i>📱</i>PhoneNumber:<a href="tel:+61479000429">+61 479 000 429</a></p>
-          `
-      });
 
-      let wrapper=createElement('div',{id:'IconBox',className:'box-grid'})//,innerHTML:content});
-      wrapper.append(content);
+// let slider_items=document.querySelectorAll('.flex-slider-item');
+// if(slider_items.length>0){
+//   // slider_items.forEach.a??
+//   document.body.addEventListener(
+//     'click', slider_items => console.log('click')
+//   )
+// }
 
-      footer=createElement('footer',{id:'footer',style:'background-color:salmon;'});
-      footer.append(content,deets);
-      document.body.append(footer);  
-      
-      if (Socials.settings.branding===true){
-          let container = createElement('p',{id:'Bloodworks',innerHTML://<p> Some rights reserved under the creative commons <a href="http://www.bloodweb.net/Internal/License.txt">License</a> </p>
-              `<p style="text-align:right; margin-right:min(2vw,16px)">Powered by &#127341;<a href="http://www.bloodweb.net">Bloodweb.net<img src="http://www.bloodweb.net/favicon.ico"></img></a></p>`
-          });    
-          footer.append(container);
-      }
+// }
 
+// let image_slider = function(deg){
+//   if (deg!="-"){deg="+"}
+
+//   let target=document.querySelector("#slider_main");
+//   let slides=document.querySelectorAll('.flex-slider-item');
+
+
+//   target.nextSibling.src
+
+//   target.src=next_slider;
+// }
+
+document.body.addEventListener('click', ele => { let e=ele.target;
+  
+  if (document.querySelector('.Vertical_NavBar').style.display!='none'){
+    // target click came from inside nav and should not close vertical nav
+    let click_inside_nav=false 
+    // the targets to check for the nav class
+    vert_targets=[e,e.parentElement,e.parentElement.parentElement]
+  
+    vert_targets.forEach(element => {
+      if(element && element.classList.contains('Vertical_NavBar')){click_inside_nav=true; return console.log('Click came from inside the vertical_navbar:'+element.classList);} 
+    });
+    //main body was clicked > close nav
+    if(click_inside_nav!==true){null;Toggle_Vertical_Nav('Close')}
+    //reset
+    click_inside_nav=false;
   }
 
-}
+  //reset rainbow wave when name is pressed
+  if ( e.parentElement && e.parentElement.id=='intro-text-profile-name'){e.parentElement.classList=''; e.parentElement.classList='rainbow-wave-text'}
 
-
+})
 
 let OL = function(){
   console.log("Beginning OL");
-AddLightDarkSwitcher();
-  
+  AddLightDarkSwitcher();
 
-// Add Header and Footer
-  //appendToolbar();
-
-  if('links' in Socials && Socials.links.length>0){
-    Socials.createFooter();
-  }
-
-  //let ColorShiftertimer =
+   //let ColorShiftertimer =
   setInterval(ColorShift,100) ;
   //Scroll page to top (Helps with js created elements)
   ScrollHome();
-
 
 }
