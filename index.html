@@ -71,18 +71,14 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 
 </head>
 <html>
-    <button onclick="window.location.reload()">RELOAD</button>
 
+
+<div id="debugging_area" style="display:flex; justify-content:flex-end;"><p></p> <button onclick="window.location.reload()">RELOAD</button></div>
 <body onclick="" onload="OL();">
     
 <hr>
 
-
-
-</body>
-
 <!-- HEADER-->
-
 
 <!-- Main Content-->
 <main id="Home" class="box-main ">
@@ -91,20 +87,21 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
         <h2>
             <!-- INTRO -->
             <div id="intro-text">
+                
                 <p>Hello World, my name is</p> 
-                <div id="intro-text-profile-name" class="rainbow-wave-text">
-                    <!-- <span>J</span><span>a</span><span>c</span><span>k</span> -->
-                 
-                    <span data-letter="J"></span>
-                    <span data-letter="a"></span>
-                    <span data-letter="c"></span>
-                    <span data-letter="k"></span>
+                <div id="intro-text-profile-name" class="rainbow-wave-text">                 
+                    <span data-letter="J" class="RT"></span>
+                    <span data-letter="a" class="RT"></span>
+                    <span data-letter="c" class="RT"></span>
+                    <span data-letter="k" class="RT"></span>
                 </div>
+
                 <br>
 
                 <span id="sub-intro">I am a software devoloper from Perth, Western Australia </span>
 
                 <hr>
+                
             </div>
  
             <div id="slider-container" class="bg-animation">
@@ -151,22 +148,49 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
                      </div>
             </div>
         </h2>
-        <p id="about-text">
 
+        <p id="about-text">
             This page and its contents are designed and developed by me, using Bloodweb open source protocol.
             I have designed this as a showcase of my coding proficiency, love for my son and community,
             and to continue my creative journey
-
-            <!-- <br><br> 
-             Hit me up on my <a href="#footer">extended socials</a> to chat or see what i'm up to! -->
-
         </p>
+
+        <br>
+
+        <!-- <p id="about-projects">
+            Check out some of my programming <a href="/projects">projects</a> below:
+          
+            <hr>
+            <button class="project-button">HTML</button>
+            <button class="project-button">CSS</button>
+            <button class="project-button">JS</button>
+            <button class="project-button">PY</button>
+
+            <article class="PY-project-content">
+                <div class="project_refs">
+                    <li class="refs"><a data-src="linktree.html">P.W.M (password manager)</a></li>
+                    <li class="refs"><a href="#">S.P.I.N (Stepper-Powered Imaging Navigator)</a></li>
+              </div>
+            </article>
+
+        </p> -->
 
     </div>
 
-
-
 </main>
+<aside id="contact_icons">
+    <ul>
+        <li class="contact_icons"><a href="mailto:"><img src="i/Icons/Mail.png"/>jack@jackewers.com</a></li>
+        <li class="contact_icons"><a href="phone:"><img src="i/Icons/Phone.jpeg"/>+61 479 000 429(SMS only)</a></li>
+    </ul>
+</aside>
+
+   <!-- <dialog id="iframeDialog">
+                <p id="iframeTitle">Sample</p>
+                <button id="close_iframe_dialog" onclick="call_IframeDialog()">X</button>
+                <iframe src="" id="dialog_iframe" width="100%" height="70dvh"></iframe>
+                <button> <a href="">Take me there!</a></button> 
+    </dialog> -->
 <hr>
 <!--  FOOTER -->
 
@@ -181,10 +205,10 @@ function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config
 <script>
 
     Create_Nav([
-        ["Home", "#Nav_Heading", "Toggle_Vertical_Nav('Close');ScrollHome()"],
+        ["🏠","Home", "#Nav_Heading", "Toggle_Vertical_Nav('Close');ScrollHome()"],
         //['About', '/About'],
-        ['Linktree','/linktree.html'],
-        ['Blog-Posts', '/blog-posts/optimal-ips-blog.html'],
+        ['🎋︎','Linktree','/linktree.html'],
+        ['📓','Blog-Posts', '/blog-posts/optimal-ips-blog.html'],
         //   ['links','/links/all-my-links.html']
     ]);
 

@@ -3,6 +3,12 @@
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
 
 
+function log(x){
+  console.log(x);
+  let z = document.getElementById('debugging_area');
+  if (!!z){z.querySelector('p').innerText+=x}
+}
+log("ello gove")
 // Required
 let appendTool = function(name,img,func){ if ( !img || !name){ console.error('cannot append tool');}
   let E = document.getElementById('Tools-Extended');
@@ -74,7 +80,7 @@ const ColorShifter = {
   },
   
   targets:document.querySelectorAll(".ColorShifter"),// Basic elements to be used
-  hvt:"header,footer", // High value targets (rotates in reverse if enabled
+  hvt:"header,footer,main, #contact_icons", // High value targets (rotates in reverse if enabled
   alt_color_targets:'.Vertical_NavBar',
 
   icons:['☼' , '☽'], // light / dark  
@@ -157,6 +163,16 @@ function LDswitch(type){
 
 //Appenders
 
+Nav_Settings={
+  // The positions of items in the arrays
+    name:1, //"Home","About"    
+    icon:0, // “⌂"
+    ref:2, // http://www.bloodweb.net
+    // Optional
+    js:3, // console.log('do this')
+}
+
+
 
 function Create_Nav(nav_pages){
 AddMainNav(nav_pages);
@@ -179,7 +195,7 @@ function AddMainNav(nav_pages){
   for (let i = nav_pages.length; i--;){
     let n = nav_pages[i];
     // Make the Nav items
-    let a = createElement('a',{className:"NavListitem",href:n[1],name:n[0],innerHTML:n[0]})
+    let a = createElement('a',{className:"NavListitem",href:n[Nav_Settings.ref],name:n[Nav_Settings.name],innerHTML:n[Nav_Settings.name]})
 
     main_nav.prepend(a);
   }
@@ -195,11 +211,10 @@ function AddVerticalNav(nav_pages){
   let nav=createElement('div',{className:'Vertical_NavBar'})//,innerHTML:`<button id="Nav-Close-btn" onclick="Toggle_Vertical_Nav('Close')">X</button>`})
   for (let i = 0; i<nav_pages.length; i++ ){ let x = nav_pages[i];
     let li=createElement('li',{className:'NavListitem'});
-    let a =createElement('a',{href:x[1],innerHTML:x[0]}); 
-    if (x[2]) a.setAttribute('onclick',x[2]);
+    let a =createElement('a',{href:x[Nav_Settings.ref],innerHTML:`<i>${x[Nav_Settings.icon]}</i>${x[Nav_Settings.name]}`}); 
+    if (x[Nav_Settings.js]) a.setAttribute('onclick',x[Nav_Settings.js]);
     li.append(a);
     nav.append(li);
-    //console.log('creating nav:'+x[0]+x[1])
   }
 
   document.body.append(nav);
@@ -273,33 +288,40 @@ let ToggleCrazyHat = function ( ){
 }
 
 
+// function createDialog(){
+//   element=createElement('div',{id:"iframeDialog",innerHTML:
+// `    <p id="iframeTitle">Sample</p>
+//     <button onclick="closeIframeDialog">x</button>
+//     <iframe src="" id="dialog_iframe" width="100%" height="70dvh"></iframe>
+//     <button> <a href="">Take me there!</a></button> 
 
 
-// let slider_items=document.querySelectorAll('.flex-slider-item');
-// if(slider_items.length>0){
-//   // slider_items.forEach.a??
-//   document.body.addEventListener(
-//     'click', slider_items => console.log('click')
-//   )
+//   `});
+//   document.body.append(element);
 // }
-
-// }
-
-// let image_slider = function(deg){
-//   if (deg!="-"){deg="+"}
-
-//   let target=document.querySelector("#slider_main");
-//   let slides=document.querySelectorAll('.flex-slider-item');
+// createDialog();
 
 
-//   target.nextSibling.src
 
-//   target.src=next_slider;
-// }
+
+function call_IframeDialog(title,src){
+  let iframeDialog=document.getElementById('iframeDialog');
+  var iframeTitle=document.getElementById('iframeTitle');
+  var dialog_iframe=document.getElementById('dialog_iframe');
+  var iframe_href=document.getElementById('takemetherelink');
+
+  if(!!title && !!src){
+    iframeDialog.showModal();
+    iframeTitle.innerHTML=title;
+    dialog_iframe.src=src;
+  }
+  else {iframeDialog.close(); }
+}
+
 
 document.body.addEventListener('click', ele => { let e=ele.target;
   
-  if (document.querySelector('.Vertical_NavBar').style.display!='none'){
+  if (document.querySelector('.Vertical_NavBar') && document.querySelector('.Vertical_NavBar').style.display!='none'){
     // target click came from inside nav and should not close vertical nav
     let click_inside_nav=false 
     // the targets to check for the nav class
@@ -313,10 +335,21 @@ document.body.addEventListener('click', ele => { let e=ele.target;
     //reset
     click_inside_nav=false;
   }
-
-  //reset rainbow wave when name is pressed
-  if ( e.parentElement && e.parentElement.id=='intro-text-profile-name'){e.parentElement.classList=''; e.parentElement.classList='rainbow-wave-text'}
-
+  
+  if (e.parentElement){
+    //reset rainbow wave when name is pressed
+    if ( e.parentElement.id=='intro-text-profile-name'){ let x=e.parentElement.querySelectorAll('span');
+      x.forEach((element) => element.classList=""); //remove class
+      setTimeout(() => {x.forEach((element) => element.classList="RT");}, 1); // add class
+    }
+    if (e.parentElement.classList=="refs"){
+      let title=e.innerText.replace(' ','<br>');
+      //title
+      let src=e.getAttribute('data-src');
+      call_IframeDialog(title,src); console.log(`opnened dialog ${title},${src}`)
+      // console.log('e has data of '+a)
+    }
+}
 })
 
 let OL = function(){
@@ -324,7 +357,7 @@ let OL = function(){
   AddLightDarkSwitcher();
 
    //let ColorShiftertimer =
-  setInterval(ColorShift,100) ;
+  setInterval(ColorShift,250) ;
   //Scroll page to top (Helps with js created elements)
   ScrollHome();
 

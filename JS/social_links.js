@@ -25,7 +25,7 @@ Socials={   // If social links exist, create Footer function will run
         }
     
         function make_footer(){
-            let footer=createElement('footer')//,{innerHTML:`<img src="./BloodW.png"> <p>Bloodweb</p>`})
+            let footer=createElement('footer',{innerHTML:`<p>${Socials.settings.foot_note?Socials.settings.foot_note:'Bloodweb.net'}</p><img src="./BloodW.png">`})
             main.append(footer);
         }     
         make_title();
@@ -33,7 +33,6 @@ Socials={   // If social links exist, create Footer function will run
         document.body.append(main);
      
     },
-
 }
 
 Socials.meta={
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     // if create setting === true >> build
     Socials.settings.createFooter==true?Socials.createFooter():null;
-    Socials.settings.createLinkTree==true?Socials.createLinkTree(['i/Personal/mainimg1.png','@the_guy_with_the_holes']):null;  
+    Socials.settings.createLinkTree==true?Socials.createLinkTree(['i/web-ready/image_1.jpeg','@the_guy_with_the_holes']):null;  
 })
 
 console.log('ssss')
