@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico Password manager </title>
+    <style>
+        *{text-align: center;}
+        /* Show the message only when JavaScript is disabled */
+        noscript .js-required-message {
+            display: block;
+            color: red; /* Optional: Style the message */
+        }
+        h1{ text-align:  left;}
+         /* Hide the message by default */
+         .js-required-message {
+            display: none;
+        }
+        li{text-align: left;}
+        img {
+            max-width: 45%; 
+            height:auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>
+        P.W.M (Password Manager) User Guide
+    </h1>
+
+    <div id="instructions"> <!-- Begin reading instructions -->
+        <p class="js-required-message">This page requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+
+        <!-- <div class="instruction" data-tile="Requirements" data-content="" data-image="../i/₿.png"></div> -->
+        <!-- <div class="instruction" data-content="Part 2: More text" data-image="image_url_2"></div> -->
+    
+    <div class="instruction" data-title="Setup the development environment: (TAILS)" data-image="https://media.wired.com/photos/64daad6b4a854832b16fd3bc/master/pass/How-to-Choose-a-Laptop-August-2023-Gear.jpg" data-content=`
+        <ol>
+            <li>Download <a href="https://tails.net/install/download/index.en.html">Tails Usb Driver</a> and <a>Balena etcher</a> </li>
+            <li>Restart your Pc in the grub(bios) menu. This can be accomplished via pressing f10* during the boot sequence <br> (the key to enter bios normally ranges from f10-f12. this may vary depending on the manufacturer of your pc.)</li>
+            <li>In the Grub menu navigate to settings > boot order using the arrow keys rearrange the order so that USB is the top priority and confirm/save it(This will allow your pc to load an OS from the attached USB)</li>
+            <li>Once the boot order change is made and saved, Plug the foramtted USB drive into your personal computer and restart it. if done correctly, the pc should initialise from the USB you have just plugged in and will load a grub menu with some different Tails OS you can run! 
+                <br> (If this did not work, confirm that your boot load order is correct) </li>
+            <li>Once the new tails OS is loaded, you are safe to plug in the raspberrypi pico</li>
+            <li>Download and install Thonny IDE on your computer if you didn't download the tails OS with Thonny prebuilt (The one on this page).</li>
+            <li>Open Thonny IDE and navigate to configure interpreter setting in the run tab </li>
+            <li> In the configuration setting, set the interpreter to "MicroPython(generic)" and set the port to "Board in FS mode"</li>
+            <li> Navigate back to the Thonny main page and you are ready to start coding, we recommend going to the view tab and making sure "files" is selected, as this will give you a tree overview of files</li>
+            <li> The bottom area of the Thonny main page should have a section called "shell" this is an interactive python area press ctrl+c to stop the boards functionality</li>
+            <li> Now that the board is no longer executing python, you should see in the tree tab that the rapberry pi and it's files are editable, open the file "creds.py" in the IDE, this is the file that will hold all your passwords.</li>
+        </ol>
+    `></div>
+
+    <!-- End instructions--></div>
+
+
+    <!--Execute instructions-->
+    <script src="../JS/instructables.js"></script>
+
+
+    
+    <!-- <ul>
+        <h2> Requirements: </h2>
+
+        <p> Hardware:</p>
+        <li> A Peronal computer (for editing data)</li>
+        <li> Raspberry Pi Pico (NOT WIFI)</li>
+        <li> Pimoroni Display pack</li>
+        <li> Micro A usb cable</li>    
+        <li> Recommended: 8gb USB flash drive</li>
+        <li> Recommended: Battery Pack</li>
+
+        <p> Software: </p>
+        <li> Thonny(IDE)</li>
+        <li> Recommended: Tails(or any amnesia type OS) </li>
+    </ul> -->
+<!--     
+<h2>Setup the development enviroment: (TAILS)</h2>
+    <ol>
+        <p>Linux:</p>
+        <li>Download <a href="https://tails.net/install/download/index.en.html">Tails Usb Driver</a></li>
+        <li>Power off your pc,</li>
+        <li>Download and install Thonny IDE on your computer if you haven't already</li>
+        <li>Open Thonny IDE and create a new Python script for your password manager.</li>
+    </ol>
+<ol> -->
+
+    
+        
+
+    <h2>Hardware Setup: 
+   </h2>
+    <ul>
+        <li>Connect the Pimoroni display pack to your Raspberry Pi Pico following the manufacturer's instructions.</li>
+        <li> </li>
+        <li>Ensure that your Raspberry Pi Pico is powered and connected to your computer via USB.</li>
+    </ul>
+
+    
+    <h2>Writing the Code:</h2>
+    <ul>
+        <li>Write the code for your password manager using Python. This code will handle storing, retrieving, and managing passwords securely.</li>
+        <li>Make sure to include functions for adding, editing, and deleting passwords, as well as displaying them on the Pimoroni display.</li>
+    </ul>
+
+    <h2>Running the Code:</h2>
+    <ul>
+        <li>Copy the code to your Raspberry Pi Pico using Thonny IDE. Make sure to save the code on the device.</li>
+        <li>Run the code on the Raspberry Pi Pico by pressing the "Run" button in Thonny IDE.</li>
+    </ul>
+
+    <h2>Connecting to the Device:</h2>
+    <ul>
+        <li>After running the code, you may encounter an infinite while loop that prevents easy access to the device.</li>
+        <li>To connect to the device and interact with it, follow these steps:</li>
+        <ol>
+            <li>Connect the Raspberry Pi Pico to your computer via USB.</li>
+            <li>Open Thonny IDE on your computer.</li>
+            <li>Press and hold the "Ctrl" key on your keyboard.</li>
+            <li>While holding the "Ctrl" key, click the "Stop" button in Thonny IDE to interrupt the infinite while loop.</li>
+            <li>You should now be able to access the device and interact with your password manager.</li>
+        </ol>
+    </ul>
+
+    <h2>Using the Password Manager:</h2>
+    <ul>
+        <li>Once connected, use the Pimoroni display to navigate through the options provided by your password manager.</li>
+        <li>Follow the on-screen instructions to add, edit, delete, and retrieve passwords securely.</li>
+    </ul>
+
+    <h2>Safety Precautions:</h2>
+    <ul>
+        <li>Always ensure that your password manager code is secure and does not expose sensitive information.</li>
+        <li>Keep your Raspberry Pi Pico and Pimoroni display pack in a safe and secure location to prevent unauthorized access.</li>
+    </ul>
+
+</body>
+</html>
