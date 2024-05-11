@@ -1,249 +1,38 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Basic Snake HTML Game</title>
   <meta charset="UTF-8">
-  <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-
-  body {
-    background: black;
-    position: relative;
-    overflow: hidden; /*prevent scrolling*/
-  }
-  #game-container {
-    width: 400px;
-    height: 400px;
-    border: 1px solid white;
-    position: relative; /* Position canvas relative to body */
-    margin: 20px auto; /* Center the canvas */
-    margin-top: 4vh;  /* add gap between the title and the game*/
-  }
-  canvas, h1{margin:0 auto;}
-  canvas {
-    /* border: 1px solid white; */
-    /* display: block;
-    margin: 20px auto;
-    position: relative; */
-  }
-  header{color:white; display: block; text-align: center;}
-  
-  button {
-    position: absolute; /* Position buttons absolutely */
-    width: 80px; /* Set button width */
-    height: 30px; /* Set button height */
-    border: none; /* Remove button border */
-    padding: 0; /* Remove button padding */
-    background-color: white; /* Button background color */
-    cursor: pointer; /* Change cursor to pointer on hover */
-  }
-
-  #left {
-    top: calc(50% - 15px); /* Center the left button vertically */
-    left: -90px; /* Position to the left of the canvas */
-  }
-
-  #top {
-    top: -30px; /* Position above the canvas */
-    left: calc(50% - 40px); /* Center the top button horizontally */
-  }
-
-  #right {
-    top: calc(50% - 15px); /* Center the right button vertically */
-    right: -90px; /* Position to the right of the canvas */
-  }
-
-  #bottom {
-    bottom: -45px; /* Position below the canvas */
-    left: calc(50% - 40px); /* Center the bottom button horizontally */
-  }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
   <header>
     <h1>Poop Snake</h1>
     <p> Score: <span id="score_keeper">0</span> </p>
   </header>
+
+  <div id="game-container">
+    
+    <canvas width="300" height="300" id="game"></canvas>
+    
+    <button id="top" onclick="move_top()">↑</button>
+    <button id="left" onclick="move_left()">←</button>
+    <button id="bottom" onclick="move_bottom()">↓</button>
+    <button id="right" onclick="move_right()">→</button>
   
-<br> 
-<div id="game-container">
-  <canvas width="400" height="400" id="game"></canvas>
-  
-    <button id="top">Top</button>
-    <button id="left">Left</button>
-    <button id="bottom">Bottom</button>
-    <button id="right">Right</button>
-</div>
-<script>
+  </div>
 
-/// TODO
-/*
-    * adjust game/snake speed based on length:
-    * play audio on eat
-    * scale the mobile buttons better (also actually make them touch the canvas)
-*/
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
-var score_keeper = document.getElementById('score_keeper')
+  <footer>
+    <p>All credit goes to <a href="https://gist.github.com/ZiKT1229/5935a10ce818ea7b851ea85ecf55b4da">ZiKT1229</a>, <br> Thanks for making this awesome project!</p>
+    <p> <br> This custom version can be found at: <a href="https://github.com/The-Guy-With-the-Holes/BusinessCard/tree/main/projects/poo_snake">jackewers.git</a> 
+      <br>The modified version adds the following features to ZiKT1229's version:<br> Accelerated Gameplay, Audio Elements, Custom images and Score Keeper 
+    </p>
+  </footer>
+    
+  <script type="text/javascript" src="script.js"></script>
 
-// the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
-// (e.g. 16 * 25 = 400)
-var grid = 16;
-var count = 0;
-
-var snake = {
-  x: 160,
-  y: 160,
-  dx: grid,
-  dy: 0,
-  cells: [],
-  maxCells: 4
-};
-var apple = {
-  x: 320,
-  y: 320
-};
-
-// get random whole numbers in a specific range
-// @see https://stackoverflow.com/a/1527820/2124254
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function update_score(new_score){
-  score_keeper.innerHTML = new_score
-}
-
-// game loop
-function loop() {
-  requestAnimationFrame(loop);
-
-  // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 8) {
-    return;
-  }
-
-  count = 0;
-  context.clearRect(0,0,canvas.width,canvas.height);
-
-  // move snake by it's velocity
-  snake.x += snake.dx;
-  snake.y += snake.dy;
-
-  // wrap snake position horizontally on edge of screen
-  if (snake.x < 0) {
-    snake.x = canvas.width - grid;
-  }
-  else if (snake.x >= canvas.width) {
-    snake.x = 0;
-  }
-
-  // wrap snake position vertically on edge of screen
-  if (snake.y < 0) {
-    snake.y = canvas.height - grid;
-  }
-  else if (snake.y >= canvas.height) {
-    snake.y = 0;
-  }
-
-  // keep track of where snake has been. front of the array is always the head
-  snake.cells.unshift({x: snake.x, y: snake.y});
-
-  // remove cells as we move away from them
-  if (snake.cells.length > snake.maxCells) {
-    snake.cells.pop();
-  }
-
-  // draw apple image
-  var appleImage = new Image();
-  appleImage.src = 'gold-nugget.png';
-  context.drawImage(appleImage, apple.x, apple.y, grid-1, grid-1);
-
-  // draw snake image one cell at a time
-  var snakeImage = new Image();
-  snakeImage.src = 'poop.png';
-  snake.cells.forEach(function(cell, index) {
-    context.drawImage(snakeImage, cell.x, cell.y, grid-1, grid-1);
-
-    // snake ate apple
-    if (cell.x === apple.x && cell.y === apple.y) {
-      snake.maxCells++;
-      update_score(snake.maxCells - 4);
-      // canvas is 400x400 which is 25x25 grids
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
-    }
-
-    // check collision with all cells after this one (modified bubble sort)
-    for (var i = index + 1; i < snake.cells.length; i++) {
-
-      // snake occupies same space as a body part. reset game
-      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = 160;
-        snake.y = 160;
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
-
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
-    }
-  });
-}
-
-
-
-
-//listen to keyboard events to move the snake
-  // prevent snake from backtracking on itself by checking that it's
-  // not already moving on the same axis (pressing left while moving
-  // left won't do anything, and pressing right while moving left
-  // shouldn't let you collide with your own body)
-document.addEventListener('keydown', function(e) {
-  handleSnakeMovement(e.which);
-});
-
-document.getElementById('left').addEventListener('click', function() {
-  handleSnakeMovement(37);
-});
-document.getElementById('right').addEventListener('click', function() {
-  handleSnakeMovement(39);
-});
-document.getElementById('top').addEventListener('click', function() {
-  handleSnakeMovement(38);
-});
-document.getElementById('bottom').addEventListener('click', function() {
-  handleSnakeMovement(40);
-});
-
-// function to handle snake movement
-function handleSnakeMovement(key) {
-  if (key === 37 && snake.dx === 0) {
-    snake.dx = -grid;
-    snake.dy = 0;
-  }
-  else if (key === 38 && snake.dy === 0) {
-    snake.dy = -grid;
-    snake.dx = 0;
-  }
-  else if (key === 39 && snake.dx === 0) {
-    snake.dx = grid;
-    snake.dy = 0;
-  }
-  else if (key === 40 && snake.dy === 0) {
-    snake.dy = grid;
-    snake.dx = 0;
-  }
-  else {console.log('handleSnakeMovement invalid input key:',key," dx:",snake.dx," dy:",snake.dy)}
-}
-// start the game
-requestAnimationFrame(loop);
-</script>
 </body>
 </html>
