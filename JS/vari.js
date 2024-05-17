@@ -3,7 +3,7 @@ if (document.title=="Working directory"){Root = 'WD'};
 if (document.title.includes("jackewers.com")){Root = 'BusinessCard'};
 if (document.title.includes("project:")){Root="Projects";}
 
-
+const debugging = true
 
 let requestRoot = function (targ) {
   if (Root == targ){return '';}

@@ -10,6 +10,9 @@
     --dark-color-theme-B: gray, black, blue, slategray;
 
     /*Universal settings*/
+    --font-L:min(max(4.75vw, .85rem),64px); /* Max 48px */
+    --font-M:min(max(3.2vw, .6rem),36px); /* Max 48px */
+    
     /* Padding & Margin*/
     /*Small padding (no horizontal)*/
     --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
@@ -18,10 +21,15 @@
     /* Border */
 
     /* Header Settings*/
-    --header-img-width: min(min(30vw, 3em));
+    --header-img-width:min(20vw, 4.8em);
+    --nav-img-width:min(15vw,4em);
 
 }
 
+*{
+    margin:0;
+    padding:0;
+}
 ::-webkit-scrollbar,iframe::-webkit-scrollbar {
     width: 0;
     display: none;
@@ -149,13 +157,13 @@ p {
 /* Header */
 
 header {
-    padding: var(--padding-scale-xs-noH);
+    position:relative;
+    padding: .4rem 0;
+     /* var(--padding-scale-xs); */
     border-top: 1vmin groove gray;
     border-bottom: 1vmin groove gray;
     font-family: Lobster, monospace;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    background-image: url(../heading-background.png);
-
 }
 
 #hr1 {
@@ -165,27 +173,60 @@ header {
 }
 
 h1 {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    padding:.6rem .8rem;
     background: url(../heading-background.png);
-    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-position:center;
+    filter:drop-shadow();
     height: min-content;
     /* margin-bottom:2dvh; */
     -webkit-text-stroke: .02em #000;
 }
 
-h1 img {
-    width: var(--header-img-width);
+#Hello_Text,#Hello_Binary{
+    cursor:pointer;
+    border-bottom: 1px solid #000; font-weight: bold;
 }
+
 
 h1 p {
-    font-size: min(8vw, 1.2em);
- 
+    font-size:var(--font-L);
+}
+h1 span{
+    display:inline-block;
 }
 
+/* Hello my name is ..*/
+#intro-text {
+    border-bottom: 1px gray;
+    font-size: var(--font-M);
+    vertical-align: middle;
+}
+#intro-text > p{display:inline-block;}
+
+#intro-text-profile-name {
+    font-size:var(--font-L);
+    vertical-align: middle;
+    display:inline-flex; /** remove space between letters*/
+    -webkit-text-stroke: .03em gold;
+}
+/* #intro-text-profile-name {} */
+
+#sub-intro {
+    font-size: min(.68em, 32px);
+    /* color:#000; */
+}
+
+
+#banner_img{ /* The unicorn */
+    width: var(--header-img-width);
+    position: absolute;
+    top:45%;
+    right:0;
+    transform: translateY(-50%);
+    z-index:5;
+}
 .Horizontal_NavBar {
     z-index:2;
     background-color: #fafafaaa;
@@ -212,7 +253,15 @@ h1 p {
     transition: 0.3s;
     background-color: #fafafa;
 }
-
+/* show/hide the image when nav is sticky */
+.Horizontal_NavBar > img{
+    position:absolute;
+    right:0;
+    top:0;
+    max-width:var(--nav-img-width);
+}
+.Horizontal_NavBar > img{display:none;}
+.Horizontal_NavBar.sticky_nav > img {display:block;}
 .Horizontal_NavBar:sticky::before {
     opacity: 1;
 }
@@ -238,7 +287,7 @@ h1 p {
     height: 100%; width: 82.5%;
     border: 1vmin groove gray;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: min(5dvh, 4vw) 1% 2% 1%;
+    padding: min(8dvh, 6vw) 1% 2% 1%;
     transition: 0.5s;
 }
 
@@ -279,16 +328,19 @@ h1 p {
 .NavListitem,.NavListitem>a {
     text-decoration:none; /*Remove Underline*/
 }
-
+#Nav-Close-btn::before{
+    display:block;
+    content:'x';
+    -webkit-text-stroke: 2px red;
+}
 #Nav-Close-btn {
     cursor: pointer;
     position: absolute;
     opacity: 0.8;
     top: .1em;
-    right: .1em;
+    left: .1em;
     font-size: 2em;
     padding: 0 .2em;
-    -webkit-text-stroke: 0.08vw red;
     background-color: #fafacfcc;
     border: 0.42vmin double gray;
 }
@@ -316,27 +368,6 @@ main>* {
 #slider-container {
     display: flex;
     justify-content: center;
-}
-
-/* Hello my name is ..*/
-#intro-text {
-    border-bottom: 1px gray;
-    font-size: min(48px,.68em);
-    vertical-align: middle;
-}
-#intro-text > p{display:inline-block;}
-
-#intro-text-profile-name {
-    font-size: min(48px,1.6em);
-    vertical-align: middle;
-    display:inline-flex; /** remove space between letters*/
-    -webkit-text-stroke: .03em gold;
-}
-/* #intro-text-profile-name {} */
-
-#sub-intro {
-    font-size: min(.68em, 32px);
-    /* color:#000; */
 }
 
 /*Contains  slider_main_img & slider_slides */
@@ -416,20 +447,27 @@ main>* {
 
 
 /* Contacts */
+
 #contact_icons{
-    margin: 1%;
-    padding:4%;
-}
-#contact_icons > ul {
     list-style-type: none;
+    margin: 1%;
+    margin-left:0;
+    /* padding:4%; */
+    width:100%;
 }
-.contact_icons > a > img{
+.contact_icons{
+    padding:.1em;
+    display:flex;
+    justify-content: space-between;
+    align-items:end;
+}
+.contact_icons img{
     max-width:40px;
     vertical-align: middle;
     margin-right: 1em;
 }
 
-.contact_icons > a{
+.contact_icons  a{
     vertical-align: middle;
     text-decoration: none;
     color:#203020;
@@ -450,7 +488,7 @@ main>* {
 
 /*******************************************************/
 /* Footer */
-footer {
+#Socials_Container {
     /* display: flex; */
     align-items: center;
     margin: 0 auto;
@@ -463,19 +501,9 @@ footer {
     border: 1vmin double #fff000;
 }
 
-footer>* {
+#Socials_Container {
     margin: 0 auto;
-    width: 65vw;
 }
-
-footer>img {
-    vertical-align: middle;
-    width: min(7vw, 5vh);
-    height: min(7vw, 5vh);
-    background-color: #fafafa55;
-}
-
-
 
 #IconBox {
     width: 100%;
@@ -490,7 +518,7 @@ footer>img {
     display: none;
 }
 
-.Boxes {
+.Horizontal_Socials {
     display: flex;
     width: 100%;
     padding: 1.5% 4% 1.5% 4%;
@@ -498,9 +526,17 @@ footer>img {
     justify-content: space-evenly;
 }
 
-.upper {
-    background-color: #ffccff55;
+.Vertical_Socials {
+    padding: 1.5% 4% 1.5% 4%;
+    margin-top: 1%;
+    
 }
+.Vertical_Socials > * > *{ /* Display the vertical items in a line */
+    display: flex;
+    align-items: center;
+    margin-top:1vh; /* Sperate vertical elements  */
+}
+
 
 /*Single items*/
 
@@ -544,45 +580,7 @@ footer>img {
     animation-fill-mode: forwards;
 }
 
-#Duo {
-    background-image: url(../i/DL.png);
-}
 
-#Git {
-    background-image: url(../i/git.png);
-}
-
-#LinkD {
-    background-image: url(../i/linkd.png);
-}
-
-#Certs {
-    background-image: url(../i/Icons/NFTS.png);
-}
-
-#Igg {
-    background-image: url(../i/Insta.png);
-}
-
-#Twit {
-    background-image: url(../i/TWITTER\ CC.png);
-}
-
-
-
-#contact_deets {
-    margin: 1em;
-    font-size: min(16px, 3.2vw);
-    text-align: left;
-}
-
-#contact_deets>p>* {
-    display: inline;
-}
-
-#contact_deets i {
-    font-weight: 900;
-}
 
 #Bloodworks {
     display: inline-block;

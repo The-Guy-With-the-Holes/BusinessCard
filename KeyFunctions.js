@@ -1,3 +1,12 @@
+/* Debugging
+    only load the debugging area if debugging===true and page not live
+*/
+if (typeof debugging !== 'undefined' && debugging  === true){// && window.location.href.includes('jackewers.com')) {
+    debugging_section = `<div id="debugging_area" style="font-size:.8rem; display:flex; justify-content:flex-end;"><p></p> <button onclick="window.location.reload()">RELOAD</button></div>`
+    document.body.innerHTML=debugging_section+document.body.innerHTML;
+    
+}
+
 
 /* Local */
 
@@ -109,24 +118,15 @@ let isPHP = function () { return window.location.href.includes('php') ? true : f
 const dQ = function(e){return document.querySelector(e);}
 
 //Edit Element display
-const TeD = function (element, DisplayType, enforce) { let x = element||document.querySelector(element); if (enforce === true || x.style.display == "none") { x.style.display = DisplayType; } else x.style.display = "none"; }
-const CToggle_Ele = function (arr) { for (e in arr) { let a = arr[e]; TeD(a[0], a[1], a[2] ?? null) } }
+const ToggleElementDisplay = function (element, DisplayType, enforce) { let x = element||document.querySelector(element); if (enforce === true || x.style.display == "none") { x.style.display = DisplayType; } else x.style.display = "none"; }
+const CToggle_Ele = function (arr) { for (e in arr) { let a = arr[e]; ToggleElementDisplay(a[0], a[1], a[2] ?? null) } }
 
 // Styles and elements
-
-
-
-
-
-
 const createElement = function (element, properties) {
     let el = document.createElement(element);
     for (var prop in properties) { el[prop] = properties[prop]; }
     return el;
 }
-
-
-
 
 let tNode = function (t) { return document.createTextNode(t); }
 let BR = function () { return createElement('br'); }
