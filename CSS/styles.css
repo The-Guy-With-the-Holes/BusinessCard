@@ -4,7 +4,7 @@
 
     /*Dynamic Colours*/
     --light-color-theme-A: aliceblue, lightblue, white;
-    --dark-color-theme-A: gray, black, seagreen, slategray;
+    --dark-color-theme-A: gray, black, slategray;
     /* Alternate Colours */
     --light-color-theme-B: white, lightblue, yellow, salmon;
     --dark-color-theme-B: gray, black, blue, slategray;
@@ -18,12 +18,13 @@
     --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
     --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
     --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
+    --body-content-seperator:min(.5vh,10px);
+    --body-content-seperator-double:min(1vh,20px);
     /* Border */
 
     /* Header Settings*/
     --header-img-width:min(20vw, 4.8em);
     --nav-img-width:min(15vw,4em);
-
 }
 
 *{
@@ -127,11 +128,12 @@ body {
     width: 100vw;
     height: fit-content;
     background-color: #11ffad66;
+    padding: .2rem;
 }
 
-/* body > *:not(hr,footer) {
-    margin:4% 2% 2% 2%;
-} */
+body > * , .Socials_Container {
+    margin-top:var(--body-content-seperator);
+} 
 
 /* hr:not(#hr1){margin: 1%;} */
 
@@ -225,7 +227,7 @@ h1 span{
     top:45%;
     right:0;
     transform: translateY(-50%);
-    z-index:5;
+    z-index:1;
 }
 .Horizontal_NavBar {
     z-index:2;
@@ -474,8 +476,19 @@ main>* {
     font-weight: 900;
     -webkit-text-stroke: .01em solid gray;
 }
-
+/*******************************************************/
 /***** PROJECTS ******/
+#about-projects{
+    padding: 1vh 0;
+}
+/* Projects title */
+h5{ 
+    text-align: center; 
+    font-size: large;
+    font-weight:500;
+    padding:1vh min(.4vh,2vw);
+}
+
 .project-button{
     cursor:pointer;
     font-size:larger; margin: 1%; padding:.5%;
@@ -484,6 +497,7 @@ main>* {
 .project_refs>li{
     text-align: left;
     margin:1%;
+    padding:1%;
 }
 
 /*******************************************************/
@@ -528,7 +542,7 @@ main>* {
 
 .Vertical_Socials {
     padding: 1.5% 4% 1.5% 4%;
-    margin-top: 1%;
+    margin-top: var(--body-content-seperator-double); /**/
     
 }
 .Vertical_Socials > * > *{ /* Display the vertical items in a line */
@@ -612,14 +626,14 @@ main>* {
 /* Slider */
 .Dark-Body {
     color: white;
-    border: 4px double #afafaff9;
+    /* border: 4px double #afafaff9; */
     background: radial-gradient(circle, #fafafada, #090909dd, gray);
     -webkit-text-stroke: .2px #09090999;
 }
 
 .Light-Body {
     color: black;
-    border: 4px double #9090909f;
+    /* border: 4px double #9090909f; */
     background: radial-gradient(circle, white, #fafafada, gray, azure);
     -webkit-text-stroke: .1px gold;
      /* #fafafa4f; */
@@ -686,6 +700,10 @@ main>* {
 
 .Dark-Body .bg-animation {
     background-color: #ffffff99;
+}
+.Dark-Body h1 {
+    color:red;
+    filter:invert(1);
 }
 
 

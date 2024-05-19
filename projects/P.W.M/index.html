@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico Password manager </title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        /* Show the message only when JavaScript is disabled */
+        
+        noscript .js-required-message {
+            display: block;
+            color: red;
+            /* Optional: Style the message */
+        }
+        
+        /* Hide the message by default -- this idea can be implemented by hiding the message with Javascript, else rendering this.
+        noscript area is also valid
+        */
+        .js-required-message {
+            display: none;
+        }
+        /*Remove the left margin from non list items*/
+        h3,ul >li,.full-size-img {
+            margin-left: -40px;
+        }
+
+        ol>img,
+        ul>img {
+            margin-bottom: 4vh;
+        }
+        
+        ol>li {
+            text-align: left;
+            font-size: larger
+        }
+        
+        ul>li {
+            text-align: left;
+            font-size: smaller;
+        }
+        
+        img {
+            max-width: 45%;
+            height: auto;
+        }
+
+        h2 {
+            font-size: medium
+        }
+
+        h2::first-line {
+            font-size: x-large;
+        }
+
+        .full-size-img {
+            max-width: 95vw;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1> P.W.M User Guide </h1>
+        <p> The PWM (Password Manager) is an open source project developed by Bloodweb,
+            We beleive in absolute password security (no, a million pieces of individual paper are no secure,...
+            *looking at you mom and dad*)
+        </p>
+    </header>
+
+    <div id="instructions"> <!-- Begin reading instructions -->
+        <p class="js-required-message">This page requires JavaScript to function properly. Please enable JavaScript in
+            your browser settings.</p>
+    </div>
+    <!-- <div class="ition" data-tile="Requirements" data-content="" data-image="../i/₿.png"></div> -->
+    <!-- <div class="" data-content="Part 2: More text" data-image="image_url_2"></div> -->
+
+    <div class="instruction" data-style="ol"
+        data-title="Securing your current PC:<br> If you don't care about the security of your passwords, you can skip steps 1-5"
+        data-image="https://media.wired.com/photos/64daad6b4a854832b16fd3bc/master/pass/How-to-Choose-a-Laptop-August-2023-Gear.jpg "
+        data-content="
+            <br>
+            <li>Download <a href='https://tails.net/install/download/index.en.html'>Tails Usb Driver</a> and <a>Balena etcher (or any other imaging tool.. Raspberry imager is also a great choice)</a> </li>
+            <br>
+            <li>Restart your Pc in the grub(bios) menu. This can be accomplished via pressing f10* during the boot sequence *(the key to enter bios normally ranges from f10-f12. this may vary depending on the manufacturer of your pc.)</li>
+            <br>
+            <li>In the Grub menu navigate to settings > boot order using the arrow keys rearrange the order so that USB is the top priority and confirm/save it<br><i>(This will allow your pc to load an OS from the attached USB)</i></li>
+            <br>
+            <li>Once the boot order change is made and saved, Plug the foramtted USB drive into your personal computer and restart it. if done correctly, the pc should initialise from the USB you have just plugged in and will load a grub menu with some different Tails OS you can run! 
+            <br> <i>(If this did not work, confirm that your boot load order is correct) </i></li>
+    ">
+    </div>
+    <div class="instruction" data-style="ol" data-title="Editing your passwords" data-content="
+        <li>Download and install Thonny IDE on your computer if you didn't download the tails OS with Thonny prebuilt (The one on this page).</li>
+        <br>
+        <li>Plug in the raspberrypi PWM</li>
+        <br>
+        <li>Open Thonny IDE and navigate to configure interpreter setting in the run tab </li>
+        <br>
+        <li> In the configuration setting, Switch to the interpreter tab and set the first option to 'MicroPython(generic)' and set the port to 'Board in FS mode'</li>
+        <img class='full-size-img' src='/i/Projects/PWM/Thonny_settings.png'>
+        <br>
+        <li> The top area of the THonny IDE will have an red stop icon, pressing this icon will halt the currently running python program and allow you to edit the files on the device</li>
+        <img class='full-size-img' src='/i/Projects/PWM/Stop_icon.png'/>
+        <br>
+        <li> Now that the board is no longer executing python its files are editable, open the file `creds.py` in the IDE, this is the file that will hold all your passwords.</li>
+        <img class='full-size-img' src='/i/Projects/PWM/Creds_overview.png' />
+        <li>The Credentials variable is an array on tuples ('Account','Email','Password'), and this is how we will store our passwords.
+        <br>
+            <h3> Some important notes for using the Credentials array:</h3>
+            <ul>
+                <li>Items in the array, must be inside a tuple(). every tuple except for the last one must be preceeded by a comma','</li>
+                <li>Items inside the tuple (except for references to the predefined email array, so email[0..1..2..ect]) must all be contained within quotes ''  </li>
+                <li></li>
+            </ul>    
+        </li>
+        ">
+
+    </div>
+
+    <!-- End instructions-->
+    </div>
+
+
+    <!-- Make instructions-->
+    <script src="/JS/instructables.js"></script>
+</body>
+
+</html>

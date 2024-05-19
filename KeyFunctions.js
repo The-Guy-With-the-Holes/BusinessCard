@@ -2,17 +2,14 @@
     only load the debugging area if debugging===true and page not live
 */
 if (typeof debugging !== 'undefined' && debugging  === true){// && window.location.href.includes('jackewers.com')) {
-    debugging_section = `<div id="debugging_area" style="font-size:.8rem; display:flex; justify-content:flex-end;"><p></p> <button onclick="window.location.reload()">RELOAD</button></div>`
+    debugging_section = `<div id="debugging_area" style="font-size:min(.8rem,6vw); background-color:#ffaffa55; display:flex; justify-content:flex-end;"><p></p> <button onclick="window.location.reload()">RELOAD</button></div>`
     document.body.innerHTML=debugging_section+document.body.innerHTML;
-    
 }
 
-
 /* Local */
-
 const LS_Name = function (s) {
     if (s == '' || s == undefined){ return localStorage.getItem('name'); }
-    else{localStorage.setItem('name', s);}
+    localStorage.setItem('name', s);
 }
 function allowDrop(event) { event.preventDefault(); }
 

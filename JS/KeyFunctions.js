@@ -6,6 +6,7 @@ function log(x){
   console.log(x);
   let z = document.getElementById('debugging_area');
   if (!!z){z.querySelector('p').innerText+=x}
+  else{console.log("'log' called, but the logging area is unavailable.. caller:",x)}
 }
 log("Debugging area initialised.")
 
@@ -63,87 +64,98 @@ function customQuerySelectorAll(...selectors) {
   const combinedSelector = selectors.join(', ');
   return document.querySelectorAll(combinedSelector);
 }
-gcs=getComputedStyle(document.documentElement);
 
-const ColorShifter = {
-  colors:{ 
-    light_A:gcs.getPropertyValue('--light-color-theme-A'),
-    light_B:gcs.getPropertyValue('--light-color-theme-B'),
-    dark_A:'black',
-    dark_B:'gray',
-  },
+
+class ColorShifter {
+  constructor() {
+    this.colors = { // GCS.GPV is used to access root CSS
+      light_A: getComputedStyle(document.documentElement).getPropertyValue('--light-color-theme-A'),
+      light_B: getComputedStyle(document.documentElement).getPropertyValue('--light-color-theme-B'),
+      dark_A: 'black',
+      dark_B: 'gray',
+    };
+
+    this.targets = "header,.ColorShifter,#about-projects"; // Basic elements to be used
+    this.hvt = "main,footer,.Socials_Container"; // High value targets (rotates in reverse)
+    this.alt_color_targets = 'body,.Vertical_NavBar'; // Render in different color
+    this.timeout_targets = '.unicorns'; // Targets to toggle the 
+
+    this.icons = ['☼' , '☽']; // light / dark icons  
+    this.type = 'Dark'; // default state
+    this.mode = "a"; // Use alpha / beta colour mode
+    this.deg = 70; // starting deg
+    this.inc = 0.9; // how many deg to inc each interval
+    this.attach_LD_switch = true;
+    this.timer = null; // Initialize timer as null
+
+    this.monitorTimeoutTargets();
+    this.ColorShift(); // set default state
+    this.AttachLightDarkSwitcher();
+  }
+
+  inc_deg() {
+    this.deg += this.inc;
+    if (this.deg > 365) {this.deg = 0;}
+  }
+
+  startColorShift() {if (this.timer === null) {this.timer = setInterval(this.ColorShift.bind(this), 20);}}
+
+  stopColorShift() { if (this.timer !== null) {clearInterval(this.timer); this.timer = null;}}
+
+  toggleColorShift() {if (this.timer === null) {this.startColorShift();} else {this.stopColorShift();}}
+
+  ColorShift() {
+    const elementsList = [this.targets, this.hvt, this.alt_color_targets];
+    const colorRef = "--" + this.type.toLowerCase() + "-color-theme-";
+    let color = getComputedStyle(document.documentElement).getPropertyValue(colorRef + this.mode.toUpperCase());
+
+    elementsList.forEach((selector, index) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((element, i) => {
+        if (index === 2) { // Special handling for alt_color_targets
+          color = this.mode !== "a"
+            ? getComputedStyle(document.documentElement).getPropertyValue(colorRef + "A")
+            : getComputedStyle(document.documentElement).getPropertyValue(colorRef + "B");
+        }
+        const deg = (index === 1 && i >= 0) ? this.deg : -this.deg;
+        element.style.background = `linear-gradient(${deg}deg, ${color})`;
+      });
+    });
+    this.inc_deg();
+  }
+
+  AttachLightDarkSwitcher() {
+    if (this.attach_LD_switch === true) {
+      let slider = document.createElement('span');
+      slider.id = 'LD-slider';
+      slider.className = this.type+'-slider';
+      slider.innerHTML = `<div id="LD-icon" class="${this.type}-icon"></div>`;
+      slider.setAttribute('onclick', "LDswitch()");
+      document.body.prepend(slider);
+      document.body.classList.add(`${this.type}-Body`);
+    }
+  }
   
-  targets:"header,.ColorShifter,#about-projects",// Basic elements to be used
-  hvt:"main,footer,.Socials_Container", // High value targets (rotates in reverse if enabled
-  alt_color_targets:'body,.Vertical_NavBar',     // Render in different color
-
-  icons:['☼' , '☽'], // light / dark  
-  type:'Light', // default state
-  mode:"a", // Use alpha / beta colour mode
-  deg:0, // starting deg
-  inc:0.9, // how many deg to inc each interval
-
-  inc_deg:function(){ // inc cur_deg via deg + inc
-    this.deg+=this.inc;
-    if(this.deg>365){this.deg = 0;}
-  },
-  // timer:setInterval(ColorShift,20)  
-}
-
-
-// Light/Dark mode
-// Append the light Dark switch to the body
-
-function AddLightDarkSwitcher(){
-  let slider = createElement('span',{id:'LD-slider',className:'Light-slider',innerHTML:`<div id="LD-icon" class="Light-icon"></div>`});
-  slider.setAttribute('onclick',"LDswitch()");
-  document.body.prepend(slider);
-  Get.Body.setAttribute('class','Light-Body');
-}
-
-// Main content background
-function ColorShift(){
-  let t = document.querySelectorAll(ColorShifter.targets);
-  let hvt=document.querySelectorAll(ColorShifter.hvt);
-  let alt=document.querySelectorAll(ColorShifter.alt_color_targets)
-  let color_ref="--"+ColorShifter.type.toLocaleLowerCase()+"-color-theme-";
-  let color=gcs.getPropertyValue(color_ref+ColorShifter.mode.toLocaleUpperCase());
-  let c = ColorShifter.colors;
-  let x ='-';
-
-  for(let i=0; i<t.length; i++) {
-    if(ColorShifter.type=="Light"){ t[i].style.background="linear-gradient("+ColorShifter.deg+"deg,"+color+")"; }
-    else{t[i].style.background="linear-gradient("+ColorShifter.deg+"deg,"+color+")"; }
+  monitorTimeoutTargets() { // toggle the animation when timeout targets clicked
+    const targets = document.querySelectorAll(this.timeout_targets);
+    targets.forEach(target => {
+      target.addEventListener('click', () => {
+        this.toggleColorShift();
+      });
+    });
   }
-
-  for(let i=0; i<hvt.length; i++) {
-    if(i < 0){x = '' ;}
-    if(ColorShifter.type=="Light"){ hvt[i].style.background="linear-gradient("+x+ColorShifter.deg+"deg,"+color+")"; }
-    else{hvt[i].style.background="linear-gradient("+x+ColorShifter.deg+"deg,"+color+")";} 
-  }
-  for(let i=0; i<alt.length; i++) {
-    ColorShifter.mode!="a"?color=gcs.getPropertyValue(color_ref+"A"):color=gcs.getPropertyValue(color_ref+"B");
-    if(i < 0){x = '' ;}
-    if(ColorShifter.type=="Light"){ alt[i].style.background="linear-gradient("+x+ColorShifter.deg+"deg,"+color+")"; }
-    else{alt[i].style.background="linear-gradient("+x+ColorShifter.deg+"deg,"+color+")";} 
-  }
-  ColorShifter.inc_deg();
 }
-
-// SHiftery Replacement Change relevant targets to Light / dark background
-function LDswitch(type){
+const colorShifter = new ColorShifter();
+function LDswitch(){
   let slider = document.getElementById('LD-slider');
   let Switch = document.getElementById('LD-icon');  
-  //let symbol = ColorShifter.icons;
  
-  if(slider.classList.contains('Light-slider')){type="Dark"; }
-  else{ type="Light"; }
-
-    ColorShifter.type=type;
-    slider.setAttribute('class',type+'-slider');
-    Switch.setAttribute('class',type+'-icon');
-    Get.Body.setAttribute('class',type+'-Body');
-  ColorShift()
+  type = document.body.classList.contains('Light-Body')?"Dark":"Light"
+  colorShifter.type=type
+  slider.setAttribute('class',type+'-slider');
+  Switch.setAttribute('class',type+'-icon');
+  document.body.setAttribute('class',type+'-Body');
+  colorShifter.ColorShift()
 }
 
 Nav_Settings={
@@ -322,8 +334,10 @@ document.body.addEventListener('click', ele => { let e=ele.target;
       x.forEach((element) => element.classList=""); //remove class
       setTimeout(() => {x.forEach((element) => element.classList="RT");}, 1); // add class
     }
-    if (e.parentElement.classList=="refs"){
-      let title=e.innerText.replace(' ','<br>');
+
+  if (false && e.parentElement.classList=="refs"){
+    // Open a dialog with href,image and text to let users view the page, and decide if they will jump to it
+    let title=e.innerText.replace(' ','<br>');
       //title
       let src=e.getAttribute('data-src');
       call_IframeDialog(title,src); console.log(`opnened dialog ${title},${src}`)
@@ -335,10 +349,8 @@ document.body.addEventListener('click', ele => { let e=ele.target;
 let OL = function(){
   console.log("Beginning OL");
   
-   //let ColorShiftertimer =
-  // setInterval(ColorShift,250) ;
   ScrollHome(); //Scroll to top (Helps with js created elements)
   attach_nav_listener(); 
-  AddLightDarkSwitcher();
-  ColorShift(); // Set the initial colors to the DOM
+  colorShifter.ColorShift()
+
 }
