@@ -1,0 +1,102 @@
+/* This file contains root variables and media queries */
+
+:root {
+
+    --Rainbow-Background: #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad;
+
+    /*Dynamic Colours*/
+    --light-color-theme-A: aliceblue, lightblue, white;
+    --dark-color-theme-A: gray, black, slategray;
+    /* Alternate Colours */
+    --light-color-theme-B: white, lightblue, yellow, salmon;
+    --dark-color-theme-B: gray, black, blue, slategray;
+
+    /*Universal settings*/
+    --font-XXL:min(max(2.4rem,8vw),82px); /* Normally for small scale icons*/
+    --font-L:min(max(4.75vw, .85rem),64px); /* Max 48px */
+    --font-M:min(max(3.2vw, .6rem),36px); /* Max 48px */
+    
+    /* Padding & Margin*/
+    /*Small padding (no horizontal)*/
+    --padding-scale-large-top:min(8dvh, 6vw) 1% 2% 1%;
+
+    --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
+    --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
+    --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
+    --body-content-seperator:min(.5vh,10px);
+    --body-content-seperator-double:min(1vh,20px);
+    --body-content-margin-top:min(1vh,20px); 
+    /* Border */
+
+    /* Header Settings*/
+    --header-img-width:min(20vw, 4.8em);
+    --nav-img-width:min(15vw,4em);
+}
+
+
+@media (max-width:600px) {
+
+    /* EXTRA SMAll Phones*/
+    html {
+        background-color: #fff;
+    }
+
+    /* hide if screen <600px */
+    .NavListitem:not(.Vertical_NavBar>.NavListitem, .Nav_Switch),
+    .image-flex-slider {
+        display: none; padding:0;
+    }
+
+       /* IMAGE CONTAINER*/
+    #main-image-container {
+        font-size:2em;
+        -webkit-text-stroke: .02em #fafafaff;
+    }
+    /*main img larger if device smaller*/
+    #slider_img_main {
+        height:auto;
+        width:calc(100% - 2em);
+    }
+    .slider_prev,.slider_next{
+        padding: .1em; display:block;
+    }
+}
+
+
+@media (min-width:600px) {
+
+    /* Potrait Tablets and small phones*/
+    body {background-color: #11ffad;}
+
+    .NavListitem {display: block;}
+
+    .Nav_Switch, #main-image-container > span > i {
+        display: none;
+        margin:0;
+    }
+
+    /* IMAGE CONTAINER*/
+    .image-flex-slider {display: flex;}
+
+    #main-image-container {
+        font-size:1.2em;
+        -webkit-text-stroke: .01em #fafafaff;
+        background-color: #000000f5;
+        max-width:50%;
+    }
+
+    #slider_img_main{width:100% /*min(42.5dvh,48vw)*/;}
+}
+
+
+/* DESKTOP NEEDS WORK */
+@media screen and (min-width: 1024px){
+    #main-image-container {
+        /* max-height:80dvh; */
+        vertical-align: middle;
+    }
+
+    .flex-slider-item{max-width: 25%;}
+
+}
+
