@@ -3,7 +3,8 @@
 :root {
 
     --Rainbow-Background: #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad;
-
+    --light-color-1:purple;
+    --light-color-2:#ff11ff;
     /*Dynamic Colours*/
     --light-color-theme-A: aliceblue, lightblue, white;
     --dark-color-theme-A: gray, black, slategray;
@@ -17,15 +18,17 @@
     --font-M:min(max(3.2vw, .6rem),36px); /* Max 48px */
     
     /* Padding & Margin*/
+    --padding-left-L:min(4vw,24px);
     /*Small padding (no horizontal)*/
     --padding-scale-large-top:min(8dvh, 6vw) 1% 2% 1%;
-
     --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
     --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
     --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
     --body-content-seperator:min(.5vh,10px);
     --body-content-seperator-double:min(1vh,20px);
-    --body-content-margin-top:min(1vh,20px); 
+    --body-content-margin-top:min(1vh,20px);
+
+    --body-content-seperator-XL:min(4vh,48px); 
     /* Border */
 
     /* Header Settings*/

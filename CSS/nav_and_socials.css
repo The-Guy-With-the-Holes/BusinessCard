@@ -1,4 +1,9 @@
 
+.Horizontal_NavBar,.Horizontal_Socials{
+    /* Push content away from Nav and Socials */
+    margin-top: var(--body-content-seperator) ;
+    margin-bottom: var(--body-content-seperator) ;
+}
 
 #banner_img{ /* The unicorn */
     width: var(--header-img-width);
@@ -176,24 +181,33 @@
     border-radius: 20%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     min-width: 12.5%;
-    margin: 0;
+    max-width:80%;
+    /* margin: 0; */
     padding: .2em;
-    margin: .8em;
+    margin: .2em;margin-top:min(.8em,4vh);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Vertical_NavBar>.NavListitem:first-of-type{
+    margin-top:calc(var(--body-content-seperator-XL)/2);
 }
 
 /* Have the A elements take over the parent*/
 .Vertical_NavBar>.NavListitem>a {
     display: flex;
 }
-.Vertical_NavBar>.NavListitem>a>i{
+/* .Vertical_NavBar>.NavListitem>a>i{
     opacity:0.8;
     font-size: min(8.32vw, 2.4em);
     color:gray;
     filter:grayscale();
     -webkit-text-stroke: min(.02em,1vw) blue;
     border: .01em solid gray;
-    margin-right:min(2vw,10px); /* Push text away from icons*/
-}
+    margin-right:min(2vw,10px); 
+} */
+
 
 /* Remove bullets from nav*/
 .Vertical_NavBar>li {
@@ -203,7 +217,21 @@
 
 .NavListitem,.NavListitem>a {
     text-decoration:none; /*Remove Underline*/
+    margin-left: min(2vw,10px);
+    padding:1%;
 }
+
+.NavListitem>a>* {
+    margin:0;
+    margin-left:var(--padding-left-L);
+}
+.NavListitem>a:has(.NavListSelected){
+    color:var(--light-color-1);
+}
+.NavListitem>a>.NavListSelected{ /* Remove ma rgin from selected */
+    margin-left: calc(-1 * var(--padding-left-L));
+}
+
 #Nav-Close-btn::before{
     display:inline-block;
     content:"\00d7";
@@ -284,9 +312,10 @@
 .Horizontal_Socials {
     display: flex;
     width: 100%;
-    padding: 1.5% 4% 1.5% 4%;
+    padding: 3.5% 4%;
     margin-top: 1%;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .Vertical_Socials {
@@ -347,10 +376,11 @@
 
 
 #Bloodworks {
-    display: inline-block;
-    width: 100%;
-    padding: 0.3%;
-    /* margin-left: 2%; margin-right: 0; margin-top: 0; margin-bottom: 0; */
+    position:absolute;
+    display:inline-block;
+    width: fit-content;
+    padding: 0.3% 6vw;
+    margin: 0;
     font-size: min(2.5vw, 1.8vh);
     background-color: #fafafa55;
 }

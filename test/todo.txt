@@ -1,0 +1,16 @@
+// TODO LIST
+
+- Make offline images
+
+-  Reattach LD slider
+
+- Clean project links
+
+- Finish profile
+
+- Reattach
+
+
+    - Fix multi page Navigation
+
+- Vertical Nav icons look ugly

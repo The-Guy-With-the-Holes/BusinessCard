@@ -39,5 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         instruction.appendChild(contentContainer);
         instruction_steps++;
     });
+
+    // Return to projects main  page
+    let return_to_projects = createElement('div',{ innerHTML:`<a href='/projects/index.html'>< Projects</a>` })
+    document.body.prepend(return_to_projects)
 });
 

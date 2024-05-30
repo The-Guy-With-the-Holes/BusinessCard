@@ -22,9 +22,11 @@
     --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
     --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
     --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
+    /* Seperate content */
     --body-content-seperator:min(.5vh,10px);
     --body-content-seperator-double:min(1vh,20px);
     --body-content-margin-top:min(1vh,20px); 
+    --body-content-margin-double:min(2vh,40px); 
     /* Border */
 
     /* Header Settings*/
@@ -59,7 +61,7 @@ html {
     /* margin-top: 0.8vh; */
     overflow: scroll;
     overflow-x: hidden;
-    /* height: 200dvh; */
+    height: 200dvh;
 }
 
 body {
