@@ -1,9 +1,20 @@
-# BusinessCard
+# JackEwers dot com
+This my personal webpage and business card,
+
+The page and its contents are served as a static github page using the domain:
+<kbd><a href="http://www.jackewers.com">www.jackewers.com</a>
+</kbd>. Even though the page is served statically, live elements from the bloodweb are used, as such, the content may vary from users, regions, ect..
+
+
+Inside you will find:
+* My personal contact details
+* Links to external sites (*Facebook, Reddit, LinkedIn, ect..*)
+* Personal projects
+* Bio card
+* Links to my homies, businesses and charities i support
+          
 Find out more about me and what i can do! :)
 
-This page and its contents are served as a github page under the domain(cname):
-<kbd><a href="http://www.jackewers.com">www.jackewers.com</a>
-</kbd>
 <!--
 
 Sponsor Types:
