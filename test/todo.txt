@@ -2,15 +2,14 @@
 
 - Make offline images
 
--  Reattach LD slider
-
-- Clean project links
+- Finish project links
 
 - Finish profile
 
-- Reattach
 
-
-    - Fix multi page Navigation
-
-- Vertical Nav icons look ugly
+// Finished ( Ordered by most recently completed )
+- LINKTREE - Squashed social_links into (Navigation.js)
+- Social Links now in Navigation.js
+- Vertical Nav icons look ugly //Nav icons no longer in use
+-  Reattach LD slider
+- Fix multi page Navigation

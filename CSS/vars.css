@@ -1,8 +1,7 @@
 /* This file contains root variables and media queries */
-
 :root {
 
-    --Rainbow-Background: #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad;
+    --Rainbow-Background: #ddaa00, #ff11ff, #11ffad, #aadddd;
     --light-color-1:purple;
     --light-color-2:#ff11ff;
     /*Dynamic Colours*/
@@ -11,25 +10,30 @@
     /* Alternate Colours */
     --light-color-theme-B: white, lightblue, yellow, salmon;
     --dark-color-theme-B: gray, black, blue, slategray;
-
     /*Universal settings*/
     --font-XXL:min(max(2.4rem,8vw),82px); /* Normally for small scale icons*/
+    --font-XL:min(max(6.5vw, .1rem),72px); /* Max 48px */
     --font-L:min(max(4.75vw, .85rem),64px); /* Max 48px */
-    --font-M:min(max(3.2vw, .6rem),36px); /* Max 48px */
-    
-    /* Padding & Margin*/
+    --font-ML:min(max(4vw, .7rem),48px); /* Max 48px */
+    --font-M:min(max(3.2vw, .6rem),36px); /* Max 36px */
+    /* Padding & Margin*/    
     --padding-left-L:min(4vw,24px);
+    --padding-vertical-M:min(.4em,2vh);
+    --padding-vertical-L:min(.6em,4vh);
     /*Small padding (no horizontal)*/
     --padding-scale-large-top:min(8dvh, 6vw) 1% 2% 1%;
     --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
     --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
     --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
+    /* Seperate content */
     --body-content-seperator:min(.5vh,10px);
     --body-content-seperator-double:min(1vh,20px);
-    --body-content-margin-top:min(1vh,20px);
-
+    --body-content-margin-top:min(1vh,20px); 
+    --body-content-margin-double:min(2vh,40px); 
     --body-content-seperator-XL:min(4vh,48px); 
-    /* Border */
+    /* Border and Shadows*/ /* Please give these better names*/
+    --box-shadow-1: 8px 6px rgba(0, 0, 0, .8);
+    --box-shadow-2: 6px 4px rgba(0, 0, 0, .8);
 
     /* Header Settings*/
     --header-img-width:min(20vw, 4.8em);
@@ -40,9 +44,7 @@
 @media (max-width:600px) {
 
     /* EXTRA SMAll Phones*/
-    html {
-        background-color: #fff;
-    }
+    /* html { background-color: red/; } */
 
     /* hide if screen <600px */
     .NavListitem:not(.Vertical_NavBar>.NavListitem, .Nav_Switch),
@@ -53,12 +55,12 @@
        /* IMAGE CONTAINER*/
     #main-image-container {
         font-size:2em;
-        -webkit-text-stroke: .02em #fafafaff;
+        -webkit-text-stroke: .02em goldenrod;
     }
     /*main img larger if device smaller*/
     #slider_img_main {
         height:auto;
-        width:calc(100% - 2em);
+        width:calc(100% - 2.5em);
     }
     .slider_prev,.slider_next{
         padding: .1em; display:block;

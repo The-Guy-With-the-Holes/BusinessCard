@@ -1,8 +1,11 @@
-/* *{ margin:0; padding:0; } */
+*{ margin:0; padding:0; }
 body > *{
     /* Push content away from Nav and Socials */
     margin-top: var(--body-content-seperator) ;
     margin-bottom: var(--body-content-seperator) ;
+}
+#last_update{
+color:red;
 }
 p>#last-profile-edit{
     padding-top:var(--body-content-seperator);

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pico Password manager </title>
+    <link rel="stylesheet" href="/CSS/nav_and_socials.css">
     <style>
         * {
             text-align: center;
         }
 
         /* Show the message only when JavaScript is disabled */
-        
         noscript .js-required-message {
             display: block;
             color: red;
@@ -76,8 +76,6 @@
         <p class="js-required-message">This page requires JavaScript to function properly. Please enable JavaScript in
             your browser settings.</p>
     </div>
-    <!-- <div class="ition" data-tile="Requirements" data-content="" data-image="../i/₿.png"></div> -->
-    <!-- <div class="" data-content="Part 2: More text" data-image="image_url_2"></div> -->
 
     <div class="instruction" data-style="ol"
         data-title="Securing your current PC:<br> If you don't care about the security of your passwords, you can skip steps 1-5"
@@ -102,13 +100,13 @@
         <li>Open Thonny IDE and navigate to configure interpreter setting in the run tab </li>
         <br>
         <li> In the configuration setting, Switch to the interpreter tab and set the first option to 'MicroPython(generic)' and set the port to 'Board in FS mode'</li>
-        <img class='full-size-img' src='/i/Projects/PWM/Thonny_settings.png'>
+        <img class='full-size-img' src='/projects/P.W.M/Thonny_settings.png'>
         <br>
         <li> The top area of the THonny IDE will have an red stop icon, pressing this icon will halt the currently running python program and allow you to edit the files on the device</li>
-        <img class='full-size-img' src='/i/Projects/PWM/Stop_icon.png'/>
+        <img class='full-size-img' src='/projects/P.W.M/Stop_icon.png'/>
         <br>
         <li> Now that the board is no longer executing python its files are editable, open the file `creds.py` in the IDE, this is the file that will hold all your passwords.</li>
-        <img class='full-size-img' src='/i/Projects/PWM/Creds_overview.png' />
+        <img class='full-size-img' src='/projects/P.W.M/Creds_overview.png' />
         <li>The Credentials variable is an array on tuples ('Account','Email','Password'), and this is how we will store our passwords.
         <br>
             <h3> Some important notes for using the Credentials array:</h3>
@@ -124,10 +122,18 @@
 
     <!-- End instructions-->
     </div>
-
-
+    <script>
+        const userSettings = {
+            return:{
+                ref:'/projects/index.html',
+                label:'Back to Projects'
+            }
+        }
+    </script>
     <!-- Make instructions-->
     <script src="/JS/instructables.js"></script>
+    <!-- Create return label and any other Nav items -->
+    <script src="/JS/Navigation.js"></script>
 </body>
 
 </html>

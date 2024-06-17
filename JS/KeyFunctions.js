@@ -2,13 +2,6 @@
 //              Tools
 //#%#%#%#%#%#%#%#%#%#%#%#%##%%#%#%#%#
 
-function log(x){
-  console.log(x);
-  let z = document.getElementById('debugging_area');
-  if (!!z){z.querySelector('p').innerText+=x}
-  else{console.log("'log' called, but the logging area is unavailable.. caller:",x)}
-}
-log("Debugging area initialised.")
 
 // Required
 let appendTool = function(name,img,func){ if ( !img || !name){ console.error('cannot append tool');}
@@ -165,10 +158,10 @@ document.body.addEventListener('click', ele => { let e=ele.target;
 }
 })
 
-document.addEventListener('DOMContentLoaded',function(){
-  console.log("Beginning OL");
+// document.addEventListener('DOMContentLoaded',function(){
+//   console.log("Beginning OL");
   
-  ScrollHome(); //Scroll to top (Helps with js created elements)
-  attach_nav_listener(); 
-  colorShifter.ColorShift()
-});
+//   ScrollHome(); //Scroll to top (Helps with js created elements)
+//   attach_nav_listener(); 
+//   colorShifter.ColorShift()
+// });

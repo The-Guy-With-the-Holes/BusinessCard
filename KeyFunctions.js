@@ -1,9 +1,13 @@
 /* Debugging
     only load the debugging area if debugging===true and page not live
 */
-if (typeof debugging !== 'undefined' && debugging  === true){// && window.location.href.includes('jackewers.com')) {
-    debugging_section = `<div id="debugging_area" style="font-size:min(.8rem,6vw); background-color:#ffaffa55; display:flex; justify-content:flex-end;"><p></p> <button onclick="window.location.reload()">RELOAD</button></div>`
-    document.body.innerHTML=debugging_section+document.body.innerHTML;
+if (typeof debugging !== 'undefined' && debugging  === true && !window.location.href.includes('jackewers.com')) {
+    debugging_section = `
+    <div id="debugging_area" style="font-size:min(.8rem,6vw); padding:1%; background-color:#ffaffa55; display:flex; justify-content:flex-end; overflow:hidden; height:1.5em;">
+        <p style="white-space: nowrap;"></p>
+        <button onclick="window.location.reload()" style="margin-left:auto;"><p>RELOAD</p></button>
+    </div>`;
+    document.body.innerHTML = debugging_section + document.body.innerHTML;
 }
 
 /* Local */
@@ -15,11 +19,23 @@ function allowDrop(event) { event.preventDefault(); }
 
 // console
 
-function log(l){console.log(l);}
+function log(x) {
+    console.log(x);
+    let z = document.getElementById('debugging_area');
+    if (!!z) {
+        let p = z.querySelector('p');
+        p.innerText = x + "\n" + p.innerText; // Prepend new log
+    } else {
+        console.log("'log' called, but the logging area is unavailable.. caller:", x);
+    }
+}
+
+log("Debugging area initialised.")
+
 // Numer
 function randomNum(min = 0, max = 17) { return Math.floor(Math.random() * (max - min)) + min; }
 function isNeg(x) { if (!isNaN(x) && x < 0) { return true; } }
-function isEven(num) {if ( !num && num!==0 || isNaN(num) ) return console.error(`Num required, ${num} is NaN`);
+function isEven(num) { if ( !num && num!==0 || isNaN(num) ) return console.error(`Num required, ${num} is NaN`);
     return (num % 2 == 0) ? true : false;
 }
 
@@ -31,11 +47,13 @@ function setRange(i, min, max) {
 
 function inRange(num, min, max) { if (num <= max && num >= min) return true; }
 
-function randomHex(bits) {
-    if (!bits) { bits = 8; }
-    let hexRes = ''; let hex = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    for (let i = 0; i < bits; i++) { hexRes += hex[(randomNum(0, 9))]; }
-    return hexRes;
+function randomHex(bytes=8) {
+    if (typeof bytes !== 'number' || !Number.isInteger(bytes)){ throw new TypeError('bytes must be an integer'); }
+
+    let result = '';    
+    const chars = 'abcdef0123456789';
+    for (let i = 0; i < bytes * 2; i++) { result += chars.charAt(randomNum(0, 9)); }
+    return result;
 }
 
 function createHexchain(hexlength) {
@@ -82,6 +100,7 @@ let timeDif = function (time) {
 
     return "InputTIme:" + time + " curTime:" + curTime + "\n Dif:" + [hourDif, minuteDif, secondDif > 0 ? secondDif : 60 + secondDif];
 }
+
 function DateDif(date) {
     date.split('/'); let time = date[0] + date[1];
     let d1 = date.slice(9);
@@ -94,18 +113,21 @@ function DateDif(date) {
     let DIfference = [(date1.getFullYear() - date2.getFullYear()), (date1.getMonth() - date2.getMonth()), (date1.getDay() - date2.getDay())];
     return "Y/M/D:" + DIfference;
 }
-let daysUntil = function (date) {
-    const today = new Date();
+
+let daysUntil = function (date) { const today = new Date();
     let diff = date - today; return Math.floor(diff / (1000 * 60 * 60 * 24));
 }    
 
 // Page maninpulation
 
-function ScrollHome(dir, target) {let WindowFrame = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY; // Catch all devices
-    if (WindowFrame > 0){window.requestAnimationFrame(ScrollHome);
+function ScrollHome() {
+    let WindowFrame = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY; // Catch all devices
+    if (WindowFrame > 0){
+        window.requestAnimationFrame(ScrollHome);
         window.scrollTo(0, WindowFrame - (WindowFrame / 5));
     }
 }
+
 let reloadPage = function () { window.location.reload(true); return false; }
 let importURL = function(url){document.head+=`<script type="text/javascript" src="${url}"></script>`;}
 // Check Page
@@ -129,9 +151,7 @@ let tNode = function (t) { return document.createTextNode(t); }
 let BR = function () { return createElement('br'); }
 
 function setAttributes(el, attrs) {
-    for (var key in attrs) {
-        el.setAttribute(key, attrs[key]);
-    }
+    for (var key in attrs) { el.setAttribute(key, attrs[key]); }
 }
 
 function createStyleRule(name, rules) { var style = createElement('style',{type:'text/css'});

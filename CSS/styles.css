@@ -1,38 +1,3 @@
-:root {
-
-    --Rainbow-Background: #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad, #aadddd, #ddaa00, #ff11ff, #11ffad;
-
-    /*Dynamic Colours*/
-    --light-color-theme-A: aliceblue, lightblue, white;
-    --dark-color-theme-A: gray, black, slategray;
-    /* Alternate Colours */
-    --light-color-theme-B: white, lightblue, yellow, salmon;
-    --dark-color-theme-B: gray, black, blue, slategray;
-
-    /*Universal settings*/
-    --font-XXL:min(max(2.4rem,8vw),82px); /* Normally for small scale icons*/
-    --font-L:min(max(4.75vw, .85rem),64px); /* Max 48px */
-    --font-ML:min(max(4vw, .7rem),48px); /* Max 48px */
-    --font-M:min(max(3.2vw, .6rem),36px); /* Max 48px */
-    
-    /* Padding & Margin*/
-    /*Small padding (no horizontal)*/
-    --padding-scale-large-top:min(8dvh, 6vw) 1% 2% 1%;
-
-    --padding-scale-xs-noV: 0 min(2dvh, 1vw) 0 min(2dvh, 1vw) ;
-    --padding-scale-xs-noH:min(2.4dvh, 1.2vw) 0 min(2.4dvh, 1.2vw) 0;
-    --padding-scale-xs:min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw) min(2dvh, 1vw); 
-    /* Seperate content */
-    --body-content-seperator:min(.5vh,10px);
-    --body-content-seperator-double:min(1vh,20px);
-    --body-content-margin-top:min(1vh,20px); 
-    --body-content-margin-double:min(2vh,40px); 
-    /* Border */
-
-    /* Header Settings*/
-    --header-img-width:min(20vw, 4.8em);
-    --nav-img-width:min(15vw,4em);
-}
 
 *{
     margin:0;
@@ -61,7 +26,6 @@ html {
     /* margin-top: 0.8vh; */
     overflow: scroll;
     overflow-x: hidden;
-    height: 200dvh;
 }
 
 body {
@@ -70,10 +34,13 @@ body {
     width: 100vw;
     height: fit-content;
     background-color: #11ffad66;
-    padding: .2rem;
+    padding: var(--padding-vertical-M) .2rem;
+}
+body:has(#debugging_area){
+    padding-top:var(--padding-vertical-L);
 }
 
-body > * , .Socials_Container {
+body > *:not(#debugging_area,.Vertical_NavBar,.Horizontal_NavBar,.fullscreen-modal) , .Socials_Container {
     margin-top:var(--body-content-seperator);
 } 
 
@@ -86,7 +53,6 @@ p {
 
 
 .rainbow_text {
-    /**/
     display: inline-block;
     background: linear-gradient(to right, pink, violet, purple, indigo, blue, aqua, lightseagreen, seagreen, green, darkgreen, yellow, gold, orange, crimson, red);
     background-clip: text;
@@ -95,6 +61,12 @@ p {
 
 .slider_selected{
     border: 4px solid gold;
+}
+
+.debugging_area{
+
+ margin-top:0;
+
 }
 
 /*******************************************************/
@@ -195,30 +167,45 @@ main>* {
     display:flex;
     justify-content:space-between;
     align-items: center;
-    background-image:
+ background: radial-gradient(var(--dark-color-theme-A));
+    /* background-image:
         radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
         radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
         radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
         radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; */
 }
 
 .slider_prev,.slider_next{
+    margin: 0;
     cursor:pointer;
     display: flex;
     align-items: center;
-    height:100%;
-    background-color:#fafafa4f;
+    height:40%;
+    background-color:#fafafa;
     text-align: center;
+    border: 4px double;
+    border-radius: 10px;
+    opacity: 0.5;
+    transition: opacity 2.5s ease; 
+}
 
+.slider_prev:hover,.slider_next:hover, 
+.slider_prev:active,.slider_next:active {
+opacity: 0.8;
 }
-.slider_prev{
-    margin-right:0;
+
+
+.Light-Body .slider_prev,.Light-Body .slider_next{
+    border-image: radial-gradient(circle at 15% 90%, var(--light-color-theme-A)) .8;
 }
-.slider_next{
-    margin-left:0;
+.Dark-Body .slider_prev,.Dark-Body .slider_next{
+    border-image: radial-gradient(circle at 15% 90%, var(--dark-color-theme-A)) .8;
 }
+
+.slider_prev{ margin-right:0; }
+.slider_next{ margin-left:0; }
 
 
 /*image slider*/

@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All My Links</title>
-    <link rel="stylesheet" href="CSS/all_my_links.css" type="text/css"></link>
+    <link rel="stylesheet" href="/CSS/vars.css" type="text/css">
+    </link>
+
+    <link rel="stylesheet" href="/CSS/all_my_links.css" type="text/css">
+    </link>
+    <link rel="stylesheet" href="/CSS/nav_and_socials.css" type="text/css">
+    </link>
 </head>
+
 <body>
 
+   
 
 </body>
-
-
-
-<script src="KeyFunctions.js"></script>
-<script src="JS/KeyFunctions.js"></script>
-<script src="JS/social_links.js"></script>
-
+<script src="/KeyFunctions.js"></script>
 <script>
-    Socials.settings={
-       // createFooter:false, // Create footer on load
-        createLinkTree:true, // Create Linktree on load
-        
-        type:'balls', // the icon shape
-        link_settings_position:3, // the array position to store additional settings (this will be ignored by some functions)
-        
-        branding:true, // Made by Bweb branding on creations
-        foot_note:'Bloodweb.net' // Defaults to bloodweb.net
-   }
+    userSettings = {
+        createLinkTree: true,
+        colorShifter:{
+            targets:'main',
+        },
+        linktree: {
+            handle:'the_guy_with_the_holes',
+            img: {
+                href: 'i/web-ready/image_1.jpeg',
+                radius:'50%',
+            },
+            links: {
+                color: 'aliceblue',
+                shape:'rounded', // rounded or square or partially-rounded
+            },
+            font: {
+                size: '16px',
+                family: 'sans',
+                color: 'black'
+            }
+        },
+        branding: {
+            foot_note: 'Powered by BloodWeb.net',
+        },
+        LD_slider: true,
+
+    };
 </script>
+<script src="https://bloodweb.net/JS/Navigation.js"></script>
+<!-- <script src="/JS/Navigation.js"></script> -->
 
 </html>
