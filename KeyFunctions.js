@@ -1,7 +1,12 @@
 /* Debugging
-    only load the debugging area if debugging===true and page not live
+    Create the debug area if debugging===true and page not live
+    otherwise, debugging will be done through the console.log method
 */
-if (typeof debugging !== 'undefined' && debugging  === true && !window.location.href.includes('jackewers.com')) {
+if (typeof debugging !== 'undefined' && debugging  === true 
+    && (!window.location.href.includes('jackewers.com')
+    || !window.location.href.includes('bloodweb.net')
+    )
+) {
     debugging_section = `
     <div id="debugging_area" style="font-size:min(.8rem,6vw); padding:1%; background-color:#ffaffa55; display:flex; justify-content:flex-end; overflow:hidden; height:1.5em;">
         <p style="white-space: nowrap;"></p>
@@ -163,7 +168,14 @@ function createStyleRule(name, rules) { var style = createElement('style',{type:
 }
 
 //Images
-
+function isValidImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
 function replace_img_src(target,new_src){ 
     if(!target||!new_src){return console.log('Provide target / new src')}
     target.setAttribute('src',new_src);

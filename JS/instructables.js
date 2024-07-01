@@ -1,8 +1,4 @@
-let createElement = function (element, properties) {
-    let el = document.createElement(element);
-    for (var prop in properties) { el[prop] = properties[prop]; }
-    return el;
-}
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,40 +11,10 @@ To use instructables.js, ensure your HTML contains elements with the class "inst
 Each ".instruction" element should have data attributes for content (data-content), images (data-image), and optionally a title (data-title) and style (data-style).
 Example:
 <div class="instruction" data-content="Step 1: Gather materials." data-image="image1.jpg image2.jpg" data-title="Gathering Materials" data-style="ul"></div>`
-        );
-            
-        }else {
-        // Your existing code for processing instructions
-        let instruction_steps = 1;
-        instructions.forEach(function(instruction) {
-            // Get content, image URLs, and data-title from data attributes
-            const content = createElement('div', { innerHTML: instruction.dataset.content });
-            const imageUrls = instruction.dataset.image?.split(' ') ?? null; // Split by space to get multiple URLs
-            const dataTitle = instruction.dataset.title;
-            const dataType = instruction.dataset.style ?? 'ul';
-            const contentContainer = createElement('div');
-            const contentElement = createElement(dataType, { innerHTML: instruction.dataset.content });
-            // Add title element if data-title exists in the instruction
-            if (dataTitle) {
-                const title = createElement('h2', { innerHTML: dataTitle });
-                contentContainer.appendChild(title);
-            }
-            // Create elements for content and images
-            // Loop through image URLs and create <img> elements
-            imageUrls !== null
-                ? imageUrls.forEach(function(imageUrl) {
-                      const imageElement = document.createElement('img');
-                      imageElement.src = imageUrl;
-                      contentContainer.appendChild(imageElement);
-                  })
-                : console.log('No images to append for instruction', dataTitle);
-            // Append content to the instruction element
-            // contentElement.appendChild(content);
-            contentContainer.appendChild(contentElement);
-            instruction.appendChild(contentContainer);
-            instruction_steps++;
-        });
+        );        
     }
+    else {
+    
     let instruction_steps=1
 
     // Loop through each instruction element
@@ -69,9 +35,14 @@ Example:
         // Create elements for content and images
         // Loop through image URLs and create <img> elements
         imageUrls!==null?imageUrls.forEach(function(imageUrl) {
-            const imageElement = document.createElement('img');
-            imageElement.src = imageUrl;
-            contentContainer.appendChild(imageElement);
+            isValidImage(imageUrl).then(isValid => {
+                if (isValid) {
+                    const imageElement = document.createElement('img');
+                    imageElement.src = imageUrl;
+                    contentContainer.appendChild(imageElement);
+                }
+                else{console.log(imageUrl,'is not a valid image URL, skipping...')}
+            })
         }):console.log('No images to append for instruction',dataTitle);        
         // Append content to the instruction element
         // contentElement.appendChild(content);
@@ -79,6 +50,5 @@ Example:
         instruction.appendChild(contentContainer);
         instruction_steps++;
     });
-
+    }
 });
-

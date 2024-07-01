@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Page Title</title>
+    <title>S.P.I.N</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to Your Page</h1>
+        <h1>Stepper-Powered-Imaging-Navigator</h1>
+        <p> The SPIN is a device that allows you to take 360 degree images or items placed omn the rotating platform.
+             Stand by for rotation!
+        </p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>This is the about section of your page.</p>
-        </section>
-
-        <section>
-            <h2>Contact</h2>
-            <p>This is the contact section of your page.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2022 Your Name</p>
-    </footer>
-
+    <div class="instruction" data-style="ul"
+        data-title="Parts List:"
+        data-image=""
+        data-content="
+            <li> 28-BY stepper & driver</li>
+            <br>
+            <li> Raspberry Pi Pico (with Headers)</li>
+            <br>
+            <li> Dupont cables</li>
+            <br>
+            <li> Micro USB cable </li>
+            ">
+    </div>
     <script>
         const userSettings = {
             return:{
@@ -40,10 +32,12 @@
             }
         }
     </script>
+    <!-- Import Key Functions -->
+    <script src="/KeyFunctions.js"></script>
     <!-- Make instructions-->
     <script src="/JS/instructables.js"></script>
     <!-- Create return label and any other Nav items -->
-    <script src="/JS/Navigation.js"></script>
+    <script src="https://bloodweb.net/JS/Navigation.js"></script>
 
 </body>
 </html>
