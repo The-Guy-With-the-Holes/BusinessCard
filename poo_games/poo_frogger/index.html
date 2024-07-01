@@ -93,11 +93,29 @@ let isGameOver = false; // Flag to track game over state
 const frogImage = new Image();
   frogImage.src = 'frog.png'; 
 
-const longPooImage = new Image();
-  longPooImage.src = 'long-poo.png'; 
+const smallPooImage = new Image();
+  smallPooImage.src = 'long-poo.png'; 
 
 const roundPooImage = new Image();
   roundPooImage.src = 'round-poo.png';
+
+const medium_log = new Image();
+  medium_log.src = '4x1_log.png';
+
+const long_log = new Image();
+  long_log.src = '8x1_log.png';
+
+const busImage = new Image();
+  busImage.src = 'bus.png';  
+
+const vespaImage = new Image();
+  vespaImage.src = 'vespa.png';
+const car1Image = new Image();
+  car1Image.src = 'car_1.png';
+const car2Image = new Image();
+  car2Image.src = 'car_2.png';
+const fastcarImage = new Image();
+  fastcarImage.src = 'fast_car.png';
 
 // a simple sprite prototype function
 function Sprite(props) {
@@ -107,7 +125,8 @@ function Sprite(props) {
 Sprite.prototype.render = function() {
     if (this.image) {
     // Draw the sprite using an image
-    ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
+      return ctx.drawImage(this.image, this.x, this.y, this.size, grid);      
+    // ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
   } else if (this.shape === 'rect') {
     // Existing logic to draw a rectangle sprite
     ctx.fillStyle = this.color;
@@ -143,18 +162,20 @@ const patterns = [
   // log
   {
     spacing: [2],      // how many grid spaces between each obstacle
-    color: '#c55843',  // color of the obstacle
-    size: grid * 4,    // width (rect) / diameter (circle) of the obstacle
-    shape: 'rect',     // shape of the obstacle (rect or circle)
+    size: grid * 3,    // width (rect) / diameter (circle) of the obstacle
+    image:medium_log,
+    // color: 'red',  // color of the obstacle
+    // shape: 'rect',     // shape of the obstacle (rect or circle)
     speed: 0.75        // how fast the obstacle moves and which direction
   },
 
   // turtle
   {
     spacing: [0,2,0,2,0,2,0,4],
-    color: '#de0004',
     size: grid,
-    shape: 'circle',
+    image:roundPooImage,
+    // color: '#de0004',
+    // shape: 'circle',
     speed: -1
   },
 
@@ -163,17 +184,19 @@ const patterns = [
     spacing: [2],
     size: grid *7,
     speed: 1.5,
-  
-    color: '#c55843',
-    shape: 'rect',
+    image:long_log,
+    // color: '#c55843',
+    // shape: 'rect',
   },
 
   // log
   {
     spacing: [3],
-    color: '#c55843',
-    size: grid * 3,
-    shape: 'rect',
+    size: grid *4,
+    //color: '#c55843',
+    //shape: 'rect',
+    image: medium_log, // image of the obstacle
+    
     speed: 0.5
   },
 
@@ -182,8 +205,8 @@ const patterns = [
     spacing: [0,0,1],
     size: grid,
     image: roundPooImage,
-    color: '#de0004',
-    shape: 'circle',
+    // color: '#de0004',
+    // shape: 'circle',
 
     speed: -1
   },
@@ -191,48 +214,53 @@ const patterns = [
   // beach is safe
   null,
 
-  // truck
+  // bus
   {
     spacing: [3,8],
-    color: '#c2c4da',
     size: grid * 2,
-    shape: 'rect',
+    image:busImage,
+    // color:'blue',
+    // shape: 'rect',
     speed: -1
   },
 
   // fast car
   {
     spacing: [14],
-    color: '#c2c4da',
     size: grid,
-    shape: 'rect',
+    image:fastcarImage,
+    // color: '#c2c4da',
+    // shape: 'rect',
     speed: 0.75
   },
 
   // car
   {
     spacing: [3,3,7],
-    color: '#de3cdd',
     size: grid,
-    shape: 'rect',
+    image:car1Image,
+    // shape: 'rect',
+    // color: '#de3cdd',
     speed: -0.75
   },
 
   // bulldozer
   {
     spacing: [3,3,7],
-    color: '#0bcb00',
+    image:car2Image,
     size: grid,
-    shape: 'rect',
+    // color: '#0bcb00',
+    // shape: 'rect',
     speed: 0.5
   },
 
-  // car
+  // vespa
   {
     spacing: [4],
-    color: '#e5e401',
     size: grid,
-    shape: 'rect',
+    image:vespaImage,
+    // color: '#e5e401',
+    // shape: 'rect',
     speed: -0.5
   },
 
