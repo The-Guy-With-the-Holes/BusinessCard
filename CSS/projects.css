@@ -1,0 +1,69 @@
+* {
+    text-align: center;
+    color: #333;
+}
+
+.instructables {
+    background-color: #f8f0e3;
+}
+/* Show the message only when JavaScript is disabled */
+noscript .js-required-message {
+    display: block;
+    color: red;
+    /* Optional: Style the message */
+}
+
+/* Hide the message by default -- this idea can be implemented by hiding the message with Javascript, else rendering this.
+noscript area is also valid
+*/
+.js-required-message {
+    display: none;
+}
+/*Remove the left margin from non list items*/
+h3,ul >li,.full-size-img,pre {
+    margin-left: -40px;
+}
+code,pre{text-align: left;}
+
+code {
+    text-align: left;
+    background-color: #fafafa; /* Lighter background for better contrast */
+    border: 1px solid #e0e0e0; 
+    padding: 0.5em; /* Padding around the text */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+    display: block; /* Makes the code element block-level for proper padding */
+    overflow-x: auto; /* Adds horizontal scrolling for long lines of code */
+}
+
+ol>img,
+ul>img {
+    margin-bottom: 4vh;
+}
+
+ol>li {
+    text-align: left;
+    font-size: larger
+}
+
+ul>li {
+    text-align: left;
+    font-size: smaller;
+}
+
+img {
+    max-width: 45%;
+    height: auto;
+}
+header>p{font-size: large;}
+h2 {
+    font-size: medium
+}
+
+h2::first-line {
+    font-size: x-large;
+}
+
+.full-size-img {
+    max-width: 100%;
+    height: auto;
+}
