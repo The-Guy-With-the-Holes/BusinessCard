@@ -5,7 +5,8 @@
     margin-bottom: var(--body-content-seperator) ;
 }
 
-#banner_img{ /* The unicorn */
+
+img[id^="favicon_img"]{/* The unicorn */
     width: var(--header-img-width);
     position: absolute;
     top:45%;
@@ -13,7 +14,10 @@
     transform: translateY(-50%);
     z-index:1;
 }
+#banner_img_bloodweb{
+    width: calc(var(--header-img-width)/1.6);
 
+}
 
 /* Slider */
 .Dark-Body {
@@ -32,7 +36,7 @@
 
 .Light-Body {
     color: black;
-    border: 4px double blue;
+    border: 4px double #fff;
     /* background: radial-gradient(circle, white, #fafafada, gray, azure); */
     -webkit-text-stroke: .1px gold;
      /* #fafafa4f; */
@@ -148,7 +152,7 @@
     top: 0;
     left: 0;
     margin: 0 auto;
-    padding: 1dvh 0;
+    padding: 1dvh min(5vw,10px);
     width: 100%;
     transition: 0.3s;
     background-color: #fafafa;
@@ -156,7 +160,6 @@
 /* show/hide the image when nav is sticky */
 .Horizontal_NavBar > img{
     position:absolute;
-    right:0;
     top:0;
     max-width:var(--nav-img-width);
 }
@@ -178,9 +181,36 @@
     padding: 2%;
 }
 
+/* Add 'Menu' from sticky nav and float right */
 #Vertical_NavSwitch{
     font-size:var(--font-L);
+    display: flex;
+    justify-items: center;
+    align-items:center;
 }
+#Vertical_NavSwitch::before {
+    content: 'Menu ';
+    }
+.sticky_nav > #Vertical_NavSwitch::before {
+    content: none;
+    padding-right:min(1vw,8px);
+}
+/* Hide the banner Image when the nav is sticky */
+#banner_img_container{
+    display:none;
+}
+.sticky_nav > #banner_img_container{
+    display:flex;
+}
+.sticky_nav > #Vertical_NavSwitch{
+    justify-content:center;
+    margin-left:auto;
+    font-size:var(--font-XL);
+}
+.sticky_nav > #Vertical_NavSwitch > p{
+    justify-content:center;
+}
+
 /* ####################################### */
 /*            Vertical Nav                 */
 .Vertical_NavBar { 

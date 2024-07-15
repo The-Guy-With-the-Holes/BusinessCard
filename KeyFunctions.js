@@ -124,7 +124,11 @@ let daysUntil = function (date) { const today = new Date();
 }    
 
 // Page maninpulation
-
+function smoothScroll(element) {
+    document.querySelector(element)?.scrollIntoView({
+        behavior: 'smooth'
+    });
+}
 function ScrollHome() {
     let WindowFrame = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY; // Catch all devices
     if (WindowFrame > 0){
@@ -132,12 +136,24 @@ function ScrollHome() {
         window.scrollTo(0, WindowFrame - (WindowFrame / 5));
     }
 }
-
+function toggleFullScreen() {
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen();} 
+    else {
+        if (document.exitFullscreen) {document.exitFullscreen();}
+    }
+}
 let reloadPage = function () { window.location.reload(true); return false; }
 let importURL = function(url){document.head+=`<script type="text/javascript" src="${url}"></script>`;}
 // Check Page
+function checkVisibility(elem) {
+    if (!elem || !dQ(elem)) { return false }
+    var rect = elem.getBoundingClientRect();
+    return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+}
 let isSafari = /.*Version.*Safari.*/.test(navigator.userAgent);
 let isPHP = function () { return window.location.href.includes('php') ? true : false; }
+
+
 //Select elements
 const dQ = function(e){return document.querySelector(e);}
 
@@ -165,6 +181,19 @@ function createStyleRule(name, rules) { var style = createElement('style',{type:
         (style.styleSheet || style.sheet).addRule(name, rules);
     else
         style.sheet.insertRule(name + "{" + rules + "}", 0);
+}
+
+// Function , functions..
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        let args = arguments, context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
 
 //Images

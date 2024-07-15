@@ -5,10 +5,12 @@
     --light-color-1:purple;
     --light-color-2:#ff11ff;
     /*Dynamic Colours*/
-    --light-color-theme-A: aliceblue, lightblue, white;
+    /* --light-color-theme-A: aliceblue, lightblue, white; */
+    --light-color-theme-A: #FFD1DC, #BFD8D2, #DFD3C3, #F0E6EF;
     --dark-color-theme-A: gray, black, slategray;
     /* Alternate Colours */
-    --light-color-theme-B: white, lightblue, yellow, salmon;
+    /* --light-color-theme-B: white, lightblue, yellow, salmon; */
+    --light-color-theme-B: #FFD700, #FFA07A, #EE82EE, #98FB98;
     --dark-color-theme-B: gray, black, blue, slategray;
     /*Universal settings*/
     --font-XXL:min(max(2.4rem,8vw),82px); /* Normally for small scale icons*/

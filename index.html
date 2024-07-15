@@ -13,14 +13,52 @@
     <link rel="stylesheet" href="/CSS/nav_and_socials.css" type="text/css">
     <link rel="stylesheet" href="/styles.css" type="text/css">
     <link rel="stylesheet" href="/CSS/styles.css" type="text/css">
-
-</head>
-<html>
-
+<style>
+    #banner_img_container {
+        justify-content: flex-start;
+        align-items: center;
+    
+        /* background-image: url("i/web-ready/personal/main_img0.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; */
+    }
+  .quote_box {
+    display:inline-block;
+        border: 2px solid #007BFF; /* Blue border */
+        background-color: #f9f9f9; /* Light grey background */
+        padding: min(.4vh,4px) min(.2vw,5px); /* Padding around the text */
+        margin: 0; /* Margin around the box */
+        max-width: 50%; /* Set the width of the box */
+        font-style: normal; /* Normal text style */
+        font-size: var(--font-M);
+        position: relative; /* Needed for positioning the speech bubble tail */
+        border-radius: 10px; /* Rounded corners for the speech bubble */
+    }
+    .quote_box>*{display:inline-block;}
+    .quote_box::after {
+        content: "";
+        position: absolute;
+        border: 2px solid #007BFF; /* Blue border */
+      
+        top:  15x; /* Adjust to align with the top of the box for a better connection */
+        left: -10px; /* Position the tail to the left of the bubble */
+        width: 0; 
+        z-index:-5;
+        height: 0; 
+        border-style: solid;
+        border-width: 15px 20px 15px 0; /* Adjust triangle size */
+        border-color: transparent #f9f9f9 transparent transparent; /* Right border is colored, others are transparent */
+    }
+</style>
+    </head>
+    <html>
+        
 <body onclick="">
-
+  
+    <!-- HEADER-->
     <header>
-        <img id="banner_img" class="unicorns" src="favicon.ico" alt="Favicon Image" />
+        <img id="favicon_img_unicorn" class="unicorns" src="favicon.ico" alt="Favicon Image" />
         <h1 id="intro-text">
             <p style="vertical-align: middle;">
                 <!-- Binary Hello World -->
@@ -46,9 +84,12 @@
             </span>
         </h1>
     </header>
-    <!-- HEADER-->
     <hr>
     
+    <main> <!-- Main Content-->
+                <!-- Image Slider Container-->
+                <!--About me-->
+                <!-- Projects-->
             <div id="slider-container" class="bg-animation">
                 <div id="stars"></div>
                 <div id="stars2"></div>
@@ -102,7 +143,7 @@
                 </div>
             </div>
     <!-- Main Content-->
-    <main id="Home" class="box-main ">
+    <div id="Home" class="box-main ">
 
         <div id="main-about" class="ColorShifter">
             <h2>
@@ -121,7 +162,7 @@
 
         </div>
 
-    </main>
+    </div>
 
 
     <dialog id="iframeDialog">
@@ -151,6 +192,7 @@
 
     </aside>
 
+    </main>
     <!-- <aisde id="about-support">
         <article> Support me and/or the charities i support!</article>
         <li class="refs"> Friends With Dignity</li>
@@ -173,13 +215,14 @@
 
             colorShifter:{
                 targets:"header,.ColorShifter,#about-projects",
-                hvt:"main,footer,.Socials_Container",
+                hvt:"footer,.Socials_Container",
                 alt_targets:'body,.Vertical_NavBar',
             },
             branding:{
                 init:true,
                 branding_position:'top right',
                 link_settings_position: 3,
+                // nav_img:
             },
         };
     </script>
