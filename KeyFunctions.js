@@ -270,7 +270,14 @@ function Tag_Images(words){
     } console.log('Images have been Tagged');
 }
 
-
+function escapeHtml(html) {
+    return html
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 const setCookie=function(name,val,exdays=365){const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));

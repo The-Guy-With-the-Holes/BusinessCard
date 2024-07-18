@@ -16,6 +16,8 @@ img[id^="favicon_img"]{/* The unicorn */
 }
 #banner_img_bloodweb{
     width: calc(var(--header-img-width)/1.6);
+    transform: rotateY(180deg);
+    margin-right:4%;/* Push quote box */
 
 }
 
@@ -190,10 +192,10 @@ img[id^="favicon_img"]{/* The unicorn */
 }
 #Vertical_NavSwitch::before {
     content: 'Menu ';
+padding-right:min(1vw,8px);
     }
 .sticky_nav > #Vertical_NavSwitch::before {
     content: none;
-    padding-right:min(1vw,8px);
 }
 /* Hide the banner Image when the nav is sticky */
 #banner_img_container{

@@ -17,39 +17,39 @@
     #banner_img_container {
         justify-content: flex-start;
         align-items: center;
-    
+
         /* background-image: url("i/web-ready/personal/main_img0.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat; */
     }
-  .quote_box {
-    display:inline-block;
-        border: 2px solid #007BFF; /* Blue border */
-        background-color: #f9f9f9; /* Light grey background */
-        padding: min(.4vh,4px) min(.2vw,5px); /* Padding around the text */
-        margin: 0; /* Margin around the box */
-        max-width: 50%; /* Set the width of the box */
-        font-style: normal; /* Normal text style */
-        font-size: var(--font-M);
-        position: relative; /* Needed for positioning the speech bubble tail */
-        border-radius: 10px; /* Rounded corners for the speech bubble */
-    }
-    .quote_box>*{display:inline-block;}
-    .quote_box::after {
-        content: "";
-        position: absolute;
-        border: 2px solid #007BFF; /* Blue border */
-      
-        top:  15x; /* Adjust to align with the top of the box for a better connection */
-        left: -10px; /* Position the tail to the left of the bubble */
-        width: 0; 
-        z-index:-5;
-        height: 0; 
-        border-style: solid;
-        border-width: 15px 20px 15px 0; /* Adjust triangle size */
-        border-color: transparent #f9f9f9 transparent transparent; /* Right border is colored, others are transparent */
-    }
+    .quote_box {
+    position: relative;
+    background:#80808025;
+     /* #00aabb99; */
+    border-radius: .4em;
+    padding: .6em;
+    color: black;
+    border:1px solid #00aabb;
+    -webkit-text-stroke: min(14px,0.02em) #00aabb ;
+    min-width: fit-content;
+    max-width: 200px;
+  }
+
+  .quote_box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #00aabb;
+    border-left: 0;
+    margin-top: -10px;
+    margin-right: 0;
+  }
+ 
 </style>
     </head>
     <html>
