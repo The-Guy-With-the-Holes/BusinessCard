@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f6f8f5;
+            background-color: #fcfdfc;
             padding: min(5vh,50px) min(1vw,20px);
         }
 
@@ -51,6 +51,7 @@
 
 <script>
     function handleYes() {
+        document.body.style.backgroundColor = '#f6f8f5';
         document.getElementById('catGif').src = 'https://www.jackewers.com/i/Cute_cat2.gif';
         document.querySelector('h1').innerText = 'I love you too! <3';
         document.getElementsByClassName('buttons')[0].style.display = 'none';
