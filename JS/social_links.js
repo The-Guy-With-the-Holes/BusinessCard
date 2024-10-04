@@ -30,14 +30,14 @@ Socials={   // If social links exist, create Footer function will run
         main=createElement('main',{id:'AML_container'});
         
         function make_title(){
-            let header=createElement('h1',{innerHTML:`<img src="${user[0]}"><h1>${user[1]}</h1>`})
+            let header=createElement('h1',{innerHTML:`<img src="${user[0]}"> <h1>${user[1]}</h1> `})
             main.prepend(header);
         }
     
         for (let i=0; i<Socials.links.length; i++){ let x=Socials.links[i];
-            let link_element=createElement('div',{ className:'AML_link',innerHTML:
-            `<a href="${x[1]}">${x[0]}</a>`,
-            style:`background-image:url(${x[2]})`
+            let link_element=createElement('div',{ className:'AML_link',
+                innerHTML:`<a href="${x[1]}">${x[0]}</a>`,
+                style:`background-image:url(${x[2]})`
             })
             main.append(link_element);
         }
@@ -77,7 +77,6 @@ Socials.createFooter=function(){
 
     let footer_sub_container=createElement('div',{className:`${Socials.settings.type=="balls"?'Horizontal_Socials':'Vertical_Socials'} Socials_Container`});
     let footer=dQ('footer')?dQ('footer'):createElement('footer',{id:'footer',style:'background-color:salmon;'});
-
     for(let i=0; i<Socials.links.length; i++){ let x=Socials.links[i];
         // Skip items that have 'footer:no' in settings 
         if (x[Socials.settings.link_settings_position]&&x[Socials.settings.link_settings_position].includes('footer:no')) {continue;}

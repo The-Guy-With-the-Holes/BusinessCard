@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const instructions = document.querySelectorAll('.instruction');
     // Check if there are any instructions present
     if (instructions.length === 0) {
+        if (userSettings.instructable){
+            instructions=userSettings.instructable
+            instructions_as_settings=true
+        }
         console.log(`No instructions found.
 To use instructables.js, ensure your HTML contains elements with the class "instruction".
 Each ".instruction" element should have data attributes for content (data-content), images (data-image), and optionally a title (data-title) and style (data-style).
@@ -19,6 +23,7 @@ Example:
 
     // Loop through each instruction element
     instructions.forEach(function(instruction) {
+        
         // Get content, image URLs, and data-title from data attributes
         const imageUrls = instruction.dataset.image?.split(' ')??null; // Split by space to get multiple URLs
         const dataTitle = instruction.dataset.title;
@@ -36,13 +41,12 @@ Example:
             const imageElement = document.createElement('img');
             contentContainer.appendChild(imageElement);
             isValidImage(imageUrl).then(isValid => {
-                if (isValid) {
-                    imageElement.src = imageUrl;
-                    }
-                    else{
-                        console.log(imageUrl,'is not a valid image URL, skipping...')}
+                if (isValid) { imageElement.src = imageUrl; }
+                else{ console.log(imageUrl,'is not a valid image URL, skipping...'); }
             })
         }):console.log('No images to append for instruction',dataTitle);        
+        
+        
         
         console.log(contentContainer)
         
