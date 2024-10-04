@@ -119,11 +119,31 @@ function DateDif(date) {
     return "Y/M/D:" + DIfference;
 }
 
-let daysUntil = function (date) { const today = new Date();
+let daysUntil = function (date) { 
+    const today = new Date();
     let diff = date - today; return Math.floor(diff / (1000 * 60 * 60 * 24));
 }    
 
+function dateCountdown(dateAdded, daysToComplete) {
+    const currentDate = new Date();
+    const dateAddedObj = new Date(dateAdded);                              // Parse the dateAdded string to a Date object
+    const timeDifference = currentDate - dateAddedObj;                     // Calculate the difference in time (in milliseconds)
+    const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert time difference from milliseconds to days
+    const daysLeft = daysToComplete - daysPassed;                          // Calculate the days left to complete the task                         
+    return daysLeft < 0 ? 0 : daysLeft;
+}
+
 // Page maninpulation
+function loadHTML(elementId, url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector(elementId).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+}
+
+
 function smoothScroll(element) {
     document.querySelector(element)?.scrollIntoView({
         behavior: 'smooth'
@@ -145,6 +165,11 @@ function toggleFullScreen() {
 let reloadPage = function () { window.location.reload(true); return false; }
 let importURL = function(url){document.head+=`<script type="text/javascript" src="${url}"></script>`;}
 // Check Page
+// Function to check if the URL contains "localhost"
+function isLocalhost() {
+    return window.location.hostname === 'localhost';
+}
+
 function checkVisibility(elem) {
     if (!elem || !dQ(elem)) { return false }
     var rect = elem.getBoundingClientRect();
@@ -241,6 +266,17 @@ const Import_File =function(url,type){
 
     document.head.appendChild(S);
 }
+
+async function fetchAndDisplayJSFile(filePath, elementId) {
+    try {
+        const response = await fetch(filePath);
+        const text = await response.text();
+        document.getElementById(elementId).textContent = text;
+    } catch (error) {
+        console.error('Error fetching the JS file:', error);
+    }
+}
+
 
 function Tag_Images(words){
     function getKeywordsForImage(image) {    // This function returns a static array of keywords
