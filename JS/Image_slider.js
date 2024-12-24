@@ -7,7 +7,7 @@ class ImageSlider {
             expandable: false,
             premadeMainContainer:false, // Premake the main container to save on bandwith
 
-            slide_Index: getCookie('lastSlideIndex')??0, // position of the current slide
+            slide_Index: getCookie('lastSlideIndex')||0, // position of the current slide
             TotalIndexMoves: 0, // total number of times the slide has been moved (left or right)
             expandViewkeycount: 0, // number of times the slider has been expanded (fullscreen)
             viewTime:[],
@@ -77,7 +77,7 @@ class ImageSlider {
         }
         this.settings.sliderDots && this.addDots(container);
         // Load the first slide
-        this.renderSlide();
+        this.renderSlide(this.settings.la);
 
     }
 
