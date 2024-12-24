@@ -119,9 +119,10 @@ class ImageSlider {
         const sliderItems = container.querySelectorAll('.slider_image_slide');
         const mainImage = container.querySelector('#slider_img_main');
 
-        prevButton.addEventListener("click", () => this.renderPrevSlide());
-        nextButton.addEventListener("click", () => this.renderNextSlide());
-
+        if (this.settings.SliderArrows){
+            prevButton.addEventListener("click", () => this.renderPrevSlide());
+            nextButton.addEventListener("click", () => this.renderNextSlide());
+        }
         sliderItems.forEach((item, index) => {
             item.addEventListener("click", () => {
                 this.settings.slide_Index = index;
