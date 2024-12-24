@@ -6,122 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pico Password manager </title>
     <link rel="stylesheet" href="/CSS/nav_and_socials.css">
-    <style>
-        * {
-            text-align: center;
-        }
-
-        /* Show the message only when JavaScript is disabled */
-        noscript .js-required-message {
-            display: block;
-            color: red;
-            /* Optional: Style the message */
-        }
-        
-        /* Hide the message by default -- this idea can be implemented by hiding the message with Javascript, else rendering this.
-        noscript area is also valid
-        */
-        .js-required-message {
-            display: none;
-        }
-        /*Remove the left margin from non list items*/
-        h3,ul >li,.full-size-img {
-            margin-left: -40px;
-        }
-
-        ol>img,
-        ul>img {
-            margin-bottom: 4vh;
-        }
-        
-        ol>li {
-            text-align: left;
-            font-size: larger
-        }
-        
-        ul>li {
-            text-align: left;
-            font-size: smaller;
-        }
-        
-        img {
-            max-width: 45%;
-            height: auto;
-        }
-
-        h2 {
-            font-size: medium
-        }
-
-        h2::first-line {
-            font-size: x-large;
-        }
-
-        .full-size-img {
-            max-width: 95vw;
-        }
-    </style>
+    <link rel="stylesheet" href="/CSS/projects.css">
 </head>
 
 <body>
-    <header>
-        <h1> P.W.M User Guide </h1>
-        <p> The PWM (Password Manager) is an open source project developed by Bloodweb,
-            We beleive in absolute password security (no, a million pieces of individual paper are no secure,...
-            *looking at you mom and dad*)
-        </p>
-    </header>
+    <nav class="main-nav">
+        <div class="branding">
+            <img src="/i/branding/buildables.png" alt="Favicon Image">
+            <!-- <br><span>by Bloodweb</span> -->
+        </div>
+        <div class="nav-actions">
+            <button onclick="window.location.href='/projects/index.html'">Projects</button>
+        </div>
+    </nav>
 
     <div id="instructions"> <!-- Begin reading instructions -->
         <p class="js-required-message">This page requires JavaScript to function properly. Please enable JavaScript in
             your browser settings.</p>
-    </div>
+        </div>
+        <section id="overview">
+            <h1> P.W.M User Guide </h1>
+            <!-- <div class="user-info">
+                <p>User: Jack</p>
+                <p>Category: Electronics</p>
+                <p>Views: 1234</p>
+                <p>Likes: 56</p>
+                <p>Comments: 12</p>
+                <button>Save as PDF</button>
+            </div> -->
+        <div class="image-blocks">
+            <img class="full-size-img" src="/projects/P.W.M/Stop_icon.png" alt="Stop Icon">
+            <img class="full-size-img" src="/projects/P.W.M/Creds_overview.png" alt="Creds Overview">
+        </div>
+        <!-- <div class="full-user-block">
+            <p>Full user block content here...</p>
+        </div> -->
+        <div class="project-description">
+            <p>Project Description: This project involves setting up and using the THonny IDE to manage your Python programs on a microcontroller. Follow the steps below to get started.</p>
+        </div>
+    </section>
 
-    <div class="instruction" data-style="ol"
-        data-title="Securing your current PC:<br> If you don't care about the security of your passwords, you can skip steps 1-5"
-        data-image="https://media.wired.com/photos/64daad6b4a854832b16fd3bc/master/pass/How-to-Choose-a-Laptop-August-2023-Gear.jpg "
-        data-content="
-            <br>
-            <li>Download <a href='https://tails.net/install/download/index.en.html'>Tails Usb Driver</a> and <a>Balena etcher (or any other imaging tool.. Raspberry imager is also a great choice)</a> </li>
-            <br>
-            <li>Restart your Pc in the grub(bios) menu. This can be accomplished via pressing f10* during the boot sequence *(the key to enter bios normally ranges from f10-f12. this may vary depending on the manufacturer of your pc.)</li>
-            <br>
-            <li>In the Grub menu navigate to settings > boot order using the arrow keys rearrange the order so that USB is the top priority and confirm/save it<br><i>(This will allow your pc to load an OS from the attached USB)</i></li>
-            <br>
-            <li>Once the boot order change is made and saved, Plug the foramtted USB drive into your personal computer and restart it. if done correctly, the pc should initialise from the USB you have just plugged in and will load a grub menu with some different Tails OS you can run! 
-            <br> <i>(If this did not work, confirm that your boot load order is correct) </i></li>
-    ">
-    </div>
-    <div class="instruction" data-style="ol" data-title="Editing your passwords" data-content="
-        <li>Download and install Thonny IDE on your computer if you didn't download the tails OS with Thonny prebuilt (The one on this page).</li>
-        <br>
-        <li>Plug in the raspberrypi PWM</li>
-        <br>
-        <li>Open Thonny IDE and navigate to configure interpreter setting in the run tab </li>
-        <br>
-        <li> In the configuration setting, Switch to the interpreter tab and set the first option to 'MicroPython(generic)' and set the port to 'Board in FS mode'</li>
-        <img class='full-size-img' src='/projects/P.W.M/Thonny_settings.png'>
-        <br>
-        <li> The top area of the THonny IDE will have an red stop icon, pressing this icon will halt the currently running python program and allow you to edit the files on the device</li>
-        <img class='full-size-img' src='/projects/P.W.M/Stop_icon.png'/>
-        <br>
-        <li> Now that the board is no longer executing python its files are editable, open the file `creds.py` in the IDE, this is the file that will hold all your passwords.</li>
-        <img class='full-size-img' src='/projects/P.W.M/Creds_overview.png' />
-        <li>The Credentials variable is an array on tuples ('Account','Email','Password'), and this is how we will store our passwords.
-        <br>
-            <h3> Some important notes for using the Credentials array:</h3>
+    <!-- Project Section -->
+    <section id="project">
+        <h2>Supplies</h2>
+        <div class="supplies">
+            <h3>Supplies Title</h3>
             <ul>
-                <li>Items in the array, must be inside a tuple(). every tuple except for the last one must be preceeded by a comma','</li>
-                <li>Items inside the tuple (except for references to the predefined email array, so email[0..1..2..ect]) must all be contained within quotes ''  </li>
-                <li></li>
-            </ul>    
-        </li>
-        ">
+                <li>Microcontroller</li>
+                <li>USB Cable</li>
+                <li>Computer with THonny IDE installed</li>
+                <li>Wi-Fi credentials</li>
+            </ul>
+        </div>
 
-    </div>
-
-    <!-- End instructions-->
-    </div>
+        <h2>Steps</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1: Stop the Running Program</h3>
+                <img class="full-size-img" src="/projects/P.W.M/Stop_icon.png" alt="Stop Icon">
+                <p>The top area of the THonny IDE will have a red stop icon. Pressing this icon will halt the currently running Python program and allow you to edit the files on the device.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2: Edit the Credentials File</h3>
+                <img class="full-size-img" src="/projects/P.W.M/Creds_overview.png" alt="Creds Overview">
+                <p>Now that the board is no longer executing Python, its files are editable. Open the file `creds.py` in the IDE. This is the file that will hold all your passwords.</p>
+                <h4>Important Notes for Using the Credentials Array:</h4>
+                <ul>
+                    <li>Items in the array must be inside a tuple(). Every tuple except for the last one must be preceded by a comma ','.</li>
+                    <li>Items inside the tuple (except for references to the predefined email array, such as email[0..1..2..etc]) must all be contained within quotes ''.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <script>
         const userSettings = {
             return:{

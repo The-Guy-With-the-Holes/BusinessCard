@@ -1,198 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/x-icon" href="favicon.ico"></link>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" preload="true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jack Ewers, Digital Business Card.">
-    <title>JackEwers.com</title>
+    <title id="index">JackEwers.com</title>
+    <meta name="author" content="Jack Ewers">
+    <meta name="keywords"
+        content="Jack Ewers, JackEwers, JackEwers.com, Jack Ewers Digital Business Card, Jack Ewers Portfolio, Jack Ewers Projects, Jack Ewers Software Developer, Jack Ewers Web Developer, Jack Ewers Full Stack Developer, Jack Ewers Front End Developer, Jack Ewers Back End Developer">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="favicon.ico">
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/CSS/vars.css" type="text/css">
-    <link rel="stylesheet" href="/CSS/nav_and_socials.css" type="text/css">
-    <link rel="stylesheet" href="/styles.css" type="text/css">
-    <link rel="stylesheet" href="/CSS/styles.css" type="text/css">
-<style>
-    #banner_img_container {
-        justify-content: flex-start;
-        align-items: center;
+    <!-- Preload placeholder Image-->
+    <link rel="preload" href="/BloodW.png" as="image">
 
-        /* background-image: url("i/web-ready/personal/main_img0.webp");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat; */
-    }
-    .quote_box {
-    position: relative;
-    background:#80808025;
-     /* #00aabb99; */
-    border-radius: .4em;
-    padding: .6em;
-    color: black;
-    border:1px solid #00aabb;
-    -webkit-text-stroke: min(14px,0.02em) #00aabb ;
-    min-width: fit-content;
-    max-width: 200px;
-  }
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  .quote_box::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    border-right-color: #00aabb;
-    border-left: 0;
-    margin-top: -10px;
-    margin-right: 0;
-  }
- 
-</style>
-    </head>
-    <html>
-        
+    <!-- Load Non-Critical CSS Asynchronously -->
+    <link rel="preload" href="/CSS/vars.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/CSS/nav_and_socials.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/CSS/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/CSS/Image_slider.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet" href="/CSS/vars.css">
+        <link rel="stylesheet" href="/CSS/nav_and_socials.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/CSS/styles.css">
+        <link rel="stylesheet" href="/CSS/Image_slider.css">
+    </noscript>
+
+</head>
+<html id="l">
+
 <body onclick="">
-  
+
     <!-- HEADER-->
     <header>
         <img id="favicon_img_unicorn" class="unicorns" src="favicon.ico" alt="Favicon Image" />
-        <h1 id="intro-text">
-            <p style="vertical-align: middle;">
-                <!-- Binary Hello World -->
-                <span
-                    onclick="ToggleElementDisplay(this,'none',true);ToggleElementDisplay(dQ('#Hello_Text'),'inline-block',true);"
-                    id="Hello_Binary" style="display:none; font-size:.3rem; vertical-align:middle;"> 01101000 01100101
-                    01101100 01101100 01101111 <br> <br> 01110111 01101111 01110010 01101100 01100100 </span>
+        <!-- <br><br> -->
+        <h1 id="top-line-intro-wrapper">
+            <!-- Binary Hello World -->
+            <span class="fixed-width-container">
+                <span onclick="SwapDisplays('#Hello_Text','#Hello_Binary');" id="Hello_Binary" class="scale-down"
+                    style="display:none;">01101000 01100101 01101100 01101100 01101111 <br> 01110111 01101111 01110010
+                    01101100 01100100 &#8203;</span>
                 <!-- Text Hello World -->
-                <span
-                    onclick="ToggleElementDisplay(dQ('#Hello_Binary'),'inline-block',true);ToggleElementDisplay(this,'none',true);"
-                    id="Hello_Text">Hello World</span>
-                my name is
-            </p>
+                <span onclick="SwapDisplays('#Hello_Binary','#Hello_Text');" id="Hello_Text">Hello World </span>,
+            </span>
+
             <div id="intro-text-profile-name" class="rainbow-wave-text">
                 <span data-letter="J" class="RT"></span>
                 <span data-letter="a" class="RT"></span>
                 <span data-letter="c" class="RT"></span>
                 <span data-letter="k" class="RT"></span>
+                <span data-letter="E" class="RT"></span>
+                <span data-letter="w" class="RT"></span>
+                <span data-letter="e" class="RT"></span>
+                <span data-letter="r" class="RT"></span>
+                <span data-letter="s" class="RT"></span>
+
             </div>
-            <br><br>
-            <span id="sub-intro">I am a software devoloper from Perth, Western Australia 
-                <hr>
-            </span>
+            <span>is the name</span>
         </h1>
+        <h2>
+            <span id="sub-intro">I am (a) Software Developer, Body-Mod Enthusiast, Husband,
+                <br>Father, LGBT Supporter, and much more..
+            </span>
+            <hr>
+        </h2>
     </header>
-    <hr>
-    
-    <main> <!-- Main Content-->
-                <!-- Image Slider Container-->
-                <!--About me-->
-                <!-- Projects-->
-            <div id="slider-container" class="bg-animation">
-                <div id="stars"></div>
-                <div id="stars2"></div>
-                <div id="stars3"></div>
-                <div id="stars4"></div>
-                <div class="image-flex-slider">
-                    <div class="flex-slider-item slider_selected">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img0.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img1.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img2.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img3.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img4.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img5.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img6.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img7.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-                    <div class="flex-slider-item">
-                        <img loading="lazy" src="/i/web-ready/personal/main_img8.webp" class="slider_image_slide"
-                            alt="">
-                    </div>
-        
-                </div>
-                <div id="main-image-container">
-                    <span class="slider_prev"><i>
-                            < </i> </span>
-                    <img id="slider_img_main" src="i/web-ready/personal/main_img0.webp" data-="poop"
-                        ondragend="console.log('Secret Unlocked')" alt="Main profile image" />
-                    <span class="slider_next"><i> > </i> </span>
-                </div>
-            </div>
-    <!-- Main Content-->
-    <div id="Home" class="box-main ">
 
-        <div id="main-about" class="ColorShifter">
-            <h2>
-                <!-- INTRO -->
-            </h2>
-        
+    <nav id="Horizontal_NavBar" class="Horizontal_NavBar"></nav>
 
-            <p id="about-text">
-                This page and its contents are designed and developed by me, using Bloodweb open source protocol.
-                I have designed this as a showcase of my coding proficiency, love for my son and community,
-                and to continue my creative journey
+    <div id="slider-container" class="bg-animation">
+        <h3 class="full-width">
+            <p>
+                Le Photo dump
             </p>
-
-            <br>
-
-
+        </h3>
+        <div id="main_image_container">
+            <!-- <span class="slider_prev"><i>&lt;</i></span> -->
+            <img id="slider_img_main" alt="slide"src="/BloodW.png">
+            <!-- <span class="slider_next"><i>&gt;</i></span> -->
         </div>
+    </div>
+    <!-- Main Content-->
 
+
+    <div id="main-about" class="ColorShifter">
+        <p id="about-text_first-line">
+            Greetings my (new)friends, family and confidants!
+            <hr>
+        </p>
+
+        <p id="about-text_main">
+            My name is Jack, A.K.A Spike or "the guy with the holes".
+            <br><br>
+            I am a software developer, with a passion for learning and creating. I have a background in
+            business and management, and have worked in a variety of industries, from hospitality to
+            construction.
+            <br><br>
+            I am a proud father to my son, who is the light of my life. I am also a passionate advocate for
+            mental health awareness, and have been involved in various charity events and fundraisers to support
+            this cause.
+            <br><br>
+            In my free time, I enjoy spending time with my family, 3D Modelling, Software development, and working on
+            personal
+            projects. I am always looking for new challenges and opportunities to grow and develop my skills.
+            <br><br>
+            Thank you so so much for visiting my website,
+            If you see something you like, dislike or would like to collaborate on a project, please feel free to
+            hit me up! <br>I appreciate you infinitely.
+            <hr><br>
+            &nbsp;&nbsp; 💙 Jack
+        </p>
+
+        <svg class="main_svg" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet"
+            style=" transform: rotate(180deg); right:0;">
+            <path d="M100,0 C200,150 0,350 100,500 L0,500 L0,0 Z"></path>
+        </svg>
+        <svg class="main_svg" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" style="left:0;">
+            <path d="M100,0 C200,150 0,350 100,500 L0,500 L0,0 Z"></path>
+        </svg>
     </div>
 
+    <aside id="about-projects" class="link-display" data-display="4">
 
-    <dialog id="iframeDialog">
-        <p id="iframeTitle">Sample</p>
-        <button id="close_iframe_dialog" onclick="call_IframeDialog()">X</button>
-        <iframe src="" id="dialog_iframe" width="100%" height="70dvh"></iframe>
-        <button> <a href="">Take me there!</a></button> 
-    </dialog>
-    <hr>
-
-    <aside id="about-projects">
-
-        <h5>Check out some of my programming <a href="/projects">projects</a> below:</h5>
+        <h4>Check out some of my <a href="/projects">projects</a>:</h4>
         <hr>
-        <!-- <button class="project-button">HTML</button>
-    <button class="project-button">CSS</button>
-    <button class="project-button">JS</button>
-    <button class="project-button">PY</button> -->
 
-        <article class="PY-project-content">
-            <div class="project_refs">
-                <li class="refs"><a href="/projects/P.W.M/index.html" data-src="linktree.html">P.W.M (Password Manager)</a></li>
-                <li class="refs"><a href="/projects/S.P.I.N/index.html">S.P.I.N (Stepper-Powered Imaging Navigator)</a></li>
-                <li class="refs"><a href="/poo_games/index.html">Poo games (exactly how it sounds)</a></li>
-            </div>
-        </article>
 
     </aside>
 
-    </main>
     <!-- <aisde id="about-support">
         <article> Support me and/or the charities i support!</article>
         <li class="refs"> Friends With Dignity</li>
@@ -201,32 +150,49 @@
     </aisde>
      -->
 
-    <!-- <script src="JS/vari.js" type="text/javascript"></script> -->
-    <script src="KeyFunctions.js" type="text/javascript"></script>
-    <script src="JS/slider.js"></script> <!-- The main image slider-->
-    <script>
-        const userSettings = {
-            createNav:true,
+    <footer id="footer"></footer>
+
+    <script type="text/javascript">
+
+        const Settings = {
+            createNav: true,
             createFooter: true,
-            createLinkTree: false,
-            type: 'balls',
 
-            LD_slider:true,
-
-            colorShifter:{
-                targets:"header,.ColorShifter,#about-projects",
-                hvt:"footer,.Socials_Container",
-                alt_targets:'body,.Vertical_NavBar',
+            imageSlider: {
+                containerId: '#slider-container',
+                
+                fullscreenToggle: true,
+                premadeMainContainer: '#main_image_container',
+        
+                images: [
+                    '/i/web-ready/personal/main_img0.webp',
+                    '/i/web-ready/personal/main_img1.webp',
+                    '/i/web-ready/personal/main_img2.webp',
+                    '/i/web-ready/personal/main_img3.webp',
+                    '/i/web-ready/personal/main_img4.webp',
+                    '/i/web-ready/personal/main_img5.webp',
+                    '/i/web-ready/personal/main_img6.webp',
+                    '/i/web-ready/personal/main_img7.webp',
+                    '/i/web-ready/personal/main_img8.webp',
+                ]
             },
-            branding:{
-                init:true,
-                branding_position:'top right',
-                link_settings_position: 3,
-                // nav_img:
+
+            colorShifter: {
+                targets:
+                    ".ColorShifter,#about-projects",
+                alt_targets: 'body,.Vertical_NavBar',
             },
         };
+
+
     </script>
-    <script src="https://bloodweb.net/JS/Navigation.js"> </script>
+
+    <script src="KeyFunctions.js" type="text/javascript"></script>
+    <script src="JS/Image_slider.js" defer></script>
+    <!-- The main image slider-->
+    <!-- <script src="https://bloodweb.net/JS/Navigation.js"> </script> -->
+    <script src="JS/nav.js" defer> </script>
+    <script src="/JS/projects.js" defer></script>
 </body>
 
 </html>

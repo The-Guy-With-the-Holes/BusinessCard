@@ -19,8 +19,6 @@
     position: absolute; 
 }
 
-/* Standard settings */
-h1 { color:#aaa; margin-bottom: min(.5dvh,.5vw); text-align: center;}
 
 /* Elements to hide on fullscreen */
 .fullScreen_slider .slider_dot_div,.fullScreen_slider h1,.fullScreen_slider #slider_settings{ 
@@ -123,12 +121,12 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 #slider_dot_div{
-    margin: 0 auto;
+    margin: 1%;
     max-width: 90vw; 
-    background-color: lightcoral;
+    background-color: #d3d3d3aa;
     padding: 0.8vh 0;
     border: 2px double #000;
-    border-bottom: 8px solid #000;
+    border-radius: 10px;
 }
 .slider_dots{
     cursor: pointer;

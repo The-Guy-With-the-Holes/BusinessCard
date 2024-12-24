@@ -1,0 +1,150 @@
+/* Hide scrollbar for all elements */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.bloodweb{
+    color:purple;
+    -webkit-text-stroke:min(.4px) hotpink;
+}
+.smaller_font{
+    font-size: min(min(2.8vw,5.4vh),36px) ; /* Min Font Size*/
+}
+* {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    font-size: min(min(3vw,6vh),42px) ; /* Min Font Size*/
+}
+
+*::-webkit-scrollbar {
+    width: 0;  /* Safari and Chrome */
+    height: 0; /* Safari and Chrome */
+}
+
+html{
+    background-color: #faf;  
+    padding:1%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+body > *{
+    margin: 0;
+    padding: 0;
+    margin-bottom:1vh;
+}
+header {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: #f0f0f0; /* Light gray color */
+    text-align: center;
+    padding: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #4facfe;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header:hover {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+h1{
+    font-size: var(--font-XL);
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+}
+header > p {
+    font-size: var(--font-M);
+    color: #e0e0e0; /* Slightly darker shade of white */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for better contrast */
+}
+
+
+
+#projectList li {
+    padding: 1em;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#projectList li:hover {
+    background-color: #f1f1f1;
+}
+
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #faf;
+    overflow: auto; /* Enable scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+#projectName{
+    font-size: min(min(6.4vh,8vw),64px);
+    font-weight: bold;
+    text-align:center;
+    margin:0;
+}
+
+.modal-content {
+    min-height: 94dvh;
+    background-color: #fefefe;
+    margin:2% 4% auto;
+    padding: 2%;
+    border: 1px solid #888;
+
+}
+img{
+    max-width:45vw;
+    display:block;
+    margin:0 auto;
+}
+
+.multi_image{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+.multi_image > img{
+    max-width:25vw;
+}
+
+.modal_button {
+    color: #aaa;
+    font-size: min(min(6.4vh,10vw),96px);
+    font-weight: bold;
+    -webkit-text-stroke: min(.25vw,8px) #fa080844;
+    margin-top:max(-2vh,10px);
+}
+#back{float:left;}
+#close{float:right;}
+.modal_button:hover,
+.modal_button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}   
+pre {
+    overflow-x: auto; /* Ensures that the pre element itself can scroll if needed */
+    max-width: 100%; /* Ensures the pre element does not exceed its parent's width */
+}
+
+pre code {
+    display: block; /* Makes the code element behave as a block */
+    white-space: pre-wrap; /* Preserves formatting and allows for wrapping */
+    word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+    max-width: 100%; /* Ensures the code element does not exceed the width of the pre element */
+    overflow-x: auto; /* Adds a horizontal scrollbar to the code element if content overflows */
+}

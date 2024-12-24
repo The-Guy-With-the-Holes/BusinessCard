@@ -1,66 +1,88 @@
-<!-- <div style="display:flex; justify-content: space-around; max-width:min(100%,240px); border:8px double #0000ff55;">
-
-	<div style="padding:min(2vw,2vh); font-size:min(3.8vw,2.0rem);">
-
-		<h1 style="margin:0; padding:0;">Jack Ewers</h1>
-		<div>CEO &amp;&nbsp;Founder, <a href="http://www.bloodweb.net" rel="noopener noreferrer" target="_blank">Bloodweb</a></div>
-		<div>Fullstack Developer, <a href="http://www.jackewers.com" rel="noopener noreferrer" target="_blank">JackEwers</a></div>
-		<hr>
-		<div>
-			<a href="tel:+61479000429"><img style="width: min(4vw, 4vh);" src="https://www.jackewers.com/i/Icons/Phone.png">&nbsp;+61 479 000 429</a>
-        </div>
-		<div>
-			<a href="mailto:webmaster@jackewers.com"><img style="width: min(4vw, 4vh);" src="https://www.jackewers.com/i/Icons/Mail.png">&nbsp;webmaster@jackewers.com</a>
-        </div>
-        <div>
-           <br> Sent with Love <3
-        </div>
-    </div>
-    <img src="https://www.jackewers.com/i/web-ready/image_1.jpeg" style="max-width:42%;">
-</div> -->
 <head>
-	<style>
-		/* body{background-color: black;} */
+    <style>
+        /* header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2%;
+        }
+        #header_img{
+            max-width: min(25vw, 25vh);
+            height: min(23vw, 23vh);
+            padding:1%;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
         .email-footer {
-            font-size: 16px; /* Fallback font size */
+            font-size: 16px; 
         }
-		.email-footer h1{
-			font-size: min(2.8em,8.2vw);
-		}
+        .email-footer h1 {
+            font-size: min(2.8em, 8.2vw);
+			text-decoration: underline;
+            margin: 0; 
+        }
         .email-footer h4, .email-footer a {
-            font-size: min(1.2em,3.8vw); /* Scales based on the .email-footer font size */
+            font-size: min(1.4em, 3.8vw); 
         }
-		.linkContainer{display:flex; align-items:center; justify-items:flex-start; margin-bottom: 2px;}
-
-		.icon{font-size:min(1.8em,6.2vw); padding:0 2%; margin-right:4px; border:min(4vw,.2rem) solid #000; border-radius: 50%;}
-	</style>
+        .linkContainer {
+            display: flex;
+            align-items: center;
+            justify-items: flex-start;
+            margin-bottom: 2px;
+        }
+        .icon {
+            width: min(1.8em, 6.2vw);
+            padding:.8%;
+            margin-right: 4px;
+            border: min(.02vw,4px) solid #000;
+            border-radius: 50%;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        } */
+    </style>
 </head>
-<div class="email-footer" style="display:flex; justify-content: space-around; max-width: min(100%, 580px); border: 8px double #0000ff55; overflow: hidden;">
-
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-around; padding: min(2vw, 2vh);">
-		
-		<header>
-			<h1 style="margin:0; padding:0; flex-grow: 1; word-wrap: no-wrap;">Jack Ewers</h1>
-			<hr/>
-			<h4 style="flex-grow: 0; font-weight:400;">
-				CEO &amp; Founder, <a href="http://www.bloodweb.net" rel="noopener noreferrer" target="_blank">Bloodweb</a>
-				<br>
-				Fullstack Developer, <a href="http://www.jackewers.com" rel="noopener noreferrer" target="_blank">JackEwers</a>
-			</h4>
-		</header>
-
-		<div class="linkContainer">
-			<span class="icon">✆</span>
-			<a href="tel:+61479000429">+61 479 000 429</a>
-        </div>
-        <div class="linkContainer">
-			<span class="icon">✉</span>
-            <a href="mailto:webmaster@jackewers.com">webmaster@jackewers.com</a>
-        </div>
-        <div style="flex-grow: 1; display: flex; align-items: flex-end;">
-           <br> 	
-		   <p>Sent with Love <3</p>
-        </div>
+<div class="email-footer" style="display: flex; justify-content: space-around; max-width: 580px; border: 2px double #00000011; overflow: hidden;">
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-around; padding: 12px;">
+        <header style="display: flex; align-items: center; justify-items: flex-start; margin-bottom: 2px;">
+            <img id="header_img" src="https://jackewers.com/i/web-ready/image_1.png" alt="Jack Ewers" style="display: inline-block; width: 92px; height: 92px; padding: 4px;border: 0.4px solid #00000011; border-radius: 50%; vertical-align: middle;">
+            <div class="text-container" style="display: inline-block; vertical-align: middle; margin-left: 10px;">
+                <h1 style="margin: 0; font-size: 28px;">Jack Ewers</h1>
+                <hr>
+                <h4 style="margin: 0; font-weight: 400; font-size: 11px;">
+                    <span style="font-size: 14px;">Founder, <a href="http://www.bloodweb.net" rel="noopener noreferrer" target="_blank">Bloodweb</a></span>
+                    <br>
+                    <span>Fullstack Developer, <a href="http://www.jackewers.com" rel="noopener noreferrer" target="_blank">JackEwers</a></span>
+                </h4>
+            </div>
+        </header>
+        <table style="width: 100%; border-spacing: 0; padding: 0; border:none">
+            <tr style="padding: 0; margin: 0;">
+                <td style="padding: 2px; margin: 0; border: none;">
+                    <a class="linkContainer" href="tel:+61479000429" style="font-size: 10px; display: flex; align-items: center; text-decoration: none; color: inherit; line-height: 22px;">
+                        <img class="icon" src="https://jackewers.com/i/Icons/Phone.png" title="All rights reserved https://www.flaticon.com/authors/chanut" style="width: 22px; height: 22px; padding: 0 4px; margin-right: 4px; border: 0.2px solid #00000011; border-radius: 50%; vertical-align: middle;">
+                        +61 479 000 429
+                    </a>
+                </td>
+            </tr>
+            <tr style="padding: 0; margin: 0;">
+                <td style="padding: 2px; margin: 0; border: none;">
+                    <a href="mailto:webmaster@jackewers.com" class="linkContainer" style="font-size: 10px; display: flex; align-items: center; text-decoration: none; color: inherit; line-height: 22px;">
+                        <img class="icon" src="https://jackewers.com/i/Icons/Mail.png" title="All rights reserved https://www.flaticon.com/authors/chanut" style="width: 22px; height: 22px; padding: 0 4px; margin-right: 4px; border: 0.2px solid #00000011; border-radius: 50%; vertical-align: middle;">
+                        webmaster@jackewers.com
+                    </a>
+                </td>
+            </tr>
+            <tr style="padding: 0; margin: 0;">
+                <td style="padding: 2px; margin: 0; border: none;">
+                    <a href="https://www.jackewers.com/linktree.html" class="linkContainer" style="font-size: 10px; display: flex; align-items: center; text-decoration: none; color: inherit; line-height: 22px;">
+                        <img class="icon" src="https://jackewers.com/i/Icons/share.png" title="All rights reserved https://www.flaticon.com/authors/chanut" style="width: 22px; height: 22px; padding: 0 4px; margin-right: 4px; border: 0.2px solid #00000011; border-radius: 50%; vertical-align: middle;">
+                        LinkTree
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
-    <img src="https://www.jackewers.com/i/web-ready/image_1.jpeg" style="flex: 1; max-width: 42%; height: auto; flex-shrink: 1;">
 </div>

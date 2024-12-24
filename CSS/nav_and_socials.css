@@ -9,22 +9,16 @@
 img[id^="favicon_img"]{/* The unicorn */
     width: var(--header-img-width);
     position: absolute;
-    top:45%;
-    right:0;
+    top:60%;
+    right:min(10px,.8vw);
     transform: translateY(-50%);
     z-index:1;
-}
-#banner_img_bloodweb{
-    width: calc(var(--header-img-width)/1.6);
-    transform: rotateY(180deg);
-    margin-right:4%;/* Push quote box */
-
 }
 
 /* Slider */
 .Dark-Body {
     color: white;
-    border: 4px double #afafaff9;
+    /* border: 4px double #afafaff9; */
     /* background: radial-gradient(circle, #fafafada, #090909dd, gray); */
     -webkit-text-stroke: .2px #09090999;
 }
@@ -38,7 +32,7 @@ img[id^="favicon_img"]{/* The unicorn */
 
 .Light-Body {
     color: black;
-    border: 4px double #fff;
+    /* border: 4px double #fff; */
     /* background: radial-gradient(circle, white, #fafafada, gray, azure); */
     -webkit-text-stroke: .1px gold;
      /* #fafafa4f; */
@@ -134,20 +128,7 @@ img[id^="favicon_img"]{/* The unicorn */
 
 /* ####################################### */
 /*            Horizontal Nav               */
-.Horizontal_NavBar {
-    z-index:2;
-    background-color: #fafafaaa;
-    border: 1vmin groove gray;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: var(--padding-scale-xs-noH);
-    transition: 0.5s; 
-    display: flex;
-    align-content: center;
-    justify-content: space-evenly;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-}
+
 
 .Horizontal_NavBar.sticky_nav {
     position: fixed;
@@ -159,6 +140,7 @@ img[id^="favicon_img"]{/* The unicorn */
     transition: 0.3s;
     background-color: #fafafa;
 }
+
 /* show/hide the image when nav is sticky */
 .Horizontal_NavBar > img{
     position:absolute;
@@ -171,11 +153,10 @@ img[id^="favicon_img"]{/* The unicorn */
     opacity: 1;
 }
 
-.Horizontal_NavBar>.NavListitem:not(.Vertical_NavSwitch) {
+.Horizontal_NavBar>.NavListitem{
     text-align: center;
     font-size: min(6.32vw, 2.8vh);
     background-color: #fafafaa9;
-    border: 0.42vmin double gray;
     border-radius: 20%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     min-width: 12.5%;
@@ -185,68 +166,86 @@ img[id^="favicon_img"]{/* The unicorn */
 
 /* Add 'Menu' from sticky nav and float right */
 #Vertical_NavSwitch{
-    font-size:var(--font-L);
-    display: flex;
-    justify-items: center;
-    align-items:center;
+    border-radius: 0;
+    font-weight:900;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-#Vertical_NavSwitch::before {
-    content: 'Menu ';
-padding-right:min(1vw,8px);
+#Vertical_NavSwitch::after {
+    content: ' Menu';   
+    padding-right:min(1vw,8px);
     }
-.sticky_nav > #Vertical_NavSwitch::before {
+/* .sticky_nav > #Vertical_NavSwitch::before {
     content: none;
-}
-/* Hide the banner Image when the nav is sticky */
-#banner_img_container{
-    display:none;
-}
-.sticky_nav > #banner_img_container{
-    display:flex;
-}
+} */
 .sticky_nav > #Vertical_NavSwitch{
     justify-content:center;
-    margin-left:auto;
+    margin-right:auto;
     font-size:var(--font-XL);
+    width: 100%;
 }
 .sticky_nav > #Vertical_NavSwitch > p{
     justify-content:center;
 }
+/* Hide the banner Image when the nav is sticky */
+#unicorn_nav_img_container{
+    display:none;
+}
+
+#unicorn_nav_img{ display:none; }
+
+.sticky_nav>#unicorn_nav_img{
+    display:block;
+    position: absolute;
+    right:min(10px,1vw);
+}
+/* .sticky_nav > #unicorn_nav_img_container{
+    display:flex; 
+    position:absolute;
+    right:20%;
+} */
+
+#unicorn_nav_img_container {
+    justify-content: flex-start;
+    align-items: center;
+}
+#unicorn_nav_img{
+    width: calc(var(--header-img-width)/1.2);
+    /* transform: rotateY(180deg); */
+}
+.quote_box {
+    position: relative;
+    background: #80808025;
+    /* #00aabb99; */
+    border-radius: .4em;
+    padding: .6em;
+    margin: 0 min(40px,4vw);
+    color: black;
+    border: 1px solid #00aabb;
+    -webkit-text-stroke: min(14px, 0.02em) #00aabb;
+    min-width: fit-content;
+    max-width: 200px;
+    font-size: var(--font-MS);
+}
+
+.quote_box::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-right-color: #00aabb;
+    border-left: 0;
+    margin-top: 0px;
+    margin-right: 0;
+    transform: rotateY(180deg);
+}
+
 
 /* ####################################### */
 /*            Vertical Nav                 */
-.Vertical_NavBar { 
-    font-size: large;
-    position: fixed; display: block;
-    z-index: 2;
-    top: 0; left: 0;
-    height: 100%; width: 82.5%;
-    border: 1vmin groove gray;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    margin:0; padding:var(--padding-scale-large-top);
-    /* transition: 0.5s; */
-}
 
-.Vertical_NavBar>.NavListitem {
-    text-align: center;
-    font-size: var(--font-XL);
-    background-color: #fafafaa9;
-    border: 0.42vmin double gray;
-    border-radius: 20%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    min-width: 12.5%;
-    max-width:80%;
-    /* margin: 0; */
-    padding: .2em;
-    margin: .2em;margin-top:min(.8em,4vh);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.Vertical_NavBar>.NavListitem:first-of-type{
-    margin-top:calc(var(--body-content-seperator-XL)/2);
-}
 
 /* Have the A elements take over the parent*/
 .Vertical_NavBar>.NavListitem>a {
@@ -351,14 +350,6 @@ padding-right:min(1vw,8px);
     display: none;
 }
 
-.Horizontal_Socials {
-    display: flex;
-    width: 100%;
-    padding: 3.5% 4%;
-    margin-top: 1%;
-    justify-content: space-evenly;
-    position: relative;
-}
 
 .Vertical_Socials {
     padding: 1.5% 4% 1.5% 4%;
@@ -374,68 +365,3 @@ padding-right:min(1vw,8px);
     margin-left: min(2vw,20px);
 }
 
-
-.Rotern {
-    margin: 0;
-}
-
-.Rotern>a {
-    height: 100%;
-    width: 100%;
-}
-
-.balls:hover {
-    opacity: 1;
-    transform: scale(1.25);
-}
-
-.balls {
-    opacity: 0.65;
-    background-color: #fff;
-    cursor: pointer;
-    display: inline;
-    position: relative;
-    max-height: 9vh;
-    height: 10vmin;
-    max-width: 9vh;
-    width: 10vmin;
-    border: 0.5vmin double gold;
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-}
-
-.Rotern:hover {
-    animation-name: Ball-Background;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-
-
-#foot_note {
-    position:absolute;
-    font-size: min(2.5vw, 1.8vh);
-    background-color: #fafafa55;
-}
-
-/* Powered By*/
-#foot_note a>* {
-    vertical-align: middle;
-}
-
-#foot_note a p {
-    display: inline;
-    text-decoration: inherit;
-    color: #000;
-}
-
-#foot_note img {
-    max-width: 4vw;
-    display: inline;
-
-}

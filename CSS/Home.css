@@ -40,7 +40,8 @@ h1 > strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin go
 }
 .NavListitem {
     cursor: pointer;
-  text-align:center;
+    text-align:center;
+    text-decoration: underline;
     /* margin: 12.1%;*/ padding: 3% 1.4% 3% 1.4%; 
     border-radius: 10%;
     font-size: min(6.32vw,2.8vh);
@@ -52,7 +53,6 @@ h1 > strong:first-of-type{font-size: 9.1vmin;   -webkit-text-stroke: 0.05vmin go
 }
 
 .NavListitem {
-    text-decoration: none;
     color: purple;
     -webkit-text-stroke: 0.11vmin black;
 }

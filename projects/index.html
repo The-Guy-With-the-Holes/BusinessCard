@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects Index</title>
-    <link type="text/css" rel="stylesheet" href="/CSS/vars.css">
-    </link>
-    <link type="text/css" rel="stylesheet" href="/CSS/nav_and_socials.css">
-    </link>
+    <link type="text/css" rel="stylesheet" href="/CSS/vars.css"></link>
+    <link type="text/css" rel="stylesheet" href="/CSS/styles.css"></link>
+    <link type="text/css" rel="stylesheet" href="/CSS/nav_and_socials.css"></link>
     <style>
         *{ margin:0; padding:0; }
         body{ padding: 3%; min-height:100dvh;}
@@ -23,52 +22,42 @@
         h1 p {
             font-size: var(--font-M);
         }
-
-        #link_display {
-            display: grid;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        strong {
-            font-size:var(--font-XL);
-        }
-        #link_display p{font-size: var(--font-M);}
-        .link_container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-            max-width: 100%;
-        }
-
-        .link_container>a> img {
-            max-width: 100px;
-
-        }
-
-        .link_container p {
-            margin: 5px 0;
-        }
-
-        .small {
-            color: green;
-            display: block;
-            text-decoration: none;
-        }
     </style>
 </head>
+<!-- 
+ 
+Overview:
+    (Project Title)
+    (User:name,category,views,likes,comments,save as pdf)    
+    (Image Blocks)
+    (Full user block)
+    (Project Description)
+
+Project:
+    Supplies:
+        (Supplies Title)
+        (Supplies List)
+Steps:
+    step(1..)
+        (Step Title)
+        (Step Image(optional))
+        (Step Description)
+-->
+
 
 <body>
+
     <header>
         <h1>Projects:
         <p>Explore development projects</p>        
-    </h1>
-</header>
+        </h1>
+    </header>
+    <nav>
 
    
     <script src="/KeyFunctions.js"></script>
     <script>
-        
+        loadHTML('nav', '/components/navbar.html')
         
     class LinkDisplay {
         constructor(projects = null, sizes = null) {
@@ -134,7 +123,13 @@ const projectDisplay = new LinkDisplay(projects, customSizes);
 projectDisplay.init();
 
 
-
+const userSettings = {
+    createNav:true,
+    colorShifter:{
+                targets:"header",
+                alt_targets:'body,.Vertical_NavBar',
+            },
+}
 
 </script>
 <script src="https://bloodweb.net/JS/Navigation.js"></script>

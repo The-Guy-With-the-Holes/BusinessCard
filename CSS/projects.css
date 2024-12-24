@@ -1,11 +1,7 @@
 * {
     text-align: center;
-    color: #333;
 }
 
-.instructables {
-    background-color: #f8f0e3;
-}
 /* Show the message only when JavaScript is disabled */
 noscript .js-required-message {
     display: block;
@@ -20,20 +16,6 @@ noscript area is also valid
     display: none;
 }
 /*Remove the left margin from non list items*/
-h3,ul >li,.full-size-img,pre {
-    margin-left: -40px;
-}
-code,pre{text-align: left;}
-
-code {
-    text-align: left;
-    background-color: #fafafa; /* Lighter background for better contrast */
-    border: 1px solid #e0e0e0; 
-    padding: 0.5em; /* Padding around the text */
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
-    display: block; /* Makes the code element block-level for proper padding */
-    overflow-x: auto; /* Adds horizontal scrolling for long lines of code */
-}
 
 ol>img,
 ul>img {
@@ -54,7 +36,7 @@ img {
     max-width: 45%;
     height: auto;
 }
-header>p{font-size: large;}
+
 h2 {
     font-size: medium
 }
@@ -64,6 +46,41 @@ h2::first-line {
 }
 
 .full-size-img {
-    max-width: 100%;
-    height: auto;
+    max-width: 95vw;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    padding: .2rem .4rem;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav .branding {
+    font-size: 1rem;
+    font-weight: bold;
+    width: fit-content;
+}
+.branding>*{display:inline-block; vertical-align: middle}
+.branding img{display:block;width:min(150px,min(24vh,40vw));height:auto;}
+.main-nav .nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.main-nav .nav-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    /* background-color: #007bff; */
+    color:#000;
+    cursor: pointer;
+}
+
+.nav-actions:hover, button:hover {
+    background-color: #80808055;
+    -webkit-text-stroke: min(0.08em,0.5px) black;
+    color:white;
 }

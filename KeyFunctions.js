@@ -1,332 +1,307 @@
-/* Debugging
-    Create the debug area if debugging===true and page not live
-    otherwise, debugging will be done through the console.log method
-*/
-if (typeof debugging !== 'undefined' && debugging  === true 
-    && (!window.location.href.includes('jackewers.com')
-    || !window.location.href.includes('bloodweb.net')
-    )
-) {
-    debugging_section = `
-    <div id="debugging_area" style="font-size:min(.8rem,6vw); padding:1%; background-color:#ffaffa55; display:flex; justify-content:flex-end; overflow:hidden; height:1.5em;">
-        <p style="white-space: nowrap;"></p>
-        <button onclick="window.location.reload()" style="margin-left:auto;"><p>RELOAD</p></button>
-    </div>`;
-    document.body.innerHTML = debugging_section + document.body.innerHTML;
+"undefined" == typeof debugging ||
+  !0 !== debugging ||
+  (window.location.href.includes("jackewers.com") &&
+    window.location.href.includes("bloodweb.net")) ||
+  ((debugging_section =
+    '\n    <div id="debugging_area" style="font-size:min(.8rem,6vw); padding:1%; background-color:#ffaffa55; display:flex; justify-content:flex-end; overflow:hidden; height:1.5em;">\n        <p style="white-space: nowrap;"></p>\n        <button onclick="window.location.reload()" style="margin-left:auto;"><p>RELOAD</p></button>\n    </div>'),
+  (document.body.innerHTML = debugging_section + document.body.innerHTML));
+const LS_Name = function (e) {
+  if ("" == e || null == e) return localStorage.getItem("name");
+  localStorage.setItem("name", e);
+};
+function allowDrop(e) {
+  e.preventDefault();
 }
-
-/* Local */
-const LS_Name = function (s) {
-    if (s == '' || s == undefined){ return localStorage.getItem('name'); }
-    localStorage.setItem('name', s);
+function log(e) {
+  let t = document.getElementById("debugging_area");
+  if (t) {
+    let n = t.querySelector("p");
+    n.innerText = e + "\n" + n.innerText;
+  }
 }
-function allowDrop(event) { event.preventDefault(); }
-
-// console
-
-function log(x) {
-    console.log(x);
-    let z = document.getElementById('debugging_area');
-    if (!!z) {
-        let p = z.querySelector('p');
-        p.innerText = x + "\n" + p.innerText; // Prepend new log
-    } else {
-        console.log("'log' called, but the logging area is unavailable.. caller:", x);
-    }
+function randomNum(e = 0, t = 17) {
+  return Math.floor(Math.random() * (t - e)) + e;
 }
-
-log("Debugging area initialised.")
-
-// Numer
-function randomNum(min = 0, max = 17) { return Math.floor(Math.random() * (max - min)) + min; }
-function isNeg(x) { if (!isNaN(x) && x < 0) { return true; } }
-function isEven(num) { if ( !num && num!==0 || isNaN(num) ) return console.error(`Num required, ${num} is NaN`);
-    return (num % 2 == 0) ? true : false;
+function isNeg(e) {
+  if (!isNaN(e) && e < 0) return !0;
 }
-
-function setRange(i, min, max) {
-    if (i < min) i = min;
-    else if (i > max) i = max;
-    return i;
+function isEven(e) {
+  if ((e || 0 === e) && !isNaN(e)) return e % 2 == 0;
 }
-
-function inRange(num, min, max) { if (num <= max && num >= min) return true; }
-
-function randomHex(bytes=8) {
-    if (typeof bytes !== 'number' || !Number.isInteger(bytes)){ throw new TypeError('bytes must be an integer'); }
-
-    let result = '';    
-    const chars = 'abcdef0123456789';
-    for (let i = 0; i < bytes * 2; i++) { result += chars.charAt(randomNum(0, 9)); }
-    return result;
+function setRange(e, t, n) {
+  return e < t ? (e = t) : e > n && (e = n), e;
 }
-
-function createHexchain(hexlength) {
-    if (!hexlength) { return console.error('Hex length not defined'); }
-    let hlen = hexlength; let hexchain = [];
-    for (let i = 0; i < hlen; i++) { hexchain.push("#" + randomHex()); }
-    return hexchain;
+function inRange(e, t, n) {
+  if (e <= n && e >= t) return !0;
 }
-
-
-
-//Date 
-const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-const CheckAge = function (DOB) {
-    let today = new Date();
-    let birthDate = new Date(DOB);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    let monthDif = today.getMonth() - birthDate.getMonth();
-    if (monthDif < 0 || (monthDif === 0 && today.getDate() < birthDate.getDate())) {
-        age--; // Over declared age adjusted here 
-    }
-    return age;
+function randomHex(e = 8) {
+  if ("number" != typeof e || !Number.isInteger(e))
+    throw new TypeError("bytes must be an integer");
+  let t = "";
+  for (let n = 0; n < 2 * e; n++)
+    t += "abcdef0123456789".charAt(randomNum(0, 9));
+  return t;
 }
-
+function createHexchain(e) {
+  if (!e) return;
+  let t = e,
+    n = [];
+  for (let e = 0; e < t; e++) n.push("#" + randomHex());
+  return n;
+}
+log("Debugging area initialised.");
+const weekDay = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"],
+  CheckAge = function (e) {
+    let t = new Date(),
+      n = new Date(e),
+      o = t.getFullYear() - n.getFullYear(),
+      i = t.getMonth() - n.getMonth();
+    return (i < 0 || (0 === i && t.getDate() < n.getDate())) && o--, o;
+  };
 function getDatearr() {
-    let today = new Date();
-    let currentDay = new Date(today.getFullYear() + "," + (today.getMonth() + 1) + ',' + today.getDate());
-    return currentDay;
+  let e = new Date();
+  return new Date(
+    e.getFullYear() + "," + (e.getMonth() + 1) + "," + e.getDate()
+  );
 }
-
-let timeDif = function (time) {
-    let today = new Date();
-    let iTime = time.split(':');
-    let curTime = toString(today.getHours(), ":" + today.getMinutes() + ":", today.getSeconds());
-
-    if (time > curTime) { return "Not >24hrs"; }
-    else { return "<24hrs" + (time - curTime); }
-    let Dif = [
-        second = curTime[2] - iTime[2],
-        minute = curTime[1] - iTime[1],
-        hour = curTime[0] - iTime[0]]
-
-    if (Dif.second < 0) { Dif.minute - 1; Dif.second = 5555; }
-
-    return "InputTIme:" + time + " curTime:" + curTime + "\n Dif:" + [hourDif, minuteDif, secondDif > 0 ? secondDif : 60 + secondDif];
+let timeDif = function (e) {
+  let t = new Date(),
+    n = e.split(":"),
+    o = toString(t.getHours(), ":" + t.getMinutes() + ":", t.getSeconds());
+  return e > o ? "Not >24hrs" : "<24hrs" + (e - o);
+  let i = [
+    (second = o[2] - n[2]),
+    (minute = o[1] - n[1]),
+    (hour = o[0] - n[0]),
+  ];
+  return (
+    i.second < 0 && (i.minute, (i.second = 5555)),
+    "InputTIme:" +
+      e +
+      " curTime:" +
+      o +
+      "\n Dif:" +
+      [hourDif, minuteDif, secondDif > 0 ? secondDif : 60 + secondDif]
+  );
+};
+function DateDif(e) {
+  e.split("/"), e[0], e[1];
+  let t = e.slice(9),
+    n = t[3] + t[4],
+    o = t[0] + t[1],
+    i = 20 + t[6] + t[7];
+  const r = new Date(i + "," + n + "," + o),
+    l = new Date();
+  return (
+    "Y/M/D:" +
+    [
+      r.getFullYear() - l.getFullYear(),
+      r.getMonth() - l.getMonth(),
+      r.getDay() - l.getDay(),
+    ]
+  );
 }
-
-function DateDif(date) {
-    date.split('/'); let time = date[0] + date[1];
-    let d1 = date.slice(9);
-    let month = d1[3] + d1[4]; let day = d1[0] + d1[1];
-    let year = 20 + d1[6] + d1[7];
-
-    const date1 = new Date(year + ',' + month + ',' + day);
-    const date2 = new Date();
-
-    let DIfference = [(date1.getFullYear() - date2.getFullYear()), (date1.getMonth() - date2.getMonth()), (date1.getDay() - date2.getDay())];
-    return "Y/M/D:" + DIfference;
+let daysUntil = function (e) {
+  let t = e - new Date();
+  return Math.floor(t / 864e5);
+};
+function dateCountdown(e, t) {
+  const n = new Date() - new Date(e),
+    o = t - Math.floor(n / 864e5);
+  return o < 0 ? 0 : o;
 }
-
-let daysUntil = function (date) { 
-    const today = new Date();
-    let diff = date - today; return Math.floor(diff / (1000 * 60 * 60 * 24));
-}    
-
-function dateCountdown(dateAdded, daysToComplete) {
-    const currentDate = new Date();
-    const dateAddedObj = new Date(dateAdded);                              // Parse the dateAdded string to a Date object
-    const timeDifference = currentDate - dateAddedObj;                     // Calculate the difference in time (in milliseconds)
-    const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert time difference from milliseconds to days
-    const daysLeft = daysToComplete - daysPassed;                          // Calculate the days left to complete the task                         
-    return daysLeft < 0 ? 0 : daysLeft;
+function loadHTML(e, t) {
+  return new Promise((n, o) => {
+    const i = new XMLHttpRequest();
+    i.open("GET", t, !0),
+      (i.onreadystatechange = function () {
+        4 === i.readyState &&
+          (200 === i.status
+            ? ((document.querySelector(e).innerHTML = i.responseText), n())
+            : o(`Failed to load HTML from ${t}`));
+      }),
+      i.send();
+  });
 }
-
-// Page maninpulation
-function loadHTML(elementId, url) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector(elementId).innerHTML = data;
-        })
-        .catch(error => console.error('Error loading HTML:', error));
-}
-
-
-function smoothScroll(element) {
-    document.querySelector(element)?.scrollIntoView({
-        behavior: 'smooth'
-    });
+function smoothScroll(e) {
+  document.querySelector(e)?.scrollIntoView({ behavior: "smooth" });
 }
 function ScrollHome() {
-    let WindowFrame = document.body.scrollTop || document.documentElement.scrollTop || window.scrollY; // Catch all devices
-    if (WindowFrame > 0){
-        window.requestAnimationFrame(ScrollHome);
-        window.scrollTo(0, WindowFrame - (WindowFrame / 5));
-    }
+  let e =
+    document.body.scrollTop ||
+    document.documentElement.scrollTop ||
+    window.scrollY;
+  e > 0 &&
+    (window.requestAnimationFrame(ScrollHome), window.scrollTo(0, e - e / 5));
 }
 function toggleFullScreen() {
-    if (!document.fullscreenElement) { document.documentElement.requestFullscreen();} 
-    else {
-        if (document.exitFullscreen) {document.exitFullscreen();}
-    }
+  document.fullscreenElement
+    ? document.exitFullscreen && document.exitFullscreen()
+    : document.documentElement.requestFullscreen();
 }
-let reloadPage = function () { window.location.reload(true); return false; }
-let importURL = function(url){document.head+=`<script type="text/javascript" src="${url}"></script>`;}
-// Check Page
-// Function to check if the URL contains "localhost"
+let reloadPage = function () {
+    return window.location.reload(!0), !1;
+  },
+  importURL = function (e) {
+    document.head += `<script type="text/javascript" src="${e}"><\/script>`;
+  };
 function isLocalhost() {
-    return window.location.hostname === 'localhost';
+  return "localhost" === window.location.hostname;
 }
-
-function checkVisibility(elem) {
-    if (!elem || !dQ(elem)) { return false }
-    var rect = elem.getBoundingClientRect();
-    return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+function checkVisibility(e) {
+  if (!e || !dQ(e)) return !1;
+  var t = e.getBoundingClientRect();
+  return (
+    t.top >= 0 &&
+    t.left >= 0 &&
+    t.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    t.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }
-let isSafari = /.*Version.*Safari.*/.test(navigator.userAgent);
-let isPHP = function () { return window.location.href.includes('php') ? true : false; }
-
-
-//Select elements
-const dQ = function(e){return document.querySelector(e);}
-
-//Edit Element display
-const ToggleElementDisplay = function (element, DisplayType, enforce) { let x = element||document.querySelector(element); if (enforce === true || x.style.display == "none") { x.style.display = DisplayType; } else x.style.display = "none"; }
-const CToggle_Ele = function (arr) { for (e in arr) { let a = arr[e]; ToggleElementDisplay(a[0], a[1], a[2] ?? null) } }
-
-// Styles and elements
-const createElement = function (element, properties) {
-    let el = document.createElement(element);
-    for (var prop in properties) { el[prop] = properties[prop]; }
-    return el;
+let isSafari = /.*Version.*Safari.*/.test(navigator.userAgent),
+  isPHP = function () {
+    return !!window.location.href.includes("php");
+  };
+const dQ = function (e) {
+    return document.querySelector(e);
+  };
+  ToggleElementDisplay = function (e, t, n) {
+    let o = e || document.querySelector(e);
+    !0 === n || "none" == o.style.display
+      ? (o.style.display = t)
+      : (o.style.display = "none");
+  },
+  CToggle_Ele = function (t) {
+    for (e in t) {
+      let n = t[e];
+      ToggleElementDisplay(n[0], n[1], n[2] ?? null);
+    }
+  },
+  SwapDisplays = function (e, t) {
+    let n = dQ(e).style.display;
+    (dQ(e).style.display = dQ(t).style.display), (dQ(t).style.display = n);
+  },
+  createElement = function (e, t) {
+    let n = document.createElement(e);
+    for (var o in t) n[o] = t[o];
+    return n;
+  };
+let tNode = function (e) {
+    return document.createTextNode(e);
+  },
+  BR = function () {
+    return createElement("br");
+  };
+function setAttributes(e, t) {
+  for (var n in t) e.setAttribute(n, t[n]);
 }
-
-let tNode = function (t) { return document.createTextNode(t); }
-let BR = function () { return createElement('br'); }
-
-function setAttributes(el, attrs) {
-    for (var key in attrs) { el.setAttribute(key, attrs[key]); }
+function createStyleRule(e, t) {
+  var n = createElement("style", { type: "text/css" });
+  document.getElementsByTagName("head")[0].appendChild(n),
+    (n.sheet || {}).insertRule
+      ? n.sheet.insertRule(e + "{" + t + "}", 0)
+      : (n.styleSheet || n.sheet).addRule(e, t);
 }
-
-function createStyleRule(name, rules) { var style = createElement('style',{type:'text/css'});
-    document.getElementsByTagName('head')[0].appendChild(style);
-    if (!(style.sheet || {}).insertRule)
-        (style.styleSheet || style.sheet).addRule(name, rules);
-    else
-        style.sheet.insertRule(name + "{" + rules + "}", 0);
+function throttle(e, t) {
+  let n;
+  return function () {
+    let o = arguments,
+      i = this;
+    n || (e.apply(i, o), (n = !0), setTimeout(() => (n = !1), t));
+  };
 }
-
-// Function , functions..
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        let args = arguments, context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
+function isValidImage(e) {
+  return new Promise((t, n) => {
+    const o = new Image();
+    (o.onload = () => t(!0)), (o.onerror = () => t(!1)), (o.src = e);
+  });
 }
-
-//Images
-function isValidImage(url) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
+function replace_img_src(e, t) {
+  e && t && e.setAttribute("src", t);
+}
+function appendFixedLogo(e, t, n, o, i, r = "/") {
+  i && "" == r && (r = document.body),
+    (t && "" != t) || (t = "min(40vw,40vh)"),
+    (n && "" != n) || (n = 0);
+  let l = `<img id="fiex_BWEB" src="/i/BloodWeb/BWEB_Yin.png" alt="BWEB_Fixed_LOGO" style="max-height:${t}; max-width:${t};"/>`,
+    c = createElement("dialog", {
+      innerHTML:
+        e && "" != e
+          ? `<p style="font-size:large;">${e}</p> <br> ${l} <br> ${
+              o && "" != o ? `<p style="font-size:medium;">${o}</p>` : ""
+            }`
+          : l,
     });
+  document.body.append(c),
+    c.showModal(),
+    0 != n &&
+      setTimeout(() => {
+        c.close(), c.remove(), !0 === i && (window.location.href = r);
+      }, n);
 }
-function replace_img_src(target,new_src){ 
-    if(!target||!new_src){return console.log('Provide target / new src')}
-    target.setAttribute('src',new_src);
+function insertAfter(e, t) {
+  e.parentNode.insertBefore(t, e.nextSibling);
 }
-
-function appendFixedLogo (text, size, time, subtext, kill,location='/') {
-    console.log('add dialog');    
-    if (kill && location == '') { location = document.body; }
-        if (!size || size == '') { size = 'min(40vw,40vh)'; }
-        if (!time || time == '') { time = 0; }
-        let img = `<img id="fiex_BWEB" src="/i/BloodWeb/BWEB_Yin.png" alt="BWEB_Fixed_LOGO" style="max-height:${size}; max-width:${size};"/>`;
-        let dialog = createElement('dialog', { innerHTML: (!text || text == '') ? img : `<p style="font-size:large;">${text}</p> <br> ${img} <br> ${(!subtext || subtext == '') ? '' : `<p style="font-size:medium;">${subtext}</p>`}` });
-        document.body.append(dialog); dialog.showModal();
-        if(time!=0){
-            console.log(`Removing dialog in ${time/100} seconds`);
-            setTimeout(() => { dialog.close(); dialog.remove(); kill===true?window.location.href=location:false; }, time);
-        }
+const Import_File = function (e, t) {
+  let n = "";
+  e &&
+    "" != e &&
+    ((ImportCSS = function (e) {
+      n = createElement("link", {
+        rel: "stylesheet",
+        type: "text/css",
+        href: e,
+      });
+    }),
+    ("CSS" === t || e.includes(".css")) && ImportCSS(e),
+    (ImportJavaScript = function (e) {
+      n = createElement("script", { type: "text/javascript", src: e });
+    }),
+    ("JS" === t || e.includes("js")) && ImportJavaScript(e),
+    document.head.appendChild(n));
+};
+async function fetchAndDisplayJSFile(e, t) {
+  try {
+    const n = await fetch(e),
+      o = await n.text();
+    document.getElementById(t).textContent = o;
+  } catch (e) {}
 }
-
-//Tasklist
-function insertAfter(referenceNode, newNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+function Tag_Images(e) {
+  for (var t = document.getElementsByTagName("img"), n = 0; n < t.length; n++) {
+    var o = t[n],
+      i = e || KeyWord_Array,
+      r = document.createElement("div");
+    r.classList.add("keyword-overlay"),
+      (r.innerHTML = i.join(", ")),
+      (r.style.top = o.offsetTop + "px"),
+      (r.style.left = o.offsetLeft + "px"),
+      (r.style.width = o.width + "px"),
+      (r.style.height = o.height + "px"),
+      o.parentNode.appendChild(r);
+  }
 }
-//Imports
-const Import_File =function(url,type){ 
-    let S = '';
-    if(!url||url==''){return console.error('Need valid URL');}
-    
-    ImportCSS=function(url){S = createElement('link',{rel:'stylesheet',type:"text/css",href:url});}
-    type==="CSS"||url.includes('.css')?ImportCSS(url):false;
-    
-    ImportJavaScript = function(url) {S = createElement('script',{type:"text/javascript",src:url});}
-    type==="JS"||url.includes('js')?ImportJavaScript(url):false;
-
-    document.head.appendChild(S);
+function escapeHtml(e) {
+  return e
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
-
-async function fetchAndDisplayJSFile(filePath, elementId) {
-    try {
-        const response = await fetch(filePath);
-        const text = await response.text();
-        document.getElementById(elementId).textContent = text;
-    } catch (error) {
-        console.error('Error fetching the JS file:', error);
-    }
-}
-
-
-function Tag_Images(words){
-    function getKeywordsForImage(image) {    // This function returns a static array of keywords
-        return words||KeyWord_Array; //[keywords];
-    }
-    var images = document.getElementsByTagName('img'); // Get all the <img> elements
-  
-    for (var i = 0; i < images.length; i++) {
-      var image = images[i];
-  
-      // Get or generate the keywords for the image 
-      var keywords = getKeywordsForImage(image);
-  
-      // Create a container element for the keywords
-      var keywordContainer = document.createElement('div');
-      keywordContainer.classList.add('keyword-overlay');
-      keywordContainer.innerHTML = keywords.join(', '); // Set the keywords as the container's text content
-  
-      // Position the container element over the image
-      keywordContainer.style.top = image.offsetTop + 'px';
-      keywordContainer.style.left = image.offsetLeft + 'px';
-      keywordContainer.style.width = image.width + 'px';
-      keywordContainer.style.height = image.height + 'px';
-  
-      // Append the container element to the image's parent element
-      image.parentNode.appendChild(keywordContainer);
-    } console.log('Images have been Tagged');
-}
-
-function escapeHtml(html) {
-    return html
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-const setCookie=function(name,val,exdays=365){const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires="+d.toUTCString();
-    document.cookie = `${name}=${val};${expires};path=/`;
-}
-const getCookie=function(name){
-    let n = name+'=';
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i<ca.length; i++){ let c = ca[i];
-        while(c.charAt(0)==' '){c = c.substring(1);}
-        if(c.indexOf(n) == 0){return c.substring(n.length,c.length);}
-    }
-    return "";
-}
+const setCookie = function (e, t, n = 365) {
+  const o = new Date();
+  o.setTime(o.getTime() + 24 * n * 60 * 60 * 1e3);
+  let i = "expires=" + o.toUTCString();
+  document.cookie = `${e}=${t};${i};path=/`;
+};
+getCookie = function (e) {
+  let t = e + "=",
+    n = decodeURIComponent(document.cookie).split(";");
+  for (let e = 0; e < n.length; e++) {
+    let o = n[e];
+    for (; " " == o.charAt(0); ) o = o.substring(1);
+    if (0 == o.indexOf(t)) return o.substring(t.length, o.length);
+  }
+  return "";
+};
