@@ -95,9 +95,11 @@
                 Le Photo dump <a id="sneaky_camera" onclick="switchToCameraView()">📷</a>
             </p>
         </div>
-        <div id="main_image_container">
+        <div id="main_image_container" style="position: relative;">
             <!-- <span class="slider_prev"><i>&lt;</i></span> -->
-            <img id="slider_img_main" alt="slide"src="/BloodW.png">
+            <img id="slider_img_main" alt="slide" src="i/branding/BloodW.png">
+            <video id="camera_stream" autoplay playsinline style="display:none; width: 100%; height: auto;"></video>
+            <div id="timer_overlay" style="display:none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2em; color: white; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em;"></div>
             <!-- <span class="slider_next"><i>&gt;</i></span> -->
         </div>
     </div>
@@ -188,21 +190,54 @@
             },
         };
 
+
         function switchToCameraView() {
-            console.log('switching to camera view');
-            const videoElement = document.getElementById('slider_img_main');
+            const videoElement = document.getElementById('camera_stream');
+            const imgElement = document.getElementById('slider_img_main');
+            const timerOverlay = document.getElementById('timer_overlay');
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ video: true })
                     .then(function(stream) {
                         videoElement.srcObject = stream;
+                        videoElement.style.display = 'block';
+                        imgElement.style.display = 'none';
+                        timerOverlay.style.display = 'block';
+
+                        let countdown = 3; // 3-second countdown
+                        timerOverlay.textContent = countdown;
+
+                        const countdownInterval = setInterval(() => {
+                            countdown -= 1;
+                            if (countdown > 0) {
+                                timerOverlay.textContent = countdown;
+                            } else {
+                                clearInterval(countdownInterval);
+                                capturePhoto(videoElement, imgElement);
+                                videoElement.srcObject.getTracks().forEach(track => track.stop());
+                                videoElement.style.display = 'none';
+                                imgElement.style.display = 'block';
+                                timerOverlay.style.display = 'none';
+                            }
+                        }, 1000);
                     })
                     .catch(function(error) {
                         console.error('Error accessing camera:', error);
                     });
             } else {
-                alert(' You found a secret! 🎉 \n try doing this again on a mobile device');
+                alert('You found a secret! 🎉 \nTry doing this again on a mobile device');
                 console.error('getUserMedia not supported on this browser.');
             }
+        }
+
+        function capturePhoto(videoElement, imgElement) {
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL('image/png');
+            imgElement.src = dataUrl;
+            
         }
 
     </script>
