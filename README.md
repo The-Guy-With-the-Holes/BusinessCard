@@ -17,13 +17,6 @@ Find out more about me and what i can do! :)
 
 <!--
 
-Sponsor Types:
-[A] Artists
-[B] Bling
-[C] Consumables
-[F] Finance
-[T] Tradies
-
 
 Git Legend :
 For multiple Reports, seperate key by '/'.
