@@ -1,3 +1,12 @@
+/* :root{
+    --Hnav-horizontal-padding:0.2em;
+    --Hnav-vertical-padding:0.2em;
+
+    --Vnav-horizontal-padding:0.2em;
+    --Vnav-vertical-padding:0.2em;
+    --Vnav-horizontal-margin:0.2em;
+    --Vnav-vertical-margin:0.2em;
+} */
 
 .Horizontal_NavBar,.Horizontal_Socials{
     /* Push content away from Nav and Socials */
@@ -9,101 +18,14 @@
 img[id^="favicon_img"]{/* The unicorn */
     width: var(--header-img-width);
     position: absolute;
-    top:60%;
-    right:min(10px,.8vw);
+    top: 55%;
+    right: 1%;
     transform: translateY(-50%);
-    z-index:1;
+    z-index: 1;
+    max-width: 100%; /* Ensure it doesn't overflow the parent */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the parent */
 }
-
-/* Slider */
-.Dark-Body {
-    color: white;
-    /* border: 4px double #afafaff9; */
-    /* background: radial-gradient(circle, #fafafada, #090909dd, gray); */
-    -webkit-text-stroke: .2px #09090999;
-}
-
-/* Keep link text blue*/
-/* .Dark-Body .NavListitem>a{color:blue;} */
-/*Invert all 'a'*/
-/* .Dark-Body a{filter:invert(1);} */
-/* Revert Images*/
-.Dark-Body a>img{filter:invert(1);}
-
-.Light-Body {
-    color: black;
-    /* border: 4px double #fff; */
-    /* background: radial-gradient(circle, white, #fafafada, gray, azure); */
-    -webkit-text-stroke: .1px gold;
-     /* #fafafa4f; */
-}
-
-#LD-slider {
-    cursor: pointer;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: .2em;
-    width: min(4.5rem, 14vw);
-    max-width:8.5vh;
-    padding: .35em;
-    border-radius: 12%;
-    z-index:10;
-}
-
-.Dark-slider {
-    border: .4vmin double lightslategrey;
-    background-color: #fafafac4;
-}
-
-.Light-slider {
-    border: .4vmin double #00000099;
-    background-color: #03030399;
-}
-
-#LD-icon {
-    border: 0.6vw double;
-    height: min(6vw,2em);
-    width: min(6vw,2em);
-    max-height: 3.5vh;
-    max-width: 3.5vh;
-    padding: 4%; 
-    text-align: center;
-    border-radius: 50%;
-    background-size: contain;
-    background-position-x: center;
-    background-position-y: center;
-    transition: 0.5s;
-}
-
-#LD-icon:hover {
-    transform: scale(1.2);
-}
-
-.Light-icon {
-    float: left;
-    border-color: #000;
-    background-color: white;
-    background-image: url(../i/Icons/64-BIT/Uni-Sun.png);
-}
-
-.Dark-icon {
-    float: right;
-    border-color: white;
-    background-color: black;
-    background-image: url(../i/Icons/64-BIT/Uni-Moon.png);
-}
-
-.Light-Body .bg-animation {
-    background-color: #00000099;
-}
-
-.Dark-Body .bg-animation {background-color: #ffffff99;}
-.Dark-Body h1 {
-    color:red;
-    filter:invert(1);
-}
-
 
 #return_nav_button{
   background-color: #FD7660;
@@ -147,6 +69,7 @@ img[id^="favicon_img"]{/* The unicorn */
     top:0;
     max-width:var(--nav-img-width);
 }
+
 .Horizontal_NavBar > img{display:none;}
 .Horizontal_NavBar.sticky_nav > img {display:block;}
 .Horizontal_NavBar:sticky::before {
@@ -198,11 +121,122 @@ img[id^="favicon_img"]{/* The unicorn */
     position: absolute;
     right:min(10px,1vw);
 }
-/* .sticky_nav > #unicorn_nav_img_container{
-    display:flex; 
+.Horizontal_NavBar {
+    z-index: 2;
+    background-color: #fafafaaa;
+    border-top: 1vmin groove gray;
+    border-bottom: 1vmin groove gray;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    padding: var(--padding-scale-xs-noH);
+    margin-top: 0;
+    transition: 0.5s;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+}
+/*******************************************************/
+/* Nav */
+
+ 
+.Vertical_NavBar {
+    font-size: large;
+    position: fixed;
+    opacity: 0.3;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 82.5%;
+    border: 1vmin groove gray;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 0;
+    padding: var(--padding-scale-large-top);
+    transform: translateX(-100%); /* Initially off-screen */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition properties */
+}
+.Light-Mode #Vertical_NavBar {
+    background:var(--light-mode-rainbow);
+}
+.Dark-Mode #Vertical_NavBar {
+    background:var(--dark-mode-rainbow);
+    color: #fff;
+}
+.Vertical_NavBar.show {
+    display: block; /* Show the nav bar */
+    opacity:1;
+    transform: translateX(0); /* Move into view */
+}
+
+/* Push the first nav item down */
+.Vertical_NavBar > .NavListitem:first-of-type {
+margin-top: calc(var(--body-content-seperator-XL) / 2);
+}
+
+.Vertical_NavBar > .NavListitem {
+text-align: center;
+font-size: var(--font-XL);
+font-family: "Spectral SC", serif;
+background-color: #fafafaa9;
+border: 0.42vmin double gray;
+border-radius: 5% 25% 25% 5%;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+min-width: 12.5%;
+max-width: 80%;
+/* margin: 0; */
+padding: 0.2em;
+margin: 0.2em;
+margin-top: min(0.8em, 4vh);
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+
+#Vertical_NavFooter{
     position:absolute;
-    right:20%;
-} */
+    bottom:1%;
+    width:calc(100% - 0.8em);
+    padding:calc(var(--Vnav-horizontal-padding)*2);
+    background: linear-gradient(-70.9deg, rgb(255, 215, 0), rgb(255, 160, 122), rgb(238, 130, 238), rgb(152, 251, 152));
+    background:#00000000;
+    border-top: 1vmin groove rgba(128, 128, 128, 0.151);
+    border-bottom: 1vmin groove rgba(128, 128, 128, 0.151);
+}
+
+/* Dark Mode Switch Button */
+#DarkModeSwitch {
+    display: flex;
+    float:right;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 10em; /* Adjust width as needed */
+}
+
+#DarkModeSwitch .darkmode-text {
+    margin-right: 0.5em;
+}
+
+#DarkModeSwitch .darkmode-icon {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: var(--sun-color);
+    transition: transform 0.3s ease;
+    position: absolute;
+    left: 0.5em; /* Adjust left position */
+}
+
+body.Dark-Mode #DarkModeSwitch .darkmode-icon {
+    transform: translateX(6em); /* Adjust translateX value */
+    background-color: var(--moon-color);
+}
 
 #unicorn_nav_img_container {
     justify-content: flex-start;

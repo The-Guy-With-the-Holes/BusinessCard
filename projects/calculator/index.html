@@ -3,93 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-     .calculator {
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    width: min(90%,400px);
-    margin: 0 auto;
-    background-color: lightgray;
-    padding: 3% 4%;
-}
-
-.calculator-display {
-    height: 80px;
-    border: none;
-    background-color: #252525;
-    color: white;
-    text-align: right;
-    padding-right: 20px;
-    padding-left: 10px;
-    font-size: 2.5rem;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.calculator-keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
-}
-
-button {
-    height: 60px;
-    font-size: 1.5rem;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
-}
-
-button.operator {
-    background-color: #f9a825;
-    color: white;
-}
-
-button.equal-sign {
-    background-color: #f9a825;
-    color: white;
-
-}
-
-button.all-clear {
-    background-color: #d32f2f;
-    color: white;
-}
-
-button.zero {
-    grid-column: span 2;
-}
-
-button:hover {
-    background-color: #e0e0e0; /* Light grey on hover */
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-.calculator-history {
-            text-align: right;
-            padding-right: 20px;
-            padding-left: 10px;
-            font-size: 1rem;
-            color: #666;
-        }
-    </style>
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
+    <header>
+        <h1>Calculator App</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="nav-calculator">Calculator</a></li>
+                <li><a href="#" id="nav-wage-calculator">Wage Calculator</a></li>
+                <li><a href="#" id="nav-currency-converter">Currency Converter</a></li>
+                <!-- Add more calculator types here if needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <div id="calculator-container" class="calculator">
         <div class="calculator-display">0</div>
         <div class="calculator-history"></div>
         
         <div class="calculator-keys">
-            
             <button type="button" class="all-clear" value="all-clear">AC</button>
             <button type="button" class="operator" value="/">/</button>
             <button type="button" class="operator" value="*">*</button>
@@ -114,133 +48,106 @@ button:hover {
             <button type="button" class="decimal" value=".">.</button>
         </div>
     </div>
-    <script>
-const calculator = {
-    displayValue: '0',
-    firstOperand: null,
-    waitingForSecondOperand: false,
-    operator: null,
-    history: ''
-};
 
-function inputDigit(digit) {
-    const { displayValue, waitingForSecondOperand } = calculator;
+    <div id="wage-calculator-container" class="wage-calculator" style="display: none;">
+        <h2>Wage Calculator</h2>
+        <div>
+            <label for="wage-mode">Mode:</label>
+            <select id="wage-mode" class="wage-input">
+                <option value="calculate-wage">Calculate Total to Pay</option>
+                <option value="calculate-hours">Calculate Hours Worked</option>
+            </select>
+        </div>
+        <div id="wage-inputs">
+            <div>
+                <label for="hourly-wage">Hourly Wage:</label>
+                <input type="number" id="hourly-wage" class="wage-input" placeholder="Enter hourly wage">
+            </div>
+            <div id="hours-worked-input">
+                <label for="hours-worked">Hours Worked (DD:HH:MM):</label>
+                <input type="text" id="hours-worked" class="wage-input" placeholder="Enter hours worked">
+            </div>
+            <div id="total-amount-input" style="display: none;">
+                <label for="total-amount">Total Amount:</label>
+                <input type="number" id="total-amount" class="wage-input" placeholder="Enter total amount">
+            </div>
+        </div>
+        <div>
+            <button id="calculate" class="wage-button">Calculate</button>
+        </div>
+        <div>
+            <p id="wage-result" class="wage-result"></p>
+        </div>
+    </div>
 
-    if (waitingForSecondOperand === true) {
-        calculator.displayValue = digit;
-        calculator.waitingForSecondOperand = false;
-    } else {
-        calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
-    }
-}
+    <div id="currency-converter-container" class="currency-converter" style="display: none;">
+        <h2>Currency Converter</h2>
+        <div>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" class="currency-input" placeholder="Enter amount">
+        </div>
+        <div>
+        <select id="from-currency" class="currency-input">
+            <option value="USD">USD - United States Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="CAD">CAD - Canadian Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="SEK">SEK - Swedish Krona</option>
+            <option value="NZD">NZD - New Zealand Dollar</option>
+            <option value="MXN">MXN - Mexican Peso</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="NOK">NOK - Norwegian Krone</option>
+            <option value="KRW">KRW - South Korean Won</option>
+            <option value="TRY">TRY - Turkish Lira</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="RUB">RUB - Russian Ruble</option>
+            <option value="BRL">BRL - Brazilian Real</option>
+            <option value="ZAR">ZAR - South African Rand</option>
+        </select>
+        </div>
+    <div>
+        <label for="to-currency">To:</label>
+        <select id="to-currency" class="currency-input">
+            <option value="USD">USD - United States Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="CAD">CAD - Canadian Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="SEK">SEK - Swedish Krona</option>
+            <option value="NZD">NZD - New Zealand Dollar</option>
+            <option value="MXN">MXN - Mexican Peso</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="NOK">NOK - Norwegian Krone</option>
+            <option value="KRW">KRW - South Korean Won</option>
+            <option value="TRY">TRY - Turkish Lira</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="RUB">RUB - Russian Ruble</option>
+            <option value="BRL">BRL - Brazilian Real</option>
+            <option value="ZAR">ZAR - South African Rand</option>
+        </select>
+    </div>
 
-function inputDecimal(dot) {
-    if (calculator.waitingForSecondOperand === true) return;
-
-    if (!calculator.displayValue.includes(dot)) {
-        calculator.displayValue += dot;
-    }
-}
-
-function handleOperator(nextOperator) {
-    const { firstOperand, displayValue, operator } = calculator;
-    const inputValue = parseFloat(displayValue);
-
-    if (operator && calculator.waitingForSecondOperand)  {
-        calculator.operator = nextOperator;
-        return;
-    }
-
-    if (firstOperand == null && !isNaN(inputValue)) {
-        calculator.firstOperand = inputValue;
-    } else if (operator) {
-        const result = performCalculation[operator](firstOperand, inputValue);
-        calculator.history = `${firstOperand} ${operator} ${inputValue} = ${result}`;
-        calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
-        calculator.firstOperand = result;
-    }
-
-    calculator.waitingForSecondOperand = true;
-    calculator.operator = nextOperator;
-}
-
-const performCalculation = {
-    '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
-    '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
-    '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
-    '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
-    '=': (firstOperand, secondOperand) => secondOperand
-};
-
-function resetCalculator() {
-    calculator.displayValue = '0';
-    calculator.firstOperand = null;
-    calculator.waitingForSecondOperand = false;
-    calculator.operator = null;
-    calculator.history = '';
-}
-
-function updateDisplay() {
-    const display = document.querySelector('.calculator-display');
-    const history = document.querySelector('.calculator-history');
-    display.textContent = calculator.displayValue;
-    history.textContent = calculator.history;
-}
-
-updateDisplay();
-
-const keys = document.querySelector('.calculator-keys');
-keys.addEventListener('click', (event) => {
-    const { target } = event;
-    if (!target.matches('button')) {
-        return;
-    }
-
-    if (target.classList.contains('operator')) {
-        handleOperator(target.value);
-        updateDisplay();
-        return;
-    }
-
-    if (target.classList.contains('decimal')) {
-        inputDecimal(target.value);
-        updateDisplay();
-        return;
-    }
-
-    if (target.classList.contains('all-clear')) {
-        resetCalculator();
-        updateDisplay();
-        return;
-    }
-
-    inputDigit(target.value);
-    updateDisplay();
-});
-
-document.addEventListener('keydown', (event) => {
-    const { key } = event;
-    if (key >= 0 && key <= 9) {
-        inputDigit(key);
-        updateDisplay();
-    } else if (key === '.') {
-        inputDecimal(key);
-        updateDisplay();
-    } else if (key === '=' || key === 'Enter') {
-        handleOperator('=');
-        updateDisplay();
-    } else if (key === 'Escape' || key === 'Delete') {
-        resetCalculator();
-        updateDisplay();
-    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
-        handleOperator(key);
-        updateDisplay();
-    }
-    else {
-        console.log('Invalid key');10*10
-
-    }
-});
-    </script>
+        <div>
+            <button id="convert" class="currency-button">Convert</button>
+        </div>
+        <div>
+            <p id="conversion-result" class="currency-result"></p>
+        </div>
+    
+    </div>
+    
+    <script src="calculator.js"></script>
+    <script src="wage_calculator.js"></script>
+    <script src="currency_converter.js"></script>
+    <script src="index.js"></script> 
 </body>
 </html>

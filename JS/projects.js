@@ -14,15 +14,22 @@ if (LinkContainer){
 
 class LinkDisplay {
 
-    constructor() {
+    constructor(settings) {
+
+        this.defaultSettings = {
+            
+            see_more: 0,
+            projects: null, // use default
+            sizes: null // use default
+        }
         this.document_container = document.getElementById(linkdisplay.containerId) || document.body; 
-        this.projects = linkdisplay.projects || [        
+        this.projects = linkdisplay.projects || [       
             ['P.W.M', '/projects/P.W.M/pi-pico.jpg', 'A password manager project', '/projects/P.W.M/index.html'],
             [`S.P.I.N`, '/projects/S.P.I.N/stepper-motor.jpg', 'A stepper motor imaging project', '/projects/S.P.I.N/index.html'],
             ['WASAP', '/projects/doorbell/arcade_button.jpg', 'A Python Powered Doorbell', '/projects/doorbell/index.html'], 
             ['Router Management', '/projects/router/router-management.jpg', 'A webpage for router management', 'http://www.bloodweb.net:3000/Guest_network_3_control.html'],
-            ['Mega-Towel', '/projects/router/router-management.jpg', 'A webpage for router management', 'http://www.bloodweb.net:3000/Guest_network_3_control.html'],
-            ['3D-Prints', '/projects/router/router-management.jpg', 'A webpage for router management', 'http://www.bloodweb.net:3000/Guest_network_3_control.html'],
+            ['Mega-Towel', '/projects/router/router-management.jpg', "Custom vinyl towels (you're worth it)", 'http://www.bloodweb.net:3000/Guest_network_3_control.html'],
+            ['Scripts', '/projects/scripts/script.png', 'Programs (from bash to python)', '/projects/scripts/index.html'],
         ]
         ; 
         // Set default sizes if not provided
@@ -31,8 +38,11 @@ class LinkDisplay {
             tablet: { width: 768, columns: 4 },
             desktop: { width: Infinity, columns: 5 } // Infinity means any width larger than tablet
         };
-        this.seeMoreCount = linkdisplay?.see_more || this.projects.length;
+        this.seeMoreCount = linkdisplay?.see_more || 3; //this.projects.length;
         
+        // Merge default settings with user settings
+        this.settings = { ...this.defaultSettings, ...settings };
+
     }
 
 
@@ -52,12 +62,12 @@ class LinkDisplay {
 
     addSeeMoreButton() {
         const seeMoreButton = document.createElement('button');
-        seeMoreButton.innerText = 'See More';
+        seeMoreButton.innerText = 'Show more';
         seeMoreButton.addEventListener('click', () => {
             this.currentIndex += this.seeMoreCount;
             this.renderProjects();
         });
-        this.links_container.appendChild(seeMoreButton);
+        this.document_container.appendChild(seeMoreButton);
     }
   
     adjustGrid() {
@@ -85,17 +95,15 @@ class LinkDisplay {
         // Make a new container
         const link_container = createElement('div',{id:'link_display', style:`display:grid; grid-template-columns:repeat(${this.adjustGrid()}, 1fr); gap:10px';`}) 
  
-        this.projects.forEach( project => {
-            let link_project=this.createLink(project);
-            if(this.seeMoreCount > 0 && this.currentIndex + this.seeMoreCount < this.projects.length) {
-                console.log('adding see more button');
-            }
-            else { link_container.append(link_project); }
-        });
-        //generate see_more button if seemore count is less than total projects // otherwise do nothing
-        if(this.seeMoreCount<this.projects.length){this.addSeeMoreButton()}
+        for (let i=0; i<this.seeMoreCount; i++) {
+            let link_project=this.createLink(this.projects[i]);
+            link_container.append(link_project);
+        }
         // Add the container to the document
         this.document_container.append(link_container);
+        
+        //generate see_more button if seemore count is less than total projects // otherwise do nothing
+        //if(this.seeMoreCount<this.projects.length){this.addSeeMoreButton()}
         
     }
 

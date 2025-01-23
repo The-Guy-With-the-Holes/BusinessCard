@@ -2,6 +2,7 @@
 /* Index: */
 /* 
     1. General
+      1.1 Darkmode Changes
     2. Screen
     3. Header
     4. Nav
@@ -32,13 +33,21 @@ html {
 }
 
 body {
+  background-blend-mode: overlay;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  margin: 0 auto;
-  width: 100vw;
-  height: fit-content;
-  background: linear-gradient(-70deg, var(--Rainbow-Background));
-  padding: var(--padding-vertical-M) 0.2rem;
   font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body,body.Light-Mode{
+  background:var(--light-mode-bg) ; /* Adds texture to the gradient */
+  color: #333333; /* Ensure text contrasts well */
+
+}
+body.Dark-Mode{
+  background: var(--dark-mode-bg); /* Adds texture to the gradient */
+  color: #ffffff; /* Ensure text contrasts well */
 }
 
 button,
@@ -54,20 +63,20 @@ h4 {
 }
 
 /* Add some space between the body content (but not these elements) */
-body
-  > *:not(
-    #debugging_area,
-    header,
-    nav,
-    footer,
-    #Vertical_Navbar,
-    .fullscreen-modal,
-    .Socials_Container
-  ) {
+body > *:not(#debugging_area,nav,#Vertical_Navbar,.fullscreen-modal) { 
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
   margin: var(--body-content-seperator-L) 0;
   border-top: 1vmin groove gray;
   border-bottom: 1vmin groove gray;
-  background-color: var(--container-background);
+}
+
+body.Light-Mode > *:not(header,nav,#Vertical_Navbar,.fullscreen-modal) { 
+  background: var(--light-mode-content-bg); /* Light white with slight transparency */
+}
+body.Dark-Mode > *:not(header,nav,#Vertical_Navbar,.fullscreen-modal) { 
+  background: var(--dark-mode-content-bg); /* Dark black with slight transparency */
 }
 
 dialog {
@@ -84,15 +93,12 @@ dialog {
 
 nav,
 footer {
-  background-color: #fafafaaa;
+  /* background-color: #fafafaaa; */
   border-top: 1vmin groove gray;
   border-bottom: 1vmin groove gray;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-nav > *,
-footer > * {
-  background-color: #fafafaa9;
-}
+ 
 
 /*******************************************************/
 /* Screen  *Follows Page Layout* */
@@ -236,25 +242,32 @@ footer > * {
 
 /*******************************************************/
 /* Header */
+/* Style the background image seperately */
 
-header {
-  position: relative;
-  padding: 1em min(10px, 0.4em);
-  background: url(../heading-background.png);
-  background-size: 104% 116%;
-  background-clip: border-box;
+.Light-Mode header {
+  background: url(../i/components/light-heading-background.png);
   background-position: center;
-  background-repeat: no-repeat;
-  filter: drop-shadow();
+  background-size: 108% 116%;
+  background-color: #0a0a0055;
+  color:#333;
+}
+.Dark-Mode header {
+  background: url(../i/components/dark-heading-background.png);
+  background-position: center;
+  background-size: 108% 116%;
+  background-color: #ffffff66;
+  color:#ddd;
+}
+header {
+  padding: min(0.8em,20px) min(10px, 0.4em) min(1em,40px) min(10px, 0.4em);
   margin: 0 auto;
-  /* var(--padding-scale-xs); */
-  /* border-top: 1vmin groove gray; */
-  /* border-bottom: 1vmin groove gray; */
   display: flex;
+  position:relative;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color:red;
 }
 
 h1#top-line-intro-wrapper {
@@ -315,67 +328,7 @@ h2 {
   margin-bottom: 1vh;
 }
 
-/*******************************************************/
-/* Nav */
-.Horizontal_NavBar {
-  z-index: 2;
-  background-color: #fafafaaa;
-  border-top: 1vmin groove gray;
-  border-bottom: 1vmin groove gray;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  padding: var(--padding-scale-xs-noH);
-  margin-top: 0;
-  transition: 0.5s;
-  display: flex;
-  align-content: center;
-  justify-content: space-evenly;
-}
-.Vertical_NavBar {
-  font-size: large;
-  position: fixed;
-  display: none; /* Initially hidden */
-  opacity: 0.3; /* Initially transparent */
-  z-index: 2;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 82.5%;
-  border: 1vmin groove gray;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  margin: 0;
-  padding: var(--padding-scale-large-top);
-  transform: translateX(-100%); /* Initially off-screen */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Transition properties */
-}
 
-.Vertical_NavBar.show {
-  display: block; /* Show the nav bar */
-  opacity: 1; /* Fully opaque */
-  transform: translateX(0); /* Move into view */
-}
-
-.Vertical_NavBar > .NavListitem {
-  text-align: center;
-  font-size: var(--font-XL);
-  font-family: "Spectral SC", serif;
-  background-color: #fafafaa9;
-  border: 0.42vmin double gray;
-  border-radius: 5% 25% 25% 5%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  min-width: 12.5%;
-  max-width: 80%;
-  /* margin: 0; */
-  padding: 0.2em;
-  margin: 0.2em;
-  margin-top: min(0.8em, 4vh);
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.Vertical_NavBar > .NavListitem:first-of-type {
-  margin-top: calc(var(--body-content-seperator-XL) / 2);
-}
 /*******************************************************/
 /* Main */
 
@@ -386,26 +339,7 @@ main > * {
 #main-about {
   font-size: 4.8vw;
 }
-#slider-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: var(--body-content-seperator-L) 0;
-  border: var(--border-width-S) solid white;
-}
 
-h3.full-width {
-    width: 100%;
-    color: goldenrod;
-    text-align: center;
-    font-size: var(--font-ML);
-    order: -1;
-    margin: 0.5rem 0;
-    -webkit-text-stroke: min(0.1em, 0.5px) black;
-    border-bottom: min(0.4vh, 10px) double white;
-    float:left;
-}
 
 #openDialog {
   position: absolute;
@@ -424,96 +358,6 @@ h3.full-width {
   justify-content: center;
   align-items: center;
   background-color: #ffffffaf; /* Optional: Set a background color */
-}
-
-/*Contains  slider_main_img & slider_slides */
-#main_image_container {
-  width: 100%;
-  padding: 2.4% 0.8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: radial-gradient(var(--dark-color-theme-A));
-}
-
-.slider_prev,
-.slider_next {
-  margin: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 40%;
-  background-color: #fafafa;
-  text-align: center;
-  border: 4px double;
-  border-radius: 10px;
-  opacity: 0.5;
-  transition: opacity 2.5s ease;
-}
-
-.slider_prev:hover,
-.slider_next:hover,
-.slider_prev:active,
-.slider_next:active {
-  opacity: 0.8;
-}
-
-.Light-Body .slider_prev,
-.Light-Body .slider_next {
-  border-image: radial-gradient(circle at 15% 90%, var(--light-color-theme-A))
-    0.8;
-}
-.Dark-Body .slider_prev,
-.Dark-Body .slider_next {
-  border-image: radial-gradient(circle at 15% 90%, var(--dark-color-theme-A))
-    0.8;
-}
-
-.slider_prev {
-  margin-right: 0;
-}
-.slider_next {
-  margin-left: 0;
-}
-
-/*image slider*/
-#main-image-slider {
-  display: block;
-  position: relative;
-  margin-top: 2%;
-  border: 2px solid #1dafad20;
-  margin-bottom: 5%;
-}
-
-#slider_img_main {
-  cursor: -webkit-zoom-in;
-  flex-grow:1;
-}
-
-.image-flex-slider {
-
-flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 80vw;
-  background-color: #00000080;
-  padding: 1%;
-}
-
-.flex-slider-item {
-  cursor: pointer;
-  width: 30%;
-  margin-bottom: 10px;
-  padding: 0.1em;
-}
-
-.flex-slider-item:not(.slider_selected) {
-  border: 4px double #afafaf;
-}
-
-.flex-slider-item img {
-  width: 100%;
-  height: auto;
 }
 
 /* About */
@@ -586,16 +430,14 @@ h5 {
 footer > p {
   font-family: "Spectral SC", serif;
   font-size: small;
-  padding: 4%;
+  padding: 2% 4%;
 }
 .Horizontal_Socials {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  /* padding: 1vh 0; */
   margin: 0;
-  padding: var(--padding-vertical-L);
 }
 
 .balls:hover {

@@ -1,3 +1,29 @@
+const isDarkModeActive=function(){
+    if (!['Dark-Mode','Light-Mode'].includes(document.body.className)){
+        return debug('Dark-Mode is not enabled, but neither is Light-Mode. \n Make sure the body element has a classname of either (Light/Dark)-Mode')
+    }
+    return document.body.className.includes('Dark-Mode')?true:false;
+}
+
+function DarkModeSwitch() {
+    let body = document.body;
+    body.classList.toggle('Dark-Mode');
+    updateDarkModeIcon();
+}
+
+function updateDarkModeIcon() {
+    const icon = document.querySelector('#DarkModeSwitch .darkmode-icon');
+    if (document.body.classList.contains('Dark-Mode')) {
+        icon.style.transform = 'translateX(20px)';
+        icon.style.backgroundColor = 'var(--moon-color)';
+    } else {
+        icon.style.transform = 'translateX(0)';
+        icon.style.backgroundColor = 'var(--sun-color)';
+    }
+}
+
+
+
 const stickyNav = false;
 let navAttachAttempts = 0;
 
@@ -86,16 +112,29 @@ function attachNavListener() {
 // Attach the listener to the nav (open/close vertical nav)
 document.addEventListener('DOMContentLoaded', 
     initialiseSettings = () => {
-        Settings?.createNav?
-            loadHTML('nav', '/components/navbar.html').then(() => { 
-                attachNavListener()
-                updateSelectedNavItem();
-                console.log('Nav loaded and listeners attached') 
-            }) :
-            console.log('Nav creation disabled, set Settings.createNav=true to enable'); 
-    
-        Settings?.createFooter?
-            loadHTML('footer', '/components/footer.html').then(() => { console.log('Footer loaded') }) :
-            console.log('Footer creation disabled, set navSettings.createFooter to true to enable');
-    } 
+        if (Settings){ 
+            if(Settings.createNav){
+                if (dQ('nav')){
+                    loadHTML('nav', '/components/navbar.html').then(() => { 
+                        attachNavListener();
+                        updateSelectedNavItem();
+                        updateDarkModeIcon();
+                        console.log('Nav loaded and listeners attached');
+                    })
+                }
+                else{
+                    return console.log('No nav found, cannot create nav');
+                }
+            }
+            if(Settings.createFooter){
+                if(dQ('footer')){
+                    loadHTML('footer', '/components/footer.html').then(() => { 
+                        console.log('Footer loaded');
+                    }) 
+                }
+                else{
+                    return console.log('No footer found, cannot create footer');
+                }
+      }
+        } }
 );

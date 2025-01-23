@@ -2,21 +2,23 @@ class ImageSlider {
     constructor(settings) {
         // Default settings
         this.defaultSettings = {
-            images: [], // the array of image URLs (expandable to include captions, etc.)
-            containerId: '', // the id of the container where the slider will be appended
-            expandable: false,
+            images: [],  // the array of image URLs (expandable to include captions, etc.)
+            containerId: '#slider-container', // the id of the container where the slider will be appended
+            expandable: false, // Clicking an image goes to fullscreen
             premadeMainContainer:false, // Premake the main container to save on bandwith
 
             slide_Index: getCookie('lastSlideIndex')||0, // position of the current slide
+            last_Slide_Index: getCookie('lastSlideIndex')||0, // position of the last slide
             TotalIndexMoves: 0, // total number of times the slide has been moved (left or right)
             expandViewkeycount: 0, // number of times the slider has been expanded (fullscreen)
             viewTime:[],
-
             lastKey: 'none',
 
-            imageCount:true,
-            SliderArrows: false,
-            sliderDots: true,
+            // User settings
+            imageCount:true,        // show the image count (top right)
+            SliderArrows: false,    // prev / next arrows
+            sliderDots: false,      // dots for each slide
+            slidePreviews:false,    // previews for each slide
             Captions: [false, ".captiontext"],
            
         };
@@ -34,16 +36,19 @@ class ImageSlider {
 
     initSlider() {
         const container = dQ(`${this.settings.containerId}`);
-        if (!container) {
-            throw new Error(`Container with id ${this.settings.containerId} not found`);
-        }
+        if (!container) { throw new Error(`Container with id ${this.settings.containerId} not found`);}
 
         // Build the slider component
         this.buildSlider(container);
 
         this.settings.expandable && this.createFullscreenModal(container);
+        //this.settings.slidePreviews && this.createMainImageContainer();
+        this.settings.sliderDots && this.addDots(container);
         // Attach event listeners
         this.attachEventListeners(container);
+        // Load the first slide
+        this.updateSelectedSlide(this.settings.lastSlideIndex);
+        
     }
 
     buildSlider(container) {
@@ -59,25 +64,6 @@ class ImageSlider {
         });
         container.appendChild(imageSliderContainer)
         
-        //  if the container is not premade, make it now
-        if(! this.settings.premadeMainContainer ){
-            const main_image_container = createElement('div', { id: 'main_image_container'});
-        
-            const main_image = createElement('img', { id: 'slider_img_main', alt: 'slide', src: this.settings.images[this.settings.slide_Index] });
-            main_image_container.appendChild(main_image);
-
-            if (this.settings.SliderArrows) {
-                const prev_button = createElement('span', { className: 'slider_prev', innerHTML: '<i><</i>' });
-                const next_button = createElement('span', { className: 'slider_next', innerHTML: '<i>></i>' });
-                main_image_container.prepend(prev_button);
-                main_image_container.append(next_button);
-            }
-
-            container.appendChild(main_image_container);
-        }
-        this.settings.sliderDots && this.addDots(container);
-        // Load the first slide
-        this.renderSlide(this.settings.la);
 
     }
 
@@ -99,7 +85,7 @@ class ImageSlider {
 
             const dot = createElement('button',{className:'slider_dots',type:'radio',name:'slider_dots',onclick:`currentSlide(${index})`});
             if (index === this.settings.slide_Index) { dot.classList.add('active'); }
-            dot.addEventListener('click', () => this.renderSlide(index));
+            dot.addEventListener('click', () => this.updateSelectedSlide(index));
             dotsContainer.appendChild(dot);
         });
         container.appendChild(dotsContainer);
@@ -116,7 +102,7 @@ class ImageSlider {
     attachEventListeners(container) {
         const prevButton = container.querySelector('.slider_prev');
         const nextButton = container.querySelector('.slider_next');
-        const sliderItems = container.querySelectorAll('.slider_image_slide');
+        const sliderItems = container.querySelectorAll('.flex-slider-item');
         const mainImage = container.querySelector('#slider_img_main');
 
         if (this.settings.SliderArrows){
@@ -125,12 +111,12 @@ class ImageSlider {
         }
         sliderItems.forEach((item, index) => {
             item.addEventListener("click", () => {
-                this.settings.slide_Index = index;
-                this.renderSlide();
+                // this.settings.slide_Index = index;
+                this.updateSelectedSlide(index);
             });
         });
 
-          let touchstartX = 0;
+        let touchstartX = 0;
         let touchendX = 0;
 
         mainImage.addEventListener('touchstart', (event) => {
@@ -143,8 +129,13 @@ class ImageSlider {
             this.handleSwipeGesture(touchstartX, touchendX);
         });
 
-        mainImage.addEventListener("click", () => this.toggleFullscreenSlider());
+        if (this.settings.expandable){
+        }
+        
         if (this.settings.expandable) {
+            // clicking main image opens modal
+            mainImage.addEventListener("click", () => this.toggleFullscreenSlider());
+            //clicking modal closes modal
             const modal = document.getElementById("fullscreen-modal");
             modal.addEventListener("click", () => {
                 modal.classList.remove("fullscreen-modal-open");
@@ -163,64 +154,68 @@ class ImageSlider {
 
     renderPrevSlide() {
         this.settings.TotalIndexMoves++;
-        this.settings.slide_Index--;
-        console.log('Current Index',this.settings.slide_Index);
-        this.renderSlide(this.settings.slide_Index);
+        this.updateSlideIndex(this.settings.slide_Index-1)
+        this.updateSelectedSlide(this.settings.slide_Index);
     }
 
     renderNextSlide() {
         this.settings.TotalIndexMoves++;
-        this.settings.slide_Index++;
-        console.log('Current Index',this.settings.slide_Index);
-        this.renderSlide();
+        this.updateSlideIndex(this.settings.slide_Index+1)
+        this.updateSelectedSlide();
     }
 
     
     toggleFullscreenSlider() {
         const modal = document.getElementById("fullscreen-modal");
-        const modalContent = document.getElementById("fullscreen-modal-content");
-        const mainImage = document.querySelector('.slider_image_slide');
-
-        modalContent.querySelector('img').setAttribute('src', mainImage.src);
         modal.classList.toggle("fullscreen-modal-open");
     }
 
-    renderSlide(n=this.settings.slide_Index) {
+    updateSlideIndex(n = this.settings.slide_Index){
+        // Update last slide index
+        this.settings.last_Slide_Index = this.settings.slide_Index;
+        // Update slider & catch out of index
+        if (n >= this.settings.images.length) { this.settings.slide_Index = 0; } 
+        else if (n < 0) { this.settings.slide_Index = this.settings.images - 1; } 
+        else if (n != this.settings.slide_Index){ this.settings.slide_Index = n;  }
+    }
+     
+    updateSelectedSlide(n=this.settings.slide_Index){
         const slides = document.getElementsByClassName("slider_image_slide");
-        console.log('Total slides:', slides.length);
-        console.log('Requested slide index:', n);
+        
+        slides[this.settings.slide_Index].parentElement.className='flex-slider-item'; 
+        
+        console.log(`Current Index: ${this.settings.slide_Index} | Last Index: ${this.settings.last_Slide_Index} | 
+            Total Moves: ${this.settings.TotalIndexMoves}
+        removing class from ${this.settings.slide_Index} and adding class to ${n}    
+        currentclass name: ${slides[this.settings.slide_Index].parentElement.className}
+        `);
+
+        this.updateSlideIndex(n);
     
-        // Catch slider out of index and invert position
-        if (n >= slides.length) {
-            this.settings.slide_Index = 0;
-        } else if (n < 0) {
-            this.settings.slide_Index = slides.length - 1;
-            console.log('setting slide index to:', this.settings.slide_Index);
-        } else {
-            this.settings.slide_Index = n;
+        // Clear previous selection 
+        // Set selected slide
+        slides[n].parentElement.className+= " slider_selected";
+ 
+        // Update the fullscreen image src to match the selected slide
+        if (this.settings.expandable) {
+            const modal = document.getElementById("fullscreen-modal-content");
+            modal.querySelector('img').setAttribute('src', this.settings.images[n]);
         }
-    
-        console.log('Updated slide index:', this.settings.slide_Index);
-    
-        // Update slides
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[this.settings.slide_Index].style.display = "block";
-    
-        // Update main image
-        const main_image = document.getElementById('slider_img_main');
-        main_image.src = this.settings.images[this.settings.slide_Index];
-    
         // Update dots
         if (this.settings.sliderDots) {
             const slider_Dots = document.getElementsByClassName('slider_dots');
-            for (let i = 0; i < slider_Dots.length; i++) {
-                slider_Dots[i].className = slider_Dots[i].className.replace(" active", "");
-            }
+            for (let i = 0; i < slider_Dots.length; i++) { slider_Dots[i].className = slider_Dots[i].className.replace(" active", ""); }
             slider_Dots[this.settings.slide_Index].className += " active";
         }
+
+          
+        // Update main image
+        const main_image = document.getElementById('slider_img_main');
+        main_image.src = this.settings.images[this.settings.slide_Index];
+        main_image.alt = this.settings.images[this.settings.slide_Index];
     }
+
+
 
 }
 
